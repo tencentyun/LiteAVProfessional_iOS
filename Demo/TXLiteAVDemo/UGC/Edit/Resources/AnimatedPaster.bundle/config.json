@@ -1,0 +1,12 @@
+{
+  "pasterList" : [
+    {
+	  "icon" : "baiyang/icon.png",
+	  "name" : "baiyang"
+    },
+    {
+	  "icon" : "chunv/icon.png",
+	  "name" : "chunv"
+    },
+  ]
+}
