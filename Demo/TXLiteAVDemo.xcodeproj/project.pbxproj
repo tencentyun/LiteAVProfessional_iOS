@@ -66,9 +66,6 @@
 		5151BF38224518A5003E66BA /* CustomAudioFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 515CACED2244E88C001A7AB5 /* CustomAudioFileReader.m */; };
 		6A03ED421FD13E0C00F2F063 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03ED3F1FD13DFB00F2F063 /* UIViewController+BackButtonHandler.m */; };
 		6A1C109C2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
-		6A3105DB22682A06002F6115 /* ImageUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A3105C922682A06002F6115 /* ImageUploadViewController.m */; };
-		6A3105E222687996002F6115 /* libmtasdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A3105E022687996002F6115 /* libmtasdk.a */; };
-		6A34FAC0204FDE850016445B /* WebRTCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A34FABD204FDE7A0016445B /* WebRTCViewController.m */; };
 		6A485AEA22FC14A3004080E3 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A485AE922FC14A2004080E3 /* TXLiteAVSDK_Professional.framework */; };
 		6A485AEB22FC14B7004080E3 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A485AE922FC14A2004080E3 /* TXLiteAVSDK_Professional.framework */; };
 		6A485BA9230113A8004080E3 /* ImageUploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A485B89230113A7004080E3 /* ImageUploadViewController.m */; };
@@ -145,7 +142,6 @@
 		A035043120D24F99007E61C6 /* AddressBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A035042F20D24F99007E61C6 /* AddressBarController.m */; };
 		A035043F20D2511A007E61C6 /* AddressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A035043D20D2511A007E61C6 /* AddressBar.m */; };
 		A0428A3820D3CFDC00CA79D5 /* SmallButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0428A3620D3CFDB00CA79D5 /* SmallButton.m */; };
-		A06D38DE2130042E00E3210E /* TXUGCPublishOptCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = A06D38DB2130042E00E3210E /* TXUGCPublishOptCenter.m */; };
 		A06E8501214F95C000DF949B /* VideoPreview.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06E84FE214F95C000DF949B /* VideoPreview.xcassets */; };
 		A06E850A214F95E000DF949B /* VideoJoiner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06E8507214F95E000DF949B /* VideoJoiner.xcassets */; };
 		A06E8515214F96B000DF949B /* VideoRecordConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E8511214F96AF00DF949B /* VideoRecordConfig.m */; };
@@ -153,22 +149,10 @@
 		A06E854E214F9E1E00DF949B /* Common.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06E854B214F9E1E00DF949B /* Common.xcassets */; };
 		A06E855D214F9EC300DF949B /* TXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E8559214F9EC200DF949B /* TXColor.m */; };
 		A06E858D214FA92E00DF949B /* VideoRecord.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06E858A214FA92E00DF949B /* VideoRecord.xcassets */; };
-		A0B8FBE8207E2352008D7982 /* TVCCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B8FBDB207E2350008D7982 /* TVCCommon.m */; };
-		A0B8FBEC207E2352008D7982 /* TVCClientInner.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B8FBDC207E2350008D7982 /* TVCClientInner.m */; };
-		A0B8FBF0207E2352008D7982 /* TXUGCPublish.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B8FBDD207E2350008D7982 /* TXUGCPublish.m */; };
-		A0B8FBF4207E2352008D7982 /* TXUGCPublishUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B8FBE0207E2351008D7982 /* TXUGCPublishUtil.m */; };
-		A0B8FBF8207E2352008D7982 /* TVCClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B8FBE4207E2351008D7982 /* TVCClient.m */; };
-		A0B8FBFC207E2352008D7982 /* TVCReport.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B8FBE6207E2351008D7982 /* TVCReport.m */; };
-		A0B8FC02207E235B008D7982 /* QCloudCOSXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B8FBFF207E235A008D7982 /* QCloudCOSXML.framework */; };
-		A0B8FC06207E235B008D7982 /* QCloudCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B8FC00207E235B008D7982 /* QCloudCore.framework */; };
-		A0B8FC0C207E24F2008D7982 /* TVCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B8FC09207E24F2008D7982 /* TVCUtils.m */; };
 		A0CC007C209FF2E30095B68A /* TXCVEFColorPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = A0CC007A209FF2E30095B68A /* TXCVEFColorPalette.m */; };
-		A0FFAD96213791B70087FF45 /* TVCHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */; };
-		CE01F53F206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
 		CE2AF75320A5CB7700EFC3AA /* TransitionView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2AF75120A5CB6F00EFC3AA /* TransitionView.m */; };
 		CE43944920948BB7004F1977 /* LiveRecordPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE43944720948B76004F1977 /* LiveRecordPreviewViewController.m */; };
 		CE511C691F98C9380098DE4D /* AnimatedPaster.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE511C671F98C9380098DE4D /* AnimatedPaster.bundle */; };
-		CE59D395206CD11F00583727 /* VideoCompressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE59D391206CD11400583727 /* VideoCompressViewController.m */; };
 		CE7C6E4C1FC2C5320095663F /* goodluck.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = CE7C6E491FC2C5320095663F /* goodluck.mp4 */; };
 		CE7C6E4F1FC2C5320095663F /* FilterResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE7C6E4A1FC2C5320095663F /* FilterResource.bundle */; };
 		CE8B6F2E1FD10A0B00015C62 /* ZipArchive.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE1B08CB1FC529D0006A57B5 /* ZipArchive.mm */; };
@@ -405,14 +389,9 @@
 		6A03ED401FD13DFB00F2F063 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		6A1C108A2281A674005D7BD9 /* PushLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushLogView.h; sourceTree = "<group>"; };
 		6A1C109A2281A674005D7BD9 /* PushLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushLogView.m; sourceTree = "<group>"; };
-		6A3105C922682A06002F6115 /* ImageUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUploadViewController.m; sourceTree = "<group>"; };
-		6A3105D922682A06002F6115 /* ImageUploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUploadViewController.h; sourceTree = "<group>"; };
-		6A3105E022687996002F6115 /* libmtasdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmtasdk.a; sourceTree = "<group>"; };
 		6A3107172272E31A002F6115 /* PushBgmControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushBgmControl.h; sourceTree = "<group>"; };
 		6A3107182272E31A002F6115 /* PushBgmControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushBgmControl.m; sourceTree = "<group>"; };
 		6A31073F22730514002F6115 /* paomo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = paomo.mp3; sourceTree = "<group>"; };
-		6A34FABD204FDE7A0016445B /* WebRTCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebRTCViewController.m; sourceTree = "<group>"; };
-		6A34FABE204FDE7A0016445B /* WebRTCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebRTCViewController.h; sourceTree = "<group>"; };
 		6A485AE922FC14A2004080E3 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Professional.framework; path = ../SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
 		6A485B88230113A7004080E3 /* VideoCompressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCompressViewController.h; sourceTree = "<group>"; };
 		6A485B89230113A7004080E3 /* ImageUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUploadViewController.m; sourceTree = "<group>"; };
@@ -568,8 +547,6 @@
 		A035043D20D2511A007E61C6 /* AddressBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBar.m; sourceTree = "<group>"; };
 		A0428A3520D3CFDB00CA79D5 /* SmallButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallButton.h; sourceTree = "<group>"; };
 		A0428A3620D3CFDB00CA79D5 /* SmallButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallButton.m; sourceTree = "<group>"; };
-		A06D38DA2130042E00E3210E /* TXUGCPublishOptCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXUGCPublishOptCenter.h; sourceTree = "<group>"; };
-		A06D38DB2130042E00E3210E /* TXUGCPublishOptCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXUGCPublishOptCenter.m; sourceTree = "<group>"; };
 		A06E84FE214F95C000DF949B /* VideoPreview.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoPreview.xcassets; sourceTree = "<group>"; };
 		A06E8507214F95E000DF949B /* VideoJoiner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoJoiner.xcassets; sourceTree = "<group>"; };
 		A06E8510214F961700DF949B /* TXLiteAVSDKHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXLiteAVSDKHeader.h; sourceTree = "<group>"; };
@@ -580,31 +557,8 @@
 		A06E8559214F9EC200DF949B /* TXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXColor.m; sourceTree = "<group>"; };
 		A06E855A214F9EC200DF949B /* TXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXColor.h; sourceTree = "<group>"; };
 		A06E858A214FA92E00DF949B /* VideoRecord.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoRecord.xcassets; sourceTree = "<group>"; };
-		A0B8FBD8207E2342008D7982 /* TXUGCPublish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUGCPublish.h; sourceTree = "<group>"; };
-		A0B8FBD9207E2342008D7982 /* TXUGCPublishListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUGCPublishListener.h; sourceTree = "<group>"; };
-		A0B8FBDA207E2342008D7982 /* TXUGCPublishTypeDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUGCPublishTypeDef.h; sourceTree = "<group>"; };
-		A0B8FBDB207E2350008D7982 /* TVCCommon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVCCommon.m; sourceTree = "<group>"; };
-		A0B8FBDC207E2350008D7982 /* TVCClientInner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVCClientInner.m; sourceTree = "<group>"; };
-		A0B8FBDD207E2350008D7982 /* TXUGCPublish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUGCPublish.m; sourceTree = "<group>"; };
-		A0B8FBDE207E2351008D7982 /* TVCHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCHeader.h; sourceTree = "<group>"; };
-		A0B8FBDF207E2351008D7982 /* TXUGCPublishUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXUGCPublishUtil.h; sourceTree = "<group>"; };
-		A0B8FBE0207E2351008D7982 /* TXUGCPublishUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXUGCPublishUtil.m; sourceTree = "<group>"; };
-		A0B8FBE1207E2351008D7982 /* TVCCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCCommon.h; sourceTree = "<group>"; };
-		A0B8FBE2207E2351008D7982 /* TVCClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCClient.h; sourceTree = "<group>"; };
-		A0B8FBE3207E2351008D7982 /* TVCClientInner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCClientInner.h; sourceTree = "<group>"; };
-		A0B8FBE4207E2351008D7982 /* TVCClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVCClient.m; sourceTree = "<group>"; };
-		A0B8FBE5207E2351008D7982 /* TVCReport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCReport.h; sourceTree = "<group>"; };
-		A0B8FBE6207E2351008D7982 /* TVCReport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVCReport.m; sourceTree = "<group>"; };
-		A0B8FBFF207E235A008D7982 /* QCloudCOSXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QCloudCOSXML.framework; sourceTree = "<group>"; };
-		A0B8FC00207E235B008D7982 /* QCloudCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = QCloudCore.framework; sourceTree = "<group>"; };
-		A0B8FC09207E24F2008D7982 /* TVCUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TVCUtils.m; sourceTree = "<group>"; };
-		A0B8FC0A207E24F2008D7982 /* TVCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCUtils.h; sourceTree = "<group>"; };
 		A0CC0079209FF2E30095B68A /* TXCVEFColorPalette.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXCVEFColorPalette.h; sourceTree = "<group>"; };
 		A0CC007A209FF2E30095B68A /* TXCVEFColorPalette.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXCVEFColorPalette.m; sourceTree = "<group>"; };
-		A0FFAD92213791B70087FF45 /* TVCHttpMessageURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCHttpMessageURLProtocol.h; sourceTree = "<group>"; };
-		A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCHttpMessageURLProtocol.m; sourceTree = "<group>"; };
-		CE01F53C206DDE060056D693 /* VideoCompressPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCompressPreviewController.h; sourceTree = "<group>"; };
-		CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompressPreviewController.m; sourceTree = "<group>"; };
 		CE1B08C01FC529D0006A57B5 /* ZipArchive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZipArchive.h; sourceTree = "<group>"; };
 		CE1B08C21FC529D0006A57B5 /* unzip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = unzip.c; sourceTree = "<group>"; };
 		CE1B08C31FC529D0006A57B5 /* zip.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = zip.c; sourceTree = "<group>"; };
@@ -622,8 +576,6 @@
 		CE43944720948B76004F1977 /* LiveRecordPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveRecordPreviewViewController.m; sourceTree = "<group>"; };
 		CE45D2971F15C527003506D1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		CE511C671F98C9380098DE4D /* AnimatedPaster.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = AnimatedPaster.bundle; sourceTree = "<group>"; };
-		CE59D390206CD11400583727 /* VideoCompressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCompressViewController.h; sourceTree = "<group>"; };
-		CE59D391206CD11400583727 /* VideoCompressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompressViewController.m; sourceTree = "<group>"; };
 		CE7C6E491FC2C5320095663F /* goodluck.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = goodluck.mp4; sourceTree = "<group>"; };
 		CE7C6E4A1FC2C5320095663F /* FilterResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FilterResource.bundle; sourceTree = "<group>"; };
 		CE7C82AB1FC40FB10095663F /* PituMotionAddress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PituMotionAddress.h; sourceTree = "<group>"; };
@@ -800,7 +752,6 @@
 				91A1D613214674B000EA9A19 /* libSuperPlayer.a in Frameworks */,
 				91F87A7F1FF4A0FD001644B1 /* libsqlite3.tbd in Frameworks */,
 				6A485BB3230113A8004080E3 /* QCloudCore.framework in Frameworks */,
-				A0B8FC06207E235B008D7982 /* QCloudCore.framework in Frameworks */,
 				40091FAB1F4FCBBE009B882D /* Foundation.framework in Frameworks */,
 				40091FAC1F4FCBBE009B882D /* AVFoundation.framework in Frameworks */,
 				6ABFB8E222F9BF810097E234 /* Bugly.framework in Frameworks */,
@@ -816,11 +767,9 @@
 				40091FB41F4FCBBE009B882D /* SystemConfiguration.framework in Frameworks */,
 				40091FB51F4FCBBE009B882D /* CoreTelephony.framework in Frameworks */,
 				40091FB61F4FCBBE009B882D /* VideoToolbox.framework in Frameworks */,
-				A0B8FC02207E235B008D7982 /* QCloudCOSXML.framework in Frameworks */,
 				40091FB81F4FCBBE009B882D /* CoreMedia.framework in Frameworks */,
 				40091FB91F4FCBBE009B882D /* CoreGraphics.framework in Frameworks */,
 				40091FBA1F4FCBBE009B882D /* Accelerate.framework in Frameworks */,
-				6A3105E222687996002F6115 /* libmtasdk.a in Frameworks */,
 				40091FBB1F4FCBBE009B882D /* Security.framework in Frameworks */,
 				40091FBC1F4FCBBE009B882D /* AssetsLibrary.framework in Frameworks */,
 			);
@@ -873,9 +822,6 @@
 				40F855041EE8FD9100EE47D7 /* Third */,
 				F152260C2160A42E00645A99 /* TRTC */,
 				A06E84F7214F951F00DF949B /* UGC */,
-				A06E8549214F97C100DF949B /* Upload */,
-				A0B8FBD5207E21EE008D7982 /* VideoUpload */,
-				6A34FABC204FDE7A0016445B /* WebRTC */,
 			);
 			path = TXLiteAVDemo;
 			sourceTree = "<group>";
@@ -1148,24 +1094,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		6A34FABC204FDE7A0016445B /* WebRTC */ = {
-			isa = PBXGroup;
-			children = (
-				6A34FABD204FDE7A0016445B /* WebRTCViewController.m */,
-				6A34FABE204FDE7A0016445B /* WebRTCViewController.h */,
-			);
-			path = WebRTC;
-			sourceTree = "<group>";
-		};
 		6A485B87230113A7004080E3 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
 				6A485B88230113A7004080E3 /* VideoCompressViewController.h */,
-				6A485B89230113A7004080E3 /* ImageUploadViewController.m */,
-				6A485B8A230113A7004080E3 /* VideoCompressPreviewController.m */,
 				6A485B8B230113A7004080E3 /* VideoCompressViewController.m */,
 				6A485B8C230113A7004080E3 /* ImageUploadViewController.h */,
+				6A485B89230113A7004080E3 /* ImageUploadViewController.m */,
 				6A485B8D230113A7004080E3 /* VideoCompressPreviewController.h */,
+				6A485B8A230113A7004080E3 /* VideoCompressPreviewController.m */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -1173,26 +1110,26 @@
 		6A485B8E230113A7004080E3 /* VideoUpload */ = {
 			isa = PBXGroup;
 			children = (
-				6A485B8F230113A7004080E3 /* TXUGCPublishOptCenter.h */,
-				6A485B90230113A7004080E3 /* TVCHttpMessageURLProtocol.h */,
-				6A485B91230113A8004080E3 /* TVCUtils.m */,
+				6A485B9D230113A8004080E3 /* COSSDK */,
+				6A485B94230113A8004080E3 /* include */,
 				6A485B92230113A8004080E3 /* TVCHeader.h */,
 				6A485B93230113A8004080E3 /* TXUGCPublish.m */,
-				6A485B94230113A8004080E3 /* include */,
+				6A485BA4230113A8004080E3 /* TXUGCPublishUtil.h */,
 				6A485B98230113A8004080E3 /* TXUGCPublishUtil.m */,
+				6A485BA3230113A8004080E3 /* TVCReport.h */,
 				6A485B99230113A8004080E3 /* TVCReport.m */,
 				6A485B9A230113A8004080E3 /* TVCClientInner.h */,
+				6A485BA8230113A8004080E3 /* TVCClientInner.m */,
+				6A485BA7230113A8004080E3 /* TVCCommon.h */,
 				6A485B9B230113A8004080E3 /* TVCCommon.m */,
 				6A485B9C230113A8004080E3 /* TVCClient.h */,
-				6A485B9D230113A8004080E3 /* COSSDK */,
-				6A485BA1230113A8004080E3 /* TVCHttpMessageURLProtocol.m */,
-				6A485BA2230113A8004080E3 /* TXUGCPublishOptCenter.m */,
-				6A485BA3230113A8004080E3 /* TVCReport.h */,
-				6A485BA4230113A8004080E3 /* TXUGCPublishUtil.h */,
-				6A485BA5230113A8004080E3 /* TVCUtils.h */,
 				6A485BA6230113A8004080E3 /* TVCClient.m */,
-				6A485BA7230113A8004080E3 /* TVCCommon.h */,
-				6A485BA8230113A8004080E3 /* TVCClientInner.m */,
+				6A485B8F230113A7004080E3 /* TXUGCPublishOptCenter.h */,
+				6A485BA2230113A8004080E3 /* TXUGCPublishOptCenter.m */,
+				6A485B90230113A7004080E3 /* TVCHttpMessageURLProtocol.h */,
+				6A485BA1230113A8004080E3 /* TVCHttpMessageURLProtocol.m */,
+				6A485BA5230113A8004080E3 /* TVCUtils.h */,
+				6A485B91230113A8004080E3 /* TVCUtils.m */,
 			);
 			path = VideoUpload;
 			sourceTree = "<group>";
@@ -1463,72 +1400,12 @@
 			path = Preview;
 			sourceTree = "<group>";
 		};
-		A06E8549214F97C100DF949B /* Upload */ = {
-			isa = PBXGroup;
-			children = (
-				6A3105D922682A06002F6115 /* ImageUploadViewController.h */,
-				6A3105C922682A06002F6115 /* ImageUploadViewController.m */,
-				CE59D390206CD11400583727 /* VideoCompressViewController.h */,
-				CE59D391206CD11400583727 /* VideoCompressViewController.m */,
-				CE01F53C206DDE060056D693 /* VideoCompressPreviewController.h */,
-				CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */,
-			);
-			path = Upload;
-			sourceTree = "<group>";
-		};
 		A06E854A214F9C6800DF949B /* ForEnterprise */ = {
 			isa = PBXGroup;
 			children = (
 				CF61F5141FD690FB007CDAF4 /* pitu */,
 			);
 			path = ForEnterprise;
-			sourceTree = "<group>";
-		};
-		A0B8FBD5207E21EE008D7982 /* VideoUpload */ = {
-			isa = PBXGroup;
-			children = (
-				A0B8FC0A207E24F2008D7982 /* TVCUtils.h */,
-				A0B8FC09207E24F2008D7982 /* TVCUtils.m */,
-				A0B8FBE2207E2351008D7982 /* TVCClient.h */,
-				A0B8FBE4207E2351008D7982 /* TVCClient.m */,
-				A0B8FBE3207E2351008D7982 /* TVCClientInner.h */,
-				A0B8FBDC207E2350008D7982 /* TVCClientInner.m */,
-				A0B8FBE1207E2351008D7982 /* TVCCommon.h */,
-				A0B8FBDB207E2350008D7982 /* TVCCommon.m */,
-				A0B8FBDE207E2351008D7982 /* TVCHeader.h */,
-				A0B8FBE5207E2351008D7982 /* TVCReport.h */,
-				A0B8FBE6207E2351008D7982 /* TVCReport.m */,
-				A0B8FBDD207E2350008D7982 /* TXUGCPublish.m */,
-				A0B8FBDF207E2351008D7982 /* TXUGCPublishUtil.h */,
-				A0B8FBE0207E2351008D7982 /* TXUGCPublishUtil.m */,
-				A0B8FBD7207E2210008D7982 /* include */,
-				A0B8FBD6207E2209008D7982 /* COSSDK */,
-				A06D38DA2130042E00E3210E /* TXUGCPublishOptCenter.h */,
-				A06D38DB2130042E00E3210E /* TXUGCPublishOptCenter.m */,
-				A0FFAD92213791B70087FF45 /* TVCHttpMessageURLProtocol.h */,
-				A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */,
-			);
-			path = VideoUpload;
-			sourceTree = "<group>";
-		};
-		A0B8FBD6207E2209008D7982 /* COSSDK */ = {
-			isa = PBXGroup;
-			children = (
-				6A3105E022687996002F6115 /* libmtasdk.a */,
-				A0B8FC00207E235B008D7982 /* QCloudCore.framework */,
-				A0B8FBFF207E235A008D7982 /* QCloudCOSXML.framework */,
-			);
-			path = COSSDK;
-			sourceTree = "<group>";
-		};
-		A0B8FBD7207E2210008D7982 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				A0B8FBD8207E2342008D7982 /* TXUGCPublish.h */,
-				A0B8FBD9207E2342008D7982 /* TXUGCPublishListener.h */,
-				A0B8FBDA207E2342008D7982 /* TXUGCPublishTypeDef.h */,
-			);
-			path = include;
 			sourceTree = "<group>";
 		};
 		CE1B08BF1FC529D0006A57B5 /* ZipArchive */ = {
@@ -2210,7 +2087,6 @@
 				40091F711F4FCBBE009B882D /* QBAssetCell.m in Sources */,
 				91DB2F01212554B500013D74 /* SuperPlayerGuideView.m in Sources */,
 				918775C91FEA5CE3001D19D0 /* MASViewAttribute.m in Sources */,
-				A0B8FBF0207E2352008D7982 /* TXUGCPublish.m in Sources */,
 				918775D81FEA5CE3001D19D0 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				40091F731F4FCBBE009B882D /* TextCell.m in Sources */,
 				40091F751F4FCBBE009B882D /* QBVideoIconView.m in Sources */,
@@ -2226,10 +2102,8 @@
 				D6BEF64E2040179600CBE2BD /* PlayUGCDecorateView.m in Sources */,
 				40091F7A1F4FCBBE009B882D /* QBAlbumCell.m in Sources */,
 				40091F7C1F4FCBBE009B882D /* QBCheckmarkView.m in Sources */,
-				A06D38DE2130042E00E3210E /* TXUGCPublishOptCenter.m in Sources */,
 				40091F7D1F4FCBBE009B882D /* ScanQRController.mm in Sources */,
 				CE8B6F311FD10A6700015C62 /* zip.c in Sources */,
-				6A3105DB22682A06002F6115 /* ImageUploadViewController.m in Sources */,
 				40091F7E1F4FCBBE009B882D /* QBImagePickerController.m in Sources */,
 				6AB334441FA96543007C8244 /* UIRefreshControl+AFNetworking.m in Sources */,
 				D6BEF7582040353E00CBE2BD /* ListVideoCell.m in Sources */,
@@ -2255,7 +2129,6 @@
 				F152261E2160A42E00645A99 /* TRTCMainViewController.m in Sources */,
 				40091F821F4FCBBE009B882D /* QBAssetsViewController.m in Sources */,
 				D6BEF6BF20401BD900CBE2BD /* VideoPreview.m in Sources */,
-				A0B8FBF8207E2352008D7982 /* TVCClient.m in Sources */,
 				CE8B6F2F1FD10A6200015C62 /* unzip.c in Sources */,
 				6A485BAB230113A8004080E3 /* VideoCompressViewController.m in Sources */,
 				A0CC007C209FF2E30095B68A /* TXCVEFColorPalette.m in Sources */,
@@ -2264,7 +2137,6 @@
 				D6BEF6572040179600CBE2BD /* VideoPreviewViewController.m in Sources */,
 				40091F841F4FCBBE009B882D /* BeautySettingPanel.m in Sources */,
 				D6BEF6C220401BD900CBE2BD /* RangeContent.m in Sources */,
-				A0B8FBEC207E2352008D7982 /* TVCClientInner.m in Sources */,
 				6AB3344D1FA96543007C8244 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				D6BEF6602040179600CBE2BD /* VideoRecordProcessView.m in Sources */,
 				918BFA7B2021AA8C001857DA /* SDWebImagePrefetcher.m in Sources */,
@@ -2286,7 +2158,6 @@
 				D6BEF6A720401BD900CBE2BD /* MusicMixView.m in Sources */,
 				D6B3D7BB22436AFA00B912F1 /* TCMediaFileReader.m in Sources */,
 				918BFA772021AA8C001857DA /* SDWebImageDecoder.m in Sources */,
-				A0B8FBF4207E2352008D7982 /* TXUGCPublishUtil.m in Sources */,
 				CE8B6F351FD10A7000015C62 /* mztools.c in Sources */,
 				D6E5D1C420B7B62000812B2F /* ScreenPushViewController.m in Sources */,
 				40091F8B1F4FCBBE009B882D /* MainTableViewCell.m in Sources */,
@@ -2301,7 +2172,6 @@
 				40091F911F4FCBBE009B882D /* MainViewController.m in Sources */,
 				40091F921F4FCBBE009B882D /* ControlView.m in Sources */,
 				918BFA7A2021AA8C001857DA /* SDWebImageManager.m in Sources */,
-				A0B8FC0C207E24F2008D7982 /* TVCUtils.m in Sources */,
 				6A485BB7230113A8004080E3 /* TVCClientInner.m in Sources */,
 				D6BEF69B20401BD900CBE2BD /* BottomTabBar.m in Sources */,
 				918BFA742021AA8C001857DA /* NSData+ImageContentType.m in Sources */,
@@ -2319,20 +2189,15 @@
 				6A485BAE230113A8004080E3 /* TXUGCPublishUtil.m in Sources */,
 				916A508021997327005ED3AF /* TRTCVideoViewLayout.m in Sources */,
 				6AB3343B1FA96543007C8244 /* UIProgressView+AFNetworking.m in Sources */,
-				CE01F53F206DDE060056D693 /* VideoCompressPreviewController.m in Sources */,
 				6A1C109C2281A675005D7BD9 /* PushLogView.m in Sources */,
-				6A34FAC0204FDE850016445B /* WebRTCViewController.m in Sources */,
-				CE59D395206CD11F00583727 /* VideoCompressViewController.m in Sources */,
 				D6D83B0F2249FF600065C36A /* TestSendCustomVideoData.m in Sources */,
 				40091F9C1F4FCBBE009B882D /* NSObject+CommonBlock.m in Sources */,
 				6AB334831FA96543007C8244 /* AFImageDownloader.m in Sources */,
 				6AB3349E1FA96543007C8244 /* AFURLSessionManager.m in Sources */,
 				A06E855D214F9EC300DF949B /* TXColor.m in Sources */,
-				A0FFAD96213791B70087FF45 /* TVCHttpMessageURLProtocol.m in Sources */,
 				6A03ED421FD13E0C00F2F063 /* UIViewController+BackButtonHandler.m in Sources */,
 				918775CE1FEA5CE3001D19D0 /* MASViewConstraint.m in Sources */,
 				918BFA802021AA8C001857DA /* UIImageView+WebCache.m in Sources */,
-				A0B8FBFC207E2352008D7982 /* TVCReport.m in Sources */,
 				918775DD1FEA5CE3001D19D0 /* View+MASAdditions.m in Sources */,
 				40091FA01F4FCBBE009B882D /* main.m in Sources */,
 				6A485BB6230113A8004080E3 /* TVCClient.m in Sources */,
@@ -2354,7 +2219,6 @@
 				918BFA782021AA8C001857DA /* SDWebImageDownloader.m in Sources */,
 				918BFA7F2021AA8C001857DA /* UIImageView+HighlightedWebCache.m in Sources */,
 				912A62202160D78A00C16E41 /* CFDanmakuInfo.m in Sources */,
-				A0B8FBE8207E2352008D7982 /* TVCCommon.m in Sources */,
 				CE2AF75320A5CB7700EFC3AA /* TransitionView.m in Sources */,
 				F152261B2160A42E00645A99 /* TRTCSettingViewController.m in Sources */,
 				CEBE16B11FD6A43C00A22F3F /* TXBitrateView.m in Sources */,
