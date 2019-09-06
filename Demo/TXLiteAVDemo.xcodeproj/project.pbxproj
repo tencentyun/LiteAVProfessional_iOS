@@ -142,6 +142,7 @@
 		A035043120D24F99007E61C6 /* AddressBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = A035042F20D24F99007E61C6 /* AddressBarController.m */; };
 		A035043F20D2511A007E61C6 /* AddressBar.m in Sources */ = {isa = PBXBuildFile; fileRef = A035043D20D2511A007E61C6 /* AddressBar.m */; };
 		A0428A3820D3CFDC00CA79D5 /* SmallButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0428A3620D3CFDB00CA79D5 /* SmallButton.m */; };
+		A0481F562321F42C007151C2 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0481F542321F3A2007151C2 /* OpenAL.framework */; };
 		A06E8501214F95C000DF949B /* VideoPreview.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06E84FE214F95C000DF949B /* VideoPreview.xcassets */; };
 		A06E850A214F95E000DF949B /* VideoJoiner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06E8507214F95E000DF949B /* VideoJoiner.xcassets */; };
 		A06E8515214F96B000DF949B /* VideoRecordConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E8511214F96AF00DF949B /* VideoRecordConfig.m */; };
@@ -547,6 +548,7 @@
 		A035043D20D2511A007E61C6 /* AddressBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddressBar.m; sourceTree = "<group>"; };
 		A0428A3520D3CFDB00CA79D5 /* SmallButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SmallButton.h; sourceTree = "<group>"; };
 		A0428A3620D3CFDB00CA79D5 /* SmallButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SmallButton.m; sourceTree = "<group>"; };
+		A0481F542321F3A2007151C2 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		A06E84FE214F95C000DF949B /* VideoPreview.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoPreview.xcassets; sourceTree = "<group>"; };
 		A06E8507214F95E000DF949B /* VideoJoiner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoJoiner.xcassets; sourceTree = "<group>"; };
 		A06E8510214F961700DF949B /* TXLiteAVSDKHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXLiteAVSDKHeader.h; sourceTree = "<group>"; };
@@ -748,6 +750,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0481F562321F42C007151C2 /* OpenAL.framework in Frameworks */,
 				6A485AEB22FC14B7004080E3 /* TXLiteAVSDK_Professional.framework in Frameworks */,
 				91A1D613214674B000EA9A19 /* libSuperPlayer.a in Frameworks */,
 				91F87A7F1FF4A0FD001644B1 /* libsqlite3.tbd in Frameworks */,
@@ -974,6 +977,7 @@
 		40F854FF1EE8FD2F00EE47D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A0481F542321F3A2007151C2 /* OpenAL.framework */,
 				6A485AE922FC14A2004080E3 /* TXLiteAVSDK_Professional.framework */,
 				6ABFB8F322F9BF990097E234 /* QAPM.framework */,
 				6ABFB8E022F9BF810097E234 /* Bugly.framework */,
@@ -1914,11 +1918,11 @@
 				ORGANIZATIONNAME = Tencent;
 				TargetAttributes = {
 					40091F6D1F4FCBBE009B882D = {
-						DevelopmentTeam = QE8PS7F45A;
+						DevelopmentTeam = 5GHU44CJHG;
 						ProvisioningStyle = Manual;
 					};
 					D6D9E37D20D2862500B6D607 = {
-						DevelopmentTeam = QE8PS7F45A;
+						DevelopmentTeam = 5GHU44CJHG;
 						ProvisioningStyle = Manual;
 					};
 				};
@@ -2037,7 +2041,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ ! -e \"${PROJECT_DIR}/../SDK/TXLiteAVSDK_Professional.framework\" ]; then\ncurl http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Professional_iOS_6.6.7460.zip --output ${PROJECT_DIR}/../SDK/TXLiteAVSDK_Professional_iOS.zip\ncd ${PROJECT_DIR}/../SDK\nunzip TXLiteAVSDK_Professional_iOS.zip\nrm -rf __MACOSX\nmv TXLiteAVSDK_Professional/*.framework .\nrmdir TXLiteAVSDK_Professional\nrm TXLiteAVSDK_Professional_iOS.zip\nfi\n";
+			shellScript = "if [ ! -e \"${PROJECT_DIR}/../SDK/TXLiteAVSDK_Professional.framework\" ]; then\nURL=\"$(cat ../SDK/README.md | grep -o 'http.*zip')\"\necho \"Downloading SDK from $URL\"\ncurl \"$URL\" --output ${PROJECT_DIR}/../SDK/TXLiteAVSDK_Professional_iOS.zip\ncd ${PROJECT_DIR}/../SDK\nunzip TXLiteAVSDK_Professional_iOS.zip\nrm -rf __MACOSX\nmv TXLiteAVSDK_Professional_*/SDK/*.framework .\nrm -rf TXLiteAVSDK_Professional_*\nfi\n\n\n";
 		};
 		6ABFB93C22FC0DAF0097E234 /* Download SDK */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2055,7 +2059,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ ! -e \"${PROJECT_DIR}/../SDK/TXLiteAVSDK_Professional.framework\" ]; then\ncurl http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Professional_iOS_6.6.7460.zip --output ${PROJECT_DIR}/../SDK/TXLiteAVSDK_Professional_iOS.zip\ncd ${PROJECT_DIR}/../SDK\nunzip TXLiteAVSDK_Professional_iOS.zip\nrm -rf __MACOSX\nmv TXLiteAVSDK_Professional/*.framework .\nrmdir TXLiteAVSDK_Professional\nrm TXLiteAVSDK_Professional_iOS.zip\nfi\n";
+			shellScript = "if [ ! -e \"${PROJECT_DIR}/../SDK/TXLiteAVSDK_Professional.framework\" ]; then\nURL=\"$(cat ../SDK/README.md | grep -o 'http.*zip')\"\necho \"Downloading SDK from $URL\"\ncurl \"$URL\" --output ${PROJECT_DIR}/../SDK/TXLiteAVSDK_Professional_iOS.zip\ncd ${PROJECT_DIR}/../SDK\nunzip TXLiteAVSDK_Professional_iOS.zip\nrm -rf __MACOSX\nmv TXLiteAVSDK_Professional_*/SDK/*.framework .\nrm -rf TXLiteAVSDK_Professional_*\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -2303,7 +2307,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = QE8PS7F45A;
+				DEVELOPMENT_TEAM = 5GHU44CJHG;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2628,7 +2632,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = QE8PS7F45A;
+				DEVELOPMENT_TEAM = 5GHU44CJHG;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
