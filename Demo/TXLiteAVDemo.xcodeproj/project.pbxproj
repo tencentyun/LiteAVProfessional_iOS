@@ -35,8 +35,6 @@
 		12033E1E23BE18C90088163F /* TRTCVoiceRoomAudioConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 12033D9F23BE18C80088163F /* TRTCVoiceRoomAudioConfig.m */; };
 		12033E2223BE18C90088163F /* TRTCVoiceRoomCustomAudioFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 12033DA223BE18C80088163F /* TRTCVoiceRoomCustomAudioFileReader.m */; };
 		12033E2623BE18C90088163F /* TRTCVoiceRoom.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 12033DA323BE18C80088163F /* TRTCVoiceRoom.storyboard */; };
-		12033E2A23BE18C90088163F /* TRTCVoiceRoomTestUserSig.m in Sources */ = {isa = PBXBuildFile; fileRef = 12033DA423BE18C80088163F /* TRTCVoiceRoomTestUserSig.m */; };
-		1287DFA923C6C6DD007F9366 /* TRTCAudioCallTestUserSig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1287DF8423C6C6DC007F9366 /* TRTCAudioCallTestUserSig.m */; };
 		1287DFAD23C6C6DD007F9366 /* TRTCAudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1287DF8523C6C6DC007F9366 /* TRTCAudioCallViewController.m */; };
 		1287DFB123C6C6DD007F9366 /* TRTCAudioCallUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1287DF8A23C6C6DC007F9366 /* TRTCAudioCallUserModel.m */; };
 		1287DFB523C6C6DD007F9366 /* TRTCAudioCall.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1287DF8D23C6C6DC007F9366 /* TRTCAudioCall.storyboard */; };
@@ -415,7 +413,6 @@
 		12033D8223BE18C80088163F /* NSObject+MJKeyValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJKeyValue.h"; sourceTree = "<group>"; };
 		12033D8323BE18C80088163F /* NSObject+MJCoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MJCoding.h"; sourceTree = "<group>"; };
 		12033D8523BE18C80088163F /* MJFoundation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJFoundation.m; sourceTree = "<group>"; };
-		12033D8623BE18C80088163F /* TRTCVoiceRoomTestUserSig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTCVoiceRoomTestUserSig.h; sourceTree = "<group>"; };
 		12033D8823BE18C80088163F /* TRTCVoiceRoomAudioEffectView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TRTCVoiceRoomAudioEffectView.xib; sourceTree = "<group>"; };
 		12033D8923BE18C80088163F /* TRTCVoiceRoomAudioEffectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTCVoiceRoomAudioEffectView.m; sourceTree = "<group>"; };
 		12033D8A23BE18C80088163F /* TRTCVoiceRoomAudioEffectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTCVoiceRoomAudioEffectView.h; sourceTree = "<group>"; };
@@ -438,12 +435,9 @@
 		12033DA123BE18C80088163F /* TRTCVoiceRoomCustomAudioFileReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTCVoiceRoomCustomAudioFileReader.h; sourceTree = "<group>"; };
 		12033DA223BE18C80088163F /* TRTCVoiceRoomCustomAudioFileReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTCVoiceRoomCustomAudioFileReader.m; sourceTree = "<group>"; };
 		12033DA323BE18C80088163F /* TRTCVoiceRoom.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TRTCVoiceRoom.storyboard; sourceTree = "<group>"; };
-		12033DA423BE18C80088163F /* TRTCVoiceRoomTestUserSig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTCVoiceRoomTestUserSig.m; sourceTree = "<group>"; };
 		12033DA523BE18C80088163F /* CreateTRTCVoiceRoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTRTCVoiceRoomViewController.h; sourceTree = "<group>"; };
-		1287DF8423C6C6DC007F9366 /* TRTCAudioCallTestUserSig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTCAudioCallTestUserSig.m; sourceTree = "<group>"; };
 		1287DF8523C6C6DC007F9366 /* TRTCAudioCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTCAudioCallViewController.m; sourceTree = "<group>"; };
 		1287DF8623C6C6DC007F9366 /* CreateTRTCAudioCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateTRTCAudioCallViewController.h; sourceTree = "<group>"; };
-		1287DF8823C6C6DC007F9366 /* TRTCAudioCallTestUserSig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTCAudioCallTestUserSig.h; sourceTree = "<group>"; };
 		1287DF8A23C6C6DC007F9366 /* TRTCAudioCallUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTCAudioCallUserModel.m; sourceTree = "<group>"; };
 		1287DF8B23C6C6DC007F9366 /* TRTCAudioCallUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTCAudioCallUserModel.h; sourceTree = "<group>"; };
 		1287DF8C23C6C6DC007F9366 /* TRTCAudioCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTCAudioCallViewController.h; sourceTree = "<group>"; };
@@ -978,8 +972,6 @@
 				12033DA323BE18C80088163F /* TRTCVoiceRoom.storyboard */,
 				12033DA523BE18C80088163F /* CreateTRTCVoiceRoomViewController.h */,
 				12033D6D23BE18C80088163F /* CreateTRTCVoiceRoomViewController.m */,
-				12033D8623BE18C80088163F /* TRTCVoiceRoomTestUserSig.h */,
-				12033DA423BE18C80088163F /* TRTCVoiceRoomTestUserSig.m */,
 				12033D6823BE18C70088163F /* TRTCVoiceRoomViewController.h */,
 				12033D8F23BE18C80088163F /* TRTCVoiceRoomViewController.m */,
 				12033D8723BE18C80088163F /* AudioEffectView */,
@@ -1120,8 +1112,6 @@
 				1287DF9823C6C6DC007F9366 /* CreateTRTCAudioCallViewController.m */,
 				1287DF8C23C6C6DC007F9366 /* TRTCAudioCallViewController.h */,
 				1287DF8523C6C6DC007F9366 /* TRTCAudioCallViewController.m */,
-				1287DF8823C6C6DC007F9366 /* TRTCAudioCallTestUserSig.h */,
-				1287DF8423C6C6DC007F9366 /* TRTCAudioCallTestUserSig.m */,
 				1287DF8923C6C6DC007F9366 /* Model */,
 				1287DF8E23C6C6DC007F9366 /* SDKManager */,
 			);
@@ -2704,7 +2694,6 @@
 				6AB334561FA96543007C8244 /* UIImageView+AFNetworking.m in Sources */,
 				40091F891F4FCBBE009B882D /* QBVideoIndicatorView.m in Sources */,
 				D6BEF6F52040307E00CBE2BD /* VideoJoinerController.m in Sources */,
-				1287DFA923C6C6DD007F9366 /* TRTCAudioCallTestUserSig.m in Sources */,
 				910E17A92080A38400178D86 /* TXMoviePlayInfoResponse.m in Sources */,
 				D6B3D7BB22436AFA00B912F1 /* TCMediaFileReader.m in Sources */,
 				1287DFC123C6C6DD007F9366 /* TRTCAudioCallCustomAudioFileReader.m in Sources */,
@@ -2796,7 +2785,6 @@
 				514A83E4224228AF00580561 /* CustomAudioCapturor.m in Sources */,
 				6AB334B01FA96543007C8244 /* AFNetworkReachabilityManager.m in Sources */,
 				D6BEF75B2040353E00CBE2BD /* MoviePlayerViewController.m in Sources */,
-				12033E2A23BE18C90088163F /* TRTCVoiceRoomTestUserSig.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
