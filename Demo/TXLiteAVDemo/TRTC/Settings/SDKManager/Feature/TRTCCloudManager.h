@@ -191,8 +191,8 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Stream
 
 /// 设置云端混流
-/// @param isMixingInCloud 开启云端混流
-- (void)setMixingInCloud:(BOOL)isMixingInCloud;
+/// @param mixMode 云端混流模式
+- (void)setMixMode:(TRTCTranscodingConfigMode)mixMode;
 
 /// 设置云端混流参数
 - (void)updateCloudMixtureParams;

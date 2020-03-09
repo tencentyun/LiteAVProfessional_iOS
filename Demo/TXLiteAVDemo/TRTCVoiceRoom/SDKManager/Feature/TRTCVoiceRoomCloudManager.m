@@ -42,10 +42,7 @@
 
 - (void)setupTrtcAudio {
     [self.trtc setAudioRoute:self.audioConfig.route];
-    [self.trtc setSystemVolumeType:self.audioConfig.volumeType];
     [self.trtc enableAudioEarMonitoring:self.audioConfig.isEarMonitoringEnabled];
-    [self setExperimentConfig:@"enableAudioAGC" params:@{ @"enable": @(self.audioConfig.isAgcEnabled) }];
-    [self setExperimentConfig:@"enableAudioANS" params:@{ @"enable": @(self.audioConfig.isAnsEnabled) }];
     [self setExperimentConfig:@"setAudioSampleRate" params:@{ @"sampleRate": @(self.audioConfig.sampleRate) }];
     [self.trtc enableAudioVolumeEvaluation:self.audioConfig.isVolumeEvaluationEnabled ? 300 : 0];
 }
@@ -53,9 +50,9 @@
 - (void)enterRoom {
     [self setupTrtc];
     
-    [self startLocalAudio:self.audioConfig.isCustomCapture];
-    
     [self.trtc enterRoom:self.params appScene:self.scene];
+    
+    [self startLocalAudio:self.audioConfig.isCustomCapture];
 }
 
 - (void)exitRoom {
@@ -218,11 +215,7 @@
 #pragma mark - Live Player
 
 - (NSString *)getCdnUrl{
-    NSString *playUrl = [NSString stringWithFormat:@"http://%d.liveplay.myqcloud.com/live/mix_%d_%u.flv",TX_BIZID,_SDKAppID,(unsigned int)self.params.roomId];
-    
-//    NSString *playUrl = @"http://5815.liveplay.myqcloud.com/live/5815_89aad37e06ff11e892905cb9018cf0d4_900.flv";        //测试用
-    
-    return playUrl;
+    return [NSString stringWithFormat:@"http://%d.liveplay.myqcloud.com/live/mix_%d_%@.flv", TX_BIZID, _AudioRoomSDKAppID, @(self.params.roomId)];
 }
 
 

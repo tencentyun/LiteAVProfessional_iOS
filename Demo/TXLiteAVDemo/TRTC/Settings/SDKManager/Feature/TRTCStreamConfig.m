@@ -12,15 +12,14 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.isMixingInCloud = [[NSUserDefaults standardUserDefaults] boolForKey:@"TRTCStreamConfig.isMixingInCloud"];
+        self.mixMode = [[NSUserDefaults standardUserDefaults] integerForKey:@"TRTCStreamConfig.mixMode"];
     }
     return self;
 }
 
-- (void)setIsMixingInCloud:(BOOL)isMixingInCloud {
-    _isMixingInCloud = isMixingInCloud;
-    [[NSUserDefaults standardUserDefaults] setBool:isMixingInCloud
-                                            forKey:@"TRTCStreamConfig.isMixingInCloud"];
+- (void)setMixMode:(TRTCTranscodingConfigMode)mixMode {
+    _mixMode = mixMode;
+    [[NSUserDefaults standardUserDefaults] setInteger:mixMode forKey:@"TRTCStreamConfig.mixMode"];
 }
 
 @end

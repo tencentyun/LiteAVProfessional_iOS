@@ -20,9 +20,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// TRTC的bizid的appid用于转推直播流，https://console.cloud.tencent.com/rav 点击【应用】【帐号信息】
-// 在【直播信息】中可以看到bizid和appid，分别填到下面这两个符号
+/** TRTC的bizid的appid用于转推直播流，https://console.cloud.tencent.com/rav 点击【应用】【帐号信息】
+ * 在【直播信息】中可以看到bizid和appid，分别填到下面这两个符号
+ */
 #define TX_BIZID 0
+
 #define TX_APPID 0
 
 /**
@@ -54,6 +56,14 @@ static const int _EXPIRETIME = 604800;
 static NSString * const _SECRETKEY = <#@""#>;
 
 
+#ifndef _AudioRoomSDKAppID
+#define _AudioRoomSDKAppID _SDKAppID
+#endif
+
+#ifndef _AudioRoomSecretKey
+#define _AudioRoomSecretKey _SECRETKEY
+#endif
+
 @interface GenerateTestUserSig : NSObject
 /**
  * 计算 UserSig 签名
@@ -71,7 +81,7 @@ static NSString * const _SECRETKEY = <#@""#>;
  *
  * 文档：https://cloud.tencent.com/document/product/647/17275#Server
  */
-+ (NSString *)genTestUserSig:(NSString *)identifier;
++ (NSString *)genTestUserSig:(NSString *)identifier sdkAppId:(int)sdkAppId secretKey:(NSString *)key;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TRTCCloudDef.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TRTCStreamConfig : NSObject
 
-/// 开启云端混流，默认为NO，设置会保存到本地。
-@property (nonatomic) BOOL isMixingInCloud;
+/// 云端混流模式，默认为Unknown，设置会保存到本地。
+@property (nonatomic) TRTCTranscodingConfigMode mixMode;
 
 @end
 

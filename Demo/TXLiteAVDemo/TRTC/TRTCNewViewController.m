@@ -250,7 +250,7 @@
     param.sdkAppId = _SDKAppID;
     param.userId = userId;
     param.roomId = (UInt32)roomId.integerValue;
-    param.userSig = [GenerateTestUserSig genTestUserSig:userId];
+    param.userSig = [GenerateTestUserSig genTestUserSig:userId sdkAppId:_SDKAppID secretKey:_SECRETKEY];
     param.privateMapKey = @"";
     param.role = self.roleItem.selectedIndex == 1 ? TRTCRoleAudience : TRTCRoleAnchor;
 

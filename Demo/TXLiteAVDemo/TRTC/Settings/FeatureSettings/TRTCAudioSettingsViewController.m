@@ -43,8 +43,8 @@
             [wSelf onSelectSampleRateIndex:index];
         }],
         [[TRTCSettingsSegmentItem alloc] initWithTitle:@"音量类型"
-                                                 items:@[@"自动模式", @"媒体音量"]
-                                         selectedIndex:config.volumeType == TRTCSystemVolumeTypeAuto ? 0 : 1
+                                                 items:@[@"自动", @"媒体", @"通话"]
+                                         selectedIndex:config.volumeType
                                                 action:^(NSInteger index) {
             [wSelf onSelectVolumeTypeIndex:index];
         }],
@@ -102,7 +102,7 @@
 }
 
 - (void)onSelectVolumeTypeIndex:(NSInteger)index {
-    TRTCSystemVolumeType type = index == 0 ? TRTCSystemVolumeTypeAuto : TRTCSystemVolumeTypeMedia;
+    TRTCSystemVolumeType type = (TRTCSystemVolumeType)index;
     [self.settingsManager setVolumeType:type];
 }
 

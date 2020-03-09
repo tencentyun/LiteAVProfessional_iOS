@@ -17,6 +17,10 @@
 #import "TestSendCustomVideoData.h"
 #import "TestRenderVideoFrame.h"
 
+#define PLACE_HOLDER_LOCAL_MAIN   @"$PLACE_HOLDER_LOCAL_MAIN$"
+#define PLACE_HOLDER_LOCAL_SUB   @"$PLACE_HOLDER_LOCAL_SUB$"
+#define PLACE_HOLDER_REMOTE     @"$PLACE_HOLDER_REMOTE$"
+
 @interface TRTCCloudManager()<CustomAudioFileReaderDelegate>
 
 @property (strong, nonatomic) TRTCCloud *trtc;
@@ -75,10 +79,7 @@
 
 - (void)setupTrtcAudio {
     [self.trtc setAudioRoute:self.audioConfig.route];
-    [self.trtc setSystemVolumeType:self.audioConfig.volumeType];
     [self.trtc enableAudioEarMonitoring:self.audioConfig.isEarMonitoringEnabled];
-    [self setExperimentConfig:@"enableAudioAGC" params:@{ @"enable": @(self.audioConfig.isAgcEnabled) }];
-    [self setExperimentConfig:@"enableAudioANS" params:@{ @"enable": @(self.audioConfig.isAnsEnabled) }];
     [self setExperimentConfig:@"setAudioSampleRate" params:@{ @"sampleRate": @(self.audioConfig.sampleRate) }];
     [self.trtc enableAudioVolumeEvaluation:self.audioConfig.isVolumeEvaluationEnabled ? 300 : 0];
 }
@@ -86,10 +87,11 @@
 - (void)enterRoom {
     [self setupTrtc];
     
-    [self startLocalAudio:self.audioConfig.isCustomCapture];
     [self startLocalVideo];
     
     [self.trtc enterRoom:self.params appScene:self.scene];
+
+    [self startLocalAudio:self.audioConfig.isCustomCapture];
 }
 
 - (void)exitRoom {
@@ -259,7 +261,6 @@
 }
 
 - (void)setVolumeType:(TRTCSystemVolumeType)type {
-    self.audioConfig.volumeType = type;
     [self.trtc setSystemVolumeType:type];
 }
 
@@ -290,19 +291,25 @@
 
 #pragma mark - Stream
 
-- (void)setMixingInCloud:(BOOL)isMixingInCloud {
-    self.streamConfig.isMixingInCloud = isMixingInCloud;
-    if (isMixingInCloud) {
-        [self updateCloudMixtureParams];
-    } else {
-        [self.trtc setMixTranscodingConfig:nil];
-    }
+- (void)setMixMode:(TRTCTranscodingConfigMode)mixMode {
+    self.streamConfig.mixMode = mixMode;
+    [self updateCloudMixtureParams];
 }
 
 - (void)updateCloudMixtureParams {
-    if (!self.streamConfig.isMixingInCloud) {
+    if (self.streamConfig.mixMode == TRTCTranscodingConfigMode_Unknown) {
+        [self.trtc setMixTranscodingConfig:nil];
+        return;
+    } else if (self.streamConfig.mixMode == TRTCTranscodingConfigMode_Template_PureAudio ||
+               self.streamConfig.mixMode == TRTCTranscodingConfigMode_Template_ScreenSharing) {
+        TRTCTranscodingConfig *config = [TRTCTranscodingConfig new];
+        config.appId = (int) self.appId;
+        config.bizId = (int) self.bizId;
+        config.mode = self.streamConfig.mixMode;
+        [self.trtc setMixTranscodingConfig:config];
         return;
     }
+    
     int videoWidth  = 720;
     int videoHeight = 1280;
     
@@ -420,7 +427,7 @@
     
     // 设置混流后主播的画面位置
     TRTCMixUser* broadCaster = [TRTCMixUser new];
-    broadCaster.userId = self.params.userId; // 以主播uid为broadcaster为例
+    broadCaster.userId = self.streamConfig.mixMode == TRTCTranscodingConfigMode_Template_PresetLayout ? PLACE_HOLDER_LOCAL_MAIN : self.params.userId;
     broadCaster.zOrder = 0;
     broadCaster.rect = CGRectMake(0, 0, videoWidth, videoHeight);
     broadCaster.roomID = nil;
@@ -432,7 +439,7 @@
     __block int index = 0;
     [self.remoteUserManager.remoteUsers enumerateKeysAndObjectsUsingBlock:^(NSString *userId, TRTCRemoteUserConfig *settings, BOOL *stop) {
         TRTCMixUser* audience = [TRTCMixUser new];
-        audience.userId = userId;
+        audience.userId = self.streamConfig.mixMode == TRTCTranscodingConfigMode_Template_PresetLayout ? PLACE_HOLDER_REMOTE : userId;
         audience.zOrder = 1 + index;
         audience.roomID = settings.roomId;
         //辅流判断：辅流的Id为原userId + "-sub"
@@ -441,7 +448,7 @@
             if (spritStrs.count < 2) {
                 return;
             }
-            NSString* realUserId = spritStrs[0];
+            NSString* realUserId = self.streamConfig.mixMode == TRTCTranscodingConfigMode_Template_PresetLayout ? PLACE_HOLDER_REMOTE : spritStrs[0];
             audience.userId = realUserId;
             audience.streamType = TRTCVideoStreamTypeSub;
         }
@@ -459,6 +466,7 @@
         ++index;
     }];
     config.mixUsers = mixUsers;
+    config.mode = self.streamConfig.mixMode;
     [_trtc setMixTranscodingConfig:config];
 }
 

@@ -18,7 +18,6 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *qrCodeView;
 @property (strong, nonatomic) IBOutlet UILabel *qrCodeTitle;
-@property (strong, nonatomic) TRTCSettingsSwitchItem *mixItem;
 
 @end
 
@@ -30,14 +29,13 @@
     TRTCStreamConfig *config = self.settingsManager.streamConfig;
     
     __weak __typeof(self) wSelf = self;
-    self.mixItem = [[TRTCSettingsSwitchItem alloc] initWithTitle:@"开启云端画面混合"
-                                             isOn:config.isMixingInCloud
-                                           action:^(BOOL isOn) {
-        [wSelf onEnableMixingInCloud:isOn];
-    }];
-    
     self.items = @[
-        self.mixItem,
+        [[TRTCSettingsSegmentItem alloc] initWithTitle:@"云端混流"
+                                                 items:@[@"关闭", @"手动", @"纯音频", @"预设"]
+                                         selectedIndex:config.mixMode
+                                                action:^(NSInteger index) {
+            [wSelf onSelectMixModeIndex:index];
+        }],
     ];
     
     [self setupSubviews];
@@ -54,8 +52,8 @@
 
 #pragma mark - Actions
 
-- (void)onEnableMixingInCloud:(BOOL)isEnabled {
-    [self.settingsManager setMixingInCloud:isEnabled];
+- (void)onSelectMixModeIndex:(NSInteger)index {
+    [self.settingsManager setMixMode:index];
     [self updateStreamInfo];
 }
 
@@ -68,9 +66,6 @@
 }
 
 - (void)updateStreamInfo {
-    self.mixItem.isOn = self.settingsManager.streamConfig.isMixingInCloud;
-    [self.tableView reloadData];
-    
     NSString *shareUrl = [self.settingsManager getCdnUrlOfUser:self.settingsManager.params.userId];
     self.qrCodeView.image = [QRCode qrCodeWithString:shareUrl size:self.qrCodeView.frame.size];
 }

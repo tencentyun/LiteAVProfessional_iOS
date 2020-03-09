@@ -61,13 +61,13 @@
     
     
     // 如果没有填 sdkappid 或者 secretkey，就结束流程。
-    if (_SDKAppID == 0 || [_SECRETKEY isEqualToString:@""]) {
+    if (_AudioRoomSDKAppID == 0 || [_AudioRoomSecretKey isEqualToString:@""]) {
         _joinBtn.enabled = NO;
         NSString *msg = @"";
-        if (_SDKAppID == 0) {
+        if (_AudioRoomSDKAppID == 0) {
             msg = @"没有填写SDKAPPID";
         }
-        if ([_SECRETKEY isEqualToString:@""]) {
+        if ([_AudioRoomSecretKey isEqualToString:@""]) {
             msg = [NSString stringWithFormat:@"%@ 没有填写SECRETKEY", msg];
         }
         UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"提示" message:msg preferredStyle:UIAlertControllerStyleAlert];
@@ -171,10 +171,10 @@
     
     // TRTC相关参数设置
     TRTCParams *param = [[TRTCParams alloc] init];
-    param.sdkAppId = _SDKAppID;
+    param.sdkAppId = _AudioRoomSDKAppID;
     param.userId = userId;
     param.roomId = (UInt32)roomId.integerValue;
-    param.userSig = [GenerateTestUserSig genTestUserSig:userId];
+    param.userSig = [GenerateTestUserSig genTestUserSig:userId sdkAppId:_AudioRoomSDKAppID secretKey:_AudioRoomSecretKey];
     param.privateMapKey = @"";
     param.role = TRTCRoleAnchor;            //默认主播
     
