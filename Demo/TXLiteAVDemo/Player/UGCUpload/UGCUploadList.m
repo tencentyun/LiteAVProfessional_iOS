@@ -85,10 +85,7 @@
     __weak __typeof(self) wself = self;
     [self.getInfoNetApi getplayinfo:p.appId
                              fileId:p.fileId
-                             timeout:p.timeout
-                                  us:p.us
-                               exper:p.exper
-                                sign:p.sign
+                              psign:p.sign
                          completion:^(TXMoviePlayInfoResponse *resp, NSError *error) {
         __strong __typeof(wself) self = wself;
 

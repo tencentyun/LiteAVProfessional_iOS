@@ -42,7 +42,7 @@
 		1287DFBD23C6C6DD007F9366 /* TRTCAudioCallAudioConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 1287DF9123C6C6DC007F9366 /* TRTCAudioCallAudioConfig.m */; };
 		1287DFC123C6C6DD007F9366 /* TRTCAudioCallCustomAudioFileReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1287DF9523C6C6DC007F9366 /* TRTCAudioCallCustomAudioFileReader.m */; };
 		1287DFC923C6C6DD007F9366 /* CreateTRTCAudioCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1287DF9823C6C6DC007F9366 /* CreateTRTCAudioCallViewController.m */; };
-		26EEF25472035B26C22F73A7 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F00D28F79B8E78DED5C94E0 /* TXLiteAVSDK_Professional.framework */; };
+		1EA6BCDB750B2E3B311557EE /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D62C6B7905DBD3D4A2FA97 /* TXLiteAVSDK_Professional.framework */; };
 		3A821071230EB863000CB377 /* on_mic.aac in Resources */ = {isa = PBXBuildFile; fileRef = 3A820EB7230E6ACF000CB377 /* on_mic.aac */; };
 		3A821083230EB866000CB377 /* giftSent.aac in Resources */ = {isa = PBXBuildFile; fileRef = 3A820E85230E3BAB000CB377 /* giftSent.aac */; };
 		3A821086230EB86B000CB377 /* vchat_cheers.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 3A820E11230C3719000CB377 /* vchat_cheers.m4a */; };
@@ -237,7 +237,7 @@
 		A0B8FC06207E235B008D7982 /* QCloudCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A0B8FC00207E235B008D7982 /* QCloudCore.framework */; };
 		A0B8FC0C207E24F2008D7982 /* TVCUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = A0B8FC09207E24F2008D7982 /* TVCUtils.m */; };
 		A0FFAD96213791B70087FF45 /* TVCHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */; };
-		B32117ED67035BC1D055CD9C /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F00D28F79B8E78DED5C94E0 /* TXLiteAVSDK_Professional.framework */; };
+		B7CA83131A9CBADBC18BB165 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1D62C6B7905DBD3D4A2FA97 /* TXLiteAVSDK_Professional.framework */; };
 		CE01F53F206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
 		CE43944920948BB7004F1977 /* LiveRecordPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE43944720948B76004F1977 /* LiveRecordPreviewViewController.m */; };
 		CE59D395206CD11F00583727 /* VideoCompressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE59D391206CD11400583727 /* VideoCompressViewController.m */; };
@@ -705,11 +705,10 @@
 		6AB334251FA96543007C8244 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		6AB334261FA96543007C8244 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
 		6AB334271FA96543007C8244 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		6AB334C11FA9A6C6007C8244 /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImSDK.framework; path = ../SDK/ImSDK.framework; sourceTree = "<group>"; };
+		6AB334C11FA9A6C6007C8244 /* ImSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImSDK.framework; path = TXLiteAVDemo/../../SDK/ImSDK.framework; sourceTree = "<group>"; };
 		6ABFB8E022F9BF810097E234 /* Bugly.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bugly.framework; path = TXLiteAVDemo/Third/Bugly/Bugly.framework; sourceTree = "<group>"; };
 		6AFE0D1622DF49E60092F94F /* GenerateTestUserSig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerateTestUserSig.h; sourceTree = "<group>"; };
 		6AFE0D1722DF49E60092F94F /* GenerateTestUserSig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateTestUserSig.m; sourceTree = "<group>"; };
-		7F00D28F79B8E78DED5C94E0 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Professional.framework; path = ../SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
 		910E179D2080A27500178D86 /* TXMoviePlayerNetApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXMoviePlayerNetApi.h; sourceTree = "<group>"; };
 		910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXMoviePlayerNetApi.m; sourceTree = "<group>"; };
 		910E17A52080A2EB00178D86 /* TXMoviePlayerNetDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXMoviePlayerNetDelegate.h; sourceTree = "<group>"; };
@@ -836,6 +835,7 @@
 		CEBE16AE1FD6A43C00A22F3F /* TXBitrateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXBitrateView.m; sourceTree = "<group>"; };
 		CEBE16AF1FD6A43C00A22F3F /* TXBitrateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXBitrateView.h; sourceTree = "<group>"; };
 		CF31F0EB1FBB2A7E0066BF7D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		D1D62C6B7905DBD3D4A2FA97 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Professional.framework; path = ../SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
 		D50292D42272BAFE00C052B7 /* RoomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomUtil.m; sourceTree = "<group>"; };
 		D50292D52272BAFE00C052B7 /* RoomUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomUtil.h; sourceTree = "<group>"; };
 		D50292D62272BAFE00C052B7 /* IMMsgManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMsgManager.m; sourceTree = "<group>"; };
@@ -944,7 +944,7 @@
 				6A3105E222687996002F6115 /* libmtasdk.a in Frameworks */,
 				40091FBB1F4FCBBE009B882D /* Security.framework in Frameworks */,
 				40091FBC1F4FCBBE009B882D /* AssetsLibrary.framework in Frameworks */,
-				B32117ED67035BC1D055CD9C /* TXLiteAVSDK_Professional.framework in Frameworks */,
+				1EA6BCDB750B2E3B311557EE /* TXLiteAVSDK_Professional.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -959,7 +959,7 @@
 				D6D9E38520D2862500B6D607 /* libresolv.tbd in Frameworks */,
 				D6D9E38620D2862500B6D607 /* libc++.tbd in Frameworks */,
 				D6D9E38820D2862500B6D607 /* ReplayKit.framework in Frameworks */,
-				26EEF25472035B26C22F73A7 /* TXLiteAVSDK_Professional.framework in Frameworks */,
+				B7CA83131A9CBADBC18BB165 /* TXLiteAVSDK_Professional.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1551,7 +1551,6 @@
 				40407ACA1F3035CA006C7301 /* Foundation.framework */,
 				51A4AD391F1F8AE300B4A806 /* MediaPlayer.framework */,
 				CE45D2971F15C527003506D1 /* libc++.tbd */,
-				6ABFB8E022F9BF810097E234 /* Bugly.framework */,
 				40F8554E1EE8FE0100EE47D7 /* libiconv.tbd */,
 				40F8554C1EE8FDFC00EE47D7 /* libz.tbd */,
 				40F855481EE8FDF100EE47D7 /* libresolv.tbd */,
@@ -1565,7 +1564,7 @@
 				40F855381EE8FDB600EE47D7 /* Security.framework */,
 				40F855361EE8FDAD00EE47D7 /* AssetsLibrary.framework */,
 				91D47F3920B6B13C0072AC0B /* ReplayKit.framework */,
-				7F00D28F79B8E78DED5C94E0 /* TXLiteAVSDK_Professional.framework */,
+				D1D62C6B7905DBD3D4A2FA97 /* TXLiteAVSDK_Professional.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2341,6 +2340,7 @@
 		F1F022672322CBEE00458167 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				6ABFB8E022F9BF810097E234 /* Bugly.framework */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -2357,7 +2357,7 @@
 				40091FBE1F4FCBBE009B882D /* Resources */,
 				912E50C921743FFD00DC86EC /* Embed App Extensions */,
 				456A68ED225CCDB400609884 /* Embed Frameworks */,
-				400920791F4FCBBE009B882D /* ShellScript */,
+				400920791F4FCBBE009B882D /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -2376,7 +2376,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D6D9E38A20D2862500B6D607 /* Build configuration list for PBXNativeTarget "TXReplaykitUpload_Professional" */;
 			buildPhases = (
-				45E1389323D0537E00A9AA93 /* Download SDK */,
+				45D8A21C2434B6E700337699 /* Download SDK */,
 				D6D9E37E20D2862500B6D607 /* Sources */,
 				D6D9E38320D2862500B6D607 /* Frameworks */,
 				D6D9E38920D2862500B6D607 /* Resources */,
@@ -2537,20 +2537,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		400920791F4FCBBE009B882D /* ShellScript */ = {
+		400920791F4FCBBE009B882D /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"$CONFIGURATION\" == \"Debug\" ]; then \nexit 0\nfi\n# compress application.\n/bin/rm -rf $CONFIGURATION_BUILD_DIR/Payload\n/bin/mkdir -p $CONFIGURATION_BUILD_DIR/Payload\n/bin/cp -R $CONFIGURATION_BUILD_DIR/${PRODUCT_NAME}.app $CONFIGURATION_BUILD_DIR/Payload\n#/bin/cp images/logo_itunes.png $CONFIGURATION_BUILD_DIR/iTunesArtwork\ncd $CONFIGURATION_BUILD_DIR\n# zip up the HelloWorld directory\n/usr/bin/zip -r -q ${PRODUCT_NAME}.ipa Payload iTunesArtwork\n";
 		};
-		45E1389323D0537E00A9AA93 /* Download SDK */ = {
+		45D8A21C2434B6E700337699 /* Download SDK */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2871,7 +2872,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo",
 					"$(PROJECT_DIR)/TXLiteAVDemo//Third/PiTu",
-					"$(PROJECT_DIR)/../SDK/**",
+					"$(PROJECT_DIR)/../SDK",
 					"$(PROJECT_DIR)/TXLiteAVDemo//Third/ImSDK",
 					"$(PROJECT_DIR)/TXLiteAVDemo/VideoUpload/COSSDK",
 					"$(PROJECT_DIR)/TXLiteAVDemo/Third/ImSDK",
@@ -2930,7 +2931,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo",
 					"$(PROJECT_DIR)/TXLiteAVDemo//Third/PiTu",
-					"$(PROJECT_DIR)/../SDK/**",
+					"$(PROJECT_DIR)/../SDK",
 					"$(PROJECT_DIR)/TXLiteAVDemo//Third/ImSDK",
 					"$(PROJECT_DIR)/TXLiteAVDemo/VideoUpload/COSSDK",
 					"$(PROJECT_DIR)/TXLiteAVDemo/Third/ImSDK",
@@ -2989,7 +2990,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo",
 					"$(PROJECT_DIR)/TXLiteAVDemo//Third/PiTu",
-					"$(PROJECT_DIR)/../SDK/**",
+					"$(PROJECT_DIR)/../SDK",
 					"$(PROJECT_DIR)/TXLiteAVDemo//Third/ImSDK",
 					"$(PROJECT_DIR)/TXLiteAVDemo/VideoUpload/COSSDK",
 					"$(PROJECT_DIR)/TXLiteAVDemo/Third/ImSDK",

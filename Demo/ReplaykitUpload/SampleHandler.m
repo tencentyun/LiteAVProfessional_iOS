@@ -59,7 +59,7 @@ static CGImagePropertyOrientation s_orientation = kCGImagePropertyOrientationUp;
 
 - (instancetype) init {
     self = [super init];
-    [TXLiveBase setLicenceURL:@"<#URL#>" key:@"<#Key#>"];
+    [TXLiveBase setLicenceURL:<#@"Licence URL"#> key:<#@"Licence Key"#>];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStartNotification:) name:@"Cocoa_ReplayKit2_Push_Start" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleReplayKit2PushStopNotification:) name:@"Cocoa_ReplayKit2_Push_Stop" object:nil];

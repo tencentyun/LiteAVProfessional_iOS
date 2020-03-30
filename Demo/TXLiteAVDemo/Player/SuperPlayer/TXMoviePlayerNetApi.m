@@ -7,20 +7,17 @@
 //
 
 #import "TXMoviePlayerNetApi.h"
-#define BASE_URL_S @"https://playvideo.qcloud.com/getplayinfo/v2"
-#define BASE_URL @"http://playvideo.qcloud.com/getplayinfo/v2"
+#define BASE_URL_S @"https://playvideo.qcloud.com/getplayinfo/v4"
+#define BASE_URL @"http://playvideo.qcloud.com/getplayinfo/v4"
 
 @implementation TXMoviePlayerNetApi{
     NSURLSession *_session;
 }
 
 - (int)getplayinfo:(NSInteger)appId
-    fileId:(NSString *)fileId
-   timeout:(NSString *)timeout
-        us:(NSString *)us
-     exper:(int)exper
-      sign:(NSString *)sign
-completion:(void(^)(TXMoviePlayInfoResponse *resp, NSError *error))completion
+            fileId:(NSString *)fileId
+             psign:(NSString *)psign
+        completion:(void(^)(TXMoviePlayInfoResponse *resp, NSError *error))completion
 {
     
     if (appId == 0 || fileId.length == 0) {
@@ -39,18 +36,11 @@ completion:(void(^)(TXMoviePlayInfoResponse *resp, NSError *error))completion
     }
     
     NSMutableDictionary *params = [NSMutableDictionary new];
-    if (timeout) {
-        [params setValue:timeout forKey:@"t"];
+    
+    if (psign) {
+        params[@"psign"] = psign;
     }
-    if (us) {
-        [params setValue:us forKey:@"us"];
-    }
-    if (sign) {
-        [params setValue:sign forKey:@"sign"];
-    }
-    if (exper >= 0) {
-        [params setValue:@(exper) forKey:@"exper"];
-    }
+
     NSString *httpBodyString = [self makeParamtersString:params withEncoding:NSUTF8StringEncoding];
     NSString *urlStr = [NSString stringWithFormat:@"%@/%ld/%@", self.https?BASE_URL_S:BASE_URL, (long)appId, fileId];
     if (httpBodyString) {

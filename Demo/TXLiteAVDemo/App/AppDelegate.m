@@ -96,11 +96,11 @@ NSString *helpUrlDb[] = {
     
     [Bugly startWithAppId:BUGLY_APP_ID config:config];
 #ifdef ENABLE_UGC
-    [TXUGCBase setLicenceURL:@"<#Licence URL#>" key:@"<#Licence Key#>"];
+    [TXUGCBase setLicenceURL:<#@"Licence URL"#> key:<#@"Licence Key"#>];
 #endif
     
 #ifdef ENABLE_PUSH
-    [TXLiveBase setLicenceURL:@"<#Licence URL#>" key:@"<#Licence Key#>"];
+    [TXLiveBase setLicenceURL:<#@"Licence URL"#> key:<#@"Licence Key"#>];
 #endif
     
     NSLog(@"rtmp demo init crash report");

@@ -17,9 +17,7 @@
 
 - (int)getplayinfo:(NSInteger)appId
             fileId:(NSString *)fileId
-           timeout:(NSString *)timeout
-                us:(NSString *)us
-             exper:(int)exper
-              sign:(NSString *)sign
+             psign:(NSString *)psign
         completion:(void(^)(TXMoviePlayInfoResponse *resp, NSError *error))completion;
+
 @end

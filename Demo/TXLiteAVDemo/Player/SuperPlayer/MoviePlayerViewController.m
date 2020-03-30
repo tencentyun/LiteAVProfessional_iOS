@@ -20,7 +20,7 @@
 #import "SuperPlayerGuideView.h"
 #import "AFNetworking.h"
 #import "UIImageView+WebCache.h"
-
+#import "TXLiteAVSDK.h"
 #import "UGCUploadList.h"
 
 #define LIST_VIDEO_CELL_ID @"LIST_VIDEO_CELL_ID"
@@ -498,10 +498,7 @@ __weak UITextField *urlField;
     __weak __typeof(self) wself = self;
     [self.getInfoNetApi getplayinfo:p.appId
                              fileId:p.fileId
-                             timeout:p.timeout
-                                  us:p.us
-                               exper:p.exper
-                                sign:p.sign
+                              psign:p.sign
                          completion:^(TXMoviePlayInfoResponse *resp, NSError *error) {
         if (error) {
             [wself hudMessage:@"fileid请求失败"];
@@ -553,13 +550,73 @@ __weak UITextField *urlField;
     self.playerView.isLockScreen = YES;
 }
 
+- (int)_getIntFromDict:(NSDictionary *)dictionary key:(NSString *)key {
+    NSString *value = dictionary[key];
+    if (value) {
+        return [value intValue];
+    }
+    return -1;
+}
+
+- (BOOL)_fillModel:(SuperPlayerModel *)model withURL:(NSString *)result {
+    NSURLComponents *components = [NSURLComponents componentsWithString:result];
+    if ([components.host isEqualToString:@"playvideo.qcloud.com"]) {
+        NSArray *pathComponents = [components.path componentsSeparatedByString:@"/"];
+        if (pathComponents.count != 5) {
+            return NO;
+        }
+        NSString *appID = pathComponents[3];
+        NSString *fileID =  pathComponents[4];
+
+        NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithCapacity:components.queryItems.count];
+        for (NSURLQueryItem *item in components.queryItems) {
+            if (item.value) {
+                paramDict[item.name] = item.value;
+            }
+        }
+        model.appId = [appID integerValue];
+        model.videoId = [[SuperPlayerVideoId alloc] init];
+        model.videoId.fileId = fileID;
+        if (paramDict[@"pcfg"]) {
+            [model.videoId setValue:paramDict[@"pcfg"] forKey:@"pcfg"];
+        }
+        model.videoId.psign = paramDict[@"psign"];
+        return YES;
+    } else if ([components.host isEqualToString:@"play_vod"]) {
+        NSMutableDictionary *paramDict = [NSMutableDictionary dictionaryWithCapacity:components.queryItems.count];
+        for (NSURLQueryItem *item in components.queryItems) {
+            if (item.value) {
+                paramDict[item.name] = item.value;
+            }
+        }
+        model.appId = [paramDict[@"appId"] integerValue];
+        model.videoId = [[SuperPlayerVideoId alloc] init];
+        model.videoId.fileId = paramDict[@"fileId"];
+        if (paramDict[@"pcfg"]) {
+            [model.videoId setValue:paramDict[@"pcfg"] forKey:@"pcfg"];
+        }        model.videoId.psign = paramDict[@"psign"];
+        return YES;
+    }
+    return NO;
+}
+
 - (void)onScanResult:(NSString *)result
 {
     self.textView.text = result;
     SuperPlayerModel *model = [SuperPlayerModel new];
-    
-    model.videoURL         = result;
-    
+    BOOL isLive = self.playerView.isLive;
+    if ([result hasPrefix:@"txsuperplayer://"]) {
+        [self _fillModel:model withURL:result];
+        isLive = NO;
+    } else if ([result hasPrefix:@"https://playvideo.qcloud.com/getplayinfo/v4"]) {
+        if ([self _fillModel:model withURL:result]) {
+            isLive = NO;
+        } else {
+            model.videoURL = result;
+        }
+    } else {
+        model.videoURL = result;
+    }
     [self.playerView.controlView setTitle:@"这是新播放的视频"];
     [self.playerView.coverImageView setImage:nil];
     [self.playerView playWithModel:model];
@@ -567,12 +624,15 @@ __weak UITextField *urlField;
     ListVideoModel *m = [ListVideoModel new];
     m.url = result;
     m.type = self.playerView.isLive;
-    if (self.playerView.isLive) {
-        m.title = [NSString stringWithFormat:@"视频%lu",_liveDataSourceArray.count+1];
+    if (isLive) {
+        m.title = [NSString stringWithFormat:@"视频%lu",(unsigned long)_liveDataSourceArray.count+1];
         [_liveDataSourceArray addObject:m];
         [_liveListView reloadData];
     } else {
-        m.title = [NSString stringWithFormat:@"视频%lu",_vodDataSourceArray.count+1];
+        if (model.videoId) {
+            [m setModel:model];
+        }
+        m.title = [NSString stringWithFormat:@"视频%lu",(unsigned long)_vodDataSourceArray.count+1];
         [_vodDataSourceArray addObject:m];
         [_vodListView reloadData];
     }
@@ -618,7 +678,7 @@ __weak UITextField *urlField;
             
             ListVideoModel *m = [ListVideoModel new];
             m.url = urlField.text;
-            m.title = [NSString stringWithFormat:@"视频%lu",self.liveDataSourceArray.count+1];
+            m.title = [NSString stringWithFormat:@"视频%lu",(unsigned  long)self.liveDataSourceArray.count+1];
             m.type = 1;
             [self.liveDataSourceArray addObject:m];
             [self.liveListView reloadData];
@@ -627,7 +687,9 @@ __weak UITextField *urlField;
         self.playerView.isLockScreen = isLock;
     }]];
      
-    [control addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    [control addAction:[UIAlertAction actionWithTitle:@"取消"
+                                                style:UIAlertActionStyleCancel
+                                              handler:^(UIAlertAction * _Nonnull action) {
         self.playerView.isLockScreen = isLock;
     }]];
     
