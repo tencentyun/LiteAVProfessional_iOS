@@ -498,8 +498,8 @@
 /**
  * WARNING 大多是一些可以忽略的事件通知，SDK内部会启动一定的补救机制
  */
-- (void)onWarning:(TXLiteAVWarning)warningCode warningMsg:(NSString *)warningMsg {
-    
+- (void)onWarning:(TXLiteAVWarning)warningCode warningMsg:(nullable NSString *)warningMsg extInfo:(nullable NSDictionary*)extInfo {
+    [self toastTip:@"WARNING: %@, %@", @(warningCode), warningMsg];
 }
 
 /**
@@ -720,6 +720,22 @@
     [self.effectManager stopEffect:effectId];
 }
 
+- (void)onScreenCaptureStarted {
+    [self toastTip:@"屏幕分享开始"];
+}
+
+- (void)onScreenCapturePaused:(int)reason {
+    [self toastTip:@"屏幕分享暂停"];
+}
+
+- (void)onScreenCaptureResumed:(int)reason {
+    [self toastTip:@"屏幕分享继续"];
+}
+
+- (void)onScreenCaptureStoped:(int)reason {
+    [self toastTip:@"屏幕分享中止: %@", @(reason)];
+}
+
 - (UIImage*)imageForNetworkQuality:(TRTCQuality)quality
 {
     UIImage* image = nil;
@@ -747,12 +763,16 @@
     return image;
 }
 
-- (void)toastTip:(NSString *)toastInfo {
+- (void)toastTip:(NSString *)toastInfo, ... {
+    va_list args;
+    va_start(args, toastInfo);
+    NSString *log = [[NSString alloc] initWithFormat:toastInfo arguments:args];
+    va_end(args);
     __block UITextView *toastView = [[UITextView alloc] init];
     
     toastView.userInteractionEnabled = NO;
     toastView.scrollEnabled = NO;
-    toastView.text = toastInfo;
+    toastView.text = log;
     toastView.backgroundColor = [UIColor whiteColor];
     toastView.alpha = 0.5;
 

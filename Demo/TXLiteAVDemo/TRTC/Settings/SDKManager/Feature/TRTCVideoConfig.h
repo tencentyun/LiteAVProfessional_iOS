@@ -18,6 +18,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef enum : NSUInteger {
+    TRTCVideoSourceCamera = 0,
+    TRTCVideoSourceCustom,
+    TRTCVideoSourceScreen,
+} TRTCVideoSource;
+
 @class TRTCBitrateRange;
 
 /// 视频参数
@@ -31,11 +37,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)saveToLocal;
 
+@property (nonatomic) TRTCVideoSource source;
+
 /// 开启视频采集
 @property (nonatomic) BOOL isEnabled;
 
 /// 视频静画
 @property (nonatomic) BOOL isMuted;
+
+/// 暂停屏幕采集
+@property (nonatomic) BOOL isScreenCapturePaused;
 
 /// 主视频编码
 @property (strong, nonatomic) TRTCVideoEncParam* videoEncConfig;

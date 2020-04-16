@@ -169,6 +169,25 @@
     [self.trtc muteLocalVideo:isMuted];
 }
 
+- (void)pauseScreenCapture:(BOOL)isPaused {
+    self.videoConfig.isScreenCapturePaused = isPaused;
+    if (@available(iOS 11.0, *)) {
+        if (isPaused) {
+            [self.trtc pauseScreenCapture];
+        } else {
+            [self.trtc resumeScreenCapture];
+        }
+    }
+}
+
+- (void)enableLocalPreview:(BOOL)isEnabled {
+    if (isEnabled) {
+        [self.trtc startLocalPreview:YES view:self.videoView];
+    } else {
+        [self.trtc stopLocalPreview];
+    }
+}
+
 - (void)setLocalMirrorType:(TRTCLocalVideoMirrorType)type {
     self.videoConfig.localMirrorType = type;
     [self.trtc setLocalViewMirror:type];
@@ -222,6 +241,10 @@
 - (void)setAutoFocusEnabled:(BOOL)isEnabled {
     self.videoConfig.isAutoFocusOn = isEnabled;
     [self.trtc enableAutoFaceFoucs:isEnabled];
+}
+
+- (void)setVideoSource:(TRTCVideoSource)source {
+    self.videoConfig.source = source;
 }
 
 - (void)setCustomVideo:(AVAsset *)videoAsset {
@@ -561,28 +584,47 @@
     if (!self.videoConfig.isEnabled || self.isLiveAudience) {
         return;
     }
-    if (self.videoConfig.videoAsset) {
-        // 使用视频文件
-        [self setupVideoCapture];
-        [self.trtc enableCustomVideoCapture:YES];
-        [self.trtc setLocalVideoRenderDelegate:self.renderTester
-                                   pixelFormat:TRTCVideoPixelFormat_NV12
-                                    bufferType:TRTCVideoBufferType_PixelBuffer];
-        [self.renderTester addUser:nil videoView:self.videoView];
-        [self.videoCaptureTester start];
-    } else {
-        // 使用摄像头采集视频
-        [self.trtc startLocalPreview:self.videoConfig.isFrontCamera
-                                view:self.videoView];
+    switch (self.videoConfig.source) {
+        case TRTCVideoSourceCamera:
+            [self.trtc startLocalPreview:self.videoConfig.isFrontCamera
+                                    view:self.videoView];
+            break;
+        case TRTCVideoSourceCustom:
+            if (self.videoConfig.videoAsset) {
+                // 使用视频文件
+                [self setupVideoCapture];
+                [self.trtc enableCustomVideoCapture:YES];
+                [self.trtc setLocalVideoRenderDelegate:self.renderTester
+                                           pixelFormat:TRTCVideoPixelFormat_NV12
+                                            bufferType:TRTCVideoBufferType_PixelBuffer];
+                [self.renderTester addUser:nil videoView:self.videoView];
+                [self.videoCaptureTester start];
+            }
+            break;
+        case TRTCVideoSourceScreen:
+            if (@available(iOS 11.0, *)) {
+                [self.trtc startScreenCapture];
+            }
+            break;
     }
 }
 
 - (void)stopLocalVideo {
-    if (self.videoCaptureTester) {
-        [self.videoCaptureTester stop];
-        self.videoCaptureTester = nil;
-    } else {
-        [self.trtc stopLocalPreview];
+    switch (self.videoConfig.source) {
+        case TRTCVideoSourceCamera:
+            [self.trtc stopLocalPreview];
+            break;
+        case TRTCVideoSourceCustom:
+            if (self.videoCaptureTester) {
+                [self.videoCaptureTester stop];
+                self.videoCaptureTester = nil;
+            }
+            break;
+        case TRTCVideoSourceScreen:
+            if (@available(iOS 11.0, *)) {
+                [self.trtc stopScreenCapture];
+            }
+            break;
     }
 }
 

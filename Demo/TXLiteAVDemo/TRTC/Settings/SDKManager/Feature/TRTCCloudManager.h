@@ -71,6 +71,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Video Settings
 
+/// 设置视频采集源
+/// @param source 视频采集源
+- (void)setVideoSource:(TRTCVideoSource)source;
+
 /// 设置视频采集
 /// @param isEnabled 开启视频采集
 - (void)setVideoEnabled:(BOOL)isEnabled;
@@ -78,6 +82,10 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置视频推送
 /// @param isMuted 推送关闭
 - (void)setVideoMuted:(BOOL)isMuted;
+
+/// 暂停屏幕采集
+/// @param isPaused 暂时采集
+- (void)pauseScreenCapture:(BOOL)isPaused;
 
 /// 设置分辨率
 /// @param resolution 分辨率
@@ -102,6 +110,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置填充模式
 /// @param mode 填充模式
 - (void)setVideoFillMode:(TRTCVideoFillMode)mode;
+
+- (void)enableLocalPreview:(BOOL)isEnabled; // TEMP
 
 /// 设置本地镜像
 /// @param type 本地镜像模式

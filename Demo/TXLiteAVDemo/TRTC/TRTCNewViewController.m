@@ -87,7 +87,7 @@
     self.nameItem = [[TRTCSettingsLargeInputItem alloc] initWithTitle:@"请输入用户名："
                                                           placeHolder:[self randomId]];
     self.videoInputItem = [[TRTCSettingsSegmentItem alloc] initWithTitle:@"视频输入"
-                                                                   items:@[@"前摄像头", @"视频文件"]
+                                                                   items:@[@"摄像头", @"视频文件", @"录屏"]
                                                            selectedIndex:0
                                                                   action:nil];
     self.audioRecvModeItem = [[TRTCSettingsSegmentItem alloc] initWithTitle:@"音频接收"
@@ -265,6 +265,7 @@
                                                                  bizId:TX_BIZID];
     
 
+    [manager setVideoSource:self.videoInputItem.selectedIndex];
     if (self.videoInputItem.selectedIndex == 1) {
         [manager setCustomVideo:_customSourceAsset];
     }

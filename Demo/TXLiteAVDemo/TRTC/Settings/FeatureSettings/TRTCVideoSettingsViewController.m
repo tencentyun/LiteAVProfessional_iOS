@@ -79,6 +79,16 @@
                                                action:^(BOOL isOn) {
             [wSelf onMuteVideo:!isOn];
         }],
+        [[TRTCSettingsSwitchItem alloc] initWithTitle:@"暂停屏幕采集"
+                                                 isOn:config.isScreenCapturePaused
+                                               action:^(BOOL isOn) {
+            [wSelf onPauseScreenCapture:isOn];
+        }],
+        [[TRTCSettingsSwitchItem alloc] initWithTitle:@"开启摄像头"
+                                                 isOn:NO
+                                               action:^(BOOL isOn) {
+            [wSelf onEnableLocalPreview:isOn];
+        }], // TEMP
         [[TRTCSettingsSegmentItem alloc] initWithTitle:@"开启预览镜像"
                                                  items:TRTCVideoConfig.localMirrorTypeNames
                                          selectedIndex:config.localMirrorType
@@ -138,6 +148,14 @@
 
 - (void)onMuteVideo:(BOOL)isMuted {
     [self.settingsManager setVideoMuted:isMuted];
+}
+
+- (void)onPauseScreenCapture:(BOOL)isPaused {
+    [self.settingsManager pauseScreenCapture:isPaused];
+}
+
+- (void)onEnableLocalPreview:(BOOL)isEnabled {
+    [self.settingsManager enableLocalPreview:isEnabled];
 }
 
 - (void)onSelectLocalMirror:(NSInteger)index {
