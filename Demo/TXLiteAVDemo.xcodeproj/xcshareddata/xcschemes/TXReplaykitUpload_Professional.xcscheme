@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0940"
-   wasCreatedForAppExtension = "YES"
+   LastUpgradeVersion = "1140"
    version = "2.0">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,21 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "40091F6D1F4FCBBE009B882D"
-               BuildableName = "TXLiteAVDemo_Professional.app"
-               BlueprintName = "TXLiteAVDemo_Professional"
-               ReferencedContainer = "container:TXLiteAVDemo.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D6D9E37D20D2862500B6D607"
+               BlueprintIdentifier = "40AA52AE244554BA00303EF7"
                BuildableName = "TXReplaykitUpload_Professional.appex"
                BlueprintName = "TXReplaykitUpload_Professional"
                ReferencedContainer = "container:TXLiteAVDemo.xcodeproj">
@@ -44,41 +29,19 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "40091F6D1F4FCBBE009B882D"
-            BuildableName = "TXLiteAVDemo_Professional.app"
-            BlueprintName = "TXLiteAVDemo_Professional"
-            ReferencedContainer = "container:TXLiteAVDemo.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = ""
       selectedLauncherIdentifier = "Xcode.IDEFoundation.Launcher.PosixSpawn"
       launchStyle = "0"
+      askForAppToLaunch = "Yes"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "40091F6D1F4FCBBE009B882D"
-            BuildableName = "TXLiteAVDemo_Professional.app"
-            BlueprintName = "TXLiteAVDemo_Professional"
-            ReferencedContainer = "container:TXLiteAVDemo.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -87,16 +50,15 @@
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES"
       launchAutomaticallySubstyle = "2">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "40091F6D1F4FCBBE009B882D"
-            BuildableName = "TXLiteAVDemo_Professional.app"
-            BlueprintName = "TXLiteAVDemo_Professional"
+            BlueprintIdentifier = "40AA52AE244554BA00303EF7"
+            BuildableName = "TXReplaykitUpload_Professional.appex"
+            BlueprintName = "TXReplaykitUpload_Professional"
             ReferencedContainer = "container:TXLiteAVDemo.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
