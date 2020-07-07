@@ -13,6 +13,8 @@ def swift_pods
   pod 'Toast-Swift'
   pod 'Material'
   pod 'NVActivityIndicatorView'
+  pod 'SwiftyJSON'
+  pod 'HandyJSON'
 end
 
 def common_pods_all
@@ -42,8 +44,6 @@ target 'TXLiteAVDemo_Professional' do
   swift_pods
   player_pods 'Professional'
   tx_im
-  # 专业版SDK
-  pod 'TXLiteAVSDK_Professional', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
 end
 
 target 'TXReplaykitUpload_Professional' do
