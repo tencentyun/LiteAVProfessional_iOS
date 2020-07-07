@@ -71,7 +71,7 @@
 		40E25FB6248029F8005EB543 /* ASNSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E25F9D248029F8005EB543 /* ASNSLayoutConstraint+MASDebugAdditions.m */; };
 		40E25FB924803F68005EB543 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 401A9A47247FB78F00C0763B /* libc++.tbd */; };
 		40E25FBE24804490005EB543 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		CB1DFA7709DC94F2C93D83C9 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6258D73891810B55653538F6 /* TXLiteAVSDK_Professional.framework */; };
+		D5B595F676CF746A7F3FBA76 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2E1242C9C85BADB5B207647 /* TXLiteAVSDK_Professional.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,7 +177,7 @@
 		40E25F9B248029F8005EB543 /* ASMASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMASLayoutConstraint.h; sourceTree = "<group>"; };
 		40E25F9C248029F8005EB543 /* ASViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		40E25F9D248029F8005EB543 /* ASNSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASNSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
-		6258D73891810B55653538F6 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Professional.framework; path = ../../../SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
+		A2E1242C9C85BADB5B207647 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Professional.framework; path = ../../../SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,7 +189,7 @@
 				40E25FBE24804490005EB543 /* BuildFile in Frameworks */,
 				40E25FB924803F68005EB543 /* libc++.tbd in Frameworks */,
 				40D08707249C9D460055F9A6 /* AssetsLibrary.framework in Frameworks */,
-				CB1DFA7709DC94F2C93D83C9 /* TXLiteAVSDK_Professional.framework in Frameworks */,
+				D5B595F676CF746A7F3FBA76 /* TXLiteAVSDK_Professional.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +271,7 @@
 				40D08706249C9D460055F9A6 /* AssetsLibrary.framework */,
 				40D08703249C9C130055F9A6 /* Accelerate.framework */,
 				401A9A47247FB78F00C0763B /* libc++.tbd */,
-				6258D73891810B55653538F6 /* TXLiteAVSDK_Professional.framework */,
+				A2E1242C9C85BADB5B207647 /* TXLiteAVSDK_Professional.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
