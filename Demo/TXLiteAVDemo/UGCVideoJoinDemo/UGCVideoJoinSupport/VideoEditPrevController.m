@@ -227,11 +227,6 @@ typedef  NS_ENUM(NSInteger,ActionType)
     _generationView.hidden = YES;
     if(result.retCode == 0)
     {
-        //        if (_actionType == ActionType_Save || _actionType == ActionType_Save_Publish) {
-        //            UISaveVideoAtPathToSavedPhotosAlbum(_outFilePath, self, @selector(video:didFinishSavingWithError:contextInfo:), nil);
-        //        }else{
-        //            [self performSelector:@selector(video:didFinishSavingWithError:contextInfo:) withObject:nil];
-        //        }
         TXVideoInfo *videoInfo = [TXVideoInfoReader getVideoInfo:_outFilePath];
         VideoPreviewViewController* vc = [[VideoPreviewViewController alloc] initWithCoverImage:videoInfo.coverImage videoPath:_outFilePath renderMode:RENDER_MODE_FILL_EDGE showEditButton:NO];
         [self.navigationController pushViewController:vc animated:YES];
@@ -248,16 +243,7 @@ typedef  NS_ENUM(NSInteger,ActionType)
 - (void) onJoinProgress:(float)progress {
     _generateProgressView.progress = progress;
 }
-// ------
 
-//- (IBAction)saveToLocal:(id)sender {
-//    _actionType = ActionType_Save;
-//    [self process];
-//}
-//- (IBAction)publish:(id)sender {
-//    _actionType = ActionType_Publish;
-//    [self process];
-//}
 - (IBAction)saveAndPublish:(id)sender {
     _actionType = ActionType_Save;
     [self process];
@@ -276,32 +262,10 @@ typedef  NS_ENUM(NSInteger,ActionType)
             return;
         }
         [_ugcJoin joinVideo:VIDEO_COMPRESSED_540P videoOutputPath:_outFilePath];
-        //        [_ugcJoin setSplitScreenList:@[[NSValue valueWithCGRect:CGRectMake(0, 0, 540, 960)],
-        //                                       [NSValue valueWithCGRect:CGRectMake(540, 0, 540, 960)]
-        //                                       ] canvasWidth:540 * 2 canvasWidth:960];
-        //        [_ugcJoin splitJoinVideo:VIDEO_COMPRESSED_540P videoOutputPath:_outFilePath];
     }
     
     // Set the bar determinate mode to show task progress.
     _generationView = [self generatingView];
     _generationView.hidden = NO;
-}
-
-- (void)video:(NSString *)videoPath didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
-    
-    //    if (_actionType == ActionType_Save) {
-    //        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    //        return;
-    //    }
-    //    [self publish];
-    
-    //    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-- (void)publish {
-    //    TCVideoPublishController *vc = [[TCVideoPublishController alloc] initWithPath:_outFilePath
-    //                                                                         videoMsg:[TXUGCVideoInfoReader getVideoInfo:_outFilePath]];
-    //    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

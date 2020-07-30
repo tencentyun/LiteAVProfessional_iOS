@@ -122,9 +122,17 @@
     _renderView.frame = CGRectMake(0, 0, self.width, self.height);
     _coverView.frame = _renderView.frame;
     if (_videoIsPlay) {
-        _playBtn.frame = CGRectMake((self.frame.size.width - pauseBtnWidth)/2, (self.frame.size.height - pauseBtnHeight)/2 , pauseBtnWidth, pauseBtnHeight);
+        _playBtn.frame = CGRectMake(
+                                    (self.frame.size.width - pauseBtnWidth)/2,
+                                    (self.frame.size.height - pauseBtnHeight)/2,
+                                    pauseBtnWidth,
+                                    pauseBtnHeight);
     } else {
-        _playBtn.frame = CGRectMake((self.frame.size.width - playBtnWidth)/2, (self.frame.size.height - playBtnHeight)/2 , playBtnWidth, playBtnHeight);
+        _playBtn.frame = CGRectMake(
+                                    (self.frame.size.width - playBtnWidth)/2,
+                                    (self.frame.size.height - playBtnHeight)/2 ,
+                                    playBtnWidth,
+                                    playBtnHeight);
     }
     
 }
