@@ -232,13 +232,6 @@
     [btnDownload setImage:[UIImage imageNamed:@"download_press"] forState:UIControlStateSelected];
     [btnDownload addTarget:self action:@selector(onBtnDownloadClicked) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btnDownload];
-
-    //    UIButton *btnShare = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, BUTTON_CONTROL_SIZE, BUTTON_CONTROL_SIZE)];
-    //    btnShare.center = CGPointMake(self.view.frame.size.width * 3 / 4, self.view.frame.size.height - BUTTON_CONTROL_SIZE - 5);
-    //    [btnShare setImage:[UIImage imageNamed:@"shareex"] forState:UIControlStateNormal];
-    //    [btnShare setImage:[UIImage imageNamed:@"shareex_press"] forState:UIControlStateSelected];
-    //    [btnShare addTarget:self action:@selector(onBtnShareClicked) forControlEvents:UIControlEventTouchUpInside];
-    //    [self.view addSubview:btnShare];
 }
 
 -(void)onBtnPopBack

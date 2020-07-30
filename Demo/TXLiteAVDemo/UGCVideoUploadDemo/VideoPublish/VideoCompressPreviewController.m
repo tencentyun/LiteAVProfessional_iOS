@@ -107,8 +107,6 @@
     _generateProgressView.bounds = CGRectMake(0, 0, 225, 20);
     _generateProgressView.progressTintColor = UIColorFromRGB(0x0accac);
     [_generateProgressView setTrackImage:[UIImage imageNamed:@"slide_bar_small"]];
-    //_generateProgressView.trackTintColor = UIColor.whiteColor;
-    //_generateProgressView.transform = CGAffineTransformMakeScale(1.0, 2.0);
     
     _generationTitleLabel = [UILabel new];
     _generationTitleLabel.font = [UIFont systemFontOfSize:14];

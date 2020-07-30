@@ -44,7 +44,7 @@ public class TRTCVideoCall: NSObject,
                 isRespSponsor = false
                 isInRoom = false
             }
-            debugPrint("📳 isOnCalling : \(isOnCalling)")
+            debugPrint("log: isOnCalling : \(isOnCalling)")
         }
     }
     /// 当前通话的唯一ID |
@@ -276,18 +276,11 @@ public class TRTCVideoCall: NSObject,
                     /// 没有应答的人取消
                     sendModel(user: group, action: .sponsorCancel)
                 }
-                //挂断
-                sendModel(user: group, action: .hangup)
             }
         } else { // 1v1
             for user in curInvitingList {
                 /// 没有应答的人取消
                 sendModel(user: user, action: .sponsorCancel)
-            }
-            
-            if let user = curRoomList.first , curRoomList.count == 1 { // 1v1 hangup
-                //挂断
-                sendModel(user: user, action: .hangup)
             }
         }
         quitRoom()

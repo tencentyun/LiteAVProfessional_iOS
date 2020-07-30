@@ -113,6 +113,8 @@
             CFStringRef requestHeader = (__bridge CFStringRef) header;
             CFStringRef requestHeaderValue = (__bridge CFStringRef) [headFields valueForKey:header];
             CFHTTPMessageSetHeaderFieldValue(cfrequest, requestHeader, requestHeaderValue);
+            CFRelease(requestHeader);
+            CFRelease(requestHeaderValue);
         }
     }
     
@@ -156,11 +158,13 @@
     CFHTTPMessageRef message = (CFHTTPMessageRef) CFReadStreamCopyProperty(readStream, kCFStreamPropertyHTTPResponseHeader);
     if (CFHTTPMessageIsHeaderComplete(message)) {
         // 确保response头部信息完整
-        NSDictionary *headDict = (__bridge_transfer NSDictionary *) (CFHTTPMessageCopyAllHeaderFields(message));
+        CFDictionaryRef cfHeadDict = CFHTTPMessageCopyAllHeaderFields(message);
+        NSDictionary *headDict = (__bridge_transfer NSDictionary *) (cfHeadDict);
         
         // 获取响应头部的状态码
         CFIndex myErrCode = CFHTTPMessageGetResponseStatusCode(message);
-        
+        CFRelease(message);
+        message = nil;
         // 把当前请求关闭
         [inputStream removeFromRunLoop:curRunLoop forMode:NSRunLoopCommonModes];
         [inputStream setDelegate:nil];
@@ -213,6 +217,7 @@
         [inputStream close];
         [self.client URLProtocolDidFinishLoading:self];
     }
+    CFRelease(readStream);
     if (NULL != message) CFRelease(message);
 }
 
