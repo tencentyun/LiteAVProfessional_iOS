@@ -110,19 +110,16 @@ static NSString *indetifer = @"VideoJoinerCell";
 }
 
 - (IBAction)preview:(id)sender {
-    if (self.reorderVideoList.count < 1)
-        return;
-    
+    if (self.reorderVideoList.count < 1) { return; }
     if (self.reorderVideoList.count < 2) {
-        MBProgressHUD* hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        hub.mode = MBProgressHUDModeText;
-        hub.label.text = @"必须选择两个以上视频文件";
-        hub.removeFromSuperViewOnHide = YES;
-        [hub showAnimated:YES];
-        [hub hideAnimated:YES afterDelay:3];
-        return;
+           MBProgressHUD* hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+           hub.mode = MBProgressHUDModeText;
+           hub.label.text = @"必须选择两个以上视频文件";
+           hub.removeFromSuperViewOnHide = YES;
+           [hub showAnimated:YES];
+           [hub hideAnimated:YES afterDelay:3];
+           return;
     }
-    
     VideoEditPrevController *vc = [VideoEditPrevController new];
     NSMutableArray *list = [NSMutableArray new];
     for (VideoJoinerCellModel *model in self.reorderVideoList) {
