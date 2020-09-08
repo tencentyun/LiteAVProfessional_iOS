@@ -11,9 +11,9 @@ import Foundation
 
 //推送证书 ID
 #if DEBUG
-    let timSdkBusiId: UInt32 = 0
+    let timSdkBusiId: UInt32 = 18069
 #else
-    let timSdkBusiId: UInt32 = 0
+    let timSdkBusiId: UInt32 = 18070
 #endif
 
 class AppUtils: NSObject {
