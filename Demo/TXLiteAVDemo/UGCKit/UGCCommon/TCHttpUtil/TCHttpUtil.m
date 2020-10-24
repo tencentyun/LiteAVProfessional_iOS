@@ -65,6 +65,20 @@
             strUrl = [NSString stringWithFormat:@"%@/%@", httpServerAddr, request];
         }
         
+        if ([param allKeys].count > 0 && [HTTPMethod isEqual:@"GET"]) {
+            NSMutableString *getUrl = [[NSMutableString alloc] initWithString:strUrl];
+            if (![getUrl containsString:@"?"]) {
+                [getUrl appendString:@"?"];
+            }
+            for (NSString* key in param.allKeys) {
+                if (![[getUrl substringFromIndex:[getUrl length] - 1] isEqualToString:@"?"]) {
+                    [getUrl appendString:@"&"];
+                }
+                [getUrl appendString:[NSString stringWithFormat:@"%@=%@",key,param[key]]];
+            }
+            strUrl = [NSString stringWithString:getUrl];
+        }
+        
         NSURL *URL = [NSURL URLWithString:strUrl];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:URL];
         
