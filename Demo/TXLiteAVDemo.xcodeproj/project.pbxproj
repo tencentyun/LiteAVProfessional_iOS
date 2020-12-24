@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10479B53561EA44662B94518 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC6792CAAA138C741C8AF340 /* AppUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0135902CA7CD9F07E734990D /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB893BD84C0D39F2B3D265D /* CommonUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DC7F349A2B6380DCA056281 /* libPods-TXReplaykitUpload_Professional.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00809C5850F41459EC8EE3D8 /* libPods-TXReplaykitUpload_Professional.a */; };
 		1EA0A986FB03B486F983DE95 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		26BC498D88612AE602523293 /* ProfileManager_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D856BFBE19322130AE4EBBD /* ProfileManager_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2840D91C24B8562200723FBC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2840D91B24B8562200723FBC /* AudioToolbox.framework */; };
 		2840D92924B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
 		2840D92A24B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
@@ -621,6 +622,7 @@
 		40C0BDE3244853FF00931313 /* TCAudienceViewController+LiveDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3F9492446E6C6000C37A3 /* TCAudienceViewController+LiveDelegate.swift */; };
 		40C0BDE4244853FF00931313 /* TCAudienceToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B3F94A2446E6C6000C37A3 /* TCAudienceToolbarView.m */; };
 		40C0BDE5244853FF00931313 /* LiveRoomMainViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3F94C2446E6C6000C37A3 /* LiveRoomMainViewController+UI.swift */; };
+		40CBC03B5D949E635EE39C67 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2781FA6A6F8C669D1070F1B /* AppUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		40E1F43E2468F72900F3D350 /* UIColor+MLPFlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B3FA002447056D000C37A3 /* UIColor+MLPFlatColors.m */; };
 		40E1F43F2468F72900F3D350 /* UIColor+MLPFlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B3FA002447056D000C37A3 /* UIColor+MLPFlatColors.m */; };
 		40E1F4402468F72A00F3D350 /* UIColor+MLPFlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B3FA002447056D000C37A3 /* UIColor+MLPFlatColors.m */; };
@@ -722,7 +724,7 @@
 		51A289FB230FB95800B9B73F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
 		51A289FC230FB96000B9B73F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
 		51CE9F98231944BE00B620BD /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
-		654A30F2D40683C668D35974 /* LoginViewController_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E52F73F02F9243F43FA5014 /* LoginViewController_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		69B2F09B2C593E1854745C94 /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83FEF3348170C8E93FC37B02 /* ProfileViewController+UI.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6A03ED411FD13DFB00F2F063 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03ED3F1FD13DFB00F2F063 /* UIViewController+BackButtonHandler.m */; };
 		6A03ED421FD13E0C00F2F063 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03ED3F1FD13DFB00F2F063 /* UIViewController+BackButtonHandler.m */; };
 		6A03ED431FD13E0C00F2F063 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A03ED3F1FD13DFB00F2F063 /* UIViewController+BackButtonHandler.m */; };
@@ -855,8 +857,6 @@
 		6AAEC2C62497807200B57D86 /* TXMeetingPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAEC2672497807200B57D86 /* TXMeetingPair.m */; };
 		6AAEC3A52499F93300B57D86 /* TXLiteAVSDK_ReplayKitExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAEC38A2499E08100B57D86 /* TXLiteAVSDK_ReplayKitExt.framework */; };
 		7B107D8F4C4B5BF9184EC193 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		82E76E84E1164FAAF823BF6F /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281719ECC699F05FE9C0B013 /* CommonUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8FAB7D7D4EF761D12547BC66 /* LoginViewController+UI_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DC5AB0E635B51E1F78E4317 /* LoginViewController+UI_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		910E179F2080A27500178D86 /* TXMoviePlayerNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */; };
 		910E17A02080A27500178D86 /* TXMoviePlayerNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */; };
 		910E17A22080A27500178D86 /* TXMoviePlayerNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */; };
@@ -887,7 +887,6 @@
 		91F87A801FF4A101001644B1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */; };
 		91F87A811FF4A109001644B1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */; };
 		944B0A98D288A86246E2C14B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		9955577B875676E0AF57F81F /* ProfileManager_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F95D1F87333AE3BFE3E00B7 /* ProfileManager_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A035040820D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
 		A035040920D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
 		A035040A20D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
@@ -948,6 +947,7 @@
 		A0FFAD94213791B70087FF45 /* TVCHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */; };
 		A0FFAD96213791B70087FF45 /* TVCHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */; };
 		A0FFAD99213791B70087FF45 /* TVCHttpMessageURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */; };
+		BBD331CB6E64486E7511581A /* LoginViewController_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C107DD697FDB2736C1C1046 /* LoginViewController_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BD32F8A6AF7CC2FF9A53096E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		CE01F53E206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
 		CE01F53F206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
@@ -1090,9 +1090,9 @@
 		D6E5D1C320B7B62000812B2F /* ScreenPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */; };
 		D6E5D1C420B7B62000812B2F /* ScreenPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */; };
 		D6E5D1C520B7B62000812B2F /* ScreenPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */; };
-		EE197477494951A32492560D /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBD72CF52D57B76A3714F2F /* ProfileViewController+UI.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E0942DDD24F1D5F68DA8F733 /* LoginViewController+UI_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DCCB021B94FAC52BD00ABD /* LoginViewController+UI_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		ED244179EC4195AD92E823F3 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F039C838ABACB9479444C868 /* ProfileViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		EF69648B8809D6DEA1B7139D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		F76FBF89999394904307E4F0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FC7EAF57042E9C405B22FA /* ProfileViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FDD4BF2B24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
 		FDD4BF2C24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
 		FDD4BF2D24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
@@ -1255,13 +1255,6 @@
 			remoteGlobalIDString = 40AF719A247D036200EBB371;
 			remoteInfo = AudioEffectSettingKit;
 		};
-		40B5C6842484BBE500D3A718 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 401A9B3D247FCC7600C0763B /* AudioEffectSettingKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 40AF71AA247D03E700EBB371;
-			remoteInfo = AudioEffectSettingKitExample;
-		};
 		40B5C6862484BBE500D3A718 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 401A9B3D247FCC7600C0763B /* AudioEffectSettingKit.xcodeproj */;
@@ -1346,8 +1339,6 @@
 
 /* Begin PBXFileReference section */
 		00809C5850F41459EC8EE3D8 /* libPods-TXReplaykitUpload_Professional.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TXReplaykitUpload_Professional.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1F95D1F87333AE3BFE3E00B7 /* ProfileManager_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileManager_Mock.swift; sourceTree = "<group>"; };
-		281719ECC699F05FE9C0B013 /* CommonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		2840D91B24B8562200723FBC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDWebImagePlaceholderImageManager.swift; sourceTree = "<group>"; };
 		4009207D1F4FCBBE009B882D /* TXLiteAVDemo_Professional.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TXLiteAVDemo_Professional.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1549,6 +1540,7 @@
 		40F855481EE8FDF100EE47D7 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
 		40F8554C1EE8FDFC00EE47D7 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		40F8554E1EE8FE0100EE47D7 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		43DCCB021B94FAC52BD00ABD /* LoginViewController+UI_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI_Mock.swift"; sourceTree = "<group>"; };
 		4509E5D122816E8D001FF14A /* LiveRoomAccPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LiveRoomAccPlayerView.h; sourceTree = "<group>"; };
 		4509E5D222816E8D001FF14A /* LiveRoomAccPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LiveRoomAccPlayerView.m; sourceTree = "<group>"; };
 		450CFC1123AB5CC800A17FD0 /* VideoRecordConfigViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoRecordConfigViewController.m; sourceTree = "<group>"; };
@@ -1580,9 +1572,9 @@
 		45D8448C23B64395001CD3A9 /* UGCUploadList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGCUploadList.m; sourceTree = "<group>"; };
 		45E74D9923B22BCD00C22B31 /* ThemeConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeConfigurator.h; sourceTree = "<group>"; };
 		45E74D9A23B22BCD00C22B31 /* ThemeConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeConfigurator.m; sourceTree = "<group>"; };
-		4E52F73F02F9243F43FA5014 /* LoginViewController_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController_Mock.swift; sourceTree = "<group>"; };
 		51A289F8230FB93A00B9B73F /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		51A4AD391F1F8AE300B4A806 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5D856BFBE19322130AE4EBBD /* ProfileManager_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileManager_Mock.swift; sourceTree = "<group>"; };
 		6A03ED3F1FD13DFB00F2F063 /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
 		6A03ED401FD13DFB00F2F063 /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		6A1C108A2281A674005D7BD9 /* PushLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushLogView.h; sourceTree = "<group>"; };
@@ -1628,7 +1620,8 @@
 		6AAEC38A2499E08100B57D86 /* TXLiteAVSDK_ReplayKitExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_ReplayKitExt.framework; sourceTree = "<group>"; };
 		79502CEACF33A99A8EAD3DB5 /* Pods-TXLiteAVDemo_Professional.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXLiteAVDemo_Professional.release.xcconfig"; path = "Target Support Files/Pods-TXLiteAVDemo_Professional/Pods-TXLiteAVDemo_Professional.release.xcconfig"; sourceTree = "<group>"; };
 		7B4C917A24B4B0C80095C041 /* TXLaunchMoviePlayProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXLaunchMoviePlayProtocol.h; sourceTree = "<group>"; };
-		7DC5AB0E635B51E1F78E4317 /* LoginViewController+UI_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI_Mock.swift"; sourceTree = "<group>"; };
+		7C107DD697FDB2736C1C1046 /* LoginViewController_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController_Mock.swift; sourceTree = "<group>"; };
+		83FEF3348170C8E93FC37B02 /* ProfileViewController+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UI.swift"; sourceTree = "<group>"; };
 		910E179D2080A27500178D86 /* TXMoviePlayerNetApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXMoviePlayerNetApi.h; sourceTree = "<group>"; };
 		910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXMoviePlayerNetApi.m; sourceTree = "<group>"; };
 		910E17A52080A2EB00178D86 /* TXMoviePlayerNetDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXMoviePlayerNetDelegate.h; sourceTree = "<group>"; };
@@ -1649,7 +1642,6 @@
 		91EEB3492060AF6C00BD01DB /* DownloadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
 		91EEB34A2060AF6C00BD01DB /* DownloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
 		91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		96FC7EAF57042E9C405B22FA /* ProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A035040620D20A01007E61C6 /* QRCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
 		A035040720D20A01007E61C6 /* QRCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCode.m; sourceTree = "<group>"; };
 		A035042E20D24F99007E61C6 /* AddressBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressBarController.h; sourceTree = "<group>"; };
@@ -1687,7 +1679,7 @@
 		A0B8FC0A207E24F2008D7982 /* TVCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCUtils.h; sourceTree = "<group>"; };
 		A0FFAD92213791B70087FF45 /* TVCHttpMessageURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCHttpMessageURLProtocol.h; sourceTree = "<group>"; };
 		A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCHttpMessageURLProtocol.m; sourceTree = "<group>"; };
-		BC6792CAAA138C741C8AF340 /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		C2781FA6A6F8C669D1070F1B /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		C8E643F175AE44DEDBA06255 /* Pods-TXReplaykitUpload_Professional.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXReplaykitUpload_Professional.release.xcconfig"; path = "Target Support Files/Pods-TXReplaykitUpload_Professional/Pods-TXReplaykitUpload_Professional.release.xcconfig"; sourceTree = "<group>"; };
 		CE01F53C206DDE060056D693 /* VideoCompressPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCompressPreviewController.h; sourceTree = "<group>"; };
 		CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompressPreviewController.m; sourceTree = "<group>"; };
@@ -1695,6 +1687,7 @@
 		CE59D390206CD11400583727 /* VideoCompressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCompressViewController.h; sourceTree = "<group>"; };
 		CE59D391206CD11400583727 /* VideoCompressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompressViewController.m; sourceTree = "<group>"; };
 		CE7C6E4A1FC2C5320095663F /* FilterResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FilterResource.bundle; sourceTree = "<group>"; };
+		CEB893BD84C0D39F2B3D265D /* CommonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		CF31F0EB1FBB2A7E0066BF7D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		CF61F5551FD690FB007CDAF4 /* YTFaceSDK.licence */ = {isa = PBXFileReference; lastKnownFileType = file; path = YTFaceSDK.licence; sourceTree = "<group>"; };
 		D50292D42272BAFE00C052B7 /* RoomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomUtil.m; sourceTree = "<group>"; };
@@ -1755,8 +1748,8 @@
 		D6E5D1C120B7B62000812B2F /* ScreenPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenPushViewController.h; sourceTree = "<group>"; };
 		D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenPushViewController.m; sourceTree = "<group>"; };
 		D8DAEDF58579402BA6271194 /* Pods-TXLiteAVDemo_Professional.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXLiteAVDemo_Professional.debug.xcconfig"; path = "Target Support Files/Pods-TXLiteAVDemo_Professional/Pods-TXLiteAVDemo_Professional.debug.xcconfig"; sourceTree = "<group>"; };
-		EBBD72CF52D57B76A3714F2F /* ProfileViewController+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UI.swift"; sourceTree = "<group>"; };
 		EBEC989F47F9D57C638FDC46 /* Pods-TXReplaykitUpload_Professional.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXReplaykitUpload_Professional.debug.xcconfig"; path = "Target Support Files/Pods-TXReplaykitUpload_Professional/Pods-TXReplaykitUpload_Professional.debug.xcconfig"; sourceTree = "<group>"; };
+		F039C838ABACB9479444C868 /* ProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoEditor.xcassets; sourceTree = "<group>"; };
 		FE920CB89622A1ED8E88E9B0 /* libPods-TXLiteAVDemo_Professional.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TXLiteAVDemo_Professional.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -2394,7 +2387,6 @@
 			isa = PBXGroup;
 			children = (
 				40B5C6832484BBE500D3A718 /* AudioEffectSettingKit.framework */,
-				40B5C6852484BBE500D3A718 /* AudioEffectSettingKitExample.app */,
 				40B5C6872484BBE500D3A718 /* AudioEffectSettingKitResources.bundle */,
 			);
 			name = Products;
@@ -2526,7 +2518,7 @@
 				402A00EA245068240037A219 /* UGCVideoJoinDemo */,
 				402A00E9245068160037A219 /* UGCVideoEditDemo */,
 				402A00E5245065500037A219 /* UGCVideoUploadDemo */,
-				4F7D1CEFEE686D98CB416B3E /* Login */,
+				60A1D8F67DD4597756EB106B /* Login */,
 			);
 			path = TXLiteAVDemo;
 			sourceTree = "<group>";
@@ -2687,16 +2679,16 @@
 			path = UGCUpload;
 			sourceTree = "<group>";
 		};
-		4F7D1CEFEE686D98CB416B3E /* Login */ = {
+		60A1D8F67DD4597756EB106B /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				4E52F73F02F9243F43FA5014 /* LoginViewController_Mock.swift */,
-				1F95D1F87333AE3BFE3E00B7 /* ProfileManager_Mock.swift */,
-				7DC5AB0E635B51E1F78E4317 /* LoginViewController+UI_Mock.swift */,
-				BC6792CAAA138C741C8AF340 /* AppUtils.swift */,
-				281719ECC699F05FE9C0B013 /* CommonUtils.swift */,
-				96FC7EAF57042E9C405B22FA /* ProfileViewController.swift */,
-				EBBD72CF52D57B76A3714F2F /* ProfileViewController+UI.swift */,
+				7C107DD697FDB2736C1C1046 /* LoginViewController_Mock.swift */,
+				5D856BFBE19322130AE4EBBD /* ProfileManager_Mock.swift */,
+				43DCCB021B94FAC52BD00ABD /* LoginViewController+UI_Mock.swift */,
+				C2781FA6A6F8C669D1070F1B /* AppUtils.swift */,
+				CEB893BD84C0D39F2B3D265D /* CommonUtils.swift */,
+				F039C838ABACB9479444C868 /* ProfileViewController.swift */,
+				83FEF3348170C8E93FC37B02 /* ProfileViewController+UI.swift */,
 			);
 			name = Login;
 			path = TXLiteAVDemo/Login;
@@ -3235,13 +3227,6 @@
 			remoteRef = 40B5C6822484BBE500D3A718 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		40B5C6852484BBE500D3A718 /* AudioEffectSettingKitExample.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = AudioEffectSettingKitExample.app;
-			remoteRef = 40B5C6842484BBE500D3A718 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		40B5C6872484BBE500D3A718 /* AudioEffectSettingKitResources.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -3553,13 +3538,13 @@
 				4040CC962497C79400CA4FAA /* TRTCVoiceRoomTipsTableCell.swift in Sources */,
 				4046B15924B36AD700F27349 /* TXBaseDef.m in Sources */,
 				D6BEF75B2040353E00CBE2BD /* MoviePlayerViewController.m in Sources */,
-				654A30F2D40683C668D35974 /* LoginViewController_Mock.swift in Sources */,
-				9955577B875676E0AF57F81F /* ProfileManager_Mock.swift in Sources */,
-				8FAB7D7D4EF761D12547BC66 /* LoginViewController+UI_Mock.swift in Sources */,
-				10479B53561EA44662B94518 /* AppUtils.swift in Sources */,
-				82E76E84E1164FAAF823BF6F /* CommonUtils.swift in Sources */,
-				F76FBF89999394904307E4F0 /* ProfileViewController.swift in Sources */,
-				EE197477494951A32492560D /* ProfileViewController+UI.swift in Sources */,
+				BBD331CB6E64486E7511581A /* LoginViewController_Mock.swift in Sources */,
+				26BC498D88612AE602523293 /* ProfileManager_Mock.swift in Sources */,
+				E0942DDD24F1D5F68DA8F733 /* LoginViewController+UI_Mock.swift in Sources */,
+				40CBC03B5D949E635EE39C67 /* AppUtils.swift in Sources */,
+				0135902CA7CD9F07E734990D /* CommonUtils.swift in Sources */,
+				ED244179EC4195AD92E823F3 /* ProfileViewController.swift in Sources */,
+				69B2F09B2C593E1854745C94 /* ProfileViewController+UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4262,7 +4247,7 @@
 				PRODUCT_NAME = TXLiteAVDemo_TRTC_AppStore;
 				PROVISIONING_PROFILE_SPECIFIER = trtcscenesdemo;
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG TRTC_APPSTORE";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TXLiteAVDemo/App/TXLiteAVDemo-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "TXLiteAVDemo-Swift.h";
 				SWIFT_VERSION = 5.0;
@@ -4319,6 +4304,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.mrtc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = com.tencent.mrtc_Production_SignProvision;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = TRTC_APPSTORE;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TXLiteAVDemo/App/TXLiteAVDemo-Bridging-Header.h";
 				SWIFT_OBJC_INTERFACE_HEADER_NAME = "TXLiteAVDemo-Swift.h";
 				SWIFT_VERSION = 5.0;
