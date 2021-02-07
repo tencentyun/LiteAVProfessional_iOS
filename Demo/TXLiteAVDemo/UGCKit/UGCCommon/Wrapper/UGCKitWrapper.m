@@ -110,7 +110,7 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
                                                                                            theme:_theme];
     __weak __typeof(self) wself = self;
     videoRecord.completion = ^(UGCKitResult *result) {
-        if (result.code == 0 && !result.cancelled) {
+        if (result && result.code == 0 && !result.cancelled) {
             [wself showVideoPreview:result
                navigationController:wself.viewController.navigationController
                          fromRecord:YES];
