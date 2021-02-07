@@ -17,7 +17,8 @@
     ├── LivePlayerDemo    // 直播播放，可以扫码播放地址进行播放
     ├── LivePusherDemo    // 直播推流，包含推流时，设置美颜，音效，等基础操作
     ├── Login             // 一个演示性质的简单登录界面
-    ├── MLVBLiveRoomDemo  // 互动直播，包含连麦、聊天、点赞等特性
+    ├── LiveLinkMicDemoOld// 互动直播，包含连麦、聊天、点赞等特性
+    ├── LiveLinkMicDemoNew// 互动直播新方案，超低延时直播等特性
     ├── SuperPlayerDemo   // 超级播放器 Demo，ugc视频发布后，会使用超级播放器进行播放
     ├── SuperPlayerKit    // 超级播放器组件
     ├── TRTCMeetingDemo   // 场景一：多人会议，类似腾讯会议，包含屏幕分享
