@@ -15,7 +15,7 @@
 #import "V2TXLiveDef.h"
 #import "MBProgressHUD.h"
 
-@interface V2PlayerSettingViewController () <V2SettingBottomBarDelegate, V2TXLiveSnapshotObserver>
+@interface V2PlayerSettingViewController () <V2SettingBottomBarDelegate>
 @property (nonatomic, weak) UIViewController *hostVC;
 
 @property (nonatomic, strong) V2SettingBottomBar *settingBar;
@@ -213,7 +213,7 @@
                 }
             }],
             [[V2SettingsButtonItem alloc] initWithTitle:@"视频截图" buttonTitle:@"截图" action:^{
-                [wSelf.player snapshot:wSelf];
+                [wSelf.player snapshot];
             }],
         ].mutableCopy;
     }
@@ -226,29 +226,6 @@
         [self.delegate v2PlayerSettingVC:self didClickStartVideo:self.isStart];
         [self.settingBar updateItem:V2TRTCSettingBarItemTypeStart value:self.isStart];
     }
-}
-
-#pragma mark - snapshot
-
-- (void)onSnapshotComplete:(TXImage *)image {
-    if ([NSThread isMainThread]) {
-        [self handleSnapshot:image];
-    } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self handleSnapshot:image];
-        });
-    }
-}
-
-- (void)handleSnapshot:(TXImage *)image {
-    if (image == nil) {
-        [self showText:@"获取截图失败"];
-        return;
-    }
-    UIActivityViewController *vc = [[UIActivityViewController alloc]
-                                    initWithActivityItems:@[image]
-                                    applicationActivities:nil];
-    [self.settingsVC presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma mark - Settings ViewController Embeding

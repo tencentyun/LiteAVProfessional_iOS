@@ -74,7 +74,7 @@ typedef NS_ENUM(NSInteger, TRTCAudioRoute) {
 ///       宽度为540 * 0.2 = 108, 高度自动计算
 - (void)setWaterMark:(UIImage * _Nullable)image inRect:(CGRect)rect;
 
-- (void)snapshot:(void (^)(TXImage *image))completionBlock;
+- (void)snapshot;
 
 + (NSArray<NSNumber *> *)resolutions;
 + (NSArray<NSString *> *)resolutionNames;

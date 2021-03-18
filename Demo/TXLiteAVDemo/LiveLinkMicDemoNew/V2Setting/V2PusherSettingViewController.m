@@ -439,34 +439,14 @@
 - (void)onEnableWatermark:(BOOL)isOn {
     if (isOn) {
         UIImage *image = [UIImage imageNamed:@"watermark"];
-        [self.pusherVM setWaterMark:image inRect:CGRectMake(40, 60, 60, 30)];
+        [self.pusherVM setWaterMark:image inRect:CGRectMake(0.1, 0.15, 120, 30)];
     } else {
         [self.pusherVM setWaterMark:nil inRect:CGRectZero];
     }
 }
 
 - (void)snapshotLocalVideo {
-    __weak __typeof(self) weakSelf = self;
-    [self.pusherVM snapshot:^(TXImage * _Nonnull image) {
-        __strong __typeof(weakSelf) self = weakSelf;
-        if (self == nil) {
-            return;
-        }
-        
-        [self shareImage:image];
-    }];
-}
-
-- (void)shareImage:(UIImage *)image {
-    if (image == nil) {
-        [self showText:@"获取截图失败"];
-        return;
-    }
-    
-    UIActivityViewController *vc = [[UIActivityViewController alloc]
-                                    initWithActivityItems:@[image]
-                                    applicationActivities:nil];
-    [self.videoVC presentViewController:vc animated:YES completion:nil];
+    [self.pusherVM snapshot];
 }
 
 #pragma mark - Settings ViewController Embeding
@@ -504,19 +484,6 @@
     [vc.navigationController removeFromParentViewController];
     self.currentEmbededVC = nil;
     self.centerContainerView.hidden = YES;
-}
-
-#pragma mark - Util
-
-- (void)showText:(NSString *)text {
-    MBProgressHUD *hud = [MBProgressHUD HUDForView:[UIApplication sharedApplication].delegate.window];
-    if (hud == nil) {
-        hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:NO];
-    }
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = text;
-    [hud showAnimated:YES];
-    [hud hideAnimated:YES afterDelay:1];
 }
 
 @end

@@ -1,6 +1,5 @@
 #import "V2PusherSettingModel.h"
 
-typedef void (^SnapshotCompletionBlock)(TXImage *);
 static NSString *const kVideoConfig = @"V2TRTCVideoConfig";
 static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 
@@ -18,9 +17,8 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 
 @end
 
-@interface V2PusherSettingModel() <V2TXLiveSnapshotObserver>
+@interface V2PusherSettingModel()
 
-@property (nonatomic, copy) SnapshotCompletionBlock snapshotBlock;
 @property (nonatomic, strong) UIImage *waterMarkImg;
 @property (nonatomic, assign) CGRect waterMarkRect;
 
@@ -97,16 +95,15 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
     self.waterMarkImg = image;
     self.waterMarkRect = rect;
     if (image == nil) {
-        [self.pusher setWatermark:nil position:CGPointZero scale:0.0];
+        [self.pusher setWatermark:nil x:0.0 y:0.0 scale:0.0];
     } else {
         CGFloat scale = rect.size.width/image.size.width;
-        [self.pusher setWatermark:image position:rect.origin scale:scale];
+        [self.pusher setWatermark:image x:rect.origin.x y:rect.origin.y scale:scale];
     }
 }
 
-- (void)snapshot:(void (^)(TXImage *image))completionBlock {
-    self.snapshotBlock = completionBlock;
-    [self.pusher snapshot:self];
+- (void)snapshot {
+    [self.pusher snapshot];
 }
 
 + (NSArray<NSNumber *> *)resolutions {
@@ -306,25 +303,6 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
     self.isEarMonitoringEnabled = self.isEarMonitoringEnabled;
     self.isEnableVolumeEvaluation = self.isEnableVolumeEvaluation;
     [self setIsAudioMuted:self.isAudioMuted];
-}
-
-#pragma mark - V2TXLiveSnapshotObserver
-
-- (void)onSnapshotComplete:(TXImage *)image {
-    if ([NSThread isMainThread]) {
-        [self handleSnapshot:image];
-    } else {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self handleSnapshot:image];
-        });
-    }
-}
-
-- (void)handleSnapshot:(TXImage *)image {
-    if (self.snapshotBlock) {
-        self.snapshotBlock(image);
-    }
-    self.snapshotBlock = nil;
 }
 
 @end

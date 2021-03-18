@@ -15,6 +15,7 @@
 #import "V2PlayerSettingViewController.h"
 #import "V2LiveUtils.h"
 #import "MBProgressHUD.h"
+#import "PhotoUtil.h"
 
 
 #define V2LogSimple() \
@@ -212,6 +213,7 @@
             self.hasRecvFirstFrame = NO;
             result = [self.player startPlay:self.url];
             if (result == V2TXLIVE_OK) {
+                [self showLoading:@"加载中..." withDetailText:@"请等待"];
 //                [self.settingContainer clearSettingVC];
                 /// 开始播放后，超过5秒未收到首帧视频，则提示播放失败，并退出播放。
                 if (self.delayBlock) {
@@ -223,6 +225,7 @@
                     if (!weakSelf.hasRecvFirstFrame) {
                         [weakSelf showText:@"获取视频帧超时" withDetailText:nil];
                         [weakSelf startPlayInner:NO];
+                        [weakSelf hiddeLoading];
                     }
                 });
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), self.delayBlock);
@@ -426,12 +429,36 @@
 }
 
 #pragma mark - V2TXLivePlayerObserver
-- (void)onRecvFirstAudioFrame:(id<V2TXLivePlayer>)player {
-    self.hasRecvFirstFrame = YES;
+- (void)onAudioPlayStatusUpdate:(id<V2TXLivePlayer>)player status:(V2TXLivePlayStatus)status reason:(V2TXLiveStatusChangeReason)reason extraInfo:(NSDictionary *)extraInfo {
+    switch (status) {
+        case V2TXLivePlayStatusPlaying:
+            self.hasRecvFirstFrame = YES;
+            [self hiddeLoading];
+            V2LogSimple()
+            break;
+        case V2TXLivePlayStatusLoading:
+            [self showLoading:@"加载中..." withDetailText:@"请等待"];
+            V2LogSimple()
+            break;
+        default:
+            break;
+    }
 }
 
-- (void)onRecvFirstVideoFrame:(id<V2TXLivePlayer>)player {
-    self.hasRecvFirstFrame = YES;
+- (void)onVideoPlayStatusUpdate:(id<V2TXLivePlayer>)player status:(V2TXLivePlayStatus)status reason:(V2TXLiveStatusChangeReason)reason extraInfo:(NSDictionary *)extraInfo {
+    switch (status) {
+        case V2TXLivePlayStatusPlaying:
+            self.hasRecvFirstFrame = YES;
+            [self hiddeLoading];
+            V2LogSimple()
+            break;
+        case V2TXLivePlayStatusLoading:
+            [self showLoading:@"加载中..." withDetailText:@"请等待"];
+            V2LogSimple()
+            break;
+        default:
+            break;
+    }
 }
 
 - (void)onPlayoutVolumeUpdate:(id<V2TXLivePlayer>)player
@@ -458,25 +485,20 @@
     V2Log(@"code:%ld msg:%@ extraInfo:%@", (long)code, msg, extraInfo);
 }
 
-- (void)onPlayBegin:(id<V2TXLivePlayer>)player {
-    [self hiddeLoading];
-    V2LogSimple()
+- (void)onSnapshotComplete:(id<V2TXLivePlayer>)player image:(TXImage *)image {
+    if (!image) {
+        [self showText:@"获取截图失败"];
+    } else {
+        [PhotoUtil saveDataToAlbum:UIImagePNGRepresentation(image) completion:^(BOOL success, NSError * _Nullable error) {
+            if (success) {
+                [self showText:@"截图已保存到相册"];
+            } else {
+                [self showText:@"截图保存失败"];
+            }
+        }];
+    }
 }
 
-- (void)onLoading:(id<V2TXLivePlayer>)player {
-    [self showLoading:@"加载中..." withDetailText:@"请等待"];
-    V2LogSimple()
-}
-
-- (void)onConnectionBroken:(id<V2TXLivePlayer>)player
-                    reason:(NSInteger)reason {
-    V2Log(@"reason:%ld", (long)reason);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self showText:@"连接断开" withDetailText:nil];
-        [self startPlayInner:NO];
-        [self hiddeLoading];
-    });
-}
 
 #pragma mark - UIGestureRecognizerDelegate
 
@@ -485,6 +507,21 @@
         return NO;
     }
     return YES;
+}
+
+#pragma mark - Util
+
+- (void)showText:(NSString *)text {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MBProgressHUD *hud = [MBProgressHUD HUDForView:[UIApplication sharedApplication].delegate.window];
+        if (hud == nil) {
+            hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:NO];
+        }
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = text;
+        [hud showAnimated:YES];
+        [hud hideAnimated:YES afterDelay:1];
+    });
 }
 
 @end

@@ -15,6 +15,7 @@
 #import "V2LiveUtils.h"
 #import "V2QRGenerateViewController.h"
 #import "MBProgressHUD.h"
+#import "PhotoUtil.h"
 
 #define V2LogSimple() \
         NSLog(@"[%@ %p %s %d]", NSStringFromClass(self.class), self, __func__, __LINE__);
@@ -368,10 +369,24 @@
     //    V2Log(@"statistics:%@", statistics)
 }
 
-- (void)onConnectionStateUpdate:(V2TXLiveConnectionState)state message:(NSString *)msg extraInfo:(NSDictionary *)extraInfo {
-    if (state == V2TXLiveConnectionStateDisconnected && self.settingContainer.isStart) {
+- (void)onPushStatusUpdate:(V2TXLivePushStatus)state message:(NSString *)msg extraInfo:(NSDictionary *)extraInfo {
+    if (state == V2TXLivePushStatusDisconnected && self.settingContainer.isStart) {
         [self showText:@"连接已断开" withDetailText:nil];
         [self stopPush];
+    }
+}
+
+-(void)onSnapshotComplete:(TXImage *)image {
+    if (!image) {
+        [self showText:@"获取截图失败"];
+    } else {
+        [PhotoUtil saveDataToAlbum:UIImagePNGRepresentation(image) completion:^(BOOL success, NSError * _Nullable error) {
+            if (success) {
+                [self showText:@"截图已保存到相册"];
+            } else {
+                [self showText:@"截图保存失败"];
+            }
+        }];
     }
 }
 
@@ -382,6 +397,21 @@
         return NO;
     }
     return YES;
+}
+
+#pragma mark - Util
+
+- (void)showText:(NSString *)text {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MBProgressHUD *hud = [MBProgressHUD HUDForView:[UIApplication sharedApplication].delegate.window];
+        if (hud == nil) {
+            hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:NO];
+        }
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = text;
+        [hud showAnimated:YES];
+        [hud hideAnimated:YES afterDelay:1];
+    });
 }
 
 @end
