@@ -13,7 +13,7 @@ class TRTCChatSalonListCell: UICollectionViewCell {
     
     let coverImageView: UIImageView = {
         let imageView = UIImageView.init(frame: .zero)
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleToFill
         return imageView
     }()
     
@@ -99,5 +99,5 @@ class TRTCChatSalonListCell: UICollectionViewCell {
 }
 
 fileprivate extension String {
-    static let online = ChatSalonLocalized.getLocalizedString(key: "online")
+    static let online = TRTCLocalize("Demo.TRTC.Salon.online")
 }

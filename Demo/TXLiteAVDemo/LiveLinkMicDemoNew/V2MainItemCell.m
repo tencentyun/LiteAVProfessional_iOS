@@ -11,6 +11,7 @@
 #import "V2PusherViewController.h"
 #import "V2PlayerViewController.h"
 #import "MBProgressHUD.h"
+#import "AppLocalized.h"
 
 @interface V2MainItemCell ()
 @property (nonatomic, strong) UIButton *addButton;
@@ -244,10 +245,10 @@
     }];
     V2TXLiveCode result = [self.relateVC startPush];
     if (result == V2TXLIVE_ERROR_REFUSED) {
-        NSString *msg = @"推流失败：抱歉，RTC暂不支持同一台设备使用相同streamid同时推拉流";
+        NSString *msg = V2Localize(@"V2.Live.LinkMicNew.pushstreamfailedtouseonedevice");
         [self showText:nil withDetailText:msg];
     } else if (result == V2TXLIVE_ERROR_INVALID_PARAMETER) {
-        [self showText:@"参数错误" withDetailText:nil];
+        [self showText:V2Localize(@"V2.Live.LinkMicNew.parerr") withDetailText:nil];
     }
 }
 
@@ -341,10 +342,10 @@
     self.relateVC.url = url;
     V2TXLiveCode result = [self.relateVC startPlay];
     if (result == V2TXLIVE_ERROR_REFUSED) {
-        NSString *msg = @"拉流失败：抱歉，RTC暂不支持同一台设备使用相同streamid同时推拉流";
+        NSString *msg = V2Localize(@"V2.Live.LinkMicNew.pullstreamfailedtouseonedevice");
         [self showText:nil withDetailText:msg];
     } else if (result == V2TXLIVE_ERROR_INVALID_PARAMETER) {
-        [self showText:@"参数错误" withDetailText:nil];
+        [self showText:V2Localize(@"V2.Live.LinkMicNew.parerr") withDetailText:nil];
     }
 }
 

@@ -17,7 +17,7 @@
 #import "UISlider+V2.h"
 #import "UISegmentedControl+V2.h"
 #import "UIView+Additions.h"
-
+#import "AppLocalized.h"
 
 
 @interface V2SettingsBaseCell ()
@@ -181,7 +181,7 @@
     [self.slider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.contentView);
         make.trailing.equalTo(self.valueLabel.mas_leading).offset(-5);
-        make.width.mas_equalTo(180);
+        make.width.mas_equalTo(160);
     }];
     
     [self.valueLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -416,7 +416,7 @@
     for (NSString *item in selectorItem.items) {
         [alert addAction:[UIAlertAction actionWithTitle:item style:UIAlertActionStyleDefault handler:actionHandler]];
     }
-    [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:V2Localize(@"V2.Live.LinkMicNew.cancel") style:UIAlertActionStyleCancel handler:nil]];
     
     [self.tx_viewController presentViewController:alert animated:YES completion:nil];
 }

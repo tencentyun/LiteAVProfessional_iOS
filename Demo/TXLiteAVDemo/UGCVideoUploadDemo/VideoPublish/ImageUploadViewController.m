@@ -12,6 +12,7 @@
 #import "AppDelegate.h"
 #import "TCHttpUtil.h"
 #import "TXUGCPublish.h"
+#import "AppLocalized.h"
 
 @interface ImageUploadViewController() <TXMediaPublishListener>
 
@@ -27,8 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"图片上传";
-    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"返回"
+    self.title = UGCLocalize(@"UGCVideoUploadDemo.ImageUpload.uploadimage");
+    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.back")
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(goBack)];
@@ -38,7 +39,7 @@
 
     UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [confirmBtn setFrame:CGRectMake(15 * kScaleX, self.view.height - 44 - 15 * kScaleY, self.view.width - 30 * kScaleX, 40 * kScaleY)];
-    [confirmBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [confirmBtn setTitle:UGCLocalize(@"UGCKit.UGCKitWrapper.determine") forState:UIControlStateNormal];
     [confirmBtn setBackgroundColor:UIColorFromRGB(0x0BC59C)];
     [confirmBtn addTarget:self action:@selector(confirm) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:confirmBtn];
@@ -94,10 +95,11 @@
                 [self->_imagePublish publishMedia:publishParam];
             }
         } else{
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"图片上传失败"
-                                                                message:[NSString stringWithFormat:@"错误码：%d",result]
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoUploadDemo.ImageUpload.uploadimageerror")
+                                                                message:
+                                      LocalizeReplaceXX(UGCLocalize(@"UGCVideoUploadDemo.ImageUpload.errorcodexx"), [NSString stringWithFormat:@"%d",result])
                                                                delegate:self
-                                                      cancelButtonTitle:@"知道了"
+                                                      cancelButtonTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed")
                                                       otherButtonTitles:nil, nil];
             [alertView show];
         }
@@ -112,17 +114,17 @@
 
 - (void)onMediaPublishComplete:(TXMediaPublishResult*)result {
     if (result.retCode == 0) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"图片上传成功"
-                                                            message:[NSString stringWithFormat:@"错误码：%d",result.retCode]
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoUploadDemo.ImageUpload.uploadimagesuccess")
+                                                            message:LocalizeReplaceXX(UGCLocalize(@"UGCVideoUploadDemo.ImageUpload.errorcodexx"), [NSString stringWithFormat:@"%d",result.retCode])
                                                            delegate:self
-                                                  cancelButtonTitle:@"知道了"
+                                                  cancelButtonTitle: UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed")
                                                   otherButtonTitles:nil, nil];
         [alertView show];
     } else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"图片上传失败"
-                                                            message:[NSString stringWithFormat:@"错误码：%d",result.retCode]
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoUploadDemo.ImageUpload.uploadimageerror")
+                                                            message:LocalizeReplaceXX(UGCLocalize(@"UGCVideoUploadDemo.ImageUpload.errorcodexx"), [NSString stringWithFormat:@"%d",result.retCode])
                                                            delegate:self
-                                                  cancelButtonTitle:@"知道了"
+                                                  cancelButtonTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed")
                                                   otherButtonTitles:nil, nil];
         [alertView show];
     }

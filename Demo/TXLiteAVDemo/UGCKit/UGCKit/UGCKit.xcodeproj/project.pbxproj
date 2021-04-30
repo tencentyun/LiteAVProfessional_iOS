@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3A4E0AD7B8D94EEE9C50DA9D /* TXLiteAVSDK_UGC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0278B72F0AA5FD97FEB7C80A /* TXLiteAVSDK_UGC.framework */; };
+		02CD4F2023391B5801A33E9A /* TXLiteAVSDK_UGC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA94AAB08B02D9AD6CC3C2B5 /* TXLiteAVSDK_UGC.framework */; };
 		40DD579A247383E200C72F27 /* TXLiteAVSDK_Enterprise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A49D7F24598E3200BFCB18 /* TXLiteAVSDK_Enterprise.framework */; };
 		40F4D69D2474CA2100847F5B /* TCBeautyPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F4D69C2474CA2100847F5B /* TCBeautyPanel.framework */; };
 		4500A6D12382793300147B05 /* UGCKitMediaPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 453DE2F6237945DC0083E759 /* UGCKitMediaPicker.storyboard */; };
@@ -136,7 +136,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0278B72F0AA5FD97FEB7C80A /* TXLiteAVSDK_UGC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_UGC.framework; path = ../../../../SDK/TXLiteAVSDK_UGC.framework; sourceTree = "<group>"; };
 		40A49D7F24598E3200BFCB18 /* TXLiteAVSDK_Enterprise.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Enterprise.framework; path = ../../../../SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
 		40F4D69C2474CA2100847F5B /* TCBeautyPanel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TCBeautyPanel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4507F44C23AB707600804AD5 /* UGCKitPieProgressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGCKitPieProgressView.h; sourceTree = "<group>"; };
@@ -277,6 +276,7 @@
 		45E8294D2384ED1200702418 /* UGCKitAudioEffectPanel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGCKitAudioEffectPanel.m; sourceTree = "<group>"; };
 		45E90782239E253000CEC8F1 /* TXLiteAVSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXLiteAVSDK.h; sourceTree = "<group>"; };
 		45E9FFC52399FEAD00CEC8F1 /* UGCKitLocalization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UGCKitLocalization.h; sourceTree = "<group>"; };
+		DA94AAB08B02D9AD6CC3C2B5 /* TXLiteAVSDK_UGC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_UGC.framework; path = ../../../../SDK/TXLiteAVSDK_UGC.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,7 +288,7 @@
 				40DD579A247383E200C72F27 /* TXLiteAVSDK_Enterprise.framework in Frameworks */,
 				453DE40C23794ECD0083E759 /* AssetsLibrary.framework in Frameworks */,
 				453DE40A23794E900083E759 /* OpenAL.framework in Frameworks */,
-				3A4E0AD7B8D94EEE9C50DA9D /* TXLiteAVSDK_UGC.framework in Frameworks */,
+				02CD4F2023391B5801A33E9A /* TXLiteAVSDK_UGC.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,7 +577,7 @@
 				453DE40723794E8A0083E759 /* libresolv.tbd */,
 				453DE40523794E800083E759 /* libsqlite3.tbd */,
 				453DE40323794E020083E759 /* libc++.tbd */,
-				0278B72F0AA5FD97FEB7C80A /* TXLiteAVSDK_UGC.framework */,
+				DA94AAB08B02D9AD6CC3C2B5 /* TXLiteAVSDK_UGC.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

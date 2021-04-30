@@ -16,7 +16,7 @@
 #import "V2LiveUtils.h"
 #import "MBProgressHUD.h"
 #import "PhotoUtil.h"
-
+#import "AppLocalized.h"
 
 #define V2LogSimple() \
         NSLog(@"[%@ %p %s %d]", NSStringFromClass(self.class), self, __func__, __LINE__);
@@ -49,7 +49,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self.title length] == 0) {
-        self.title = @"V2拉流";
+        self.title = V2Localize(@"V2.Live.LinkMicNew.v2pullstream");
     }
 
     self.videoView = [[TXView alloc] initWithFrame:self.view.bounds];
@@ -165,9 +165,9 @@
     NSDictionary *params = [V2LiveUtils parseURLParametersAndLowercaseKey:url];
     _userId = params[@"userid"];
     if ([V2LiveUtils isTRTCUrl:url]) {
-        self.title = [NSString stringWithFormat:@"V2拉流（%@）", params[@"strroomid"]];
+        self.title = [NSString stringWithFormat:@"%@（%@）", V2Localize(@"V2.Live.LinkMicNew.v2pullstream"), params[@"strroomid"]];
     } else {
-        self.title = @"V2拉流";//[NSString stringWithFormat:@"V2拉流（%@_%@）", params[@"strroomid"], params[@"remoteuserid"]];
+        self.title = V2Localize(@"V2.Live.LinkMicNew.v2pullstream");//[NSString stringWithFormat:@"V2拉流（%@_%@）", params[@"strroomid"], params[@"remoteuserid"]];
     }
 }
 
@@ -213,7 +213,7 @@
             self.hasRecvFirstFrame = NO;
             result = [self.player startPlay:self.url];
             if (result == V2TXLIVE_OK) {
-                [self showLoading:@"加载中..." withDetailText:@"请等待"];
+                [self showLoading:V2Localize(@"V2.Live.LinkMicNew.loading") withDetailText:V2Localize(@"V2.Live.LinkMicNew.pleasewait")];
 //                [self.settingContainer clearSettingVC];
                 /// 开始播放后，超过5秒未收到首帧视频，则提示播放失败，并退出播放。
                 if (self.delayBlock) {
@@ -223,7 +223,7 @@
                 __weak V2PlayerViewController *weakSelf = self;
                 self.delayBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, ^{
                     if (!weakSelf.hasRecvFirstFrame) {
-                        [weakSelf showText:@"获取视频帧超时" withDetailText:nil];
+                        [weakSelf showText:V2Localize(@"V2.Live.LinkMicNew.getvideoframetimeout") withDetailText:nil];
                         [weakSelf startPlayInner:NO];
                         [weakSelf hiddeLoading];
                     }
@@ -437,7 +437,7 @@
             V2LogSimple()
             break;
         case V2TXLivePlayStatusLoading:
-            [self showLoading:@"加载中..." withDetailText:@"请等待"];
+            [self showLoading:V2Localize(@"V2.Live.LinkMicNew.loading") withDetailText:V2Localize(@"V2.Live.LinkMicNew.pleasewait")];
             V2LogSimple()
             break;
         default:
@@ -453,7 +453,7 @@
             V2LogSimple()
             break;
         case V2TXLivePlayStatusLoading:
-            [self showLoading:@"加载中..." withDetailText:@"请等待"];
+            [self showLoading:V2Localize(@"V2.Live.LinkMicNew.loading") withDetailText:V2Localize(@"V2.Live.LinkMicNew.pleasewait")];
             V2LogSimple()
             break;
         default:
@@ -472,8 +472,8 @@
            code:(V2TXLiveCode)code
         message:(NSString *)msg
       extraInfo:(NSDictionary *)extraInfo {
-    if (code == V2TXLIVE_ERROR_ENTER_ROOM_TIMEOUT) {
-        [self showText:@"进房超时" withDetailText:@"请检查网络状态，然后重试"];
+    if (code == V2TXLIVE_ERROR_REQUEST_TIMEOUT) {
+        [self showText:V2Localize(@"V2.Live.LinkMicNew.enterroomtimeout") withDetailText:V2Localize(@"V2.Live.LinkMicNew.checknetworkandtry")];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self startPlayInner:NO];
         });
@@ -487,13 +487,13 @@
 
 - (void)onSnapshotComplete:(id<V2TXLivePlayer>)player image:(TXImage *)image {
     if (!image) {
-        [self showText:@"获取截图失败"];
+        [self showText:V2Localize(@"V2.Live.LinkMicNew.getsnapshotfailed")];
     } else {
         [PhotoUtil saveDataToAlbum:UIImagePNGRepresentation(image) completion:^(BOOL success, NSError * _Nullable error) {
             if (success) {
-                [self showText:@"截图已保存到相册"];
+                [self showText:V2Localize(@"V2.Live.LinkMicNew.snapshotsavetoalbum")];
             } else {
-                [self showText:@"截图保存失败"];
+                [self showText:V2Localize(@"V2.Live.LinkMicNew.snapshotsavefailed")];
             }
         }];
     }

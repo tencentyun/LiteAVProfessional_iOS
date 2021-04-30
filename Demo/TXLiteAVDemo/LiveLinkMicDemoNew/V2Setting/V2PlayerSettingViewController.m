@@ -9,11 +9,11 @@
 #import "V2PlayerSettingViewController.h"
 #import "Masonry.h"
 #import "V2SettingBottomBar.h"
-#import <TCBeautyPanel/TCBeautyPanel.h>
 #import "ThemeConfigurator.h"
 #import "V2SettingsBaseViewController.h"
 #import "V2TXLiveDef.h"
 #import "MBProgressHUD.h"
+#import "AppLocalized.h"
 
 @interface V2PlayerSettingViewController () <V2SettingBottomBarDelegate>
 @property (nonatomic, weak) UIViewController *hostVC;
@@ -174,7 +174,7 @@
 - (void)onClickFeatureSettingsButton {
     if (!self.settingsVC) {
         self.settingsVC = [[V2SettingsBaseViewController alloc] init];
-        self.settingsVC.title = @"设置";
+        self.settingsVC.title = V2Localize(@"V2.Live.LinkMicNew.setting");
         
         NSInteger playoutVolume = 100;
         V2TXLiveFillMode fillMode = V2TXLiveFillModeFit;
@@ -184,26 +184,26 @@
         __weak __typeof(self) wSelf = self;
         
         self.settingsVC.items = @[
-            [[V2SettingsSliderItem alloc] initWithTitle:@"播放音量"
+            [[V2SettingsSliderItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.playingvolume")
                                                     value:playoutVolume min:0 max:100 step:1
                                                continuous:YES
                                                    action:^(float volume) {
                 [wSelf.player setPlayoutVolume:(NSInteger)volume];
             }],
-            [[V2SettingsSegmentItem alloc] initWithTitle:@"  画面填充方向"
-                                                     items:@[@"自适应", @"铺满"]
+            [[V2SettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.fillingdirection")
+                                                     items:@[V2Localize(@"V2.Live.LinkMicNew.adaptive"), V2Localize(@"V2.Live.LinkMicNew.paved")]
                                              selectedIndex:fillMode
                                                     action:^(NSInteger index) {
                 V2TXLiveFillMode fillMode = (index == 0)?V2TXLiveFillModeFit:V2TXLiveFillModeFill;
                 [wSelf.player setRenderFillMode:fillMode];
             }],
-            [[V2SettingsSegmentItem alloc] initWithTitle:@"  旋转方向"
+            [[V2SettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.directionofrotation")
                                                      items:@[@"0", @"90", @"180", @"270"]
                                              selectedIndex:rotation
                                                     action:^(NSInteger index) {
                 [wSelf.player setRenderRotation:index];
             }],
-            [[V2SettingsSwitchItem alloc] initWithTitle:@"音量提示"
+            [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.volumeprompt")
                                                      isOn:isVolumeEvaluationEnabled
                                                    action:^(BOOL isOn) {
                 [wSelf.player enableVolumeEvaluation:isOn];
@@ -212,7 +212,7 @@
                     [wSelf.delegate v2PlayerSettingVC:wSelf enableVolumeEvaluation:isOn];
                 }
             }],
-            [[V2SettingsButtonItem alloc] initWithTitle:@"视频截图" buttonTitle:@"截图" action:^{
+            [[V2SettingsButtonItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.videosnapshot") buttonTitle:V2Localize(@"V2.Live.LinkMicNew.snapshot") action:^{
                 [wSelf.player snapshot];
             }],
         ].mutableCopy;

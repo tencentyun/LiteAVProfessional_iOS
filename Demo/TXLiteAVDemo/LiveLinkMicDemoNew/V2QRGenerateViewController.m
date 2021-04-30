@@ -8,6 +8,7 @@
 
 #import "V2QRGenerateViewController.h"
 #import "MBProgressHUD.h"
+#import "AppLocalized.h"
 
 //#define L(x) NSLocalizedString(x, nil)
 
@@ -17,6 +18,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *qrcodeCopyBtn;
 @property(nonatomic, strong) NSString *currentPlayURL;
 @property(nonatomic, strong) NSDictionary *playTypeButtons;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descLabel;
+@property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 
 @end
 
@@ -33,6 +38,11 @@
     }
     self.qrcodeCopyBtn.titleLabel.lineBreakMode = NSLineBreakByClipping;
     [self showQRCodeContent];
+    
+    [self.qrcodeCopyBtn setTitle:V2Localize(@"V2.Live.LinkMicNew.cpyaddr") forState:UIControlStateNormal];
+    [self.closeBtn setTitle:V2Localize(@"V2.Live.LinkMicNew.close") forState:UIControlStateNormal];
+    self.titleLabel.text = V2Localize(@"V2.Live.LinkMicNew.playaddressgenerated");
+    self.descLabel.text = V2Localize(@"V2.Live.LinkMicNew.useotherphonescancode");
 }
 
 - (void)onTapGesture:(UITapGestureRecognizer *)tap {
@@ -62,7 +72,7 @@
 - (IBAction)onQRCodeCopy:(UIButton *)sender {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = self.currentPlayURL;
-    [self showText:@"已添加至剪切板"];
+    [self showText:V2Localize(@"V2.Live.LinkMicNew.addtopastboard")];
 }
 - (IBAction)onClosePage:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -91,7 +101,7 @@
     hud.label.text = text;
     hud.detailsLabel.text = detail;
     [hud.button addTarget:self action:@selector(onCloseHUD:) forControlEvents:UIControlEventTouchUpInside];
-    [hud.button setTitle:@"关闭" forState:UIControlStateNormal];
+    [hud.button setTitle:V2Localize(@"V2.Live.LinkMicNew.close") forState:UIControlStateNormal];
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2];
 }

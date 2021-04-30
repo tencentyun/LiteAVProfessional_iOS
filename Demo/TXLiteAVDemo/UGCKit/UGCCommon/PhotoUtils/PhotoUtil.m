@@ -8,6 +8,7 @@
 
 #import "PhotoUtil.h"
 #import <Photos/Photos.h>
+#import "AppLocalized.h"
 
 NSString * const PhotoAlbumToolErrorDomain = @"PhotoAlbumToolErrorDomain";
 
@@ -44,7 +45,7 @@ NSString * const PhotoAlbumToolErrorDomain = @"PhotoAlbumToolErrorDomain";
         } else {
             NSError *error = [NSError errorWithDomain:PhotoAlbumToolErrorDomain
                                                  code:PhotoAlbumToolNotAuthorized
-                                             userInfo:@{NSLocalizedFailureReasonErrorKey:@"无相册写入权限"}];
+                                             userInfo:@{NSLocalizedFailureReasonErrorKey: UGCLocalize(@"UGCKit.PhotoUtil.notwritephoto")}];
             if (completion) {
                 completion(NO, error);
             }

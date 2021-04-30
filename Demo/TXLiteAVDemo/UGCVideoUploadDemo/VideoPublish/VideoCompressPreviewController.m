@@ -13,6 +13,7 @@
 #import "ColorMacro.h"
 #import "UIView+Additions.h"
 #import "TCHttpUtil.h"
+#import "AppLocalized.h"
 
 @interface VideoCompressPreviewController ()<TXVideoPreviewListener,TXVideoPublishListener,UITextFieldDelegate>
 
@@ -36,8 +37,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"预览";
-    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"返回"
+    self.title = UGCLocalize(@"UGCVideoUploadDemo.VideoCompressPreview.preview");
+    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.back")
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(goBack)];
@@ -57,18 +58,18 @@
     [_videoEditer setVideoPath:_videoPath];
     
     UILabel *titieLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kScaleX, _videoPreview.bottom + 10 * kScaleY, 80 * kScaleX, 40 * kScaleY)];
-    titieLabel.text = @"标题：";
+    titieLabel.text = UGCLocalize(@"UGCVideoUploadDemo.VideoCompressPreview.title");
     titieLabel.textColor = [UIColor whiteColor];
     _videoTitleField = [[UITextField alloc] initWithFrame:CGRectMake(titieLabel.right + 10 * kScaleX, titieLabel.y, self.view.width - titieLabel.right - 30 * kScaleX, titieLabel.height)];
     _videoTitleField.textColor = [UIColor whiteColor];
-    _videoTitleField.placeholder = @"设置标题...";
+    _videoTitleField.placeholder = UGCLocalize(@"UGCVideoUploadDemo.VideoCompressPreview.settingtitle");
 //    _videoTitleField.placeholder = [NSString stringWithFormat:@"当前视频码率：%d",[TXVideoInfoReader getVideoInfo:_videoPath].bitrate];
     [_videoTitleField setValue:[UIColor grayColor] forKeyPath:@"placeholderLabel.textColor"];
     _videoTitleField.delegate = self;
     _videoTitleField.returnKeyType = UIReturnKeyDone;
     
     UILabel *coverLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kScaleX, _videoPreview.bottom + 120 * kScaleY, 80 * kScaleX, 40 * kScaleY)];
-    coverLabel.text = @"封面：";
+    coverLabel.text = UGCLocalize(@"UGCVideoUploadDemo.VideoCompressPreview.cover");
     coverLabel.textColor = [UIColor whiteColor];
     _videoCover = [[UIImageView alloc] initWithFrame:CGRectMake(titieLabel.right + 10 * kScaleX, titieLabel.bottom + 10 * kScaleY, self.view.width - coverLabel.right - 50 * kScaleX , 200 * kScaleY)];
     _videoCover.contentMode = UIViewContentModeScaleAspectFit;
@@ -77,7 +78,7 @@
     
     UIButton *publishBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [publishBtn setFrame:CGRectMake(15 * kScaleX, self.view.height - 44 - 15 * kScaleY, self.view.width - 30 * kScaleX, 40 * kScaleY)];
-    [publishBtn setTitle:@"发布" forState:UIControlStateNormal];
+    [publishBtn setTitle:UGCLocalize(@"UGCVideoUploadDemo.VideoCompressPreview.release") forState:UIControlStateNormal];
     [publishBtn setBackgroundColor:UIColorFromRGB(0x0BC59C)];
     [publishBtn addTarget:self action:@selector(publish) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:publishBtn];
@@ -110,7 +111,7 @@
     
     _generationTitleLabel = [UILabel new];
     _generationTitleLabel.font = [UIFont systemFontOfSize:14];
-    _generationTitleLabel.text = @"视频上传中";
+    _generationTitleLabel.text = UGCLocalize(@"UGCVideoUploadDemo.VideoCompressPreview.uploadvideo");
     _generationTitleLabel.textColor = UIColor.whiteColor;
     _generationTitleLabel.textAlignment = NSTextAlignmentCenter;
     _generationTitleLabel.frame = CGRectMake(0, _generateProgressView.y - 34, _generationView.width, 14);
@@ -159,10 +160,11 @@
             }
         }else{
             _generationView.hidden = YES;
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"视频上传失败"
-                                                                message:[NSString stringWithFormat:@"错误码：%d",result]
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoUploadDemo.VideoCompressPreview.uploadvideoerror")
+                                                                message:
+                                      LocalizeReplaceXX(UGCLocalize(@"UGCVideoUploadDemo.ImageUpload.errorcodexx"), [NSString stringWithFormat:@"%d",result])
                                                                delegate:self
-                                                      cancelButtonTitle:@"知道了"
+                                                      cancelButtonTitle: UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed")
                                                       otherButtonTitles:nil, nil];
             [alertView show];
         }
@@ -215,10 +217,11 @@
         }else{
             _generationView.hidden = YES;
             _generateProgressView.progress = 0;
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"视频上传失败"
-                                                                message:[NSString stringWithFormat:@"错误信息：%@",result.descMsg]
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle: UGCLocalize(@"UGCVideoUploadDemo.VideoCompressPreview.uploadvideoerror")
+                                                                message:
+                                      LocalizeReplaceXX(UGCLocalize(@"UGCVideoUploadDemo.VideoCompressPreview.errormsgxx"), [NSString stringWithFormat:@"%@",result.descMsg])
                                                                delegate:self
-                                                      cancelButtonTitle:@"知道了"
+                                                      cancelButtonTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed")
                                                       otherButtonTitles:nil, nil];
             [alertView show];
         }

@@ -21,6 +21,7 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 
 @property (nonatomic, strong) UIImage *waterMarkImg;
 @property (nonatomic, assign) CGRect waterMarkRect;
+@property (nonatomic, assign) BOOL isWaterMarkEnabled;
 
 @end
 
@@ -95,10 +96,12 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
     self.waterMarkImg = image;
     self.waterMarkRect = rect;
     if (image == nil) {
+        self.isWaterMarkEnabled = NO;
         [self.pusher setWatermark:nil x:0.0 y:0.0 scale:0.0];
     } else {
         CGFloat scale = rect.size.width/image.size.width;
         [self.pusher setWatermark:image x:rect.origin.x y:rect.origin.y scale:scale];
+        self.isWaterMarkEnabled = YES;
     }
 }
 
@@ -185,6 +188,7 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
     } else {
         [self.pusher stopMicrophone];
     }
+    [self.pusher.getAudioEffectManager enableVoiceEarMonitor:_isEarMonitoringEnabled];
 }
 
 - (void)setIsAudioMuted:(BOOL)isAudioMuted {
@@ -194,6 +198,7 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
     } else {
         [self.pusher stopMicrophone];
     }
+    [self.pusher.getAudioEffectManager enableVoiceEarMonitor:_isEarMonitoringEnabled];
 }
 
 - (void)setVolumeType:(TRTCSystemVolumeType)volumeType {

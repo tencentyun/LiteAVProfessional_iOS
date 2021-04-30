@@ -13,6 +13,7 @@
 #import "TXColor.h"
 #import "AppDelegate.h"
 #import "MBProgressHUD.h"
+#import "AppLocalized.h"
 
 static NSString *indetifer = @"VideoJoinerCell";
 
@@ -43,13 +44,13 @@ static NSString *indetifer = @"VideoJoinerCell";
         [_reorderVideoList addObject:model];
     }
     
-    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"取消"
+    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:UGCLocalize(@"UGCKit.UGCKitWrapper.cancel")
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(goBack)];
     customBackButton.tintColor = TXColor.cyan;    
     self.navigationItem.leftBarButtonItem = customBackButton;
-    self.navigationItem.title = @"视频拼接";
+    self.navigationItem.title = UGCLocalize(@"UGCVideoJoinDemo.VideoJoiner.videostitching");
     
 //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"black"] forBarMetrics:UIBarMetricsDefault];
 #ifdef HelpBtnUI
@@ -69,7 +70,7 @@ static NSString *indetifer = @"VideoJoinerCell";
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return @"视频将按照列表顺序进行合成，您可以拖动进行片段顺序调整。";
+    return UGCLocalize(@"UGCVideoJoinDemo.VideoJoiner.videoshouldlist");
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -114,7 +115,7 @@ static NSString *indetifer = @"VideoJoinerCell";
     if (self.reorderVideoList.count < 2) {
            MBProgressHUD* hub = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
            hub.mode = MBProgressHUDModeText;
-           hub.label.text = @"必须选择两个以上视频文件";
+        hub.label.text = UGCLocalize(@"UGCVideoJoinDemo.VideoJoiner.mustselectmorethantwovideofiles");
            hub.removeFromSuperViewOnHide = YES;
            [hub showAnimated:YES];
            [hub hideAnimated:YES afterDelay:3];

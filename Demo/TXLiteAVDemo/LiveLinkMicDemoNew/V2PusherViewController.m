@@ -16,6 +16,7 @@
 #import "V2QRGenerateViewController.h"
 #import "MBProgressHUD.h"
 #import "PhotoUtil.h"
+#import "AppLocalized.h"
 
 #define V2LogSimple() \
         NSLog(@"[%@ %p %s %d]", NSStringFromClass(self.class), self, __func__, __LINE__);
@@ -35,8 +36,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.title = @"V2推流";
-        [self addSettingContainerView];
+        self.title = V2Localize(@"V2.Live.LinkMicNew.v2pushstream");
     }
     return self;
 }
@@ -54,9 +54,9 @@
     _url = url;
     NSDictionary *params = [V2LiveUtils parseURLParametersAndLowercaseKey:url];
     if ([V2LiveUtils isTRTCUrl:url]) {
-        self.title = [NSString stringWithFormat:@"V2推流（%@）", params[@"strroomid"]];
+        self.title = [NSString stringWithFormat:@"%@（%@）", V2Localize(@"V2.Live.LinkMicNew.v2pushstream"), params[@"strroomid"]];
     } else {
-        self.title = @"V2推流";//[NSString stringWithFormat:@"V2推流（%@_%@）", params[@"strroomid"], params[@"userid"]];
+        self.title = V2Localize(@"V2.Live.LinkMicNew.v2pushstream");//[NSString stringWithFormat:@"V2推流（%@_%@）", params[@"strroomid"], params[@"userid"]];
     }
 }
 
@@ -67,9 +67,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self setUpNavigationBarButtons];
-    
     self.videoView = [[TXView alloc] initWithFrame:self.view.bounds];
     self.videoView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.videoView];
@@ -109,29 +107,40 @@
 }
 
 
-- (void)addSettingContainerView {
-    self.pusherVM = [[V2PusherSettingModel alloc] initWithPusher:self.pusher];
-    
-    self.settingContainer = [[V2PusherSettingViewController alloc] initWithHostVC:self
-                                                                 muteVideo:NO
-                                                                 muteAudio:NO
-                                                                   logView:NO
-                                                                    pusher:self.pusher
-                                                           pusherViewModel:self.pusherVM];
-    self.settingContainer.isStart = self.pusher.isPushing;
-    self.settingContainer.frontCamera = YES;
-    self.settingContainer.delegate = self;
-    [self.view addSubview:self.settingContainer];
-    [self.settingContainer mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.leading.trailing.equalTo(self.view);
-        if (@available(iOS 11.0, *)) {
-            make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
-            make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
-        } else {
-            make.top.equalTo(self.view).offset(64);
-            make.bottom.equalTo(self.view);
-        }
-    }];
+- (V2PusherSettingViewController *)settingContainer {
+    if (!self.pusherVM) {
+        self.pusherVM = [[V2PusherSettingModel alloc] initWithPusher:self.pusher];
+    }
+    if (!_settingContainer) {
+        _settingContainer = [[V2PusherSettingViewController alloc] initWithHostVC:self
+                                                                     muteVideo:NO
+                                                                     muteAudio:NO
+                                                                       logView:NO
+                                                                        pusher:self.pusher
+                                                               pusherViewModel:self.pusherVM];
+        _settingContainer.isStart = self.pusher.isPushing;
+        _settingContainer.frontCamera = YES;
+        _settingContainer.delegate = self;
+        [self.view addSubview:_settingContainer];
+        [_settingContainer mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.leading.trailing.equalTo(self.view);
+            if (@available(iOS 11.0, *)) {
+                make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+                make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+            } else {
+                make.top.equalTo(self.view).offset(64);
+                make.bottom.equalTo(self.view);
+            }
+        }];
+    }
+    return _settingContainer;
+}
+
+- (void)releaseSettingContainer {
+    if (_settingContainer) {
+        [_settingContainer removeFromSuperview];
+        _settingContainer = nil;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -230,6 +239,7 @@
             [self showText:@"已存在一个推流" withDetailText:nil];
         }
     }
+    [self.pusherVM applyConfig];
     [UIApplication sharedApplication].idleTimerDisabled = self.pusher.isPushing;
     return result;
 }
@@ -240,6 +250,7 @@
     [self.pusher stopMicrophone];
     [self.pusher stopPush];
     [self.settingContainer stopPush];
+    [self releaseSettingContainer];
     if (self.onStatusUpdate) {
         self.onStatusUpdate();
     }
@@ -331,7 +342,7 @@
         message:(NSString *)msg
       extraInfo:(NSDictionary *)extraInfo {
     V2Log(@"code:%ld, msg:%@, extraInfo:%@", (long)code, msg, extraInfo)
-    if (code == V2TXLIVE_ERROR_ENTER_ROOM_TIMEOUT) {
+    if (code == V2TXLIVE_ERROR_REQUEST_TIMEOUT) {
         [self showText:@"进房超时" withDetailText:@"请检查网络状态，然后重试"];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self stopPush];

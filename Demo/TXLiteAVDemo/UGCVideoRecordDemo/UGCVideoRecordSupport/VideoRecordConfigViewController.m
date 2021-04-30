@@ -8,6 +8,7 @@
 
 #import "VideoRecordConfigViewController.h"
 #import "TXColor.h"
+#import "AppLocalized.h"
 
 #ifdef ENABLE_UGC
 #import "AppDelegate.h"
@@ -236,8 +237,9 @@
 
 - (IBAction)onClickAEC:(UISwitch *)sender {
     _videoConfig.AECEnabled = sender.isOn;
-    NSString *titie = sender.on ? @"开启回声消除，可以录制人声，BGM，人声+BGM （注意：录制中开启回声消除，BGM的播放模式是手机通话模式，这个模式下系统静音会失效，而视频播放预览走的是媒体播放模式，播放模式的不同会导致录制和预览在相同系统音量下播放声音大小有一定区别）" : @"关闭回声消除，可以录制人声、BGM，耳机模式下可以录制人声 + BGM 。外放模式下为保证正常录制，系统默认开启回声消除，不可关闭";
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"温馨提示" message:titie delegate:sender cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+    NSString *titie = sender.on ? UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.openechocancellation") :
+    UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.closeechocancellation");
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.warmreminder") message:titie delegate:sender cancelButtonTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed") otherButtonTitles:nil, nil];
     [alert show];
 }
 

@@ -12,7 +12,7 @@
 #import "TXColor.h"
 #import "UIView+Additions.h"
 #import "VideoPreview.h"
-
+#import "AppLocalized.h"
 typedef  NS_ENUM(NSInteger,ActionType)
 {
     ActionType_Save,
@@ -52,13 +52,13 @@ typedef  NS_ENUM(NSInteger,ActionType)
     _outFilePath = [documentsDirectory stringByAppendingPathComponent:@"output.mp4"];
 #endif
     
-    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"返回"
+    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.back")
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(goBack)];
     self.navigationItem.leftBarButtonItem = customBackButton;
     customBackButton.tintColor = TXColor.cyan;
-    self.navigationItem.title = @"视频预览";
+    self.navigationItem.title = UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.videopreview");
     
     //    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"black"] forBarMetrics:UIBarMetricsDefault];
     
@@ -84,7 +84,7 @@ typedef  NS_ENUM(NSInteger,ActionType)
         
         _generationTitleLabel = [UILabel new];
         _generationTitleLabel.font = [UIFont systemFontOfSize:14];
-        _generationTitleLabel.text = @"视频合成中";
+        _generationTitleLabel.text =  UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.videocompositing");
         _generationTitleLabel.textColor = UIColor.whiteColor;
         _generationTitleLabel.textAlignment = NSTextAlignmentCenter;
         _generationTitleLabel.frame = CGRectMake(0, _generateProgressView.y - 34, _generationView.width, 14);
@@ -143,7 +143,7 @@ typedef  NS_ENUM(NSInteger,ActionType)
     _ugcJoin = [[TXVideoJoiner alloc] initWithPreview:param];
     int reslut = [_ugcJoin setVideoAssetList:_composeArray];
     if (reslut != 0) {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"获取视频失败！" message:@"视频列表里面有视频不支持预览合成" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil, nil];
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.getvideoerror") message: UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.videolistnothave") delegate:self cancelButtonTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed") otherButtonTitles:nil, nil];
         [alertView show];
         _setPathSuccess = NO;
     }else{
@@ -213,10 +213,10 @@ typedef  NS_ENUM(NSInteger,ActionType)
         _generationView.hidden = YES;
         [_ugcJoin cancelJoin];
         
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"视频合成失败"
-                                                            message:@"中途切后台导致,请重新合成"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.videocompositingerror")
+                                                            message:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.backgrounderror")
                                                            delegate:self
-                                                  cancelButtonTitle:@"知道了"
+                                                  cancelButtonTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed")
                                                   otherButtonTitles:nil, nil];
         [alertView show];
     }
@@ -231,10 +231,11 @@ typedef  NS_ENUM(NSInteger,ActionType)
         VideoPreviewViewController* vc = [[VideoPreviewViewController alloc] initWithCoverImage:videoInfo.coverImage videoPath:_outFilePath renderMode:RENDER_MODE_FILL_EDGE showEditButton:NO];
         [self.navigationController pushViewController:vc animated:YES];
     }else{
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"视频合成失败"
-                                                            message:[NSString stringWithFormat:@"错误码：%ld 错误信息：%@",(long)result.retCode,result.descMsg]
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.videocompositingerror")
+                                                            message:
+                                  LocalizeReplace(UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.errorcodexxerrormsgyy"), [NSString stringWithFormat:@"%ld",(long)result.retCode], [NSString stringWithFormat:@"%@",result.descMsg])
                                                            delegate:self
-                                                  cancelButtonTitle:@"知道了"
+                                                  cancelButtonTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed")
                                                   otherButtonTitles:nil, nil];
         [alertView show];
     }
@@ -257,7 +258,7 @@ typedef  NS_ENUM(NSInteger,ActionType)
     
     if (_ugcJoin) {
         if (!_setPathSuccess) {
-            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"获取视频失败！" message:@"视频列表里面有视频不支持预览合成" delegate:self cancelButtonTitle:@"知道了" otherButtonTitles:nil];
+            UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.getvideoerror") message:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.videolistnothave") delegate:self cancelButtonTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed") otherButtonTitles:nil];
             [alertView show];
             return;
         }

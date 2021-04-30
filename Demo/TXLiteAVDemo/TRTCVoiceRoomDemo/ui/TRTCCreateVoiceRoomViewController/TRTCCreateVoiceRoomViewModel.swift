@@ -51,7 +51,7 @@ class TRTCCreateVoiceRoomViewModel {
         let userId = ProfileManager.shared.curUserID() ?? dependencyContainer.userId
         let coverAvatar = ProfileManager.shared.curUserModel?.avatar ?? ""
         let roomId = getRoomId()
-        let roomInfo = VoiceRoomInfo.init(roomID: roomId, ownerId: userId, memberCount: 7)
+        let roomInfo = VoiceRoomInfo.init(roomID: roomId, ownerId: userId, memberCount: 9)
         roomInfo.ownerName = userName
         roomInfo.coverUrl = coverAvatar
         roomInfo.roomName = roomName

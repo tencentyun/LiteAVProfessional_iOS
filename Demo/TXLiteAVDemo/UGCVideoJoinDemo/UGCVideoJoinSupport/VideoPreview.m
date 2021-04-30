@@ -9,6 +9,7 @@
 #import "VideoPreview.h"
 #import "UIView+Additions.h"
 #import <AVFoundation/AVFoundation.h>
+#import "AppLocalized.h"
 
 #undef _MODULE_
 #define _MODULE_ "TXVideoPreview"
@@ -66,21 +67,21 @@
         CGFloat font = 12.f;
         CGFloat offset = 14.f;
         _loopLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.width - controlBtnWidth, 50, controlBtnWidth, controlBtnWidth)];
-        _loopLabel.text = @"循环";
+        _loopLabel.text = UGCLocalize(@"UGCVideoJoinDemo.VideoPreview.cycle");
         _loopLabel.textColor = [UIColor whiteColor];
         _loopLabel.font = [UIFont systemFontOfSize:font];
         _loopSwitch = [[UISwitch alloc] initWithFrame:CGRectOffset(_loopLabel.frame, -offset, controlBtnWidth)];
         [_loopSwitch addTarget:self action:@selector(onBGMLoop:) forControlEvents:UIControlEventTouchUpInside];
         
         _fadeInLabel = [[UILabel alloc] initWithFrame:CGRectOffset(_loopSwitch.frame, +offset, controlBtnWidth)];
-        _fadeInLabel.text = @"淡入";
+        _fadeInLabel.text = UGCLocalize(@"UGCVideoJoinDemo.VideoPreview.fadein");
         _fadeInLabel.textColor = [UIColor whiteColor];
         _fadeInLabel.font = [UIFont systemFontOfSize:font];
         _fadeInSwitch = [[UISwitch alloc] initWithFrame:CGRectOffset(_fadeInLabel.frame, -offset, controlBtnWidth)];
         [_fadeInSwitch addTarget:self action:@selector(onBGMFadeIn:) forControlEvents:UIControlEventTouchUpInside];
         
         _fadeOutLabel = [[UILabel alloc] initWithFrame:CGRectOffset(_fadeInSwitch.frame, +offset, controlBtnWidth)];
-        _fadeOutLabel.text = @"淡出";
+        _fadeOutLabel.text = UGCLocalize(@"UGCVideoJoinDemo.VideoPreview.fadeout");
         _fadeOutLabel.textColor = [UIColor whiteColor];
         _fadeOutLabel.font = [UIFont systemFontOfSize:font];
         _fadeOutSwitch = [[UISwitch alloc] initWithFrame:CGRectOffset(_fadeOutLabel.frame, -offset, controlBtnWidth)];

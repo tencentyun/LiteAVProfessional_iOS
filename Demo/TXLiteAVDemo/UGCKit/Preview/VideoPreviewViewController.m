@@ -5,6 +5,7 @@
 #import "MBProgressHUD.h"
 #import "SmallButton.h"
 #import "PhotoUtil.h"
+#import "AppLocalized.h"
 
 #define BUTTON_PREVIEW_SIZE         65
 #define BUTTON_CONTROL_SIZE         40
@@ -156,7 +157,7 @@
 -(void)initPreviewUI
 {
     //[_livePlayer setRenderMode:RENDER_MODE_FILL_EDGE];
-    self.title = @"视频回放";
+    self.title = UGCLocalize(@"UGCKit.Preview.videoplayback");
     self.navigationItem.hidesBackButton = YES;
     CGFloat top = [UIApplication sharedApplication].statusBarFrame.size.height + 5;
     

@@ -9,9 +9,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="V2QRGenerateViewController">
             <connections>
+                <outlet property="closeBtn" destination="4Mt-Bv-a3a" id="f6y-AN-pmk"/>
                 <outlet property="contentView" destination="Ydw-yN-TyV" id="snM-jL-xd1"/>
+                <outlet property="descLabel" destination="smT-y6-7h1" id="E4i-88-Ql9"/>
                 <outlet property="qrcodeCopyBtn" destination="lhh-d0-kIm" id="N8x-9h-g1t"/>
                 <outlet property="qrcodeImageView" destination="5ng-gq-IjC" id="MEK-9k-CgQ"/>
+                <outlet property="titleLabel" destination="bKL-fG-HLL" id="Sjg-RT-GXR"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

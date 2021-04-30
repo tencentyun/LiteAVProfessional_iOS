@@ -14,6 +14,7 @@
 #import "ThemeConfigurator.h"
 #import <AudioEffectSettingKit/AudioEffectSettingKit.h>
 #import "MBProgressHUD.h"
+#import "AppLocalized.h"
 //#import "AudioEffectSettingKit.h"
 
 @interface V2PusherSettingViewController () <V2SettingBottomBarDelegate, AudioEffectViewDelegate, UIGestureRecognizerDelegate>
@@ -49,13 +50,15 @@
         self.pusher = pusher;
         
         self.pusherVM = pusherVM;
-        
         [self addBar];
         [self addCenterView];
         [self addAudioEffectView];
+        [self addBeautyVC];
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapAction)];
         tapGesture.delegate = self;
         [self addGestureRecognizer:tapGesture];
+        
+        
     }
     return self;
 }
@@ -99,13 +102,48 @@
 }
 
 - (void)stopPush {
-    /// 资源释放
+    /// 资源释放、状态清理
     self.isStart = NO;
     [self.audioEffectView stopPlay];
+    [self.audioEffectView resetAudioSetting];
+    [self resetAudioEffectView];
+    [self resetBeautyConfig];
 }
 
 - (void)dealloc {
     [self.audioEffectView resetAudioSetting];
+}
+
+- (void)addBeautyVC {
+    if (!self.beautyVC) {
+        self.beautyVC = [[V2SettingsBaseViewController alloc] init];
+        self.beautyVC.title = V2Localize(@"V2.Live.LinkMicNew.beautysetting");
+        int defaultValue = 5;
+        __weak __typeof(self) wSelf = self;
+        self.beautyVC.items = @[
+            [[V2SettingsSliderItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.rosy")
+                                                    value:defaultValue min:0 max:9 step:1
+                                               continuous:YES
+                                                   action:^(float volume) {
+                [[wSelf.pusher getBeautyManager] setRuddyLevel:volume];
+            }],
+            [[V2SettingsSliderItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.whitening")
+                                                    value:defaultValue min:0 max:9 step:1
+                                               continuous:YES
+                                                   action:^(float volume) {
+                [[wSelf.pusher getBeautyManager] setWhitenessLevel:volume];
+            }],
+            [[V2SettingsSliderItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.beauty")
+                                                    value:defaultValue min:0 max:9 step:1
+                                               continuous:YES
+                                                   action:^(float volume) {
+                [[wSelf.pusher getBeautyManager] setBeautyLevel:volume];
+            }]
+        ].mutableCopy;
+        [[self.pusher getBeautyManager] setRuddyLevel:defaultValue];
+        [[self.pusher getBeautyManager] setWhitenessLevel:defaultValue];
+        [[self.pusher getBeautyManager] setBeautyLevel:defaultValue];
+    }
 }
 
 - (void)addBar {
@@ -150,6 +188,11 @@
     }];
     
     self.centerContainerView.hidden = YES;
+}
+
+- (void)resetAudioEffectView {
+    [self.audioEffectView removeFromSuperview];
+    [self addAudioEffectView];
 }
 
 - (void)addAudioEffectView {
@@ -243,36 +286,6 @@
 }
 
 - (void)onClickBeautyButton {
-    if (!self.beautyVC) {
-        self.beautyVC = [[V2SettingsBaseViewController alloc] init];
-        self.beautyVC.title = @"美颜设置";
-        int defaultValue = 5;
-        __weak __typeof(self) wSelf = self;
-        self.beautyVC.items = @[
-            [[V2SettingsSliderItem alloc] initWithTitle:@"红润"
-                                                    value:defaultValue min:0 max:9 step:1
-                                               continuous:YES
-                                                   action:^(float volume) {
-                [[wSelf.pusher getBeautyManager] setRuddyLevel:volume];
-            }],
-            [[V2SettingsSliderItem alloc] initWithTitle:@"美白"
-                                                    value:defaultValue min:0 max:9 step:1
-                                               continuous:YES
-                                                   action:^(float volume) {
-                [[wSelf.pusher getBeautyManager] setWhitenessLevel:volume];
-            }],
-            [[V2SettingsSliderItem alloc] initWithTitle:@"美颜"
-                                                    value:defaultValue min:0 max:9 step:1
-                                               continuous:YES
-                                                   action:^(float volume) {
-                [[wSelf.pusher getBeautyManager] setBeautyLevel:volume];
-            }]
-        ].mutableCopy;
-        
-        [[self.pusher getBeautyManager] setRuddyLevel:defaultValue];
-        [[self.pusher getBeautyManager] setWhitenessLevel:defaultValue];
-        [[self.pusher getBeautyManager] setBeautyLevel:defaultValue];
-    }
     [self toggleEmbedVC:self.beautyVC];
     
     [self.centerContainerView mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -281,6 +294,12 @@
         make.height.mas_equalTo(200);
         make.bottom.equalTo(self.settingBar.mas_top).offset(-20);
     }];
+}
+
+- (void) resetBeautyConfig {
+    [[self.pusher getBeautyManager] setRuddyLevel:0];
+    [[self.pusher getBeautyManager] setWhitenessLevel:0];
+    [[self.pusher getBeautyManager] setBeautyLevel:0];
 }
 
 - (void)onClickSwitchCameraButton {
@@ -348,32 +367,32 @@
 - (V2SettingsBaseViewController *)videoVC {
     if (_videoVC == nil) {
         _videoVC = [[V2SettingsBaseViewController alloc] init];
-        _videoVC.title = @"视频";
+        _videoVC.title = V2Localize(@"V2.Live.LinkMicNew.video");
         
         __weak __typeof(self) wSelf = self;
         _videoVC.items = @[
-            [[V2SettingsSelectorItem alloc] initWithTitle:@"分辨率"
+            [[V2SettingsSelectorItem alloc] initWithTitle: V2Localize(@"V2.Live.LinkMicNew.resolution")
                                                       items: [V2PusherSettingModel resolutionNames]
                                               selectedIndex:(NSInteger)self.pusherVM.videoResolution
                                                      action:^(NSInteger index) {
                 V2TXLiveVideoResolution resolution = [[V2PusherSettingModel resolutions][index] integerValue];
                 [wSelf.pusherVM setVideoResolution:resolution];
             }],
-            [[V2SettingsSegmentItem alloc] initWithTitle:@"  本地预览镜像"
-                                                     items:@[@"auto", @"开启", @"关闭"]
+            [[V2SettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.localpreviewmirror")
+                                                   items:@[V2Localize(@"V2.Live.LinkMicNew.auto"), V2Localize(@"V2.Live.LinkMicNew.enable"),V2Localize(@"V2.Live.LinkMicNew.disable")]
                                              selectedIndex:self.pusherVM.localMirrorType
                                                     action:^(NSInteger index) {
                 [wSelf.pusherVM setLocalMirrorType:index];
             }],
-            [[V2SettingsSwitchItem alloc] initWithTitle:@"开启远程镜像"
+            [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.openremotemirror")
                                                      isOn:self.pusherVM.isRemoteMirrorEnabled
                                                    action:^(BOOL isOn) {
                 [wSelf onEnableRemoteMirror:isOn];
             }],
-            [[V2SettingsSwitchItem alloc] initWithTitle:@"开启视频水印" isOn:NO action:^(BOOL isOn) {
+            [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.openwatermark") isOn:self.pusherVM.isWaterMarkEnabled action:^(BOOL isOn) {
                 [wSelf onEnableWatermark:isOn];
             }],
-            [[V2SettingsButtonItem alloc] initWithTitle:@"视频截图" buttonTitle:@"截图" action:^{
+            [[V2SettingsButtonItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.videosnapshot") buttonTitle:V2Localize(@"V2.Live.LinkMicNew.snapshot") action:^{
                 [wSelf snapshotLocalVideo];
             }],
         ].mutableCopy;
@@ -385,29 +404,29 @@
 - (V2SettingsBaseViewController *)audioVC {
     if (_audioVC == nil) {
         _audioVC = [[V2SettingsBaseViewController alloc] init];
-        _audioVC.title = @"音频";
+        _audioVC.title = V2Localize(@"V2.Live.LinkMicNew.audio");
         
         __weak __typeof(self) wSelf = self;
             
         _audioVC.items = @[
-            [[V2SettingsSegmentItem alloc] initWithTitle:@"  音量类型"
-                                                     items:@[@"自动", @"媒体", @"通话"]
+            [[V2SettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.volumetype")
+                                                     items:@[V2Localize(@"V2.Live.LinkMicNew.auto"), V2Localize(@"V2.Live.LinkMicNew.media"), V2Localize(@"V2.Live.LinkMicNew.calling")]
                                              selectedIndex:self.pusherVM.volumeType
                                                     action:^(NSInteger index) {
                 wSelf.pusherVM.volumeType = (TRTCSystemVolumeType)index;
             }],
-            [[V2SettingsSliderItem alloc] initWithTitle:@"采集音量"
+            [[V2SettingsSliderItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.capturevolume")
                                                     value:100 min:0 max:100 step:1
                                                continuous:YES
                                                    action:^(float volume) {
                 wSelf.pusherVM.captureVolume = (NSInteger)volume;
             }],
-            [[V2SettingsSwitchItem alloc] initWithTitle:@"开启耳返"
+            [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.earbackon")
                                                      isOn:self.pusherVM.isEarMonitoringEnabled
                                                    action:^(BOOL isOn) {
                 wSelf.pusherVM.isEarMonitoringEnabled = isOn;
             }],
-            [[V2SettingsSwitchItem alloc] initWithTitle:@"音量提示"
+            [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.volumeprompt")
                                                      isOn:self.pusherVM.isEnableVolumeEvaluation
                                                    action:^(BOOL isOn) {
                 wSelf.pusherVM.isEnableVolumeEvaluation = isOn;

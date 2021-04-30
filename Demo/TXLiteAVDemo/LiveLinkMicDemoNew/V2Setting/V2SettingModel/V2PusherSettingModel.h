@@ -66,6 +66,9 @@ typedef NS_ENUM(NSInteger, TRTCAudioRoute) {
 /// 设置远程镜像
 @property (nonatomic, assign) BOOL isRemoteMirrorEnabled;
 
+/// 是否打开了视频水印
+@property (nonatomic, assign, readonly) BOOL isWaterMarkEnabled;
+
 /// 设置视频水印
 /// @param image 水印图片，必须使用透明底的png格式图片
 /// @param rect 水印位置，x, y, width, height取值范围都是0 - 1

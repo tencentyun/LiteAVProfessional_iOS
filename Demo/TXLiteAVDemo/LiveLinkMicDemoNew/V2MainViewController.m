@@ -12,6 +12,7 @@
 #import "V2PusherViewController.h"
 #import "V2PlayerViewController.h"
 #import "V2MainProtocolSelectViewController.h"
+#import "AppLocalized.h"
 
 @interface V2MainViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 @property (nonatomic, strong) UICollectionView *roomListCollection;
@@ -47,7 +48,7 @@
     }];
     
     self.view.backgroundColor = [UIColor blueColor];
-    self.title = @"连麦演示（新方案）";
+    self.title = V2Localize(@"V2.Live.LinkMicNew.coanchornew");
     
     [self initRoomListDatas];
     
@@ -133,7 +134,7 @@
         [strongSelf.urlSettingVC setOnStart:^(V2MainProtocolSelectViewController * _Nonnull vc, NSString * _Nonnull url, NSDictionary *playUrls, BOOL isPush) {
             __strong V2MainViewController * strongSelf = weakSelf;
             if (isPush && [strongSelf.curSetUrlCell isKindOfClass:[V2MainItemPushCell class]]) {
-                [(V2MainItemPushCell *)strongSelf.curSetUrlCell setPusherMode:playUrls?V2TXLiveMode_RTMP:V2TXLiveMode_RTC];
+                [(V2MainItemPushCell *)strongSelf.curSetUrlCell setPusherMode:[url hasPrefix:@"trtc"] ? V2TXLiveMode_RTC : V2TXLiveMode_RTMP];
             }
             [strongSelf.curSetUrlCell startWithUrl:url playUrls:playUrls];
         }];

@@ -45,9 +45,11 @@ class TRTCVoiceRoomRootView: UIView {
     
     let seatCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize.init(width: 66, height: 95)
-        layout.minimumLineSpacing = 30.0
-        layout.minimumInteritemSpacing = (UIScreen.main.bounds.width - 60.0 - (66.0 * 3)) / 2.0
+        let spacing = CGFloat(20)
+        let itemWidth = (UIScreen.main.bounds.width - 60 - 3 * spacing) / 4
+        layout.itemSize = CGSize.init(width: itemWidth, height: 95)
+        layout.minimumLineSpacing = spacing
+        layout.minimumInteritemSpacing = spacing
         layout.scrollDirection = .vertical
         let collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: layout)
         collectionView.register(TRTCVoiceRoomSeatCell.self, forCellWithReuseIdentifier: "TRTCVoiceRoomSeatCell")
@@ -269,9 +271,9 @@ extension TRTCVoiceRoomRootView: TRTCVoiceRoomViewResponder {
     
     func onSeatMute(isMute: Bool) {
         if isMute {
-            makeToast("被房主禁言", duration: 0.3)
+            makeToast(.mutedText, duration: 0.3)
         } else {
-            makeToast("被房主解禁", duration: 0.3)
+            makeToast(.unmutedText, duration: 0.3)
             if viewModel.isSelfMute {
                 return;
             }
@@ -287,14 +289,14 @@ extension TRTCVoiceRoomRootView: TRTCVoiceRoomViewResponder {
             }
         }
         let alertController = UIAlertController.init(title: info.title, message: info.message, preferredStyle: .alert)
-        let sureAlertAction = UIAlertAction.init(title: "接受", style: .default) { (action) in
+        let sureAlertAction = UIAlertAction.init(title: .acceptText, style: .default) { (action) in
             sureAction()
             alertController.dismiss(animated: false) { [weak self] in
                 guard let `self` = self else { return }
                 self.alertController = nil
             }
         }
-        let cancelAlertAction = UIAlertAction.init(title: "拒绝", style: .cancel) { (action) in
+        let cancelAlertAction = UIAlertAction.init(title: .refuseText, style: .cancel) { (action) in
             cancelAction?()
             alertController.dismiss(animated: false) { [weak self] in
                 guard let `self` = self else { return }
@@ -310,7 +312,7 @@ extension TRTCVoiceRoomRootView: TRTCVoiceRoomViewResponder {
     }
     
     func showActionSheet(actionTitles: [String], actions: @escaping (Int) -> Void) {
-        let actionSheet = UIAlertController.init(title: "请选择", message: "", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController.init(title: .selectText, message: "", preferredStyle: .actionSheet)
         actionTitles.enumerated().forEach { (item) in
             let index = item.offset
             let title = item.element
@@ -320,7 +322,7 @@ extension TRTCVoiceRoomRootView: TRTCVoiceRoomViewResponder {
             }
             actionSheet.addAction(action)
         }
-        let cancelAction = UIAlertAction.init(title: "取消", style: .cancel) { (action) in
+        let cancelAction = UIAlertAction.init(title: .cancelText, style: .cancel) { (action) in
             actionSheet.dismiss(animated: true, completion: nil)
         }
         actionSheet.addAction(cancelAction)
@@ -381,7 +383,12 @@ extension TRTCVoiceRoomRootView: TRTCVoiceRoomViewResponder {
 
 /// MARK: - internationalization string
 fileprivate extension String {
-    
+    static let mutedText = TRTCLocalize("Demo.TRTC.Salon.seatmuted")
+    static let unmutedText = TRTCLocalize("Demo.TRTC.Salon.seatunmuted")
+    static let acceptText = TRTCLocalize("Demo.TRTC.LiveRoom.accept")
+    static let refuseText = TRTCLocalize("Demo.TRTC.LiveRoom.refuse")
+    static let selectText = TRTCLocalize("Demo.TRTC.Salon.pleaseselect")
+    static let cancelText = TRTCLocalize("Demo.TRTC.LiveRoom.cancel")
 }
 
 

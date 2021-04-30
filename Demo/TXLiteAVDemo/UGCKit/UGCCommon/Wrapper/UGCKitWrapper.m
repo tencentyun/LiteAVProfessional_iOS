@@ -13,6 +13,7 @@
 #import "VideoJoinerController.h"
 #import "SuperPlayer.h"
 #import "VideoRecordConfigViewController.h"
+#import "AppLocalized.h"
 
 typedef UINavigationController TCNavigationController;
 
@@ -69,16 +70,16 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
 - (NSString *)_titleForAction:(TCVideoAction)action {
     switch (action) {
         case TCVideoActionCancel:
-            return NSLocalizedString(@"取消", nil);
+            return UGCLocalize(@"UGCKit.UGCKitWrapper.cancel");
             break;
         case TCVideoActionSave:
-            return NSLocalizedString(@"普通模式", nil);
+            return UGCLocalize(@"UGCKit.UGCKitWrapper.normalmodel");
             break;
         case TCVideoActionSaveWithTwoPass:
-            return NSLocalizedString(@"质量优化模式", nil);
+            return UGCLocalize(@"UGCKit.UGCKitWrapper.qualityofoptimization");
             break;
         case TCVideoActionSaveGIF:
-            return NSLocalizedString(@"转换为 GIF", nil);
+            return UGCLocalize(@"UGCKit.UGCKitWrapper.convertgif");
             break;
         default:
             break;
@@ -124,7 +125,7 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
 - (void)showEditFinishOptionsWithResult:(UGCKitResult *)result
                          editController:(UGCKitEditViewController *)editViewController
                            finishBloack:(void(^)(BOOL shouldGenerate))finish {
-    UIAlertController *controller = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"请选择压缩模式", nil)
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle: UGCLocalize(@"UGCKit.UGCKitWrapper.selectzipmodel")
                                                                         message:nil
                                                                  preferredStyle:UIAlertControllerStyleActionSheet];
     [controller addAction:[self _alertActionForAction:TCVideoActionSave
@@ -163,7 +164,7 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
                                                      frame:CGRectMake(x, y, w, 0)
                                                   duration:2];
     if (media.videoAsset == nil) {
-        [self showAlert:@"提示" message:@"视屏资源文件有误,请重试"];
+        [self showAlert:UGCLocalize(@"UGCKit.UGCKitWrapper.prompt") message:UGCLocalize(@"UGCKit.UGCKitWrapper.videofileerror")];
         return;
     }
     __weak __typeof(self) wself = self;
@@ -205,7 +206,7 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
                         break;
                 }
             } else {
-                [self showAlert:@"生成失败" message:result.info[NSLocalizedDescriptionKey]];
+                [self showAlert:UGCLocalize(@"UGCKit.UGCKitWrapper.generatefailure") message:result.info[NSLocalizedDescriptionKey]];
             }
         }
         [[NSUserDefaults standardUserDefaults] setObject:nil forKey:CACHE_PATH_LIST];
@@ -260,7 +261,7 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
     if (!hud) {
         hud = [MBProgressHUD showHUDAddedTo:editController.view animated:YES];
     }
-    hud.label.text = NSLocalizedString(@"GIF 生成中", nil);
+    hud.label.text = UGCLocalize(@"UGCKit.UGCKitWrapper.gifinit");
     hud.mode = MBProgressHUDModeIndeterminate;
     [hud showAnimated:YES];
 
@@ -309,10 +310,10 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
                     [hud hideAnimated:YES];
                     UIAlertController *alertController = nil;
                     if (success) {
-                        alertController = [wself _alertWithTitle:NSLocalizedString(@"GIF 生成成功，已经保存到系统相册，请前往系统相册查看", nil)
+                        alertController = [wself _alertWithTitle:UGCLocalize(@"UGCKit.UGCKitWrapper.gifinitsuccess")
                                                          message:nil];
                     } else {
-                        alertController = [wself _alertWithTitle:NSLocalizedString(@"GIF 保存失败", nil)
+                        alertController = [wself _alertWithTitle:UGCLocalize(@"UGCKit.UGCKitWrapper.gifsavefailed")
                                                          message:nil];
                     }
                     [editController presentViewController:alertController
@@ -347,7 +348,7 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title
                                                                              message:message
                                                                       preferredStyle:UIAlertControllerStyleAlert];
-    [alertController addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"确定", nil)
+    [alertController addAction:[UIAlertAction actionWithTitle:UGCLocalize(@"UGCKit.UGCKitWrapper.determine")
                                                         style:UIAlertActionStyleCancel
                                                       handler:nil]];
     return alertController;
@@ -398,7 +399,7 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
                   result.info[NSLocalizedDescriptionKey]);
             [wself.viewController dismissViewControllerAnimated:YES completion:^{
                 if (result.code != 0) {
-                    [self showAlert:@"操作失败"
+                    [self showAlert:UGCLocalize(@"UGCKit.UGCKitWrapper.operationfailure")
                             message:result.info[NSLocalizedDescriptionKey]];
                 }
             }];
@@ -458,7 +459,7 @@ typedef NS_ENUM(NSInteger, TCVideoAction) {
                   result.info[NSLocalizedDescriptionKey]);
             [wself.viewController dismissViewControllerAnimated:YES completion:^{
                 if (!result.cancelled) {
-                    [self showAlert:@"视频上传" message:result.info[NSLocalizedDescriptionKey]];
+                    [self showAlert:UGCLocalize(@"UGCKit.UGCKitWrapper.videoupload") message:result.info[NSLocalizedDescriptionKey]];
                 }
             }];
         }

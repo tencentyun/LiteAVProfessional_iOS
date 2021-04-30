@@ -12,6 +12,8 @@
 #import "ColorMacro.h"
 #import "UIView+Additions.h"
 #import "AppDelegate.h"
+#import "AppLocalized.h"
+
 @interface VideoCompressViewController ()<TXVideoGenerateListener,UITextFieldDelegate>
 
 @end
@@ -41,7 +43,7 @@
     [super viewDidLoad];
 
     self.title = @"视频上传";
-    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:@"返回"
+    UIBarButtonItem *customBackButton = [[UIBarButtonItem alloc] initWithTitle:UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.back")
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(goBack)];
@@ -56,7 +58,7 @@
     
     _btnNone = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btnNone setFrame:CGRectMake(startSpace, 100 * kScaleY, btnWidth, btnHeight)];
-    [_btnNone setTitle:@"无" forState:UIControlStateNormal];
+    [_btnNone setTitle:UGCLocalize(@"UGCVideoUploadDemo.VideoCompress.thereisno") forState:UIControlStateNormal];
     [_btnNone addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
     _btnNone.tag = 0;
     [self.view addSubview:_btnNone];
@@ -100,7 +102,7 @@
     [self setView:_biterateView selected:YES];
     
     UILabel *biterateLabel = [[UILabel alloc] initWithFrame:CGRectMake(15 * kScaleX, 0, 120, _biterateView.height)];
-    biterateLabel.text = @"码率（kbps）";
+    biterateLabel.text = UGCLocalize(@"UGCVideoUploadDemo.VideoCompress.kbps");
     biterateLabel.textColor = [UIColor grayColor];
     [_biterateView addSubview:biterateLabel];
     
@@ -117,7 +119,7 @@
     
     UIButton *confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [confirmBtn setFrame:CGRectMake(15 * kScaleX, self.view.height - 44 - 15 * kScaleY, self.view.width - 30 * kScaleX, 40 * kScaleY)];
-    [confirmBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [confirmBtn setTitle:UGCLocalize(@"UGCKit.UGCKitWrapper.determine") forState:UIControlStateNormal];
     [confirmBtn setBackgroundColor:UIColorFromRGB(0x0BC59C)];
     [confirmBtn addTarget:self action:@selector(confirm) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:confirmBtn];
@@ -158,7 +160,7 @@
 
     _generationTitleLabel = [UILabel new];
     _generationTitleLabel.font = [UIFont systemFontOfSize:14];
-    _generationTitleLabel.text = @"视频生成中";
+    _generationTitleLabel.text = UGCLocalize(@"UGCVideoUploadDemo.VideoCompress.videogeneration");
     _generationTitleLabel.textColor = UIColor.whiteColor;
     _generationTitleLabel.textAlignment = NSTextAlignmentCenter;
     _generationTitleLabel.frame = CGRectMake(0, _generateProgressView.y - 34, _generationView.width, 14);
@@ -346,10 +348,11 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"视频生成失败"
-                                                            message:[NSString stringWithFormat:@"错误码：%ld 错误信息：%@",(long)result.retCode,result.descMsg]
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoUploadDemo.VideoCompress.videogenerationerror")
+                                                            message:
+                                  LocalizeReplace(UGCLocalize(@"UGCVideoJoinDemo.TCVideoEditPrev.errorcodexxerrormsgyy"), [NSString stringWithFormat:@"%ld",(long)result.retCode], [NSString stringWithFormat:@"%@",result.descMsg])
                                                            delegate:self
-                                                  cancelButtonTitle:@"知道了"
+                                                  cancelButtonTitle: UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed")
                                                   otherButtonTitles:nil, nil];
         [alertView show];
     }
@@ -361,10 +364,10 @@
         _generating = NO;    
         _generateProgressView.progress = 0;
         _generationView.hidden = YES;
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"视频生成被打断"
-                                                            message:@"压缩过程中需要App保持在前台运行"
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:UGCLocalize(@"UGCVideoUploadDemo.VideoCompress.videogenerationstop")
+                                                            message:UGCLocalize(@"UGCVideoUploadDemo.VideoCompress.zipingshouldinfront")
                                                            delegate:self
-                                                  cancelButtonTitle:@"知道了"
+                                                  cancelButtonTitle:UGCLocalize(@"UGCVideoRecordDemo.VideoRecordConfig.knowed")
                                                   otherButtonTitles:nil, nil];
         [alertView show];
     }
