@@ -581,7 +581,8 @@ alpha:1.0]
     NSLog(@"on click: #onStart#");
     UIView *selectedView = self.segmentView.selectedView;
     if ([selectedView isEqual:self.cdnView]) {
-        if ([V2LiveUtils isRTMPUrl:self.cdnView.inputTextField.text]) {
+        if ([V2LiveUtils isRTMPUrl:self.cdnView.inputTextField.text] ||
+            [V2LiveUtils isWebrtcUrl:self.cdnView.inputTextField.text]) {
             [self callBackOnStart:self.cdnView.inputTextField.text playUrls:self.cdnPlayUrls];
         } else {
             [self showText:V2Localize(@"V2.Live.LinkMicNew.enterlegitcdnadd") withDetailText:nil];
@@ -688,7 +689,8 @@ alpha:1.0]
                 if (playUrl) {
                     [self callBackOnStart:playUrl playUrls:nil];
                 }
-            } else if ([V2LiveUtils isRTMPUrl:originUrl]) {
+            } else if ([V2LiveUtils isRTMPUrl:originUrl] ||
+                       [V2LiveUtils isWebrtcUrl:originUrl]) {
                 [self callBackOnStart:originUrl playUrls:@{}];
             } else {
                 [self showText:V2Localize(@"V2.Live.LinkMicNew.urladdrinvalid") withDetailText:nil];

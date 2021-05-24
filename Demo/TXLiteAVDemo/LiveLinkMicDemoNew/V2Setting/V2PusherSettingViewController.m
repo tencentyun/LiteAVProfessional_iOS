@@ -95,9 +95,16 @@
 }
 
 - (void)setPusher:(V2TXLivePusher *)pusher {
+    BOOL isFirstSetPusher = (_pusher == nil);
     _pusher = pusher;
     if (pusher) {
         [self.audioEffectView setAudioEffectManager:[pusher getAudioEffectManager]];
+        if (isFirstSetPusher) {
+            int defaultValue = 5;
+            [[pusher getBeautyManager] setRuddyLevel:defaultValue];
+            [[pusher getBeautyManager] setWhitenessLevel:defaultValue];
+            [[pusher getBeautyManager] setBeautyLevel:defaultValue];
+        }
     }
 }
 

@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A3AD1A1EDD498B7DB165A4A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288D164C08BFB75B9871C1D3 /* ProfileViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1B745E799118DCF7CBD92242 /* LoginViewController+UI_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24D22415664BB862E1A8590 /* LoginViewController+UI_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DC7F349A2B6380DCA056281 /* libPods-TXReplaykitUpload_Professional.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00809C5850F41459EC8EE3D8 /* libPods-TXReplaykitUpload_Professional.a */; };
 		1EA0A986FB03B486F983DE95 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		23A25ED295FEA93EAF8A6734 /* LoginViewController_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F835DD10CDE28718BA56279 /* LoginViewController_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2840D91C24B8562200723FBC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2840D91B24B8562200723FBC /* AudioToolbox.framework */; };
 		2840D92924B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
 		2840D92A24B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
@@ -331,6 +330,19 @@
 		4088EB6024599E25005BF1DD /* TCBeautyPanelResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 40AA536724458EC800303EF7 /* TCBeautyPanelResources.bundle */; };
 		4088EB70245A6832005BF1DD /* UGCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A49D6524598CD700BFCB18 /* UGCKit.framework */; };
 		4088EB72245A683F005BF1DD /* TCBeautyPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AA536524458EC800303EF7 /* TCBeautyPanel.framework */; };
+		408A7236264BBFFC00262009 /* LebPlayerSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56635264ABB5000B85C1C /* LebPlayerSettingViewController.m */; };
+		408A7237264BBFFC00262009 /* LebSettingsBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56643264ABB5000B85C1C /* LebSettingsBaseCell.m */; };
+		408A7238264BBFFC00262009 /* LebSettingsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56644264ABB5000B85C1C /* LebSettingsBaseViewController.m */; };
+		408A7239264BBFFC00262009 /* LebLiveUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56711264AC54F00B85C1C /* LebLiveUtils.m */; };
+		408A723A264BBFFC00262009 /* LebQRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56713264AC55000B85C1C /* LebQRScanViewController.m */; };
+		408A723B264BBFFC00262009 /* LebSettingBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5663D264ABB5000B85C1C /* LebSettingBottomBar.m */; };
+		408A7242264BC01100262009 /* UISlider+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5664C264ABB5000B85C1C /* UISlider+Leb.m */; };
+		408A7243264BC01100262009 /* UILabel+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5664D264ABB5000B85C1C /* UILabel+Leb.m */; };
+		408A7244264BC01100262009 /* UIButton+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56649264ABB5000B85C1C /* UIButton+Leb.m */; };
+		408A7245264BC01100262009 /* UISegmentedControl+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5664B264ABB5000B85C1C /* UISegmentedControl+Leb.m */; };
+		408A724C264BC01A00262009 /* LebLauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C565BC264A2D7000B85C1C /* LebLauncherViewController.m */; };
+		408A724D264BC01A00262009 /* LebPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C565CE264A31D400B85C1C /* LebPlayerViewController.m */; };
+		408A7254264BC01E00262009 /* LebPlayer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C5675A264AD16400B85C1C /* LebPlayer.xcassets */; };
 		4090F790246AE23B00EA72A0 /* PortalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4090F78A246AE23B00EA72A0 /* PortalViewController.m */; };
 		4090F791246AE23B00EA72A0 /* Portal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4090F78C246AE23B00EA72A0 /* Portal.storyboard */; };
 		4090F792246AE23B00EA72A0 /* MainMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4090F78E246AE23B00EA72A0 /* MainMenuCell.m */; };
@@ -338,7 +350,6 @@
 		40A1DE97263840EB0011E532 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB4260B5C05001CF672 /* UIView+Additions.m */; };
 		40A1DE9F263840EB0011E532 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB4260B5C05001CF672 /* UIView+Additions.m */; };
 		40A1DEA6263840EF0011E532 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB4260B5C05001CF672 /* UIView+Additions.m */; };
-		40A1DEAD263840F00011E532 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB4260B5C05001CF672 /* UIView+Additions.m */; };
 		40A1DEB42638412D0011E532 /* NSData+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB6260B5C05001CF672 /* NSData+Common.m */; };
 		40A1DEBB2638412D0011E532 /* NSData+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB6260B5C05001CF672 /* NSData+Common.m */; };
 		40A1DEC22638412E0011E532 /* NSData+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB6260B5C05001CF672 /* NSData+Common.m */; };
@@ -357,7 +368,6 @@
 		40A1DF122638414E0011E532 /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABA260B5C05001CF672 /* NSString+Common.m */; };
 		40A1DF19263841520011E532 /* NSString+UISize.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABE260B5C05001CF672 /* NSString+UISize.m */; };
 		40A1DF20263841520011E532 /* NSString+UISize.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABE260B5C05001CF672 /* NSString+UISize.m */; };
-		40A1DF21263841530011E532 /* NSString+UISize.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABE260B5C05001CF672 /* NSString+UISize.m */; };
 		40A1DF28263841540011E532 /* NSString+UISize.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABE260B5C05001CF672 /* NSString+UISize.m */; };
 		40A1DF2F263841590011E532 /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB5260B5C05001CF672 /* UIButton+Additions.m */; };
 		40A1DF36263841590011E532 /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB5260B5C05001CF672 /* UIButton+Additions.m */; };
@@ -365,7 +375,6 @@
 		40A1DF3E2638415B0011E532 /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB5260B5C05001CF672 /* UIButton+Additions.m */; };
 		40A1DF45263841890011E532 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABC260B5C05001CF672 /* UIButton+Glossy.m */; };
 		40A1DF4C2638418A0011E532 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABC260B5C05001CF672 /* UIButton+Glossy.m */; };
-		40A1DF4D2638418B0011E532 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABC260B5C05001CF672 /* UIButton+Glossy.m */; };
 		40A1DF542638418B0011E532 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABC260B5C05001CF672 /* UIButton+Glossy.m */; };
 		40A1DF5B2638418E0011E532 /* UIColor+MLPFlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAAF260B5C05001CF672 /* UIColor+MLPFlatColors.m */; };
 		40A1DF622638418F0011E532 /* UIColor+MLPFlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAAF260B5C05001CF672 /* UIColor+MLPFlatColors.m */; };
@@ -376,11 +385,9 @@
 		40A1DF79263841950011E532 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAC3260B5C05001CF672 /* UIImage+Additions.m */; };
 		40A1DF80263841960011E532 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAC3260B5C05001CF672 /* UIImage+Additions.m */; };
 		40A1DF872638419C0011E532 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABD260B5C05001CF672 /* UIView+CustomAutoLayout.m */; };
-		40A1DF8E2638419D0011E532 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABD260B5C05001CF672 /* UIView+CustomAutoLayout.m */; };
 		40A1DF8F2638419E0011E532 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABD260B5C05001CF672 /* UIView+CustomAutoLayout.m */; };
 		40A1DF962638419E0011E532 /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CABD260B5C05001CF672 /* UIView+CustomAutoLayout.m */; };
 		40A1DF9D263841AA0011E532 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB7260B5C05001CF672 /* UIViewController+BackButtonHandler.m */; };
-		40A1DFA4263841AA0011E532 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB7260B5C05001CF672 /* UIViewController+BackButtonHandler.m */; };
 		40A1DFA5263841AB0011E532 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB7260B5C05001CF672 /* UIViewController+BackButtonHandler.m */; };
 		40A1DFAC263841AD0011E532 /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 47E8CAB7260B5C05001CF672 /* UIViewController+BackButtonHandler.m */; };
 		40A49D6A24598D2A00BFCB18 /* UGCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A49D6524598CD700BFCB18 /* UGCKit.framework */; };
@@ -576,6 +583,32 @@
 		40C0BDE3244853FF00931313 /* TCAudienceViewController+LiveDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3F9492446E6C6000C37A3 /* TCAudienceViewController+LiveDelegate.swift */; };
 		40C0BDE4244853FF00931313 /* TCAudienceToolbarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B3F94A2446E6C6000C37A3 /* TCAudienceToolbarView.m */; };
 		40C0BDE5244853FF00931313 /* LiveRoomMainViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3F94C2446E6C6000C37A3 /* LiveRoomMainViewController+UI.swift */; };
+		40C565BD264A2D7000B85C1C /* LebLauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C565BC264A2D7000B85C1C /* LebLauncherViewController.m */; };
+		40C565BE264A2D7000B85C1C /* LebLauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C565BC264A2D7000B85C1C /* LebLauncherViewController.m */; };
+		40C565CF264A31D400B85C1C /* LebPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C565CE264A31D400B85C1C /* LebPlayerViewController.m */; };
+		40C565D0264A31D400B85C1C /* LebPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C565CE264A31D400B85C1C /* LebPlayerViewController.m */; };
+		40C56655264ABB5000B85C1C /* LebPlayerSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56635264ABB5000B85C1C /* LebPlayerSettingViewController.m */; };
+		40C56656264ABB5000B85C1C /* LebPlayerSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56635264ABB5000B85C1C /* LebPlayerSettingViewController.m */; };
+		40C5665E264ABB5000B85C1C /* LebSettingBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5663D264ABB5000B85C1C /* LebSettingBottomBar.m */; };
+		40C5665F264ABB5000B85C1C /* LebSettingBottomBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5663D264ABB5000B85C1C /* LebSettingBottomBar.m */; };
+		40C56664264ABB5100B85C1C /* LebSettingsBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56643264ABB5000B85C1C /* LebSettingsBaseCell.m */; };
+		40C56665264ABB5100B85C1C /* LebSettingsBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56643264ABB5000B85C1C /* LebSettingsBaseCell.m */; };
+		40C56667264ABB5100B85C1C /* LebSettingsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56644264ABB5000B85C1C /* LebSettingsBaseViewController.m */; };
+		40C56668264ABB5100B85C1C /* LebSettingsBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56644264ABB5000B85C1C /* LebSettingsBaseViewController.m */; };
+		40C5666D264ABB5100B85C1C /* UIButton+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56649264ABB5000B85C1C /* UIButton+Leb.m */; };
+		40C5666E264ABB5100B85C1C /* UIButton+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56649264ABB5000B85C1C /* UIButton+Leb.m */; };
+		40C56670264ABB5100B85C1C /* UISegmentedControl+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5664B264ABB5000B85C1C /* UISegmentedControl+Leb.m */; };
+		40C56671264ABB5100B85C1C /* UISegmentedControl+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5664B264ABB5000B85C1C /* UISegmentedControl+Leb.m */; };
+		40C56673264ABB5100B85C1C /* UISlider+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5664C264ABB5000B85C1C /* UISlider+Leb.m */; };
+		40C56674264ABB5100B85C1C /* UISlider+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5664C264ABB5000B85C1C /* UISlider+Leb.m */; };
+		40C56676264ABB5100B85C1C /* UILabel+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5664D264ABB5000B85C1C /* UILabel+Leb.m */; };
+		40C56677264ABB5100B85C1C /* UILabel+Leb.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C5664D264ABB5000B85C1C /* UILabel+Leb.m */; };
+		40C56714264AC55000B85C1C /* LebLiveUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56711264AC54F00B85C1C /* LebLiveUtils.m */; };
+		40C56715264AC55000B85C1C /* LebLiveUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56711264AC54F00B85C1C /* LebLiveUtils.m */; };
+		40C56717264AC55000B85C1C /* LebQRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56713264AC55000B85C1C /* LebQRScanViewController.m */; };
+		40C56718264AC55000B85C1C /* LebQRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 40C56713264AC55000B85C1C /* LebQRScanViewController.m */; };
+		40C5675B264AD16400B85C1C /* LebPlayer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C5675A264AD16400B85C1C /* LebPlayer.xcassets */; };
+		40C5675C264AD16400B85C1C /* LebPlayer.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40C5675A264AD16400B85C1C /* LebPlayer.xcassets */; };
 		40E18DA725ECC2B7002F7CD9 /* TRTCChatSalonTakeSeatTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E18DA625ECC2B7002F7CD9 /* TRTCChatSalonTakeSeatTipsView.swift */; };
 		40E18DA825ECC2B7002F7CD9 /* TRTCChatSalonTakeSeatTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E18DA625ECC2B7002F7CD9 /* TRTCChatSalonTakeSeatTipsView.swift */; };
 		40E18DA925ECC2B7002F7CD9 /* TRTCChatSalonTakeSeatTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40E18DA625ECC2B7002F7CD9 /* TRTCChatSalonTakeSeatTipsView.swift */; };
@@ -775,34 +808,18 @@
 		47642AA8261491B90020F1BA /* launchimage_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47642A9A261491B90020F1BA /* launchimage_en@2x.png */; };
 		47642AA9261491B90020F1BA /* launchimage_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47642A9A261491B90020F1BA /* launchimage_en@2x.png */; };
 		47642AAA261491B90020F1BA /* launchimage_en@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47642A9A261491B90020F1BA /* launchimage_en@2x.png */; };
-		47740FFA26147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
-		47740FFB26147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
-		47740FFC26147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
-		47740FFD26147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
-		47740FFE26147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
-		47740FFF26147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
 		4774100026147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
 		4774100126147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
 		4774100226147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
 		4774100326147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
 		4774100426147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
-		4774100526147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
-		4774100626147EE90098482E /* ReplayKitLocalized.m in Sources */ = {isa = PBXBuildFile; fileRef = 47740FF226147EE90098482E /* ReplayKitLocalized.m */; };
 		4774101026147EE90098482E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF326147EE90098482E /* InfoPlist.strings */; };
 		4774101126147EE90098482E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF326147EE90098482E /* InfoPlist.strings */; };
-		4774101426147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
-		4774101526147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
-		4774101626147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
-		4774101726147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
-		4774101826147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
-		4774101926147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
 		4774101A26147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
 		4774101B26147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
 		4774101C26147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
 		4774101D26147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
 		4774101E26147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
-		4774101F26147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
-		4774102026147EE90098482E /* ReplayKitLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47740FF526147EE90098482E /* ReplayKitLocalized.strings */; };
 		47E8C894260AECC4001CF672 /* AppPortalLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47E8C87B260AECC4001CF672 /* AppPortalLocalized.strings */; };
 		47E8C895260AECC4001CF672 /* AppPortalLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47E8C87B260AECC4001CF672 /* AppPortalLocalized.strings */; };
 		47E8C896260AECC4001CF672 /* AppPortalLocalized.strings in Resources */ = {isa = PBXBuildFile; fileRef = 47E8C87B260AECC4001CF672 /* AppPortalLocalized.strings */; };
@@ -1002,7 +1019,6 @@
 		51A289FB230FB95800B9B73F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
 		51A289FC230FB96000B9B73F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
 		51CE9F98231944BE00B620BD /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
-		628656A01E211E799633845F /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 660C0EA1808CADBAAF0FCFC6 /* AppUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6A1C109B2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
 		6A1C109C2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
 		6A1C109D2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
@@ -1125,7 +1141,7 @@
 		6AAEC2C52497807200B57D86 /* TXMeetingPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAEC2672497807200B57D86 /* TXMeetingPair.m */; };
 		6AAEC2C62497807200B57D86 /* TXMeetingPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAEC2672497807200B57D86 /* TXMeetingPair.m */; };
 		6AAEC3A52499F93300B57D86 /* TXLiteAVSDK_ReplayKitExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAEC38A2499E08100B57D86 /* TXLiteAVSDK_ReplayKitExt.framework */; };
-		73924968BDC3E6C8876B6B62 /* ProfileManager_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D798E33F14B03963517E5EBA /* ProfileManager_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6E47CD1DD58E46DD8DF993EC /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B31CCB9DB7F879BCE36BC /* AppUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7B107D8F4C4B5BF9184EC193 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		7B5A2DBC25B0355400B4B469 /* V2QRGenerateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A2D8D25B0355400B4B469 /* V2QRGenerateViewController.xib */; };
 		7B5A2DBD25B0355400B4B469 /* V2QRGenerateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A2D8D25B0355400B4B469 /* V2QRGenerateViewController.xib */; };
@@ -1171,6 +1187,7 @@
 		7B5A2DE525B0355400B4B469 /* v2live.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A2DBA25B0355400B4B469 /* v2live.xcassets */; };
 		7B5A2DE625B0355400B4B469 /* V2LiveUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DBB25B0355400B4B469 /* V2LiveUtils.m */; };
 		7B5A2DE725B0355400B4B469 /* V2LiveUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DBB25B0355400B4B469 /* V2LiveUtils.m */; };
+		883827775D5D3E6BF55CDEB1 /* LoginViewController_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07058FB55D5D708B723F6BB /* LoginViewController_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8D6AAF4C1D56E796151BFC2B /* libPods-TXLiteAVDemo_Professional.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE920CB89622A1ED8E88E9B0 /* libPods-TXLiteAVDemo_Professional.a */; };
 		910E179F2080A27500178D86 /* TXMoviePlayerNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */; };
 		910E17A02080A27500178D86 /* TXMoviePlayerNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */; };
@@ -1202,7 +1219,7 @@
 		91F87A801FF4A101001644B1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */; };
 		91F87A811FF4A109001644B1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */; };
 		944B0A98D288A86246E2C14B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		948198E742CA975907A48AE9 /* LoginViewController+UI_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C8581234ED487698342252 /* LoginViewController+UI_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		9EAFC6A5FA8B23DBD28D4026 /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17587D82164F397A39DC75 /* ProfileViewController+UI.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A035040820D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
 		A035040920D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
 		A035040A20D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
@@ -1342,8 +1359,8 @@
 		BAD14CAF25FB655F00FB40DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40495B3B2459466900AF53CB /* ProfileViewController.swift */; };
 		BAD14CB025FB655F00FB40DD /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40495B3C2459466900AF53CB /* ProfileViewController+UI.swift */; };
 		BAD14CB125FB655F00FB40DD /* UserAgreementViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50324424A1B03700701E6B /* UserAgreementViewController+UI.swift */; };
-		BBC8FD2771EFFF58B08F09BB /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA68329E44E3B060E1A9DB87 /* CommonUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		BD32F8A6AF7CC2FF9A53096E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		BFA6C40537636405C34A849A /* ProfileManager_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8BFEA0ED3F7306B6B47FD /* ProfileManager_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C600497825ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */; };
 		C600497925ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */; };
 		C600497A25ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */; };
@@ -1369,13 +1386,11 @@
 		C603F9B526047CB9009E3AB2 /* LaunchScreen_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C603F9B826047CB9009E3AB2 /* LaunchScreen_en.storyboard */; };
 		C603F9B626047CB9009E3AB2 /* LaunchScreen_en.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C603F9B826047CB9009E3AB2 /* LaunchScreen_en.storyboard */; };
 		C6D20720262FC6C6001A80D7 /* VerifyPicture.html in Resources */ = {isa = PBXBuildFile; fileRef = C6D20717262FC6C2001A80D7 /* VerifyPicture.html */; };
-		C6D20721262FC6C6001A80D7 /* VerifyPicture.html in Resources */ = {isa = PBXBuildFile; fileRef = C6D20717262FC6C2001A80D7 /* VerifyPicture.html */; };
 		C6D20722262FC6C6001A80D7 /* VerifyPicture.html in Resources */ = {isa = PBXBuildFile; fileRef = C6D20717262FC6C2001A80D7 /* VerifyPicture.html */; };
 		C6D20723262FC6C6001A80D7 /* VerifyPicture.html in Resources */ = {isa = PBXBuildFile; fileRef = C6D20717262FC6C2001A80D7 /* VerifyPicture.html */; };
 		C6D20726262FC6C6001A80D7 /* VerifyPicture.html in Resources */ = {isa = PBXBuildFile; fileRef = C6D20717262FC6C2001A80D7 /* VerifyPicture.html */; };
 		C6D20727262FC6C6001A80D7 /* VerifyPicture.html in Resources */ = {isa = PBXBuildFile; fileRef = C6D20717262FC6C2001A80D7 /* VerifyPicture.html */; };
 		C6D20728262FC6C6001A80D7 /* LoginCountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = C6D2071F262FC6C6001A80D7 /* LoginCountryList.json */; };
-		C6D20729262FC6C6001A80D7 /* LoginCountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = C6D2071F262FC6C6001A80D7 /* LoginCountryList.json */; };
 		C6D2072A262FC6C6001A80D7 /* LoginCountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = C6D2071F262FC6C6001A80D7 /* LoginCountryList.json */; };
 		C6D2072B262FC6C6001A80D7 /* LoginCountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = C6D2071F262FC6C6001A80D7 /* LoginCountryList.json */; };
 		C6D2072E262FC6C6001A80D7 /* LoginCountryList.json in Resources */ = {isa = PBXBuildFile; fileRef = C6D2071F262FC6C6001A80D7 /* LoginCountryList.json */; };
@@ -1482,6 +1497,7 @@
 		D61B484C1FB59EF0002F0C6C /* TCHttpUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D61B484A1FB59EF0002F0C6C /* TCHttpUtil.m */; };
 		D62EDBED1FF4D77900092D1A /* FilterResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE7C6E4A1FC2C5320095663F /* FilterResource.bundle */; };
 		D650607B20EE145F00C8BC44 /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D650607A20EE145F00C8BC44 /* libc.tbd */; };
+		D68E05824E0D54197C15EA0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A490DB55807583574B8C6A /* ProfileViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D6A04019207C6C69002DE89C /* TCHttpUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D61B484A1FB59EF0002F0C6C /* TCHttpUtil.m */; };
 		D6BEF6562040179600CBE2BD /* VideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BEF6452040179600CBE2BD /* VideoPreviewViewController.m */; };
 		D6BEF6572040179600CBE2BD /* VideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BEF6452040179600CBE2BD /* VideoPreviewViewController.m */; };
@@ -1517,7 +1533,7 @@
 		D6E5D1C420B7B62000812B2F /* ScreenPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */; };
 		D6E5D1C520B7B62000812B2F /* ScreenPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */; };
 		EF69648B8809D6DEA1B7139D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		F3187B0317E9BEF384CFE083 /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B274D6CD81859BC47446D3C /* ProfileViewController+UI.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F3099FF96C6FBABFBCB7CE99 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2F6A055809C12F206C4347 /* CommonUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FDD4BF2B24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
 		FDD4BF2C24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
 		FDD4BF2D24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
@@ -1781,8 +1797,6 @@
 		249D634FA6178E4A3058F65B /* Pods-TXLiteAVDemo_Professional.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXLiteAVDemo_Professional.debug.xcconfig"; path = "Target Support Files/Pods-TXLiteAVDemo_Professional/Pods-TXLiteAVDemo_Professional.debug.xcconfig"; sourceTree = "<group>"; };
 		2840D91B24B8562200723FBC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDWebImagePlaceholderImageManager.swift; sourceTree = "<group>"; };
-		288D164C08BFB75B9871C1D3 /* ProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		3F835DD10CDE28718BA56279 /* LoginViewController_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController_Mock.swift; sourceTree = "<group>"; };
 		4009207D1F4FCBBE009B882D /* TXLiteAVDemo_Professional.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TXLiteAVDemo_Professional.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4011CC0E24E4DDB600C543D7 /* TRTCCallingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTCCallingCell.swift; sourceTree = "<group>"; };
 		4011CC0F24E4DDB600C543D7 /* CallUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallUserModel.swift; sourceTree = "<group>"; };
@@ -1916,6 +1930,31 @@
 		40B3F94C2446E6C6000C37A3 /* LiveRoomMainViewController+UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LiveRoomMainViewController+UI.swift"; sourceTree = "<group>"; };
 		40B3F9DB2446EF11000C37A3 /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		40B3F9DC2446EF11000C37A3 /* CommonUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
+		40C565BB264A2D7000B85C1C /* LebLauncherViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LebLauncherViewController.h; sourceTree = "<group>"; };
+		40C565BC264A2D7000B85C1C /* LebLauncherViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LebLauncherViewController.m; sourceTree = "<group>"; };
+		40C565CD264A31D400B85C1C /* LebPlayerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LebPlayerViewController.h; sourceTree = "<group>"; };
+		40C565CE264A31D400B85C1C /* LebPlayerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LebPlayerViewController.m; sourceTree = "<group>"; };
+		40C56635264ABB5000B85C1C /* LebPlayerSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LebPlayerSettingViewController.m; sourceTree = "<group>"; };
+		40C5663A264ABB5000B85C1C /* LebPlayerSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LebPlayerSettingViewController.h; sourceTree = "<group>"; };
+		40C5663D264ABB5000B85C1C /* LebSettingBottomBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LebSettingBottomBar.m; sourceTree = "<group>"; };
+		40C5663F264ABB5000B85C1C /* LebSettingBottomBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LebSettingBottomBar.h; sourceTree = "<group>"; };
+		40C56643264ABB5000B85C1C /* LebSettingsBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LebSettingsBaseCell.m; sourceTree = "<group>"; };
+		40C56644264ABB5000B85C1C /* LebSettingsBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LebSettingsBaseViewController.m; sourceTree = "<group>"; };
+		40C56646264ABB5000B85C1C /* LebSettingsBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LebSettingsBaseCell.h; sourceTree = "<group>"; };
+		40C56648264ABB5000B85C1C /* UISlider+Leb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISlider+Leb.h"; sourceTree = "<group>"; };
+		40C56649264ABB5000B85C1C /* UIButton+Leb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Leb.m"; sourceTree = "<group>"; };
+		40C5664A264ABB5000B85C1C /* UILabel+Leb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Leb.h"; sourceTree = "<group>"; };
+		40C5664B264ABB5000B85C1C /* UISegmentedControl+Leb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+Leb.m"; sourceTree = "<group>"; };
+		40C5664C264ABB5000B85C1C /* UISlider+Leb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISlider+Leb.m"; sourceTree = "<group>"; };
+		40C5664D264ABB5000B85C1C /* UILabel+Leb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Leb.m"; sourceTree = "<group>"; };
+		40C5664E264ABB5000B85C1C /* UIButton+Leb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Leb.h"; sourceTree = "<group>"; };
+		40C5664F264ABB5000B85C1C /* UISegmentedControl+Leb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+Leb.h"; sourceTree = "<group>"; };
+		40C56650264ABB5000B85C1C /* LebSettingsBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LebSettingsBaseViewController.h; sourceTree = "<group>"; };
+		40C56710264AC54F00B85C1C /* LebLiveUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LebLiveUtils.h; path = TXLiteAVDemo/LebPlayerDemo/LebSetting/LebLiveUtils.h; sourceTree = SOURCE_ROOT; };
+		40C56711264AC54F00B85C1C /* LebLiveUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LebLiveUtils.m; path = TXLiteAVDemo/LebPlayerDemo/LebSetting/LebLiveUtils.m; sourceTree = SOURCE_ROOT; };
+		40C56712264AC55000B85C1C /* LebQRScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LebQRScanViewController.h; path = TXLiteAVDemo/LebPlayerDemo/LebQRScanViewController.h; sourceTree = SOURCE_ROOT; };
+		40C56713264AC55000B85C1C /* LebQRScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LebQRScanViewController.m; path = TXLiteAVDemo/LebPlayerDemo/LebQRScanViewController.m; sourceTree = SOURCE_ROOT; };
+		40C5675A264AD16400B85C1C /* LebPlayer.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = LebPlayer.xcassets; sourceTree = "<group>"; };
 		40E18DA625ECC2B7002F7CD9 /* TRTCChatSalonTakeSeatTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTCChatSalonTakeSeatTipsView.swift; sourceTree = "<group>"; };
 		40E25FCC2480C796005EB543 /* Portal+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Portal+Swift.swift"; sourceTree = "<group>"; };
 		40EC850E25E77AA500149FAA /* TRTCChatSalonDef.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TRTCChatSalonDef.m; sourceTree = "<group>"; };
@@ -2085,7 +2124,6 @@
 		51A289F8230FB93A00B9B73F /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		51A4AD391F1F8AE300B4A806 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		524ADBFC998A6699CABE35B8 /* Pods-TXLiteAVDemo_Professional.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXLiteAVDemo_Professional.release.xcconfig"; path = "Target Support Files/Pods-TXLiteAVDemo_Professional/Pods-TXLiteAVDemo_Professional.release.xcconfig"; sourceTree = "<group>"; };
-		660C0EA1808CADBAAF0FCFC6 /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		6A1C108A2281A674005D7BD9 /* PushLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushLogView.h; sourceTree = "<group>"; };
 		6A1C109A2281A674005D7BD9 /* PushLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushLogView.m; sourceTree = "<group>"; };
 		6A3105C922682A06002F6115 /* ImageUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUploadViewController.m; sourceTree = "<group>"; };
@@ -2124,7 +2162,7 @@
 		6AAEC2692497807200B57D86 /* IMProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMProtocol.h; sourceTree = "<group>"; };
 		6AAEC26A2497807200B57D86 /* TRTCMeetingDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTCMeetingDef.h; sourceTree = "<group>"; };
 		6AAEC38A2499E08100B57D86 /* TXLiteAVSDK_ReplayKitExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_ReplayKitExt.framework; sourceTree = "<group>"; };
-		6B274D6CD81859BC47446D3C /* ProfileViewController+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UI.swift"; sourceTree = "<group>"; };
+		7B17587D82164F397A39DC75 /* ProfileViewController+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UI.swift"; sourceTree = "<group>"; };
 		7B4C917A24B4B0C80095C041 /* TXLaunchMoviePlayProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXLaunchMoviePlayProtocol.h; sourceTree = "<group>"; };
 		7B5A2D8D25B0355400B4B469 /* V2QRGenerateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = V2QRGenerateViewController.xib; sourceTree = "<group>"; };
 		7B5A2D8E25B0355400B4B469 /* V2MainItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V2MainItemCell.m; sourceTree = "<group>"; };
@@ -2225,7 +2263,10 @@
 		A0B8FC0A207E24F2008D7982 /* TVCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCUtils.h; sourceTree = "<group>"; };
 		A0FFAD92213791B70087FF45 /* TVCHttpMessageURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCHttpMessageURLProtocol.h; sourceTree = "<group>"; };
 		A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCHttpMessageURLProtocol.m; sourceTree = "<group>"; };
-		C2C8581234ED487698342252 /* LoginViewController+UI_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI_Mock.swift"; sourceTree = "<group>"; };
+		A24D22415664BB862E1A8590 /* LoginViewController+UI_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI_Mock.swift"; sourceTree = "<group>"; };
+		A8A490DB55807583574B8C6A /* ProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C07058FB55D5D708B723F6BB /* LoginViewController_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController_Mock.swift; sourceTree = "<group>"; };
+		C2B8BFEA0ED3F7306B6B47FD /* ProfileManager_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileManager_Mock.swift; sourceTree = "<group>"; };
 		C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTCChatSalonHandsUpTipsView.swift; sourceTree = "<group>"; };
 		C603F8A726034EA0009E3AB2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/UserProtocol.html"; sourceTree = "<group>"; };
 		C603F939260372A7009E3AB2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -2300,9 +2341,9 @@
 		D6E5D1C020B7B61F00812B2F /* ReplayKit2Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplayKit2Define.h; sourceTree = "<group>"; };
 		D6E5D1C120B7B62000812B2F /* ScreenPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenPushViewController.h; sourceTree = "<group>"; };
 		D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenPushViewController.m; sourceTree = "<group>"; };
-		D798E33F14B03963517E5EBA /* ProfileManager_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileManager_Mock.swift; sourceTree = "<group>"; };
+		DD2F6A055809C12F206C4347 /* CommonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
+		E19B31CCB9DB7F879BCE36BC /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		EBEC989F47F9D57C638FDC46 /* Pods-TXReplaykitUpload_Professional.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXReplaykitUpload_Professional.debug.xcconfig"; path = "Target Support Files/Pods-TXReplaykitUpload_Professional/Pods-TXReplaykitUpload_Professional.debug.xcconfig"; sourceTree = "<group>"; };
-		FA68329E44E3B060E1A9DB87 /* CommonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoEditor.xcassets; sourceTree = "<group>"; };
 		FE920CB89622A1ED8E88E9B0 /* libPods-TXLiteAVDemo_Professional.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TXLiteAVDemo_Professional.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -2934,6 +2975,70 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		40C565D9264A5DB100B85C1C /* LebPlayerDemo */ = {
+			isa = PBXGroup;
+			children = (
+				40C56633264ABB5000B85C1C /* LebSetting */,
+				40C565BB264A2D7000B85C1C /* LebLauncherViewController.h */,
+				40C565BC264A2D7000B85C1C /* LebLauncherViewController.m */,
+				40C565CD264A31D400B85C1C /* LebPlayerViewController.h */,
+				40C565CE264A31D400B85C1C /* LebPlayerViewController.m */,
+				40C5675A264AD16400B85C1C /* LebPlayer.xcassets */,
+			);
+			path = LebPlayerDemo;
+			sourceTree = "<group>";
+		};
+		40C56633264ABB5000B85C1C /* LebSetting */ = {
+			isa = PBXGroup;
+			children = (
+				40C56710264AC54F00B85C1C /* LebLiveUtils.h */,
+				40C56711264AC54F00B85C1C /* LebLiveUtils.m */,
+				40C56635264ABB5000B85C1C /* LebPlayerSettingViewController.m */,
+				40C5663A264ABB5000B85C1C /* LebPlayerSettingViewController.h */,
+				40C5663C264ABB5000B85C1C /* V2SettingViews */,
+				40C56641264ABB5000B85C1C /* BaseUI */,
+			);
+			path = LebSetting;
+			sourceTree = "<group>";
+		};
+		40C5663C264ABB5000B85C1C /* V2SettingViews */ = {
+			isa = PBXGroup;
+			children = (
+				40C5663F264ABB5000B85C1C /* LebSettingBottomBar.h */,
+				40C5663D264ABB5000B85C1C /* LebSettingBottomBar.m */,
+			);
+			path = V2SettingViews;
+			sourceTree = "<group>";
+		};
+		40C56641264ABB5000B85C1C /* BaseUI */ = {
+			isa = PBXGroup;
+			children = (
+				40C56712264AC55000B85C1C /* LebQRScanViewController.h */,
+				40C56713264AC55000B85C1C /* LebQRScanViewController.m */,
+				40C56650264ABB5000B85C1C /* LebSettingsBaseViewController.h */,
+				40C56643264ABB5000B85C1C /* LebSettingsBaseCell.m */,
+				40C56644264ABB5000B85C1C /* LebSettingsBaseViewController.m */,
+				40C56646264ABB5000B85C1C /* LebSettingsBaseCell.h */,
+				40C56647264ABB5000B85C1C /* CommonWidgets */,
+			);
+			path = BaseUI;
+			sourceTree = "<group>";
+		};
+		40C56647264ABB5000B85C1C /* CommonWidgets */ = {
+			isa = PBXGroup;
+			children = (
+				40C56648264ABB5000B85C1C /* UISlider+Leb.h */,
+				40C56649264ABB5000B85C1C /* UIButton+Leb.m */,
+				40C5664A264ABB5000B85C1C /* UILabel+Leb.h */,
+				40C5664B264ABB5000B85C1C /* UISegmentedControl+Leb.m */,
+				40C5664C264ABB5000B85C1C /* UISlider+Leb.m */,
+				40C5664D264ABB5000B85C1C /* UILabel+Leb.m */,
+				40C5664E264ABB5000B85C1C /* UIButton+Leb.h */,
+				40C5664F264ABB5000B85C1C /* UISegmentedControl+Leb.h */,
+			);
+			path = CommonWidgets;
+			sourceTree = "<group>";
+		};
 		40C8DCFE24F1754800EBBD53 /* VideoCall */ = {
 			isa = PBXGroup;
 			children = (
@@ -3183,6 +3288,7 @@
 				40F8531D1EE8FC1E00EE47D7 /* Supporting Files */,
 				40AA533424458EC800303EF7 /* BeautySettingKit */,
 				7B5A2D8C25B0355400B4B469 /* LiveLinkMicDemoNew */,
+				40C565D9264A5DB100B85C1C /* LebPlayerDemo */,
 				D50292D02272BA4A00C052B7 /* LiveLinkMicDemoOld */,
 				D50292CF2272BA3F00C052B7 /* LivePlayerDemo */,
 				D50292CD2272BA2A00C052B7 /* LivePusherDemo */,
@@ -3193,7 +3299,7 @@
 				402A00EA245068240037A219 /* UGCVideoJoinDemo */,
 				402A00E9245068160037A219 /* UGCVideoEditDemo */,
 				402A00E5245065500037A219 /* UGCVideoUploadDemo */,
-				9B0432B3B212A3B445F6FF51 /* Login */,
+				8D4BF858223956D68783CF3E /* Login */,
 			);
 			path = TXLiteAVDemo;
 			sourceTree = "<group>";
@@ -3610,6 +3716,21 @@
 			path = CommonWidgets;
 			sourceTree = "<group>";
 		};
+		8D4BF858223956D68783CF3E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C07058FB55D5D708B723F6BB /* LoginViewController_Mock.swift */,
+				C2B8BFEA0ED3F7306B6B47FD /* ProfileManager_Mock.swift */,
+				A24D22415664BB862E1A8590 /* LoginViewController+UI_Mock.swift */,
+				E19B31CCB9DB7F879BCE36BC /* AppUtils.swift */,
+				DD2F6A055809C12F206C4347 /* CommonUtils.swift */,
+				A8A490DB55807583574B8C6A /* ProfileViewController.swift */,
+				7B17587D82164F397A39DC75 /* ProfileViewController+UI.swift */,
+			);
+			name = Login;
+			path = TXLiteAVDemo/Login;
+			sourceTree = SOURCE_ROOT;
+		};
 		912A62052160D78A00C16E41 /* CFDanmaku */ = {
 			isa = PBXGroup;
 			children = (
@@ -3647,21 +3768,6 @@
 			);
 			path = Download;
 			sourceTree = "<group>";
-		};
-		9B0432B3B212A3B445F6FF51 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				3F835DD10CDE28718BA56279 /* LoginViewController_Mock.swift */,
-				D798E33F14B03963517E5EBA /* ProfileManager_Mock.swift */,
-				C2C8581234ED487698342252 /* LoginViewController+UI_Mock.swift */,
-				660C0EA1808CADBAAF0FCFC6 /* AppUtils.swift */,
-				FA68329E44E3B060E1A9DB87 /* CommonUtils.swift */,
-				288D164C08BFB75B9871C1D3 /* ProfileViewController.swift */,
-				6B274D6CD81859BC47446D3C /* ProfileViewController+UI.swift */,
-			);
-			name = Login;
-			path = TXLiteAVDemo/Login;
-			sourceTree = SOURCE_ROOT;
 		};
 		A035042020D24F73007E61C6 /* AddressBar */ = {
 			isa = PBXGroup;
@@ -4124,6 +4230,7 @@
 				40B5C6962484BE5700D3A718 /* AudioEffectSettingKitResources.bundle in Resources */,
 				40A7CFD9245FC0CF00E792A5 /* TRTCLiveRoomDemo.xcassets in Resources */,
 				47E8C895260AECC4001CF672 /* AppPortalLocalized.strings in Resources */,
+				40C5675C264AD16400B85C1C /* LebPlayer.xcassets in Resources */,
 				47E8C8D6260AECC4001CF672 /* LivePlayerLocalized.strings in Resources */,
 				47642AA4261491B90020F1BA /* launchimage_en@2x.png in Resources */,
 				40A49D7524598DA800BFCB18 /* UGCKitResources.bundle in Resources */,
@@ -4133,7 +4240,6 @@
 				4040CC5E2497C79400CA4FAA /* TRTCVoiceRoomAssets.xcassets in Resources */,
 				450CFC4D23AB5CC800A17FD0 /* VideoRecord.xcassets in Resources */,
 				7B5A2DBD25B0355400B4B469 /* V2QRGenerateViewController.xib in Resources */,
-				4774101526147EE90098482E /* ReplayKitLocalized.strings in Resources */,
 				D6BEF6F22040307E00CBE2BD /* VideoJoinerCell.xib in Resources */,
 				C603F9B026047CB9009E3AB2 /* LaunchScreen_en.storyboard in Resources */,
 				47E8C8BC260AECC4001CF672 /* V2LiveLocalized.strings in Resources */,
@@ -4141,14 +4247,12 @@
 				40A7CFEF2461102E00E792A5 /* SuperPlayer.bundle in Resources */,
 				400920241F4FCBBE009B882D /* LaunchScreen.storyboard in Resources */,
 				4009202D1F4FCBBE009B882D /* Assets.xcassets in Resources */,
-				C6D20729262FC6C6001A80D7 /* LoginCountryList.json in Resources */,
 				A06E850A214F95E000DF949B /* VideoJoiner.xcassets in Resources */,
 				6AAEC26C2497807200B57D86 /* TRTCMeetingRoomDemo.xcassets in Resources */,
 				D6BEF7B4204035CC00CBE2BD /* danmakufile in Resources */,
 				CE7C6E4F1FC2C5320095663F /* FilterResource.bundle in Resources */,
 				D6BEF6EC2040307E00CBE2BD /* VideoEditPrevController.xib in Resources */,
 				A06E854E214F9E1E00DF949B /* UGCCommon.xcassets in Resources */,
-				C6D20721262FC6C6001A80D7 /* VerifyPicture.html in Resources */,
 				45C37799226765A60054D0B8 /* Settings.bundle in Resources */,
 				C603F92A2603729D009E3AB2 /* InfoPlist.strings in Resources */,
 				D6BEF6F82040307E00CBE2BD /* VideoJoinerController.xib in Resources */,
@@ -4278,6 +4382,7 @@
 				4040CC762497C79400CA4FAA /* TRTCVoiceRoomEnteryControl.swift in Sources */,
 				40EC856E25E77D6F00149FAA /* TRTCCreateChatSalonViewController.swift in Sources */,
 				40EC85A225E77D6F00149FAA /* TRTCChatSalonRootView.swift in Sources */,
+				40C56677264ABB5100B85C1C /* UILabel+Leb.m in Sources */,
 				4040CCAE2497C79400CA4FAA /* TRTCVoiceRoomListCell.swift in Sources */,
 				6AAEC2702497807200B57D86 /* TRTCMeetingNewViewController.swift in Sources */,
 				47E8CBAD260B5C06001CF672 /* TCLog.m in Sources */,
@@ -4287,6 +4392,7 @@
 				4046B15D24B36AD700F27349 /* TRTCVoiceRoom.m in Sources */,
 				6AAEC2AC2497807200B57D86 /* TRTCMeetingMoreViewAudioVC.swift in Sources */,
 				40EF363024BC3FD0006AA4BB /* TRTCCloudAnction.m in Sources */,
+				40C56671264ABB5100B85C1C /* UISegmentedControl+Leb.m in Sources */,
 				47E8C8E3260AECC4001CF672 /* AppLocalized.m in Sources */,
 				4046B16224B36C0A00F27349 /* TRTCLog.swift in Sources */,
 				4040CC6E2497C79400CA4FAA /* TRTCVoiceRoomViewModel.swift in Sources */,
@@ -4306,6 +4412,7 @@
 				40C0BDD9244853FF00931313 /* TCMsgModel.m in Sources */,
 				40C0BDDA244853FF00931313 /* TCMsgListTableView.m in Sources */,
 				40C0BDDB244853FF00931313 /* LiveRoomMainViewController+CollectionView.swift in Sources */,
+				40C565D0264A31D400B85C1C /* LebPlayerViewController.m in Sources */,
 				4040CC9E2497C79400CA4FAA /* TRTCVoiceRoomRootView.swift in Sources */,
 				4011CC3824E4DDB600C543D7 /* TRTCCalling.m in Sources */,
 				40C0BDDC244853FF00931313 /* TCAnchorViewController.m in Sources */,
@@ -4322,11 +4429,13 @@
 				40C0BDE1244853FF00931313 /* TCAnchorViewController+LiveDelegate.swift in Sources */,
 				47E8CAF5260B5C06001CF672 /* UIButton+Additions.m in Sources */,
 				6AAEC2A42497807200B57D86 /* TRTCMeetingMoreViewShareVC.swift in Sources */,
+				40C565BE264A2D7000B85C1C /* LebLauncherViewController.m in Sources */,
 				40EC859E25E77D6F00149FAA /* TRTCChatSalonViewModel.swift in Sources */,
 				47E8CBB5260B5C06001CF672 /* TCUtil.m in Sources */,
 				40EC856625E77D6F00149FAA /* TRTCChatSalonManager.swift in Sources */,
 				40C0BDE2244853FF00931313 /* TCAudienceViewController.m in Sources */,
 				40C0BDE3244853FF00931313 /* TCAudienceViewController+LiveDelegate.swift in Sources */,
+				40C56665264ABB5100B85C1C /* LebSettingsBaseCell.m in Sources */,
 				47E8CB35260B5C06001CF672 /* UIImage+Additions.m in Sources */,
 				40C0BDE4244853FF00931313 /* TCAudienceToolbarView.m in Sources */,
 				40C0BDE5244853FF00931313 /* LiveRoomMainViewController+UI.swift in Sources */,
@@ -4348,10 +4457,12 @@
 				40EC858A25E77D6F00149FAA /* TRTCCSAudienceTableViewCell.swift in Sources */,
 				40C0BDBF2448539500931313 /* GenerateTestUserSig.m in Sources */,
 				D541372C22795FAA006D9C9D /* IMMsgManager.m in Sources */,
+				40C5666E264ABB5100B85C1C /* UIButton+Leb.m in Sources */,
 				D541372D22795FAA006D9C9D /* RoomUtil.m in Sources */,
 				4046B15124B36AD700F27349 /* TXVoiceRoomService.m in Sources */,
 				47E8CADD260B5C06001CF672 /* UIColor+MLPFlatColors.m in Sources */,
 				6AAEC29C2497807200B57D86 /* TRTCMeetingMainViewController.swift in Sources */,
+				40C56715264AC55000B85C1C /* LebLiveUtils.m in Sources */,
 				4046B14D24B36AD700F27349 /* TRTCVoiceRoomDef.m in Sources */,
 				47E8CB3D260B5C06001CF672 /* NSDictionary+Common.m in Sources */,
 				D541372E22795FAA006D9C9D /* LiveRoomListViewController.m in Sources */,
@@ -4382,6 +4493,7 @@
 				D541373922795FAA006D9C9D /* CameraPushViewController.m in Sources */,
 				D541373A22795FAA006D9C9D /* PushMoreSettingViewController.m in Sources */,
 				47E8CB15260B5C06001CF672 /* NSString+Common.m in Sources */,
+				40C56674264ABB5100B85C1C /* UISlider+Leb.m in Sources */,
 				D541373B22795FAA006D9C9D /* PushSettingViewController.m in Sources */,
 				4040CC822497C79400CA4FAA /* TRTCVoiceRoomSeatCell.swift in Sources */,
 				4040CC922497C79400CA4FAA /* TRTCAudienceTableViewCell.swift in Sources */,
@@ -4390,6 +4502,7 @@
 				47E8CB0D260B5C06001CF672 /* HUDHelper.m in Sources */,
 				40EC859A25E77D6F00149FAA /* TRTCChatSalonVIewDataDef.swift in Sources */,
 				D541373D22795FAA006D9C9D /* PushBgmControl.m in Sources */,
+				40C56668264ABB5100B85C1C /* LebSettingsBaseViewController.m in Sources */,
 				91DB2F01212554B500013D74 /* SuperPlayerGuideView.m in Sources */,
 				47E8CB05260B5C06001CF672 /* UIViewController+BackButtonHandler.m in Sources */,
 				A0B8FBF0207E2352008D7982 /* TXUGCPublish.m in Sources */,
@@ -4433,6 +4546,8 @@
 				D61B484C1FB59EF0002F0C6C /* TCHttpUtil.m in Sources */,
 				A035043F20D2511A007E61C6 /* AddressBar.m in Sources */,
 				40091F881F4FCBBE009B882D /* AppLogMgr.m in Sources */,
+				40C56718264AC55000B85C1C /* LebQRScanViewController.m in Sources */,
+				40C56656264ABB5000B85C1C /* LebPlayerSettingViewController.m in Sources */,
 				7B5A2DC925B0355400B4B469 /* V2PusherSettingModel.m in Sources */,
 				402A00F724506BF00037A219 /* UGCVideoJoinWrapper.m in Sources */,
 				402A00F924506BF80037A219 /* UGCRecordWrapper.m in Sources */,
@@ -4470,7 +4585,6 @@
 				4011CC4024E4DDB600C543D7 /* TRTCCallingModel.m in Sources */,
 				A0428A3820D3CFDC00CA79D5 /* SmallButton.m in Sources */,
 				7B5A2DC725B0355400B4B469 /* V2PusherSettingViewController.m in Sources */,
-				47740FFB26147EE90098482E /* ReplayKitLocalized.m in Sources */,
 				40EF364424BC3FD0006AA4BB /* TRTCLiveRoom.m in Sources */,
 				7B5A2DD725B0355400B4B469 /* UISegmentedControl+V2.m in Sources */,
 				A035040920D20A01007E61C6 /* QRCode.m in Sources */,
@@ -4490,14 +4604,15 @@
 				4046B15924B36AD700F27349 /* TXBaseDef.m in Sources */,
 				7B5A2DC125B0355400B4B469 /* V2QRScanViewController.m in Sources */,
 				D6BEF75B2040353E00CBE2BD /* MoviePlayerViewController.m in Sources */,
+				40C5665F264ABB5000B85C1C /* LebSettingBottomBar.m in Sources */,
 				7B5A2DCD25B0355400B4B469 /* V2MainProtocolSelectSegmentView.m in Sources */,
-				23A25ED295FEA93EAF8A6734 /* LoginViewController_Mock.swift in Sources */,
-				73924968BDC3E6C8876B6B62 /* ProfileManager_Mock.swift in Sources */,
-				948198E742CA975907A48AE9 /* LoginViewController+UI_Mock.swift in Sources */,
-				628656A01E211E799633845F /* AppUtils.swift in Sources */,
-				BBC8FD2771EFFF58B08F09BB /* CommonUtils.swift in Sources */,
-				1A3AD1A1EDD498B7DB165A4A /* ProfileViewController.swift in Sources */,
-				F3187B0317E9BEF384CFE083 /* ProfileViewController+UI.swift in Sources */,
+				883827775D5D3E6BF55CDEB1 /* LoginViewController_Mock.swift in Sources */,
+				BFA6C40537636405C34A849A /* ProfileManager_Mock.swift in Sources */,
+				1B745E799118DCF7CBD92242 /* LoginViewController+UI_Mock.swift in Sources */,
+				6E47CD1DD58E46DD8DF993EC /* AppUtils.swift in Sources */,
+				F3099FF96C6FBABFBCB7CE99 /* CommonUtils.swift in Sources */,
+				D68E05824E0D54197C15EA0B /* ProfileViewController.swift in Sources */,
+				9EAFC6A5FA8B23DBD28D4026 /* ProfileViewController+UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

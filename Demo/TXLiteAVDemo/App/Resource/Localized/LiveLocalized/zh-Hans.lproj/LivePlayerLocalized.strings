@@ -147,6 +147,7 @@
 "LivePusherDemo.CameraPush.addressacquisitioninprocess" = "地址获取中";
 "LivePusherDemo.CameraPush.failedtogetpushstreamaddress" = "获取推流地址失败";
 "LivePusherDemo.CameraPush.lowlatency" = "低延时";
+"LivePusherDemo.CameraPush.lebUrl" = "快直播";
 "LivePusherDemo.CameraPush.rtmpaddressxxflvaddressyyhlsaddresszz" = "rtmp播放地址:xxx\n\nflv播放地址:yyy\n\nhls播放地址:zzz\n\n低延时播放地址:mmm";
 "LivePusherDemo.CameraPush.getaddresssuccess" = "获取地址成功";
 "LivePusherDemo.CameraPush.playbackaddresshasbeencopiedtotheclipboard" = "播放地址已复制到剪贴板";
@@ -267,3 +268,5 @@
 "SuperPlayerDemo.SuperPlayerGuideView.slideleftandrighttofastforward" = "左右滑动快进/倒退";
 "SuperPlayerDemo.SuperPlayerGuideView.leftwatchlivecontent" = "向左拖动可观看先前直播内容";
 "MLVB.MainMenu.pushscreen" = "推流演示（录屏推流）";
+
+

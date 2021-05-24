@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface V2LiveUtils : NSObject
 + (BOOL)isRTMPUrl:(NSString *)url;
++ (BOOL)isWebrtcUrl:(NSString *)url;
 + (BOOL)isTRTCUrl:(NSString *)url;
 + (NSMutableDictionary *)parseURLParametersAndLowercaseKey:(NSString *)url;
 + (NSMutableDictionary *)parseURLParameters:(NSString *)url;

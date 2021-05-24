@@ -107,7 +107,7 @@
     _addressBarController = [[AddressBarController alloc] initWithButtonOption:AddressBarButtonOptionNew | AddressBarButtonOptionQRScan];
     _addressBarController.qrPresentView = self.view;
     CGSize size = [[UIScreen mainScreen] bounds].size;
-    int ICON_SIZE = (int) (size.width / 11);
+    int ICON_SIZE = (int) (size.width / 8);
     CGFloat topOffset = [UIApplication sharedApplication].statusBarFrame.size.height;
     topOffset += self.navigationController.navigationBar.height+5;
     _addressBarController.view.frame = CGRectMake(10, topOffset, self.view.width-20, ICON_SIZE);

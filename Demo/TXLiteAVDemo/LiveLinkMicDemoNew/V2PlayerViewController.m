@@ -456,6 +456,14 @@
             [self showLoading:V2Localize(@"V2.Live.LinkMicNew.loading") withDetailText:V2Localize(@"V2.Live.LinkMicNew.pleasewait")];
             V2LogSimple()
             break;
+        case V2TXLivePlayStatusStopped:
+            if (reason == V2TXLiveStatusChangeReasonRemoteStopped) {
+                [self showLoading:V2Localize(@"V2.Live.LinkMicNew.disconnected")
+                   withDetailText:V2Localize(@"V2.Live.LinkMicNew.checknetworkandtry")];
+                [self stopPlay];
+            }
+            V2LogSimple()
+            break;
         default:
             break;
     }

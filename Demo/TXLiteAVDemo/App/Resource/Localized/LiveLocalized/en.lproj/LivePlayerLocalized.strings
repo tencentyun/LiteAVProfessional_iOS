@@ -147,6 +147,7 @@
 "LivePusherDemo.CameraPush.addressacquisitioninprocess" = "Getting address";
 "LivePusherDemo.CameraPush.failedtogetpushstreamaddress" = "Failed to get the playback address";
 "LivePusherDemo.CameraPush.lowlatency" = "Low Latency";
+"LivePusherDemo.CameraPush.lebUrl" = "Leb";
 "LivePusherDemo.CameraPush.rtmpaddressxxflvaddressyyhlsaddresszz" = "RTMP playback address: xxx\n\nFLV playback address: yyy\n\nHLS playback address: zzz\n\nLow-latency playback address: mmm";
 "LivePusherDemo.CameraPush.getaddresssuccess" = "Succeeded";
 "LivePusherDemo.CameraPush.playbackaddresshasbeencopiedtotheclipboard" = "Playback address copied to clipboard";

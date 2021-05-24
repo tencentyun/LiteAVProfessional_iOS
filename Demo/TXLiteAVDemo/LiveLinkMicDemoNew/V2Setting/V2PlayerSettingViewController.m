@@ -206,7 +206,7 @@
             [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.volumeprompt")
                                                      isOn:isVolumeEvaluationEnabled
                                                    action:^(BOOL isOn) {
-                [wSelf.player enableVolumeEvaluation:isOn];
+                [wSelf.player enableVolumeEvaluation:isOn ? 200 : 0];
                 
                 if (wSelf.delegate && [wSelf.delegate respondsToSelector:@selector(v2PlayerSettingVC:enableVolumeEvaluation:)]) {
                     [wSelf.delegate v2PlayerSettingVC:wSelf enableVolumeEvaluation:isOn];

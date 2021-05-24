@@ -25,6 +25,10 @@
     return [url hasPrefix:@"rtmp://"] || [url hasPrefix:@"http"];
 }
 
++ (BOOL)isWebrtcUrl:(NSString *)url {
+    return [url hasPrefix:@"webrtc://"];
+}
+
 + (BOOL)isTRTCUrl:(NSString *)url {
     return [url hasPrefix:@"trtc://"];
 }

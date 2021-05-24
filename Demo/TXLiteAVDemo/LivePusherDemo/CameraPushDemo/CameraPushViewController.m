@@ -387,6 +387,14 @@
 
 - (void)clickBgm:(UIButton *)btn {
     [_audioEffectView show];
+    if (_moreSettingVC) {
+        [_moreSettingVC willMoveToParentViewController:self];
+        [_moreSettingVC.view removeFromSuperview];
+        [_moreSettingVC removeFromParentViewController];
+        
+        [_moreSettingVC setDelegate:nil];
+        _moreSettingVC = nil;
+    }
 }
 
 - (void)clickLog:(UIButton *)btn {
@@ -562,10 +570,12 @@
             NSString *(^c)(NSString *x, NSString *y) = ^(NSString *x, NSString *y) {
                 return [NSString stringWithFormat:@"%@,%@", x, y];
             };
+            NSString *lebUrl = [rtmpPlayUrl stringByReplacingOccurrencesOfString:@"rtmp://" withString:@"webrtc://"];
             controller.qrStrings = @[c(@"rtmp", rtmpPlayUrl),
                                      c(@"flv", flvPlayUrl),
                                      c(@"hls", hlsPlayUrl),
-                                     c(LivePlayerLocalize(@"LivePusherDemo.CameraPush.lowlatency"), accPlayUrl)];
+                                     c(LivePlayerLocalize(@"LivePusherDemo.CameraPush.lowlatency"), accPlayUrl),
+                                     c(LivePlayerLocalize(@"LivePusherDemo.CameraPush.lebUrl"), lebUrl)];
             NSString* playUrls = LocalizeReplaceFourCharacter(LivePlayerLocalize(@"LivePusherDemo.CameraPush.rtmpaddressxxflvaddressyyhlsaddresszz"), [NSString stringWithFormat:@"%@",rtmpPlayUrl], [NSString stringWithFormat:@"%@",flvPlayUrl], [NSString stringWithFormat:@"%@",hlsPlayUrl], [NSString stringWithFormat:@"%@",accPlayUrl]);
             UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
             pasteboard.string = playUrls;
