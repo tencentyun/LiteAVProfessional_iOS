@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B745E799118DCF7CBD92242 /* LoginViewController+UI_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24D22415664BB862E1A8590 /* LoginViewController+UI_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		11C97B640ED564F90D4F52E1 /* ProfileManager_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541D849CCCD407FB1E830687 /* ProfileManager_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1A0999698646A0ED4D7FCDCF /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6FD2235631028E9A43835F /* CommonUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1B75F95C473835383E579229 /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD85AD407F5E41EFC08E96B /* ProfileViewController+UI.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DC7F349A2B6380DCA056281 /* libPods-TXReplaykitUpload_Professional.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00809C5850F41459EC8EE3D8 /* libPods-TXReplaykitUpload_Professional.a */; };
 		1EA0A986FB03B486F983DE95 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		2840D91C24B8562200723FBC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2840D91B24B8562200723FBC /* AudioToolbox.framework */; };
@@ -16,6 +18,7 @@
 		2840D92E24B8801800723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
 		2840D93124B880EF00723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
 		285FB46824BEA52F00FFB2BC /* TXVoiceRoomService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4046B13924B36AD700F27349 /* TXVoiceRoomService.m */; };
+		392559BA3338285DFC3EE6AB /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C689724512B55F5388435 /* AppUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		40091E6B1F4FCBB9009B882D /* ScanQRController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40F853561EE8FCDF00EE47D7 /* ScanQRController.mm */; };
 		40091E6F1F4FCBB9009B882D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F853261EE8FC8400EE47D7 /* AppDelegate.m */; };
 		40091E761F4FCBB9009B882D /* AppLogMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F853281EE8FC8400EE47D7 /* AppLogMgr.m */; };
@@ -164,6 +167,11 @@
 		402A010424506F740037A219 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 402A010024506F740037A219 /* main.m */; };
 		402A010524506F740037A219 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 402A010024506F740037A219 /* main.m */; };
 		402A010624506F740037A219 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 402A010024506F740037A219 /* main.m */; };
+		4038CEDF2669CE3200813912 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F8553A1EE8FDBF00EE47D7 /* Accelerate.framework */; };
+		4038CEE12669CE3A00813912 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F8553A1EE8FDBF00EE47D7 /* Accelerate.framework */; };
+		4038CEE22669CE4000813912 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F8553A1EE8FDBF00EE47D7 /* Accelerate.framework */; };
+		4038CEE32669CE4600813912 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F8553A1EE8FDBF00EE47D7 /* Accelerate.framework */; };
+		4038CEE42669CE4C00813912 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F8553A1EE8FDBF00EE47D7 /* Accelerate.framework */; };
 		4040CC4D2497C79400CA4FAA /* TRTCVoiceRoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040CC122497C79300CA4FAA /* TRTCVoiceRoomManager.swift */; };
 		4040CC4E2497C79400CA4FAA /* TRTCVoiceRoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040CC122497C79300CA4FAA /* TRTCVoiceRoomManager.swift */; };
 		4040CC4F2497C79400CA4FAA /* TRTCVoiceRoomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4040CC122497C79300CA4FAA /* TRTCVoiceRoomManager.swift */; };
@@ -1019,6 +1027,7 @@
 		51A289FB230FB95800B9B73F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
 		51A289FC230FB96000B9B73F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
 		51CE9F98231944BE00B620BD /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
+		65E5919DA1DCFD22C796EE08 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A61D570DF3D76F2CB443FA /* ProfileViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6A1C109B2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
 		6A1C109C2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
 		6A1C109D2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
@@ -1141,7 +1150,6 @@
 		6AAEC2C52497807200B57D86 /* TXMeetingPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAEC2672497807200B57D86 /* TXMeetingPair.m */; };
 		6AAEC2C62497807200B57D86 /* TXMeetingPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAEC2672497807200B57D86 /* TXMeetingPair.m */; };
 		6AAEC3A52499F93300B57D86 /* TXLiteAVSDK_ReplayKitExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAEC38A2499E08100B57D86 /* TXLiteAVSDK_ReplayKitExt.framework */; };
-		6E47CD1DD58E46DD8DF993EC /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19B31CCB9DB7F879BCE36BC /* AppUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7B107D8F4C4B5BF9184EC193 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		7B5A2DBC25B0355400B4B469 /* V2QRGenerateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A2D8D25B0355400B4B469 /* V2QRGenerateViewController.xib */; };
 		7B5A2DBD25B0355400B4B469 /* V2QRGenerateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A2D8D25B0355400B4B469 /* V2QRGenerateViewController.xib */; };
@@ -1187,7 +1195,6 @@
 		7B5A2DE525B0355400B4B469 /* v2live.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A2DBA25B0355400B4B469 /* v2live.xcassets */; };
 		7B5A2DE625B0355400B4B469 /* V2LiveUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DBB25B0355400B4B469 /* V2LiveUtils.m */; };
 		7B5A2DE725B0355400B4B469 /* V2LiveUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DBB25B0355400B4B469 /* V2LiveUtils.m */; };
-		883827775D5D3E6BF55CDEB1 /* LoginViewController_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07058FB55D5D708B723F6BB /* LoginViewController_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8D6AAF4C1D56E796151BFC2B /* libPods-TXLiteAVDemo_Professional.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE920CB89622A1ED8E88E9B0 /* libPods-TXLiteAVDemo_Professional.a */; };
 		910E179F2080A27500178D86 /* TXMoviePlayerNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */; };
 		910E17A02080A27500178D86 /* TXMoviePlayerNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */; };
@@ -1219,7 +1226,6 @@
 		91F87A801FF4A101001644B1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */; };
 		91F87A811FF4A109001644B1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */; };
 		944B0A98D288A86246E2C14B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		9EAFC6A5FA8B23DBD28D4026 /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B17587D82164F397A39DC75 /* ProfileViewController+UI.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A035040820D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
 		A035040920D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
 		A035040A20D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
@@ -1360,7 +1366,7 @@
 		BAD14CB025FB655F00FB40DD /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40495B3C2459466900AF53CB /* ProfileViewController+UI.swift */; };
 		BAD14CB125FB655F00FB40DD /* UserAgreementViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50324424A1B03700701E6B /* UserAgreementViewController+UI.swift */; };
 		BD32F8A6AF7CC2FF9A53096E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		BFA6C40537636405C34A849A /* ProfileManager_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8BFEA0ED3F7306B6B47FD /* ProfileManager_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C148E61E768B1CED0F7A975F /* LoginViewController_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABE8D5E998B7DB57305C22 /* LoginViewController_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C600497825ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */; };
 		C600497925ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */; };
 		C600497A25ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */; };
@@ -1400,6 +1406,7 @@
 		C6D2073A262FCCD0001A80D7 /* TRTCLoginAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20736262FCCD0001A80D7 /* TRTCLoginAlertView.swift */; };
 		C6D2073D262FCCD0001A80D7 /* TRTCLoginAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20736262FCCD0001A80D7 /* TRTCLoginAlertView.swift */; };
 		C6D2073E262FCCD0001A80D7 /* TRTCLoginAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20736262FCCD0001A80D7 /* TRTCLoginAlertView.swift */; };
+		C8CC1B3723EA78643028BBEF /* LoginViewController+UI_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA421C7BC0F09C78CFD710 /* LoginViewController+UI_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CE01F53E206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
 		CE01F53F206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
 		CE01F541206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
@@ -1497,7 +1504,6 @@
 		D61B484C1FB59EF0002F0C6C /* TCHttpUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D61B484A1FB59EF0002F0C6C /* TCHttpUtil.m */; };
 		D62EDBED1FF4D77900092D1A /* FilterResource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CE7C6E4A1FC2C5320095663F /* FilterResource.bundle */; };
 		D650607B20EE145F00C8BC44 /* libc.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D650607A20EE145F00C8BC44 /* libc.tbd */; };
-		D68E05824E0D54197C15EA0B /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8A490DB55807583574B8C6A /* ProfileViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		D6A04019207C6C69002DE89C /* TCHttpUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = D61B484A1FB59EF0002F0C6C /* TCHttpUtil.m */; };
 		D6BEF6562040179600CBE2BD /* VideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BEF6452040179600CBE2BD /* VideoPreviewViewController.m */; };
 		D6BEF6572040179600CBE2BD /* VideoPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6BEF6452040179600CBE2BD /* VideoPreviewViewController.m */; };
@@ -1533,7 +1539,6 @@
 		D6E5D1C420B7B62000812B2F /* ScreenPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */; };
 		D6E5D1C520B7B62000812B2F /* ScreenPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */; };
 		EF69648B8809D6DEA1B7139D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		F3099FF96C6FBABFBCB7CE99 /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2F6A055809C12F206C4347 /* CommonUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FDD4BF2B24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
 		FDD4BF2C24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
 		FDD4BF2D24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
@@ -2124,6 +2129,8 @@
 		51A289F8230FB93A00B9B73F /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		51A4AD391F1F8AE300B4A806 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		524ADBFC998A6699CABE35B8 /* Pods-TXLiteAVDemo_Professional.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXLiteAVDemo_Professional.release.xcconfig"; path = "Target Support Files/Pods-TXLiteAVDemo_Professional/Pods-TXLiteAVDemo_Professional.release.xcconfig"; sourceTree = "<group>"; };
+		541D849CCCD407FB1E830687 /* ProfileManager_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileManager_Mock.swift; sourceTree = "<group>"; };
+		68A61D570DF3D76F2CB443FA /* ProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6A1C108A2281A674005D7BD9 /* PushLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushLogView.h; sourceTree = "<group>"; };
 		6A1C109A2281A674005D7BD9 /* PushLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushLogView.m; sourceTree = "<group>"; };
 		6A3105C922682A06002F6115 /* ImageUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUploadViewController.m; sourceTree = "<group>"; };
@@ -2162,7 +2169,7 @@
 		6AAEC2692497807200B57D86 /* IMProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMProtocol.h; sourceTree = "<group>"; };
 		6AAEC26A2497807200B57D86 /* TRTCMeetingDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTCMeetingDef.h; sourceTree = "<group>"; };
 		6AAEC38A2499E08100B57D86 /* TXLiteAVSDK_ReplayKitExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_ReplayKitExt.framework; sourceTree = "<group>"; };
-		7B17587D82164F397A39DC75 /* ProfileViewController+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UI.swift"; sourceTree = "<group>"; };
+		6F6FD2235631028E9A43835F /* CommonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		7B4C917A24B4B0C80095C041 /* TXLaunchMoviePlayProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXLaunchMoviePlayProtocol.h; sourceTree = "<group>"; };
 		7B5A2D8D25B0355400B4B469 /* V2QRGenerateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = V2QRGenerateViewController.xib; sourceTree = "<group>"; };
 		7B5A2D8E25B0355400B4B469 /* V2MainItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V2MainItemCell.m; sourceTree = "<group>"; };
@@ -2263,10 +2270,8 @@
 		A0B8FC0A207E24F2008D7982 /* TVCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCUtils.h; sourceTree = "<group>"; };
 		A0FFAD92213791B70087FF45 /* TVCHttpMessageURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCHttpMessageURLProtocol.h; sourceTree = "<group>"; };
 		A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCHttpMessageURLProtocol.m; sourceTree = "<group>"; };
-		A24D22415664BB862E1A8590 /* LoginViewController+UI_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI_Mock.swift"; sourceTree = "<group>"; };
-		A8A490DB55807583574B8C6A /* ProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C07058FB55D5D708B723F6BB /* LoginViewController_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController_Mock.swift; sourceTree = "<group>"; };
-		C2B8BFEA0ED3F7306B6B47FD /* ProfileManager_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileManager_Mock.swift; sourceTree = "<group>"; };
+		A2ABE8D5E998B7DB57305C22 /* LoginViewController_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController_Mock.swift; sourceTree = "<group>"; };
+		AAD85AD407F5E41EFC08E96B /* ProfileViewController+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UI.swift"; sourceTree = "<group>"; };
 		C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTCChatSalonHandsUpTipsView.swift; sourceTree = "<group>"; };
 		C603F8A726034EA0009E3AB2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/UserProtocol.html"; sourceTree = "<group>"; };
 		C603F939260372A7009E3AB2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -2276,6 +2281,7 @@
 		C6D20717262FC6C2001A80D7 /* VerifyPicture.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = VerifyPicture.html; sourceTree = "<group>"; };
 		C6D2071F262FC6C6001A80D7 /* LoginCountryList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginCountryList.json; sourceTree = "<group>"; };
 		C6D20736262FCCD0001A80D7 /* TRTCLoginAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTCLoginAlertView.swift; sourceTree = "<group>"; };
+		C8CA421C7BC0F09C78CFD710 /* LoginViewController+UI_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI_Mock.swift"; sourceTree = "<group>"; };
 		C8E643F175AE44DEDBA06255 /* Pods-TXReplaykitUpload_Professional.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXReplaykitUpload_Professional.release.xcconfig"; path = "Target Support Files/Pods-TXReplaykitUpload_Professional/Pods-TXReplaykitUpload_Professional.release.xcconfig"; sourceTree = "<group>"; };
 		CE01F53C206DDE060056D693 /* VideoCompressPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCompressPreviewController.h; sourceTree = "<group>"; };
 		CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompressPreviewController.m; sourceTree = "<group>"; };
@@ -2341,9 +2347,8 @@
 		D6E5D1C020B7B61F00812B2F /* ReplayKit2Define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplayKit2Define.h; sourceTree = "<group>"; };
 		D6E5D1C120B7B62000812B2F /* ScreenPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenPushViewController.h; sourceTree = "<group>"; };
 		D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenPushViewController.m; sourceTree = "<group>"; };
-		DD2F6A055809C12F206C4347 /* CommonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
-		E19B31CCB9DB7F879BCE36BC /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		EBEC989F47F9D57C638FDC46 /* Pods-TXReplaykitUpload_Professional.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXReplaykitUpload_Professional.debug.xcconfig"; path = "Target Support Files/Pods-TXReplaykitUpload_Professional/Pods-TXReplaykitUpload_Professional.debug.xcconfig"; sourceTree = "<group>"; };
+		F06C689724512B55F5388435 /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoEditor.xcassets; sourceTree = "<group>"; };
 		FE920CB89622A1ED8E88E9B0 /* libPods-TXLiteAVDemo_Professional.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TXLiteAVDemo_Professional.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -2386,6 +2391,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4038CEE22669CE4000813912 /* Accelerate.framework in Frameworks */,
 				40AA538A2445935800303EF7 /* libz.tbd in Frameworks */,
 				4074E608249F01E2006C591F /* TXLiteAVSDK_ReplayKitExt.framework in Frameworks */,
 				40AA52C22445551E00303EF7 /* TXLiteAVSDK_Professional.framework in Frameworks */,
@@ -3299,7 +3305,7 @@
 				402A00EA245068240037A219 /* UGCVideoJoinDemo */,
 				402A00E9245068160037A219 /* UGCVideoEditDemo */,
 				402A00E5245065500037A219 /* UGCVideoUploadDemo */,
-				8D4BF858223956D68783CF3E /* Login */,
+				698FAED0FFF4E3E537C12633 /* Login */,
 			);
 			path = TXLiteAVDemo;
 			sourceTree = "<group>";
@@ -3569,6 +3575,21 @@
 			path = TRTCInfoPlist;
 			sourceTree = "<group>";
 		};
+		698FAED0FFF4E3E537C12633 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A2ABE8D5E998B7DB57305C22 /* LoginViewController_Mock.swift */,
+				541D849CCCD407FB1E830687 /* ProfileManager_Mock.swift */,
+				C8CA421C7BC0F09C78CFD710 /* LoginViewController+UI_Mock.swift */,
+				F06C689724512B55F5388435 /* AppUtils.swift */,
+				6F6FD2235631028E9A43835F /* CommonUtils.swift */,
+				68A61D570DF3D76F2CB443FA /* ProfileViewController.swift */,
+				AAD85AD407F5E41EFC08E96B /* ProfileViewController+UI.swift */,
+			);
+			name = Login;
+			path = TXLiteAVDemo/Login;
+			sourceTree = SOURCE_ROOT;
+		};
 		6AAEC24D2497807100B57D86 /* ui */ = {
 			isa = PBXGroup;
 			children = (
@@ -3715,21 +3736,6 @@
 			);
 			path = CommonWidgets;
 			sourceTree = "<group>";
-		};
-		8D4BF858223956D68783CF3E /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				C07058FB55D5D708B723F6BB /* LoginViewController_Mock.swift */,
-				C2B8BFEA0ED3F7306B6B47FD /* ProfileManager_Mock.swift */,
-				A24D22415664BB862E1A8590 /* LoginViewController+UI_Mock.swift */,
-				E19B31CCB9DB7F879BCE36BC /* AppUtils.swift */,
-				DD2F6A055809C12F206C4347 /* CommonUtils.swift */,
-				A8A490DB55807583574B8C6A /* ProfileViewController.swift */,
-				7B17587D82164F397A39DC75 /* ProfileViewController+UI.swift */,
-			);
-			name = Login;
-			path = TXLiteAVDemo/Login;
-			sourceTree = SOURCE_ROOT;
 		};
 		912A62052160D78A00C16E41 /* CFDanmaku */ = {
 			isa = PBXGroup;
@@ -4606,13 +4612,13 @@
 				D6BEF75B2040353E00CBE2BD /* MoviePlayerViewController.m in Sources */,
 				40C5665F264ABB5000B85C1C /* LebSettingBottomBar.m in Sources */,
 				7B5A2DCD25B0355400B4B469 /* V2MainProtocolSelectSegmentView.m in Sources */,
-				883827775D5D3E6BF55CDEB1 /* LoginViewController_Mock.swift in Sources */,
-				BFA6C40537636405C34A849A /* ProfileManager_Mock.swift in Sources */,
-				1B745E799118DCF7CBD92242 /* LoginViewController+UI_Mock.swift in Sources */,
-				6E47CD1DD58E46DD8DF993EC /* AppUtils.swift in Sources */,
-				F3099FF96C6FBABFBCB7CE99 /* CommonUtils.swift in Sources */,
-				D68E05824E0D54197C15EA0B /* ProfileViewController.swift in Sources */,
-				9EAFC6A5FA8B23DBD28D4026 /* ProfileViewController+UI.swift in Sources */,
+				C148E61E768B1CED0F7A975F /* LoginViewController_Mock.swift in Sources */,
+				11C97B640ED564F90D4F52E1 /* ProfileManager_Mock.swift in Sources */,
+				C8CC1B3723EA78643028BBEF /* LoginViewController+UI_Mock.swift in Sources */,
+				392559BA3338285DFC3EE6AB /* AppUtils.swift in Sources */,
+				1A0999698646A0ED4D7FCDCF /* CommonUtils.swift in Sources */,
+				65E5919DA1DCFD22C796EE08 /* ProfileViewController.swift in Sources */,
+				1B75F95C473835383E579229 /* ProfileViewController+UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
