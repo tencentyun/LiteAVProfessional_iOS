@@ -76,7 +76,10 @@
 
 
 - (void)processSampleBuffer:(CMSampleBufferRef)sampleBuffer withType:(RPSampleBufferType)sampleBufferType {
-    [[TXReplayKitExt sharedInstance] sendSampleBuffer:sampleBuffer withType:sampleBufferType];
+    if (sampleBufferType != RPSampleBufferTypeAudioMic) {
+        /// 声音由主APP采集发送
+        [[TXReplayKitExt sharedInstance] sendSampleBuffer:sampleBuffer withType:sampleBufferType];
+    }
 }
 
 #pragma mark - TXReplayKitExtDelegate

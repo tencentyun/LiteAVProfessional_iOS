@@ -59,7 +59,6 @@
     
     [self addSettingContainerView];
     [self addVolumeIndicator];
-    
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
                                              initWithImage:[UIImage imageNamed:@"rtc_back"]
                                              style:UIBarButtonItemStylePlain target:self

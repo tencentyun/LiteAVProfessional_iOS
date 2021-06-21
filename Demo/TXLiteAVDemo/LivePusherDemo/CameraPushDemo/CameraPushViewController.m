@@ -92,7 +92,7 @@
     
     // 创建推流器
     _pusher = [self createPusher];
-    
+    _isMute = [PushMoreSettingViewController isMuteAudio];
     // 界面布局
     [self initUI];
     if (@available(iOS 13.0, *)) {
@@ -126,17 +126,19 @@
 
 - (void)onAppWillResignActive:(NSNotification *)notification {
     _appIsInActive = YES;
+    [_pusher startVirtualCamera:[UIImage imageNamed:@"background"]];
 }
 
 - (void)onAppDidBecomeActive:(NSNotification *)notification {
     _appIsInActive = NO;
     if (!_appIsBackground && !_appIsInActive) {
+        [_pusher stopVirtualCamera];
     }
 }
 
 - (void)onAppDidEnterBackGround:(NSNotification *)notification {
     [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
-        
+        [_pusher startVirtualCamera:[UIImage imageNamed:@"background"]];
     }];
     _appIsBackground = YES;
 }
@@ -144,6 +146,7 @@
 - (void)onAppWillEnterForeground:(NSNotification *)notification {
     _appIsBackground = NO;
     if (!_appIsBackground && !_appIsInActive) {
+        [_pusher stopVirtualCamera];
     }
 }
 
@@ -263,11 +266,6 @@
 
 // 创建推流器，并使用本地配置初始化它
 - (V2TXLivePusher *)createPusher {
-    NSInteger audioQuality = [PushSettingViewController getAudioQuality];
-    [_pusher setAudioQuality:audioQuality];
-    if ([PushMoreSettingViewController isEnableWaterMark]) {
-        [_pusher setWatermark:[UIImage imageNamed:@"watermark"] x:0.05 y:0.05 scale:1];
-    }
     // 推流器初始化
     V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTMP];
     [pusher.getDeviceManager enableCameraTorch:[PushMoreSettingViewController isOpenTorch]];
@@ -283,7 +281,11 @@
         @"right":@(10)
     }];
     [pusher showDebugView:[PushMoreSettingViewController isShowDebugLog]];
-    
+    NSInteger audioQuality = [PushSettingViewController getAudioQuality];
+    [pusher setAudioQuality:audioQuality];
+    if ([PushMoreSettingViewController isEnableWaterMark]) {
+        [pusher setWatermark:[UIImage imageNamed:@"watermark"] x:0.05 y:0.05 scale:1];
+    }
     return pusher;
 }
 
@@ -328,6 +330,13 @@
 - (void)clickBeauty:(UIButton *)btn {
     _beautyPanel.hidden = NO;
     [self hideToolButtons:YES];
+    if (_moreSettingVC) {
+        [_moreSettingVC willMoveToParentViewController:self];
+        [_moreSettingVC.view removeFromSuperview];
+        [_moreSettingVC removeFromParentViewController];
+        _moreSettingVC.delegate = nil;
+        _moreSettingVC = nil;
+    }
 }
 
 - (void)clickBgm:(UIButton *)btn {
@@ -355,7 +364,7 @@
 - (void)clickMoreSetting:(UIButton *)btn {
     if (!_moreSettingVC) {
         _moreSettingVC = [[PushMoreSettingViewController alloc] init];
-        [_moreSettingVC setDelegate:self];
+        _moreSettingVC.delegate = self;
         
         [self addChildViewController:_moreSettingVC];
         _moreSettingVC.view.frame = CGRectMake(0, self.view.height * 0.2, self.view.width, self.view.height * 0.7);
@@ -367,8 +376,7 @@
         [_moreSettingVC willMoveToParentViewController:self];
         [_moreSettingVC.view removeFromSuperview];
         [_moreSettingVC removeFromParentViewController];
-        
-        [_moreSettingVC setDelegate:nil];
+        _moreSettingVC.delegate = nil;
         _moreSettingVC = nil;
     }
 }
@@ -388,7 +396,15 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     [self.view endEditing:YES];
     _beautyPanel.hidden = YES;
-    [self hideToolButtons:NO];
+    UITouch *touch = [touches.allObjects lastObject];
+    BOOL result = [touch.view isDescendantOfView:_audioEffectView];
+    if (!result) {
+        [_audioEffectView hide];
+    }
+    if (![_audioEffectView isShow]) {
+        [self hideToolButtons:NO];
+    }
+    
 }
 
 #pragma mark - 推流逻辑
@@ -425,7 +441,13 @@
     // 开启预览
     [_pusher setRenderView:_localView];
     [_pusher startCamera:_btnCamera.tag == 0];
-    [_pusher startMicrophone];
+    
+    if (_isMute) {
+        [_pusher stopMicrophone];
+    } else {
+        [_pusher startMicrophone];
+    }
+    
     // 开始推流
     V2TXLiveCode ret = [_pusher startPush:rtmpUrl];
     if (ret != V2TXLIVE_OK) {
@@ -457,6 +479,7 @@
     }
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = text;
+    hud.userInteractionEnabled = NO;
     [hud showAnimated:YES];
 }
 
@@ -469,8 +492,6 @@
     hud.mode = MBProgressHUDModeText;
     hud.label.text = text;
     hud.detailsLabel.text = detail;
-    [hud.button addTarget:self action:@selector(onCloseHUD:) forControlEvents:UIControlEventTouchUpInside];
-    [hud.button setTitle:LivePlayerLocalize(@"LivePusherDemo.CameraPush.off") forState:UIControlStateNormal];
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:2];
 }
@@ -676,7 +697,7 @@
 #pragma mark - PushMoreSettingDelegate
 
 // 是否开启静音模式（发送静音数据，但是不关闭麦克风）
-- (void)onPushMoreSetting:(PushMoreSettingViewController *)vc pauseAudio:(BOOL)mute {
+- (void)onPushMoreSetting:(PushMoreSettingViewController *)vc muteAudio:(BOOL)mute {
     [self pauseAudio:mute];
     _isMute = mute;
 }

@@ -95,7 +95,7 @@ typedef NS_ENUM(NSInteger, ENUM_TYPE_CACHE_STRATEGY) {
     self.title = LivePlayerLocalize(@"LivePlayerDemo.PlayViewController.livestreamingplayer");
     [self.view setBackgroundImage:[UIImage imageNamed:@"background"]];
     
-    int buttonCount = 5; // 底部一排按钮的数量
+    int buttonCount = 4; // 底部一排按钮的数量
     CGSize size = [[UIScreen mainScreen] bounds].size;
     int ICON_WITH = size.width / (buttonCount + 1);
     ICON_WITH = MIN(ICON_WITH, 40); /// 最大40*40
@@ -133,8 +133,6 @@ typedef NS_ENUM(NSInteger, ENUM_TYPE_CACHE_STRATEGY) {
                                 center:CGPointMake(startSpace + ICON_WITH / 2 + centerInterVal*index++, iconY) size:iconSize];
     _btnRenderMode = [self createButton:@"fill" action:@selector(clickRenderMode:)
                           center:CGPointMake(startSpace + ICON_WITH / 2 + centerInterVal*index++, iconY) size:iconSize];
-    _btnRealtime = [self createButton:@"jisu_off" action:@selector(clickRealtime:)
-                              center:CGPointMake(startSpace + ICON_WITH / 2 + centerInterVal*index++, iconY) size:iconSize];
     
     // 菊花
     float width = 34;
@@ -267,7 +265,7 @@ typedef NS_ENUM(NSInteger, ENUM_TYPE_CACHE_STRATEGY) {
             _playType = PLAY_TYPE_LIVE_FLV;
         } else if (([playUrl hasPrefix:@"https:"] || [playUrl hasPrefix:@"http:"]) && [playUrl rangeOfString:@".m3u8"].length > 0) {
             _playType = PLAY_TYPE_VOD_HLS;
-        } else{
+        } else {
             [self toastTip:LivePlayerLocalize(@"LivePlayerDemo.PlayViewController.playaddressisnotlegal")];
             return NO;
         }
@@ -367,6 +365,9 @@ typedef NS_ENUM(NSInteger, ENUM_TYPE_CACHE_STRATEGY) {
             break;
         case V2TXLivePlayStatusLoading:
             [self startLoadingAnimation];
+            break;
+        case V2TXLivePlayStatusStopped:
+            [self clickPlay:_btnPlay];
             break;
         default:
             break;

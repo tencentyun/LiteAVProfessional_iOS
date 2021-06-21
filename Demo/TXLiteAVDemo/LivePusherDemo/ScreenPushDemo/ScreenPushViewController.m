@@ -327,6 +327,8 @@
                     [self.livePusher startScreenCapture:kReplayKit2AppGroupId];
                 }
                 [self refreshResolutionAndRotation];
+                [[self.livePusher getDeviceManager] setSystemVolumeType:TXSystemVolumeTypeMedia];
+                [self.livePusher startMicrophone];
                 [self.livePusher startPush:self.addressBarController.text];
                 [btn setTitle:LivePlayerLocalize(@"LivePusherDemo.ScreenPush.pushoverflow") forState:UIControlStateNormal];
             }];

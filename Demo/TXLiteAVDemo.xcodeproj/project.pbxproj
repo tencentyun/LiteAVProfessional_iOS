@@ -3,22 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		11C97B640ED564F90D4F52E1 /* ProfileManager_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541D849CCCD407FB1E830687 /* ProfileManager_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1A0999698646A0ED4D7FCDCF /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6FD2235631028E9A43835F /* CommonUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		1B75F95C473835383E579229 /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD85AD407F5E41EFC08E96B /* ProfileViewController+UI.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1DC7F349A2B6380DCA056281 /* libPods-TXReplaykitUpload_Professional.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00809C5850F41459EC8EE3D8 /* libPods-TXReplaykitUpload_Professional.a */; };
 		1EA0A986FB03B486F983DE95 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		26CA056C2B5EAF97435CB4DB /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9363B15A42D514D9FEC21D /* CommonUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		272367962B3FB11D461F0EB3 /* LoginViewController_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A7949BC83A56B2873FA213 /* LoginViewController_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2840D91C24B8562200723FBC /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2840D91B24B8562200723FBC /* AudioToolbox.framework */; };
 		2840D92924B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
 		2840D92A24B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
 		2840D92E24B8801800723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
 		2840D93124B880EF00723FBC /* SDWebImagePlaceholderImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */; };
 		285FB46824BEA52F00FFB2BC /* TXVoiceRoomService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4046B13924B36AD700F27349 /* TXVoiceRoomService.m */; };
-		392559BA3338285DFC3EE6AB /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06C689724512B55F5388435 /* AppUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2A773200264FF58658A6A84C /* LoginViewController+UI_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F754D2EA167EECA124B0837E /* LoginViewController+UI_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		3C08D085252EDAAA3AD68E1A /* ProfileManager_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01A44BFE08D94C32493CEFD /* ProfileManager_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		40091E6B1F4FCBB9009B882D /* ScanQRController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40F853561EE8FCDF00EE47D7 /* ScanQRController.mm */; };
 		40091E6F1F4FCBB9009B882D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F853261EE8FC8400EE47D7 /* AppDelegate.m */; };
 		40091E761F4FCBB9009B882D /* AppLogMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F853281EE8FC8400EE47D7 /* AppLogMgr.m */; };
@@ -494,6 +494,8 @@
 		40AC7316246D35A300FAF33D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40F853221EE8FC7300EE47D7 /* Assets.xcassets */; };
 		40AC7319246D35A300FAF33D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40F853331EE8FC9B00EE47D7 /* Main.storyboard */; };
 		40AC7324246D361100FAF33D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		40B18A5C2670AEA500553049 /* PhotoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B18A592670AEA500553049 /* PhotoUtil.m */; };
+		40B18A5D2670AEA500553049 /* TXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B18A5B2670AEA500553049 /* TXColor.m */; };
 		40B3F6762446E518000C37A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F853261EE8FC8400EE47D7 /* AppDelegate.m */; };
 		40B3F6942446E518000C37A3 /* AppLogMgr.m in Sources */ = {isa = PBXBuildFile; fileRef = 40F853281EE8FC8400EE47D7 /* AppLogMgr.m */; };
 		40B3F6AE2446E518000C37A3 /* TCBeautyPanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40AA536524458EC800303EF7 /* TCBeautyPanel.framework */; };
@@ -800,6 +802,10 @@
 		45E74D9B23B22BCD00C22B31 /* ThemeConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E74D9A23B22BCD00C22B31 /* ThemeConfigurator.m */; };
 		45E74D9C23B22BCD00C22B31 /* ThemeConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E74D9A23B22BCD00C22B31 /* ThemeConfigurator.m */; };
 		45F3B3A1232A239D00666F7C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F855361EE8FDAD00EE47D7 /* AssetsLibrary.framework */; };
+		4717325126705C4A005F772E /* SoundTouch.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4717324E26705C4A005F772E /* SoundTouch.xcframework */; };
+		4717325626705C77005F772E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		4717325726705CE4005F772E /* BuildFile in Embed Frameworks */ = {isa = PBXBuildFile; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4717325926705CE8005F772E /* SoundTouch.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4717324E26705C4A005F772E /* SoundTouch.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		47642A9B261491B90020F1BA /* launchimage_en@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47642A99261491B90020F1BA /* launchimage_en@3x.png */; };
 		47642A9C261491B90020F1BA /* launchimage_en@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47642A99261491B90020F1BA /* launchimage_en@3x.png */; };
 		47642A9D261491B90020F1BA /* launchimage_en@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 47642A99261491B90020F1BA /* launchimage_en@3x.png */; };
@@ -1027,7 +1033,6 @@
 		51A289FB230FB95800B9B73F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
 		51A289FC230FB96000B9B73F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
 		51CE9F98231944BE00B620BD /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51A289F8230FB93A00B9B73F /* OpenAL.framework */; };
-		65E5919DA1DCFD22C796EE08 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68A61D570DF3D76F2CB443FA /* ProfileViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6A1C109B2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
 		6A1C109C2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
 		6A1C109D2281A675005D7BD9 /* PushLogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A1C109A2281A674005D7BD9 /* PushLogView.m */; };
@@ -1054,14 +1059,6 @@
 		6A5031CA249D122800701E6B /* TXLiteAVSDK_ReplayKitExt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AAEC38A2499E08100B57D86 /* TXLiteAVSDK_ReplayKitExt.framework */; };
 		6A5031D7249D132F00701E6B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		6A50320F24A0E72200701E6B /* TRTCMeetingDef.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AAEC2642497807200B57D86 /* TRTCMeetingDef.m */; };
-		6A50323F24A1AF6B00701E6B /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50323E24A1AF6B00701E6B /* UserAgreementViewController.swift */; };
-		6A50324124A1AF6B00701E6B /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50323E24A1AF6B00701E6B /* UserAgreementViewController.swift */; };
-		6A50324224A1AF6B00701E6B /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50323E24A1AF6B00701E6B /* UserAgreementViewController.swift */; };
-		6A50324324A1AF6B00701E6B /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50323E24A1AF6B00701E6B /* UserAgreementViewController.swift */; };
-		6A50324524A1B03700701E6B /* UserAgreementViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50324424A1B03700701E6B /* UserAgreementViewController+UI.swift */; };
-		6A50324724A1B03700701E6B /* UserAgreementViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50324424A1B03700701E6B /* UserAgreementViewController+UI.swift */; };
-		6A50324824A1B03700701E6B /* UserAgreementViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50324424A1B03700701E6B /* UserAgreementViewController+UI.swift */; };
-		6A50324924A1B03700701E6B /* UserAgreementViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50324424A1B03700701E6B /* UserAgreementViewController+UI.swift */; };
 		6A5032A524A25E2100701E6B /* GenerateTestUserSig.m in Sources */ = {isa = PBXBuildFile; fileRef = 40B3F8DC2446E6C5000C37A3 /* GenerateTestUserSig.m */; };
 		6AAEC26B2497807200B57D86 /* TRTCMeetingRoomDemo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAEC24C2497807100B57D86 /* TRTCMeetingRoomDemo.xcassets */; };
 		6AAEC26C2497807200B57D86 /* TRTCMeetingRoomDemo.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AAEC24C2497807100B57D86 /* TRTCMeetingRoomDemo.xcassets */; };
@@ -1195,6 +1192,71 @@
 		7B5A2DE525B0355400B4B469 /* v2live.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5A2DBA25B0355400B4B469 /* v2live.xcassets */; };
 		7B5A2DE625B0355400B4B469 /* V2LiveUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DBB25B0355400B4B469 /* V2LiveUtils.m */; };
 		7B5A2DE725B0355400B4B469 /* V2LiveUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DBB25B0355400B4B469 /* V2LiveUtils.m */; };
+		88ABB5F0266DCB0D0050C38A /* TRTCWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB5EF266DCB0D0050C38A /* TRTCWebViewController.swift */; };
+		88ABB5F2266DCB0D0050C38A /* TRTCWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB5EF266DCB0D0050C38A /* TRTCWebViewController.swift */; };
+		88ABB5F3266DCB0D0050C38A /* TRTCWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB5EF266DCB0D0050C38A /* TRTCWebViewController.swift */; };
+		88ABB5F4266DCB0D0050C38A /* TRTCWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB5EF266DCB0D0050C38A /* TRTCWebViewController.swift */; };
+		88ABB5F5266DCB0D0050C38A /* TRTCWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB5EF266DCB0D0050C38A /* TRTCWebViewController.swift */; };
+		88ABB61D266DD0E80050C38A /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB61C266DD0E80050C38A /* PrivacyPolicy.html */; };
+		88ABB61F266DD0E80050C38A /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB61C266DD0E80050C38A /* PrivacyPolicy.html */; };
+		88ABB620266DD0E80050C38A /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB61C266DD0E80050C38A /* PrivacyPolicy.html */; };
+		88ABB621266DD0E80050C38A /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB61C266DD0E80050C38A /* PrivacyPolicy.html */; };
+		88ABB622266DD0E80050C38A /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB61C266DD0E80050C38A /* PrivacyPolicy.html */; };
+		88ABB630266DD0FB0050C38A /* UserAgreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB62F266DD0FA0050C38A /* UserAgreement.html */; };
+		88ABB632266DD0FB0050C38A /* UserAgreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB62F266DD0FA0050C38A /* UserAgreement.html */; };
+		88ABB633266DD0FB0050C38A /* UserAgreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB62F266DD0FA0050C38A /* UserAgreement.html */; };
+		88ABB634266DD0FB0050C38A /* UserAgreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB62F266DD0FA0050C38A /* UserAgreement.html */; };
+		88ABB635266DD0FB0050C38A /* UserAgreement.html in Resources */ = {isa = PBXBuildFile; fileRef = 88ABB62F266DD0FA0050C38A /* UserAgreement.html */; };
+		88ABB64C266DFE220050C38A /* MineRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB643266DFE220050C38A /* MineRootView.swift */; };
+		88ABB64E266DFE220050C38A /* MineRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB643266DFE220050C38A /* MineRootView.swift */; };
+		88ABB64F266DFE220050C38A /* MineRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB643266DFE220050C38A /* MineRootView.swift */; };
+		88ABB650266DFE220050C38A /* MineRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB643266DFE220050C38A /* MineRootView.swift */; };
+		88ABB651266DFE220050C38A /* MineRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB643266DFE220050C38A /* MineRootView.swift */; };
+		88ABB652266DFE220050C38A /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB644266DFE220050C38A /* MineViewModel.swift */; };
+		88ABB654266DFE220050C38A /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB644266DFE220050C38A /* MineViewModel.swift */; };
+		88ABB655266DFE220050C38A /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB644266DFE220050C38A /* MineViewModel.swift */; };
+		88ABB656266DFE220050C38A /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB644266DFE220050C38A /* MineViewModel.swift */; };
+		88ABB657266DFE220050C38A /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB644266DFE220050C38A /* MineViewModel.swift */; };
+		88ABB658266DFE220050C38A /* MineAboutResignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB645266DFE220050C38A /* MineAboutResignViewController.swift */; };
+		88ABB65A266DFE220050C38A /* MineAboutResignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB645266DFE220050C38A /* MineAboutResignViewController.swift */; };
+		88ABB65B266DFE220050C38A /* MineAboutResignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB645266DFE220050C38A /* MineAboutResignViewController.swift */; };
+		88ABB65C266DFE220050C38A /* MineAboutResignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB645266DFE220050C38A /* MineAboutResignViewController.swift */; };
+		88ABB65D266DFE220050C38A /* MineAboutResignViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB645266DFE220050C38A /* MineAboutResignViewController.swift */; };
+		88ABB65E266DFE220050C38A /* MineAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB646266DFE220050C38A /* MineAboutViewController.swift */; };
+		88ABB660266DFE230050C38A /* MineAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB646266DFE220050C38A /* MineAboutViewController.swift */; };
+		88ABB661266DFE230050C38A /* MineAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB646266DFE220050C38A /* MineAboutViewController.swift */; };
+		88ABB662266DFE230050C38A /* MineAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB646266DFE220050C38A /* MineAboutViewController.swift */; };
+		88ABB663266DFE230050C38A /* MineAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB646266DFE220050C38A /* MineAboutViewController.swift */; };
+		88ABB664266DFE230050C38A /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB647266DFE220050C38A /* MineViewController.swift */; };
+		88ABB666266DFE230050C38A /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB647266DFE220050C38A /* MineViewController.swift */; };
+		88ABB667266DFE230050C38A /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB647266DFE220050C38A /* MineViewController.swift */; };
+		88ABB668266DFE230050C38A /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB647266DFE220050C38A /* MineViewController.swift */; };
+		88ABB669266DFE230050C38A /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB647266DFE220050C38A /* MineViewController.swift */; };
+		88ABB66A266DFE230050C38A /* TRTCAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB649266DFE220050C38A /* TRTCAlerts.swift */; };
+		88ABB66C266DFE230050C38A /* TRTCAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB649266DFE220050C38A /* TRTCAlerts.swift */; };
+		88ABB66D266DFE230050C38A /* TRTCAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB649266DFE220050C38A /* TRTCAlerts.swift */; };
+		88ABB66E266DFE230050C38A /* TRTCAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB649266DFE220050C38A /* TRTCAlerts.swift */; };
+		88ABB66F266DFE230050C38A /* TRTCAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB649266DFE220050C38A /* TRTCAlerts.swift */; };
+		88ABB670266DFE230050C38A /* MineAlertContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64A266DFE220050C38A /* MineAlertContentView.swift */; };
+		88ABB672266DFE230050C38A /* MineAlertContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64A266DFE220050C38A /* MineAlertContentView.swift */; };
+		88ABB673266DFE230050C38A /* MineAlertContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64A266DFE220050C38A /* MineAlertContentView.swift */; };
+		88ABB674266DFE230050C38A /* MineAlertContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64A266DFE220050C38A /* MineAlertContentView.swift */; };
+		88ABB675266DFE230050C38A /* MineAlertContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64A266DFE220050C38A /* MineAlertContentView.swift */; };
+		88ABB676266DFE230050C38A /* TRTCAlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64B266DFE220050C38A /* TRTCAlertControl.swift */; };
+		88ABB678266DFE230050C38A /* TRTCAlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64B266DFE220050C38A /* TRTCAlertControl.swift */; };
+		88ABB679266DFE230050C38A /* TRTCAlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64B266DFE220050C38A /* TRTCAlertControl.swift */; };
+		88ABB67A266DFE230050C38A /* TRTCAlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64B266DFE220050C38A /* TRTCAlertControl.swift */; };
+		88ABB67B266DFE230050C38A /* TRTCAlertControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB64B266DFE220050C38A /* TRTCAlertControl.swift */; };
+		88ABB689266E01870050C38A /* LayoutDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB688266E01870050C38A /* LayoutDefine.swift */; };
+		88ABB68B266E01870050C38A /* LayoutDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB688266E01870050C38A /* LayoutDefine.swift */; };
+		88ABB68C266E01870050C38A /* LayoutDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB688266E01870050C38A /* LayoutDefine.swift */; };
+		88ABB68D266E01870050C38A /* LayoutDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB688266E01870050C38A /* LayoutDefine.swift */; };
+		88ABB68E266E01870050C38A /* LayoutDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB688266E01870050C38A /* LayoutDefine.swift */; };
+		88ABB6C8266F17900050C38A /* PrivacyPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB6C7266F17900050C38A /* PrivacyPopView.swift */; };
+		88ABB6CA266F17900050C38A /* PrivacyPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB6C7266F17900050C38A /* PrivacyPopView.swift */; };
+		88ABB6CB266F17900050C38A /* PrivacyPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB6C7266F17900050C38A /* PrivacyPopView.swift */; };
+		88ABB6CC266F17900050C38A /* PrivacyPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB6C7266F17900050C38A /* PrivacyPopView.swift */; };
+		88ABB6CD266F17900050C38A /* PrivacyPopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88ABB6C7266F17900050C38A /* PrivacyPopView.swift */; };
 		8D6AAF4C1D56E796151BFC2B /* libPods-TXLiteAVDemo_Professional.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE920CB89622A1ED8E88E9B0 /* libPods-TXLiteAVDemo_Professional.a */; };
 		910E179F2080A27500178D86 /* TXMoviePlayerNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */; };
 		910E17A02080A27500178D86 /* TXMoviePlayerNetApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */; };
@@ -1226,6 +1288,7 @@
 		91F87A801FF4A101001644B1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */; };
 		91F87A811FF4A109001644B1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */; };
 		944B0A98D288A86246E2C14B /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		944DD883F4A49CD0299FAA14 /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC7BFCBD506661470A487E35 /* AppUtils.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A035040820D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
 		A035040920D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
 		A035040A20D20A01007E61C6 /* QRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = A035040720D20A01007E61C6 /* QRCode.m */; };
@@ -1313,12 +1376,10 @@
 		BAD147E325FB570400FB40DD /* UIButton+V2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DA625B0355400B4B469 /* UIButton+V2.m */; };
 		BAD147F125FB570400FB40DD /* V2PusherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DB725B0355400B4B469 /* V2PusherViewController.m */; };
 		BAD147F425FB570400FB40DD /* V2PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DB125B0355400B4B469 /* V2PlayerViewController.m */; };
-		BAD147F525FB570400FB40DD /* TXColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A06E8559214F9EC200DF949B /* TXColor.m */; };
 		BAD147FA25FB570400FB40DD /* SmallButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A0428A3620D3CFDB00CA79D5 /* SmallButton.m */; };
 		BAD147FC25FB570400FB40DD /* V2PusherSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2D9325B0355400B4B469 /* V2PusherSettingViewController.m */; };
 		BAD147FE25FB570400FB40DD /* UISegmentedControl+V2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DA825B0355400B4B469 /* UISegmentedControl+V2.m */; };
 		BAD1480025FB570400FB40DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 402A010024506F740037A219 /* main.m */; };
-		BAD1480325FB570400FB40DD /* PhotoUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 4540802B23292D4400C3CAD5 /* PhotoUtil.m */; };
 		BAD1480525FB570400FB40DD /* SimpleIPC.m in Sources */ = {isa = PBXBuildFile; fileRef = 45CC58AA246290BB002A914E /* SimpleIPC.m */; };
 		BAD1480925FB570400FB40DD /* V2QRGenerateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2DB225B0355400B4B469 /* V2QRGenerateViewController.m */; };
 		BAD1480D25FB570400FB40DD /* V2QRScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B5A2D8F25B0355400B4B469 /* V2QRScanViewController.m */; };
@@ -1359,14 +1420,12 @@
 		BAD14CA925FB655B00FB40DD /* CommonUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3F9DC2446EF11000C37A3 /* CommonUtils.swift */; };
 		BAD14CAA25FB655B00FB40DD /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B3F9DB2446EF11000C37A3 /* AppUtils.swift */; };
 		BAD14CAB25FB655B00FB40DD /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40495B3E2459466900AF53CB /* ProfileManager.swift */; };
-		BAD14CAC25FB655F00FB40DD /* UserAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50323E24A1AF6B00701E6B /* UserAgreementViewController.swift */; };
 		BAD14CAD25FB655F00FB40DD /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40495B3A2459466900AF53CB /* LoginViewController.swift */; };
 		BAD14CAE25FB655F00FB40DD /* LoginViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40495B392459466900AF53CB /* LoginViewController+UI.swift */; };
 		BAD14CAF25FB655F00FB40DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40495B3B2459466900AF53CB /* ProfileViewController.swift */; };
 		BAD14CB025FB655F00FB40DD /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40495B3C2459466900AF53CB /* ProfileViewController+UI.swift */; };
-		BAD14CB125FB655F00FB40DD /* UserAgreementViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A50324424A1B03700701E6B /* UserAgreementViewController+UI.swift */; };
 		BD32F8A6AF7CC2FF9A53096E /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		C148E61E768B1CED0F7A975F /* LoginViewController_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ABE8D5E998B7DB57305C22 /* LoginViewController_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		C4562573B939FB9145A22DCC /* ProfileViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A4EEE061A3AC7EBFEFCE418 /* ProfileViewController+UI.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		C600497825ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */; };
 		C600497925ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */; };
 		C600497A25ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */; };
@@ -1406,7 +1465,6 @@
 		C6D2073A262FCCD0001A80D7 /* TRTCLoginAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20736262FCCD0001A80D7 /* TRTCLoginAlertView.swift */; };
 		C6D2073D262FCCD0001A80D7 /* TRTCLoginAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20736262FCCD0001A80D7 /* TRTCLoginAlertView.swift */; };
 		C6D2073E262FCCD0001A80D7 /* TRTCLoginAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6D20736262FCCD0001A80D7 /* TRTCLoginAlertView.swift */; };
-		C8CC1B3723EA78643028BBEF /* LoginViewController+UI_Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CA421C7BC0F09C78CFD710 /* LoginViewController+UI_Mock.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CE01F53E206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
 		CE01F53F206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
 		CE01F541206DDE060056D693 /* VideoCompressPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */; };
@@ -1539,6 +1597,7 @@
 		D6E5D1C420B7B62000812B2F /* ScreenPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */; };
 		D6E5D1C520B7B62000812B2F /* ScreenPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */; };
 		EF69648B8809D6DEA1B7139D /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		F234A78348C62D731B4522D9 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDDF786F6B18379B894100D /* ProfileViewController.swift */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FDD4BF2B24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
 		FDD4BF2C24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
 		FDD4BF2D24A1F8AE0015388B /* VideoEditor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */; };
@@ -1802,6 +1861,7 @@
 		249D634FA6178E4A3058F65B /* Pods-TXLiteAVDemo_Professional.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXLiteAVDemo_Professional.debug.xcconfig"; path = "Target Support Files/Pods-TXLiteAVDemo_Professional/Pods-TXLiteAVDemo_Professional.debug.xcconfig"; sourceTree = "<group>"; };
 		2840D91B24B8562200723FBC /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		2840D92824B85E2A00723FBC /* SDWebImagePlaceholderImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDWebImagePlaceholderImageManager.swift; sourceTree = "<group>"; };
+		3A4EEE061A3AC7EBFEFCE418 /* ProfileViewController+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UI.swift"; sourceTree = "<group>"; };
 		4009207D1F4FCBBE009B882D /* TXLiteAVDemo_Professional.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TXLiteAVDemo_Professional.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4011CC0E24E4DDB600C543D7 /* TRTCCallingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTCCallingCell.swift; sourceTree = "<group>"; };
 		4011CC0F24E4DDB600C543D7 /* CallUserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallUserModel.swift; sourceTree = "<group>"; };
@@ -1903,6 +1963,10 @@
 		40AA52C0244554BA00303EF7 /* TXReplaykitUpload_Professional.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TXReplaykitUpload_Professional.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		40AA533524458EC800303EF7 /* TCBeautyPanel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = TCBeautyPanel.xcodeproj; sourceTree = "<group>"; };
 		40AA539724459DF900303EF7 /* UGCKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UGCKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40B18A582670AEA500553049 /* TXColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TXColor.h; sourceTree = "<group>"; };
+		40B18A592670AEA500553049 /* PhotoUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUtil.m; sourceTree = "<group>"; };
+		40B18A5A2670AEA500553049 /* PhotoUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUtil.h; sourceTree = "<group>"; };
+		40B18A5B2670AEA500553049 /* TXColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TXColor.m; sourceTree = "<group>"; };
 		40B3F8DC2446E6C5000C37A3 /* GenerateTestUserSig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GenerateTestUserSig.m; sourceTree = "<group>"; };
 		40B3F8DD2446E6C5000C37A3 /* GenerateTestUserSig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GenerateTestUserSig.h; sourceTree = "<group>"; };
 		40B3F9272446E6C6000C37A3 /* LiveRoomMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveRoomMainViewController.swift; sourceTree = "<group>"; };
@@ -2055,6 +2119,8 @@
 		45D8448C23B64395001CD3A9 /* UGCUploadList.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UGCUploadList.m; sourceTree = "<group>"; };
 		45E74D9923B22BCD00C22B31 /* ThemeConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeConfigurator.h; sourceTree = "<group>"; };
 		45E74D9A23B22BCD00C22B31 /* ThemeConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeConfigurator.m; sourceTree = "<group>"; };
+		4717324D26705C4A005F772E /* FFmpeg.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FFmpeg.xcframework; path = ../SDK/FFmpeg.xcframework; sourceTree = "<group>"; };
+		4717324E26705C4A005F772E /* SoundTouch.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SoundTouch.xcframework; path = ../SDK/SoundTouch.xcframework; sourceTree = "<group>"; };
 		47642A8C261490960020F1BA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		47642A99261491B90020F1BA /* launchimage_en@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchimage_en@3x.png"; sourceTree = "<group>"; };
 		47642A9A261491B90020F1BA /* launchimage_en@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launchimage_en@2x.png"; sourceTree = "<group>"; };
@@ -2129,8 +2195,6 @@
 		51A289F8230FB93A00B9B73F /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
 		51A4AD391F1F8AE300B4A806 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		524ADBFC998A6699CABE35B8 /* Pods-TXLiteAVDemo_Professional.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXLiteAVDemo_Professional.release.xcconfig"; path = "Target Support Files/Pods-TXLiteAVDemo_Professional/Pods-TXLiteAVDemo_Professional.release.xcconfig"; sourceTree = "<group>"; };
-		541D849CCCD407FB1E830687 /* ProfileManager_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileManager_Mock.swift; sourceTree = "<group>"; };
-		68A61D570DF3D76F2CB443FA /* ProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		6A1C108A2281A674005D7BD9 /* PushLogView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushLogView.h; sourceTree = "<group>"; };
 		6A1C109A2281A674005D7BD9 /* PushLogView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushLogView.m; sourceTree = "<group>"; };
 		6A3105C922682A06002F6115 /* ImageUploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageUploadViewController.m; sourceTree = "<group>"; };
@@ -2138,8 +2202,6 @@
 		6A3107172272E31A002F6115 /* PushBgmControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PushBgmControl.h; sourceTree = "<group>"; };
 		6A3107182272E31A002F6115 /* PushBgmControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PushBgmControl.m; sourceTree = "<group>"; };
 		6A503178249D03B200701E6B /* TRTCInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = TRTCInfo.plist; sourceTree = "<group>"; };
-		6A50323E24A1AF6B00701E6B /* UserAgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAgreementViewController.swift; sourceTree = "<group>"; };
-		6A50324424A1B03700701E6B /* UserAgreementViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserAgreementViewController+UI.swift"; sourceTree = "<group>"; };
 		6AAEC24C2497807100B57D86 /* TRTCMeetingRoomDemo.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TRTCMeetingRoomDemo.xcassets; sourceTree = "<group>"; };
 		6AAEC24E2497807100B57D86 /* TRTCMeetingNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTCMeetingNewViewController.swift; sourceTree = "<group>"; };
 		6AAEC24F2497807100B57D86 /* CenterSegmentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterSegmentView.swift; sourceTree = "<group>"; };
@@ -2169,7 +2231,6 @@
 		6AAEC2692497807200B57D86 /* IMProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMProtocol.h; sourceTree = "<group>"; };
 		6AAEC26A2497807200B57D86 /* TRTCMeetingDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TRTCMeetingDef.h; sourceTree = "<group>"; };
 		6AAEC38A2499E08100B57D86 /* TXLiteAVSDK_ReplayKitExt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_ReplayKitExt.framework; sourceTree = "<group>"; };
-		6F6FD2235631028E9A43835F /* CommonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		7B4C917A24B4B0C80095C041 /* TXLaunchMoviePlayProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXLaunchMoviePlayProtocol.h; sourceTree = "<group>"; };
 		7B5A2D8D25B0355400B4B469 /* V2QRGenerateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = V2QRGenerateViewController.xib; sourceTree = "<group>"; };
 		7B5A2D8E25B0355400B4B469 /* V2MainItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V2MainItemCell.m; sourceTree = "<group>"; };
@@ -2213,6 +2274,20 @@
 		7B5A2DB925B0355400B4B469 /* V2QRGenerateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V2QRGenerateViewController.h; sourceTree = "<group>"; };
 		7B5A2DBA25B0355400B4B469 /* v2live.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = v2live.xcassets; sourceTree = "<group>"; };
 		7B5A2DBB25B0355400B4B469 /* V2LiveUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = V2LiveUtils.m; sourceTree = "<group>"; };
+		88ABB5EF266DCB0D0050C38A /* TRTCWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTCWebViewController.swift; sourceTree = "<group>"; };
+		88ABB61C266DD0E80050C38A /* PrivacyPolicy.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = PrivacyPolicy.html; sourceTree = "<group>"; };
+		88ABB62F266DD0FA0050C38A /* UserAgreement.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = UserAgreement.html; sourceTree = "<group>"; };
+		88ABB643266DFE220050C38A /* MineRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineRootView.swift; sourceTree = "<group>"; };
+		88ABB644266DFE220050C38A /* MineViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
+		88ABB645266DFE220050C38A /* MineAboutResignViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineAboutResignViewController.swift; sourceTree = "<group>"; };
+		88ABB646266DFE220050C38A /* MineAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineAboutViewController.swift; sourceTree = "<group>"; };
+		88ABB647266DFE220050C38A /* MineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		88ABB649266DFE220050C38A /* TRTCAlerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTCAlerts.swift; sourceTree = "<group>"; };
+		88ABB64A266DFE220050C38A /* MineAlertContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineAlertContentView.swift; sourceTree = "<group>"; };
+		88ABB64B266DFE220050C38A /* TRTCAlertControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTCAlertControl.swift; sourceTree = "<group>"; };
+		88ABB688266E01870050C38A /* LayoutDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutDefine.swift; sourceTree = "<group>"; };
+		88ABB6C7266F17900050C38A /* PrivacyPopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPopView.swift; sourceTree = "<group>"; };
+		8C9363B15A42D514D9FEC21D /* CommonUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CommonUtils.swift; sourceTree = "<group>"; };
 		910E179D2080A27500178D86 /* TXMoviePlayerNetApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXMoviePlayerNetApi.h; sourceTree = "<group>"; };
 		910E179E2080A27500178D86 /* TXMoviePlayerNetApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TXMoviePlayerNetApi.m; sourceTree = "<group>"; };
 		910E17A52080A2EB00178D86 /* TXMoviePlayerNetDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TXMoviePlayerNetDelegate.h; sourceTree = "<group>"; };
@@ -2233,6 +2308,7 @@
 		91EEB3492060AF6C00BD01DB /* DownloadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
 		91EEB34A2060AF6C00BD01DB /* DownloadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
 		91F87A7E1FF4A0FC001644B1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		99A7949BC83A56B2873FA213 /* LoginViewController_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController_Mock.swift; sourceTree = "<group>"; };
 		A035040620D20A01007E61C6 /* QRCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCode.h; sourceTree = "<group>"; };
 		A035040720D20A01007E61C6 /* QRCode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QRCode.m; sourceTree = "<group>"; };
 		A035042E20D24F99007E61C6 /* AddressBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressBarController.h; sourceTree = "<group>"; };
@@ -2270,8 +2346,7 @@
 		A0B8FC0A207E24F2008D7982 /* TVCUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TVCUtils.h; sourceTree = "<group>"; };
 		A0FFAD92213791B70087FF45 /* TVCHttpMessageURLProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVCHttpMessageURLProtocol.h; sourceTree = "<group>"; };
 		A0FFAD93213791B70087FF45 /* TVCHttpMessageURLProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TVCHttpMessageURLProtocol.m; sourceTree = "<group>"; };
-		A2ABE8D5E998B7DB57305C22 /* LoginViewController_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = LoginViewController_Mock.swift; sourceTree = "<group>"; };
-		AAD85AD407F5E41EFC08E96B /* ProfileViewController+UI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "ProfileViewController+UI.swift"; sourceTree = "<group>"; };
+		BC7BFCBD506661470A487E35 /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
 		C600497725ECE75C00EAEB17 /* TRTCChatSalonHandsUpTipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TRTCChatSalonHandsUpTipsView.swift; sourceTree = "<group>"; };
 		C603F8A726034EA0009E3AB2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = "zh-Hans"; path = "zh-Hans.lproj/UserProtocol.html"; sourceTree = "<group>"; };
 		C603F939260372A7009E3AB2 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -2281,7 +2356,6 @@
 		C6D20717262FC6C2001A80D7 /* VerifyPicture.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = VerifyPicture.html; sourceTree = "<group>"; };
 		C6D2071F262FC6C6001A80D7 /* LoginCountryList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LoginCountryList.json; sourceTree = "<group>"; };
 		C6D20736262FCCD0001A80D7 /* TRTCLoginAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TRTCLoginAlertView.swift; sourceTree = "<group>"; };
-		C8CA421C7BC0F09C78CFD710 /* LoginViewController+UI_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI_Mock.swift"; sourceTree = "<group>"; };
 		C8E643F175AE44DEDBA06255 /* Pods-TXReplaykitUpload_Professional.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXReplaykitUpload_Professional.release.xcconfig"; path = "Target Support Files/Pods-TXReplaykitUpload_Professional/Pods-TXReplaykitUpload_Professional.release.xcconfig"; sourceTree = "<group>"; };
 		CE01F53C206DDE060056D693 /* VideoCompressPreviewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCompressPreviewController.h; sourceTree = "<group>"; };
 		CE01F53D206DDE060056D693 /* VideoCompressPreviewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompressPreviewController.m; sourceTree = "<group>"; };
@@ -2290,6 +2364,7 @@
 		CE59D391206CD11400583727 /* VideoCompressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoCompressViewController.m; sourceTree = "<group>"; };
 		CE7C6E4A1FC2C5320095663F /* FilterResource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = FilterResource.bundle; sourceTree = "<group>"; };
 		CF31F0EB1FBB2A7E0066BF7D /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		D01A44BFE08D94C32493CEFD /* ProfileManager_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileManager_Mock.swift; sourceTree = "<group>"; };
 		D50292D42272BAFE00C052B7 /* RoomUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoomUtil.m; sourceTree = "<group>"; };
 		D50292D52272BAFE00C052B7 /* RoomUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoomUtil.h; sourceTree = "<group>"; };
 		D50292D62272BAFE00C052B7 /* IMMsgManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMsgManager.m; sourceTree = "<group>"; };
@@ -2348,7 +2423,8 @@
 		D6E5D1C120B7B62000812B2F /* ScreenPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScreenPushViewController.h; sourceTree = "<group>"; };
 		D6E5D1C220B7B62000812B2F /* ScreenPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScreenPushViewController.m; sourceTree = "<group>"; };
 		EBEC989F47F9D57C638FDC46 /* Pods-TXReplaykitUpload_Professional.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TXReplaykitUpload_Professional.debug.xcconfig"; path = "Target Support Files/Pods-TXReplaykitUpload_Professional/Pods-TXReplaykitUpload_Professional.debug.xcconfig"; sourceTree = "<group>"; };
-		F06C689724512B55F5388435 /* AppUtils.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppUtils.swift; sourceTree = "<group>"; };
+		EFDDF786F6B18379B894100D /* ProfileViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F754D2EA167EECA124B0837E /* LoginViewController+UI_Mock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "LoginViewController+UI_Mock.swift"; sourceTree = "<group>"; };
 		FDD4BF2824A1F8AD0015388B /* VideoEditor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = VideoEditor.xcassets; sourceTree = "<group>"; };
 		FE920CB89622A1ED8E88E9B0 /* libPods-TXLiteAVDemo_Professional.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TXLiteAVDemo_Professional.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -2847,6 +2923,17 @@
 			path = UGCKit;
 			sourceTree = "<group>";
 		};
+		40B18A562670AE7A00553049 /* V2CommonUtils */ = {
+			isa = PBXGroup;
+			children = (
+				40B18A5A2670AEA500553049 /* PhotoUtil.h */,
+				40B18A592670AEA500553049 /* PhotoUtil.m */,
+				40B18A582670AEA500553049 /* TXColor.h */,
+				40B18A5B2670AEA500553049 /* TXColor.m */,
+			);
+			path = V2CommonUtils;
+			sourceTree = "<group>";
+		};
 		40B3F8DB2446E6C5000C37A3 /* Debug */ = {
 			isa = PBXGroup;
 			children = (
@@ -3305,7 +3392,7 @@
 				402A00EA245068240037A219 /* UGCVideoJoinDemo */,
 				402A00E9245068160037A219 /* UGCVideoEditDemo */,
 				402A00E5245065500037A219 /* UGCVideoUploadDemo */,
-				698FAED0FFF4E3E537C12633 /* Login */,
+				62623612F9A9BBED2794EAB5 /* Login */,
 			);
 			path = TXLiteAVDemo;
 			sourceTree = "<group>";
@@ -3366,6 +3453,8 @@
 		40F854FF1EE8FD2F00EE47D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4717324D26705C4A005F772E /* FFmpeg.xcframework */,
+				4717324E26705C4A005F772E /* SoundTouch.xcframework */,
 				2840D91B24B8562200723FBC /* AudioToolbox.framework */,
 				40802A272484BBBE008151C1 /* AudioEffectSettingKit.framework */,
 				40AA539724459DF900303EF7 /* UGCKit.framework */,
@@ -3575,16 +3664,16 @@
 			path = TRTCInfoPlist;
 			sourceTree = "<group>";
 		};
-		698FAED0FFF4E3E537C12633 /* Login */ = {
+		62623612F9A9BBED2794EAB5 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				A2ABE8D5E998B7DB57305C22 /* LoginViewController_Mock.swift */,
-				541D849CCCD407FB1E830687 /* ProfileManager_Mock.swift */,
-				C8CA421C7BC0F09C78CFD710 /* LoginViewController+UI_Mock.swift */,
-				F06C689724512B55F5388435 /* AppUtils.swift */,
-				6F6FD2235631028E9A43835F /* CommonUtils.swift */,
-				68A61D570DF3D76F2CB443FA /* ProfileViewController.swift */,
-				AAD85AD407F5E41EFC08E96B /* ProfileViewController+UI.swift */,
+				99A7949BC83A56B2873FA213 /* LoginViewController_Mock.swift */,
+				D01A44BFE08D94C32493CEFD /* ProfileManager_Mock.swift */,
+				F754D2EA167EECA124B0837E /* LoginViewController+UI_Mock.swift */,
+				BC7BFCBD506661470A487E35 /* AppUtils.swift */,
+				8C9363B15A42D514D9FEC21D /* CommonUtils.swift */,
+				EFDDF786F6B18379B894100D /* ProfileViewController.swift */,
+				3A4EEE061A3AC7EBFEFCE418 /* ProfileViewController+UI.swift */,
 			);
 			name = Login;
 			path = TXLiteAVDemo/Login;
@@ -3651,6 +3740,7 @@
 		7B5A2D8C25B0355400B4B469 /* LiveLinkMicDemoNew */ = {
 			isa = PBXGroup;
 			children = (
+				40B18A562670AE7A00553049 /* V2CommonUtils */,
 				7B5A2D9025B0355400B4B469 /* V2Setting */,
 				7B5A2DAF25B0355400B4B469 /* V2MainViewController.h */,
 				7B5A2DB825B0355400B4B469 /* V2MainViewController.m */,
@@ -3735,6 +3825,16 @@
 				7B5A2DA925B0355400B4B469 /* UISlider+V2.m */,
 			);
 			path = CommonWidgets;
+			sourceTree = "<group>";
+		};
+		88ABB648266DFE220050C38A /* subview */ = {
+			isa = PBXGroup;
+			children = (
+				88ABB649266DFE220050C38A /* TRTCAlerts.swift */,
+				88ABB64A266DFE220050C38A /* MineAlertContentView.swift */,
+				88ABB64B266DFE220050C38A /* TRTCAlertControl.swift */,
+			);
+			path = subview;
 			sourceTree = "<group>";
 		};
 		912A62052160D78A00C16E41 /* CFDanmaku */ = {
@@ -4612,13 +4712,13 @@
 				D6BEF75B2040353E00CBE2BD /* MoviePlayerViewController.m in Sources */,
 				40C5665F264ABB5000B85C1C /* LebSettingBottomBar.m in Sources */,
 				7B5A2DCD25B0355400B4B469 /* V2MainProtocolSelectSegmentView.m in Sources */,
-				C148E61E768B1CED0F7A975F /* LoginViewController_Mock.swift in Sources */,
-				11C97B640ED564F90D4F52E1 /* ProfileManager_Mock.swift in Sources */,
-				C8CC1B3723EA78643028BBEF /* LoginViewController+UI_Mock.swift in Sources */,
-				392559BA3338285DFC3EE6AB /* AppUtils.swift in Sources */,
-				1A0999698646A0ED4D7FCDCF /* CommonUtils.swift in Sources */,
-				65E5919DA1DCFD22C796EE08 /* ProfileViewController.swift in Sources */,
-				1B75F95C473835383E579229 /* ProfileViewController+UI.swift in Sources */,
+				272367962B3FB11D461F0EB3 /* LoginViewController_Mock.swift in Sources */,
+				3C08D085252EDAAA3AD68E1A /* ProfileManager_Mock.swift in Sources */,
+				2A773200264FF58658A6A84C /* LoginViewController+UI_Mock.swift in Sources */,
+				944DD883F4A49CD0299FAA14 /* AppUtils.swift in Sources */,
+				26CA056C2B5EAF97435CB4DB /* CommonUtils.swift in Sources */,
+				F234A78348C62D731B4522D9 /* ProfileViewController.swift in Sources */,
+				C4562573B939FB9145A22DCC /* ProfileViewController+UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4805,7 +4905,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 5GHU44CJHG;
+				DEVELOPMENT_TEAM = F8A3GH6Q4W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4843,7 +4943,10 @@
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = NO;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo/Resource/Beauty/pitu",
@@ -4859,7 +4962,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Material/Material.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Motion/Motion.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa/RxCocoa.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RxRelay/RxRelay.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift/RxSwift.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Toast-Swift/Toast_Swift.modulemap\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.fx.rtmpdemo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev";
+				PROVISIONING_PROFILE_SPECIFIER = abyWildcardDev;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TXLiteAVDemo/App/TXLiteAVDemo-Bridging-Header.h";
@@ -4921,7 +5024,10 @@
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo/Resource/Beauty/pitu",
@@ -4955,7 +5061,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5GHU44CJHG;
+				DEVELOPMENT_TEAM = F8A3GH6Q4W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -4987,7 +5093,10 @@
 				);
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo/VideoUpload/COSSDK",
@@ -5001,7 +5110,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Material/Material.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Motion/Motion.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa/RxCocoa.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RxRelay/RxRelay.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift/RxSwift.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Toast-Swift/Toast_Swift.modulemap\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.fx.rtmpdemo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev";
+				PROVISIONING_PROFILE_SPECIFIER = abyWildcardDev;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TXLiteAVDemo/App/TXLiteAVDemo-Bridging-Header.h";
@@ -5056,7 +5165,10 @@
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo/VideoUpload/COSSDK",
@@ -5113,7 +5225,10 @@
 				);
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 7.2.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -5168,7 +5283,10 @@
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 7.2.1;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -5221,7 +5339,10 @@
 				);
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LOCALIZED_STRING_SWIFTUI_SUPPORT = YES;
 				MARKETING_VERSION = 7.2.1;
 				OTHER_LDFLAGS = (
@@ -5281,7 +5402,10 @@
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LOCALIZED_STRING_SWIFTUI_SUPPORT = YES;
 				MARKETING_VERSION = 7.2.1;
 				OTHER_LDFLAGS = (
@@ -5315,7 +5439,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5GHU44CJHG;
+				DEVELOPMENT_TEAM = F8A3GH6Q4W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5337,10 +5461,14 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.fx.rtmpdemo2.Upload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev";
+				PROVISIONING_PROFILE_SPECIFIER = abyWildcardDev;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -5383,7 +5511,11 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.fx.rtmpdemo2.Upload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = com.tencent.fx.rtmpdemo2.Upload_Production_SignProvision;
@@ -5432,7 +5564,10 @@
 				);
 				INFOPLIST_FILE = "TXLiteAVDemo/App/TRTC-Appstore-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 7.4.269;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.trtcScenesDemo;
@@ -5490,7 +5625,10 @@
 				INFOPLIST_FILE = "TXLiteAVDemo/App/TRTC-Appstore-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 7.4.269;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.mrtc;
@@ -5543,7 +5681,10 @@
 				);
 				INFOPLIST_FILE = "TXLiteAVDemo/App/TRTC-Appstore-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 7.4.278;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.trtcScenesDemo;
@@ -5600,7 +5741,10 @@
 				INFOPLIST_FILE = "TXLiteAVDemo/App/TRTC-Appstore-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				MARKETING_VERSION = 7.4.278;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.mrtc;
@@ -5748,7 +5892,11 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/TRTCInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 7.4.269;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.trtcScenesDemo.Upload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5797,7 +5945,11 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/TRTCInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 7.4.269;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.mrtc.Upload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5845,7 +5997,11 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/TRTCInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 7.4.269;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.trtcScenesDemo.Upload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5893,7 +6049,11 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/TRTCInfo.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				MARKETING_VERSION = 7.4.269;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.mrtc.Upload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5917,7 +6077,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5GHU44CJHG;
+				DEVELOPMENT_TEAM = F8A3GH6Q4W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5939,10 +6099,14 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.fx.rtmpdemo2.Upload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev";
+				PROVISIONING_PROFILE_SPECIFIER = abyWildcardDev;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -5984,7 +6148,11 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.fx.rtmpdemo2.Upload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = com.tencent.fx.rtmpdemo2.Upload_Production_SignProvision;
@@ -6001,7 +6169,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 5GHU44CJHG;
+				DEVELOPMENT_TEAM = F8A3GH6Q4W;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -6028,7 +6196,10 @@
 				);
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo/VideoUpload/COSSDK",
@@ -6042,7 +6213,7 @@
 				OTHER_SWIFT_FLAGS = "$(inherited) -D COCOAPODS -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Alamofire/Alamofire.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Material/Material.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Motion/Motion.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RxCocoa/RxCocoa.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RxRelay/RxRelay.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/RxSwift/RxSwift.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/SnapKit/SnapKit.modulemap\" -Xcc -fmodule-map-file=\"${PODS_CONFIGURATION_BUILD_DIR}/Toast-Swift/Toast_Swift.modulemap\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.fx.rtmpdemo2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev";
+				PROVISIONING_PROFILE_SPECIFIER = abyWildcardDev;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG ENABLE_INTERNATIONAL";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(PROJECT_DIR)/TXLiteAVDemo/App/TXLiteAVDemo-Bridging-Header.h";
@@ -6091,7 +6262,10 @@
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo/VideoUpload/COSSDK",
@@ -6154,7 +6328,10 @@
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo/VideoUpload/COSSDK",
@@ -6220,7 +6397,10 @@
 				INFOPLIST_FILE = TXLiteAVDemo/App/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_GENERATE_MAP_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/TXLiteAVDemo/VideoUpload/COSSDK",
@@ -6276,7 +6456,11 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.fx.rtmpdemo2.ReplaykitUpload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Wildcard Dev";
@@ -6317,7 +6501,11 @@
 				);
 				INFOPLIST_FILE = ReplaykitUpload/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tencent.fx.rtmpdemo2.Upload;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = com.tencent.fx.rtmpdemo2.Upload_Production_SignProvision;
