@@ -22,6 +22,9 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 @property (nonatomic, strong) UIImage *waterMarkImg;
 @property (nonatomic, assign) CGRect waterMarkRect;
 @property (nonatomic, assign) BOOL isWaterMarkEnabled;
+@property (nonatomic, assign) BOOL isVirtualCameraEnabled;
+@property (nonatomic, assign) BOOL isUploadVideoEnabled;
+@property (nonatomic, assign) BOOL isUploadAudioEnabled;
 
 @end
 
@@ -29,7 +32,9 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 - (instancetype)initWithPusher:(V2TXLivePusher *)pusher {
     if (self = [super init]) {
         self.pusher = pusher;
-        
+        self.isVirtualCameraEnabled = NO;
+        self.isUploadVideoEnabled = YES;
+        self.isUploadAudioEnabled = YES;
         self.videoEnabled = YES;
         self.isVideoMuted = NO;
         self.videoResolution = V2TXLiveVideoResolution960x540;
@@ -194,9 +199,9 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 - (void)setIsAudioMuted:(BOOL)isAudioMuted {
     _isAudioMuted = isAudioMuted;
     if (!isAudioMuted) {
-        [self.pusher startMicrophone];
+        [self.pusher resumeAudio];
     } else {
-        [self.pusher stopMicrophone];
+        [self.pusher pauseAudio];
     }
     [self.pusher.getAudioEffectManager enableVoiceEarMonitor:_isEarMonitoringEnabled];
 }

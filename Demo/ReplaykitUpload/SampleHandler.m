@@ -71,7 +71,7 @@
     // User has requested to finish the broadcast.
     NSLog(@"broadcastFinished");
     [self sendLocalNotificationToHostAppWithTitle:ReplayKitLocalize(@"ReplayKitUpload.SampleHandler.tencentcloudpushstream") msg:ReplayKitLocalize(@"ReplayKitUpload.SampleHandler.replayend") userInfo:@{kReplayKit2UploadingKey: kReplayKit2Stop}];
-    [[TXReplayKitExt sharedInstance] finishBroadcast];
+    [[TXReplayKitExt sharedInstance] broadcastFinished];
 }
 
 

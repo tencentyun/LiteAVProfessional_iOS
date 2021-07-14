@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRTCLiveViewController">
+            <connections>
+                <outlet property="audioEffectBtn" destination="2pE-uD-flh" id="Rpx-rA-apZ"/>
+                <outlet property="beautyBtn" destination="gRU-hv-DKc" id="uJR-mB-sGn"/>
+                <outlet property="beautyPanel" destination="VLD-16-z41" id="3jk-69-HKS"/>
+                <outlet property="cdnBtn" destination="gv1-c9-CFj" id="MVW-He-QRc"/>
+                <outlet property="closeCamBtn" destination="1Qv-1a-C01" id="M0u-rH-AQ0"/>
+                <outlet property="featureBtnStackView" destination="cHm-Uu-6E4" id="DUz-2g-uFg"/>
+                <outlet property="holderView" destination="xfN-TM-bXv" id="aSa-eF-YCy"/>
+                <outlet property="muteMic" destination="Uj0-pt-lN9" id="lcF-JF-C2P"/>
+                <outlet property="settingsBtn" destination="5Nq-WW-FDV" id="O4A-QG-yLH"/>
+                <outlet property="settingsContainerView" destination="WVr-ej-L4U" id="yhT-qY-Ynx"/>
+                <outlet property="stackLogBtn" destination="bKf-Mk-brA" id="QZh-gs-JD3"/>
+                <outlet property="switchCamBtn" destination="v5G-hU-KFA" id="sG1-Xs-kkk"/>
+                <outlet property="switchRoleBtn" destination="OIg-q2-vgG" id="zqd-s7-pOy"/>
+                <outlet property="toastStackView" destination="MSa-qe-dDy" id="gwL-Eu-Pav"/>
+                <outlet property="userControlBtn" destination="H2t-pg-bwe" id="86k-Nk-z8w"/>
+                <outlet property="view" destination="oXf-Gc-K4W" id="i0W-oO-Tw4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="oXf-Gc-K4W">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xfN-TM-bXv" userLabel="holder View">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <subviews>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tNs-Cj-Ssy">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="deviceRGB"/>
+                    <constraints>
+                        <constraint firstItem="tNs-Cj-Ssy" firstAttribute="top" secondItem="xfN-TM-bXv" secondAttribute="top" id="IxU-wK-Mqk"/>
+                        <constraint firstAttribute="trailing" secondItem="tNs-Cj-Ssy" secondAttribute="trailing" id="XET-Z7-ycE"/>
+                        <constraint firstAttribute="bottom" secondItem="tNs-Cj-Ssy" secondAttribute="bottom" id="aKE-5a-z8e"/>
+                        <constraint firstItem="tNs-Cj-Ssy" firstAttribute="leading" secondItem="xfN-TM-bXv" secondAttribute="leading" id="yTQ-89-cSu"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="MSa-qe-dDy">
+                    <rect key="frame" x="0.0" y="722" width="414" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" placeholder="YES" id="sgk-h1-mJb"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="4cg-Hg-gF9" userLabel="Function Stack View">
+                    <rect key="frame" x="0.0" y="776" width="414" height="86"/>
+                    <subviews>
+                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLD-16-z41" customClass="TCBeautyPanel">
+                            <rect key="frame" x="0.0" y="-172" width="414" height="172"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="172" id="1gR-i6-SHT"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gv1-c9-CFj" userLabel="cdnButton">
+                            <rect key="frame" x="0.0" y="0.0" width="139" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="36" id="mzh-ba-PNt"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <inset key="contentEdgeInsets" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
+                            <state key="normal" title="切换到CDN播放">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <state key="selected" title="切换到UDP播放"/>
+                        </button>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cHm-Uu-6E4">
+                            <rect key="frame" x="0.0" y="42" width="414" height="44"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIg-q2-vgG" userLabel="switchRole">
+                                    <rect key="frame" x="0.0" y="0.0" width="39" height="44"/>
+                                    <state key="normal" image="linkmic_start"/>
+                                    <connections>
+                                        <action selector="onSwitchRoleBtnClick:" destination="-1" eventType="touchUpInside" id="gtg-TK-yPa"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKf-Mk-brA" userLabel="log">
+                                    <rect key="frame" x="47" y="0.0" width="39" height="44"/>
+                                    <state key="normal" image="log_b"/>
+                                    <connections>
+                                        <action selector="onLogBtnClick:" destination="-1" eventType="touchUpInside" id="wYm-B2-JgE"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5G-hU-KFA" userLabel="switchCam">
+                                    <rect key="frame" x="94" y="0.0" width="38.5" height="44"/>
+                                    <state key="normal" image="camera_b"/>
+                                    <connections>
+                                        <action selector="onSwitchCamBtnClick:" destination="-1" eventType="touchUpInside" id="8mb-Dg-xSN"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qv-1a-C01" userLabel="closeCam">
+                                    <rect key="frame" x="140.5" y="0.0" width="39" height="44"/>
+                                    <state key="normal" image="muteVideo"/>
+                                    <connections>
+                                        <action selector="onCloseCamBtnClick:" destination="-1" eventType="touchUpInside" id="p3z-g2-O4i"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uj0-pt-lN9" userLabel="muteMic">
+                                    <rect key="frame" x="187.5" y="0.0" width="39" height="44"/>
+                                    <state key="normal" image="mute_b"/>
+                                    <state key="selected" image="mute_b2"/>
+                                    <connections>
+                                        <action selector="onMuteMicBtnClick:" destination="-1" eventType="touchUpInside" id="1yw-Ps-Pru"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRU-hv-DKc" userLabel="beauty">
+                                    <rect key="frame" x="234.5" y="0.0" width="39" height="44"/>
+                                    <state key="normal" image="beauty_b"/>
+                                    <connections>
+                                        <action selector="onBeautyBtnClick:" destination="-1" eventType="touchUpInside" id="l46-ns-SIl"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pE-uD-flh" userLabel="audioEffect">
+                                    <rect key="frame" x="281.5" y="0.0" width="38.5" height="44"/>
+                                    <state key="normal" image="music"/>
+                                    <connections>
+                                        <action selector="onAudioEffectBtnClick:" destination="-1" eventType="touchUpInside" id="8PN-GP-FhS"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Nq-WW-FDV" userLabel="settings">
+                                    <rect key="frame" x="328" y="0.0" width="39" height="44"/>
+                                    <state key="normal" image="set_b"/>
+                                    <connections>
+                                        <action selector="onSettingsBtnClick:" destination="-1" eventType="touchUpInside" id="6Pf-Kx-5Fp"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2t-pg-bwe" userLabel="userList">
+                                    <rect key="frame" x="375" y="0.0" width="39" height="44"/>
+                                    <state key="normal" image="members"/>
+                                    <connections>
+                                        <action selector="onUserListBtnClick:" destination="-1" eventType="touchUpInside" id="IHJ-Jv-HW6"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="igK-gs-ZUL"/>
+                            </constraints>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="cHm-Uu-6E4" firstAttribute="width" secondItem="4cg-Hg-gF9" secondAttribute="width" id="6uP-aJ-2UN"/>
+                        <constraint firstItem="VLD-16-z41" firstAttribute="width" secondItem="4cg-Hg-gF9" secondAttribute="width" id="qTj-Vg-Yjk"/>
+                    </constraints>
+                </stackView>
+                <view hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WVr-ej-L4U">
+                    <rect key="frame" x="10.5" y="88" width="393" height="720"/>
+                    <subviews>
+                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yfv-wq-Mod">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="720"/>
+                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="iVH-Fc-fRI">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="720"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                            <blurEffect style="dark"/>
+                        </visualEffectView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Yfv-wq-Mod" secondAttribute="bottom" id="pAl-uZ-IK5"/>
+                        <constraint firstItem="Yfv-wq-Mod" firstAttribute="top" secondItem="WVr-ej-L4U" secondAttribute="top" id="sjn-Hl-Iuh"/>
+                        <constraint firstAttribute="trailing" secondItem="Yfv-wq-Mod" secondAttribute="trailing" id="uYC-tg-7JI"/>
+                        <constraint firstItem="Yfv-wq-Mod" firstAttribute="leading" secondItem="WVr-ej-L4U" secondAttribute="leading" id="yb9-aj-wia"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="12"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="79B-E2-5Eb"/>
+            <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
+            <constraints>
+                <constraint firstItem="xfN-TM-bXv" firstAttribute="top" secondItem="oXf-Gc-K4W" secondAttribute="top" id="1Pz-EV-T7X"/>
+                <constraint firstItem="xfN-TM-bXv" firstAttribute="leading" secondItem="79B-E2-5Eb" secondAttribute="leading" id="5sz-93-X5Y"/>
+                <constraint firstItem="4cg-Hg-gF9" firstAttribute="top" secondItem="MSa-qe-dDy" secondAttribute="bottom" constant="10" id="ByR-gm-bKQ"/>
+                <constraint firstItem="79B-E2-5Eb" firstAttribute="trailing" secondItem="MSa-qe-dDy" secondAttribute="trailing" id="FSH-ge-MtT"/>
+                <constraint firstItem="MSa-qe-dDy" firstAttribute="leading" secondItem="79B-E2-5Eb" secondAttribute="leading" id="Lef-aG-xQx"/>
+                <constraint firstItem="xfN-TM-bXv" firstAttribute="trailing" secondItem="79B-E2-5Eb" secondAttribute="trailing" id="S4L-QP-744"/>
+                <constraint firstItem="WVr-ej-L4U" firstAttribute="width" secondItem="79B-E2-5Eb" secondAttribute="width" multiplier="0.95" id="SER-T2-got"/>
+                <constraint firstItem="WVr-ej-L4U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="79B-E2-5Eb" secondAttribute="top" constant="10" id="Yau-Iq-gTx"/>
+                <constraint firstItem="79B-E2-5Eb" firstAttribute="trailing" secondItem="4cg-Hg-gF9" secondAttribute="trailing" id="bYl-Ay-xcc"/>
+                <constraint firstItem="4cg-Hg-gF9" firstAttribute="leading" secondItem="79B-E2-5Eb" secondAttribute="leading" id="cCY-hs-OcS"/>
+                <constraint firstItem="WVr-ej-L4U" firstAttribute="height" secondItem="79B-E2-5Eb" secondAttribute="height" multiplier="0.88" priority="750" id="hdX-X0-OSX"/>
+                <constraint firstAttribute="bottom" secondItem="xfN-TM-bXv" secondAttribute="bottom" id="nZP-iY-WTk"/>
+                <constraint firstItem="79B-E2-5Eb" firstAttribute="bottom" secondItem="4cg-Hg-gF9" secondAttribute="bottom" id="pwm-PJ-XlI"/>
+                <constraint firstItem="WVr-ej-L4U" firstAttribute="centerY" secondItem="oXf-Gc-K4W" secondAttribute="centerY" priority="750" id="uZn-Qs-MtE"/>
+                <constraint firstItem="WVr-ej-L4U" firstAttribute="centerX" secondItem="oXf-Gc-K4W" secondAttribute="centerX" id="zyu-sz-Zb1"/>
+            </constraints>
+            <point key="canvasLocation" x="-370" y="-526"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="beauty_b" width="102" height="102"/>
+        <image name="camera_b" width="51" height="51"/>
+        <image name="linkmic_start" width="51" height="51"/>
+        <image name="log_b" width="51" height="51"/>
+        <image name="members" width="51" height="51"/>
+        <image name="music" width="51" height="51"/>
+        <image name="muteVideo" width="51" height="51"/>
+        <image name="mute_b" width="51" height="51"/>
+        <image name="mute_b2" width="51" height="51"/>
+        <image name="set_b" width="51" height="51"/>
+    </resources>
+</document>

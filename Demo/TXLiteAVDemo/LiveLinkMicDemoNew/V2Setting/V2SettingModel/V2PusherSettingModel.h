@@ -69,6 +69,15 @@ typedef NS_ENUM(NSInteger, TRTCAudioRoute) {
 /// 是否打开了视频水印
 @property (nonatomic, assign, readonly) BOOL isWaterMarkEnabled;
 
+/// 是否打开了垫片推流
+@property (nonatomic, assign, readonly) BOOL isVirtualCameraEnabled;
+
+/// 是否打开视频上行
+@property (nonatomic, assign, readonly) BOOL isUploadVideoEnabled;
+
+/// 是否打开音频上行
+@property (nonatomic, assign, readonly) BOOL isUploadAudioEnabled;
+
 /// 设置视频水印
 /// @param image 水印图片，必须使用透明底的png格式图片
 /// @param rect 水印位置，x, y, width, height取值范围都是0 - 1

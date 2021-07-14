@@ -113,7 +113,7 @@
     [self.audioVolumeIndicator mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).offset(leftRightPadding);
         make.bottom.equalTo(self.view);
-        make.height.mas_equalTo(2);
+        make.height.mas_equalTo(6);
     }];
     self.audioVolumeIndicator.hidden = YES;
 }
@@ -440,6 +440,12 @@
             [self showLoading:V2Localize(@"V2.Live.LinkMicNew.loading") withDetailText:V2Localize(@"V2.Live.LinkMicNew.pleasewait")];
             V2LogSimple()
             break;
+        case V2TXLivePlayStatusStopped:
+            if (reason == V2TXLiveStatusChangeReasonRemoteOffline) {
+                [self showLoading:V2Localize(@"V2.Live.LinkMicNew.disconnected")
+                   withDetailText:V2Localize(@"V2.Live.LinkMicNew.checknetworkandtry")];
+                [self stopPlay];
+            }
         default:
             break;
     }
@@ -457,11 +463,6 @@
             V2LogSimple()
             break;
         case V2TXLivePlayStatusStopped:
-            if (reason == V2TXLiveStatusChangeReasonRemoteStopped) {
-                [self showLoading:V2Localize(@"V2.Live.LinkMicNew.disconnected")
-                   withDetailText:V2Localize(@"V2.Live.LinkMicNew.checknetworkandtry")];
-                [self stopPlay];
-            }
             V2LogSimple()
             break;
         default:

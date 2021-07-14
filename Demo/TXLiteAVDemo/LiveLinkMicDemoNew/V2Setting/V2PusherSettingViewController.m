@@ -402,6 +402,27 @@
             [[V2SettingsButtonItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.videosnapshot") buttonTitle:V2Localize(@"V2.Live.LinkMicNew.snapshot") action:^{
                 [wSelf snapshotLocalVideo];
             }],
+            [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.startvirtualcamera") isOn:self.pusherVM.isVirtualCameraEnabled action:^(BOOL isOn) {
+                if (isOn) {
+                    [wSelf.pusher startVirtualCamera:[UIImage imageNamed:@"background"]];
+                } else {
+                    [wSelf.pusher stopVirtualCamera];
+                }
+            }],
+            [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.uploadvideo") isOn:self.pusherVM.isUploadVideoEnabled action:^(BOOL isOn) {
+                if (isOn) {
+                    [wSelf.pusher resumeVideo];
+                } else {
+                    [wSelf.pusher pauseVideo];
+                }
+            }],
+            [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.uploadaudio") isOn:self.pusherVM.isUploadAudioEnabled action:^(BOOL isOn) {
+                if (isOn) {
+                    [wSelf.pusher resumeAudio];
+                } else {
+                    [wSelf.pusher pauseAudio];
+                }
+            }],
         ].mutableCopy;
     }
     

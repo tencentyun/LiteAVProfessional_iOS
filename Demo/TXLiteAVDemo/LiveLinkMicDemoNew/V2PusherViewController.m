@@ -314,20 +314,7 @@
 
 - (void)v2PusherSettingVC:(V2PusherSettingViewController *)container didClickStartVideo:(BOOL)start {
     if (start) {
-        V2TXLiveCode result = [self.pusher startPush:self.url];
-        if (result == V2TXLIVE_OK) {
-            [self applyConfig];
-        } else {
-            if (!self.pusher.isPushing) {
-                [self.pusher stopCamera];
-                [self.pusher stopMicrophone];
-                [self showText:@"推流失败" withDetailText:@"该 streamId 已经存在一个播放器或推流器"];
-                self.settingContainer.isStart = !self.settingContainer.isStart;
-            } else {
-                [self showText:@"已存在一个推流" withDetailText:@""];
-            }
-        }
-        [UIApplication sharedApplication].idleTimerDisabled = self.pusher.isPushing;
+        [self startPush];
     } else {
         [self stopPush];
     }

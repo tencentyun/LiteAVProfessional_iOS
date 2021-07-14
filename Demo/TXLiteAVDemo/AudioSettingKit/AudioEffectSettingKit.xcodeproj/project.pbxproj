@@ -62,11 +62,10 @@
 		40E25FB6248029F8005EB543 /* ASNSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40E25F9D248029F8005EB543 /* ASNSLayoutConstraint+MASDebugAdditions.m */; };
 		40E25FB924803F68005EB543 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 401A9A47247FB78F00C0763B /* libc++.tbd */; };
 		40E25FBE24804490005EB543 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
-		FAAD7792A8D0F05842065198 /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F0EF99E5E005A74DE2933E0 /* TXLiteAVSDK_Professional.framework */; };
+		6D696F273C2A3CCD5C820C4B /* TXLiteAVSDK_Professional.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4251F353ADE14982D7E34295 /* TXLiteAVSDK_Professional.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0F0EF99E5E005A74DE2933E0 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Professional.framework; path = ../../../SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
 		401A9A40247FACAF00C0763B /* TCAudioSettingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TCAudioSettingManager.h; sourceTree = "<group>"; };
 		401A9A41247FACAF00C0763B /* TCAudioSettingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TCAudioSettingManager.m; sourceTree = "<group>"; };
 		401A9A47247FB78F00C0763B /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
@@ -131,6 +130,7 @@
 		40E25F9B248029F8005EB543 /* ASMASLayoutConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASMASLayoutConstraint.h; sourceTree = "<group>"; };
 		40E25F9C248029F8005EB543 /* ASViewController+MASAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ASViewController+MASAdditions.h"; sourceTree = "<group>"; };
 		40E25F9D248029F8005EB543 /* ASNSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ASNSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
+		4251F353ADE14982D7E34295 /* TXLiteAVSDK_Professional.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TXLiteAVSDK_Professional.framework; path = ../../../SDK/TXLiteAVSDK_Professional.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +142,7 @@
 				40E25FBE24804490005EB543 /* BuildFile in Frameworks */,
 				40E25FB924803F68005EB543 /* libc++.tbd in Frameworks */,
 				40D08707249C9D460055F9A6 /* AssetsLibrary.framework in Frameworks */,
-				FAAD7792A8D0F05842065198 /* TXLiteAVSDK_Professional.framework in Frameworks */,
+				6D696F273C2A3CCD5C820C4B /* TXLiteAVSDK_Professional.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +199,7 @@
 				40D08706249C9D460055F9A6 /* AssetsLibrary.framework */,
 				40D08703249C9C130055F9A6 /* Accelerate.framework */,
 				401A9A47247FB78F00C0763B /* libc++.tbd */,
-				0F0EF99E5E005A74DE2933E0 /* TXLiteAVSDK_Professional.framework */,
+				4251F353ADE14982D7E34295 /* TXLiteAVSDK_Professional.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -645,6 +645,8 @@
 					"$(CONFIGURATION_BUILD_DIR)/TXLiteAVSDK_Professional.framework/Headers/",
 					"${SRCROOT}/../../../SDK/TXLiteAVSDK_International.framework/Headers/",
 					"$(CONFIGURATION_BUILD_DIR)/TXLiteAVSDK_International.framework/Headers/",
+					"${SRCROOT}/../../../SDK/TXLiteAVSDK_Live.framework/Headers/",
+					"$(CONFIGURATION_BUILD_DIR)/TXLiteAVSDK_Live.framework/Headers/",
 					"$(SRCROOT)/../../../SDK/TXLiteAVSDK_Professional.framework/Headers",
 					"$(CONFIGURATION_BUILD_DIR)/TXLiteAVSDK_Professional.framework/Headers",
 				);
@@ -687,6 +689,8 @@
 					"${SRCROOT}/../../../SDK/TXLiteAVSDK_Professional.framework/Headers/",
 					"${SRCROOT}/../../../SDK/TXLiteAVSDK_International.framework/Headers/",
 					"$(CONFIGURATION_BUILD_DIR)/TXLiteAVSDK_International.framework/Headers/",
+					"${SRCROOT}/../../../SDK/TXLiteAVSDK_Live.framework/Headers/",
+					"$(CONFIGURATION_BUILD_DIR)/TXLiteAVSDK_Live.framework/Headers/",
 					"$(SRCROOT)/../../../SDK/TXLiteAVSDK_Professional.framework/Headers",
 					"(CONFIGURATION_BUILD_DIR)/TXLiteAVSDK_Professional.framework/Headers",
 				);
