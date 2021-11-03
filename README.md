@@ -1,5 +1,10 @@
 ## 目录结构说明
 
+本工程已于8.9之后版本废弃，新版使用请查阅
+[TRTC-API-Example OC版本](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC)
+[TRTC-API-Example Swift版本](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-Swift)
+[MLVB-API-Example](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/MLVB-API-Example-OC)
+
 本目录包含 iOS 版 专业版(Professional) SDK 的Demo 源代码，主要演示接口如何调用以及最基本的功能。
 
 ```
