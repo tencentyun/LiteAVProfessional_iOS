@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>licenceConfig</key>
+	<dict>
+		<key>licenceKey</key>
+		<string>...</string>
+		<key>licenceUrl</key>
+		<string>...</string>
+	</dict>
+	<key>menuConfig</key>
+	<array>
+		<dict>
+			<key>subMenus</key>
+			<array>
+				<dict>
+					<key>class</key>
+					<string>CameraStartPushViewController</string>
+					<key>title</key>
+					<string>MLVB.MainMenu.pushcamera</string>
+				</dict>
+				<dict>
+					<key>class</key>
+					<string>ScreenPushViewController</string>
+					<key>title</key>
+					<string>MLVB.MainMenu.pushscreen</string>
+				</dict>
+				<dict>
+					<key>class</key>
+					<string>PlayViewController</string>
+					<key>title</key>
+					<string>MLVB.MainMenu.Standardlivebroadcast</string>
+				</dict>
+				<dict>
+					<key>class</key>
+					<string>LebLauncherViewController</string>
+					<key>title</key>
+					<string>MLVB.lebLauncher.title</string>
+				</dict>
+				<dict>
+					<key>class</key>
+					<string>V2MainViewController</string>
+					<key>title</key>
+					<string>V2.Live.LinkMicNew.coanchornew</string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>V2.Live.LinkMicNew.title</string>
+		</dict>
+	</array>
+</dict>
+</plist>

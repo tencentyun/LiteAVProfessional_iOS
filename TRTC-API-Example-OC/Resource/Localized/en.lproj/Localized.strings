@@ -1,0 +1,339 @@
+/*
+  Localized.strings
+  TRTCSimpleDemo-OC
+
+  Created by adams on 2021/4/14.
+  
+*/
+
+"TRTC-API-Example.Home.Title" = "TRTC API Example";
+"TRTC-API-Example.Home.BasicFunctions" = "Basic Features";
+"TRTC-API-Example.Home.VoiceCalls" = "Audio Call";
+"TRTC-API-Example.Home.VoiceCallsDesc" = "One-to-one/Group audio call, which supports muting, hands-free mode, etc.";
+"TRTC-API-Example.Home.VideoCalls" = "Video Call";
+"TRTC-API-Example.Home.VideoCallsDesc" = "One-to-one/Group video call, which supports muting, hands-free mode, etc.";
+"TRTC-API-Example.Home.VideoLive" = "Interactive Live Video Streaming";
+"TRTC-API-Example.Home.TalkingRoom" = "Interactive Live Audio Streaming";
+"TRTC-API-Example.Home.LiveScreen" = "Screen Recording Live Streaming";
+"TRTC-API-Example.Home.LiveScreenDesc" = "Share the screen during live streaming, designed for online education, game streaming, etc.";
+
+"TRTC-API-Example.Home.AdvancedFeatures" = "Advanced Features";
+"TRTC-API-Example.Home.StringRoomId" = "String-type Room ID";
+"TRTC-API-Example.Home.VideoQuality" = "Video Quality Setting";
+"TRTC-API-Example.Home.SoundQuality" = "Audio Quality Setting";
+"TRTC-API-Example.Home.RenderParams" = "Render Control";
+"TRTC-API-Example.Home.SpeedTest" = "Network Speed Testing";
+"TRTC-API-Example.Home.PushCDN" = "Publish via CDN";
+"TRTC-API-Example.Home.CustomCamera" = "Custom Video Capturing & Rendering";
+"TRTC-API-Example.Home.SoundEffects" = "Audio Effect Setting";
+"TRTC-API-Example.Home.SetBGM" = "Background Music Setting";
+"TRTC-API-Example.Home.LocalVideoShare" = "Local Video Sharing";
+"TRTC-API-Example.Home.LocalRecord" = "Local Recording";
+"TRTC-API-Example.Home.JoinMultipleRoom" = "Enter Multiple Rooms";
+"TRTC-API-Example.Home.SendReceiveSEIMessage" = "Send SEI Message";
+"TRTC-API-Example.Home.QuicklySwitchRooms" = "Switch Room";
+"TRTC-API-Example.Home.RoomPK" = "Cross-room Competition";
+"TRTC-API-Example.Home.ThirdBeauty" = "Third-party Beauty Filter";
+
+"TRTC-API-Example.VoiceChatRoom.Title" = "Interactive Live Audio Streaming";
+"TRTC-API-Example.VoiceChatRoom.EnterRoomNumber" = "Room ID (Required)";
+"TRTC-API-Example.VoiceChatRoom.EnterUserName" = "User ID (Required)";
+"TRTC-API-Example.VoiceChatRoom.ChooseUserIdentify" = "Role (Required)";
+"TRTC-API-Example.VoiceChatRoom.Anchor" = "Anchor";
+"TRTC-API-Example.VoiceChatRoom.Audience" = "Audience";
+"TRTC-API-Example.VoiceChatRoom.EnterRoom" = "Enter Room";
+"TRTC-API-Example.VoiceChatRoom.tips" = "Enter a room ID and username";
+
+"TRTC-API-Example.VoiceChatRoomAnchor.Title" = "Room ID: xxx";
+"TRTC-API-Example.VoiceChatRoomAnchor.AnchorOperate" = "Anchor Operation";
+"TRTC-API-Example.VoiceChatRoomAnchor.mute" = "Mute";
+"TRTC-API-Example.VoiceChatRoomAnchor.cancelmute" = "Unmute";
+"TRTC-API-Example.VoiceChatRoomAnchor.upMic" = "Mic On";
+"TRTC-API-Example.VoiceChatRoomAnchor.downMic" = "Mic Off";
+
+"TRTC-API-Example.VoiceChatRoomAudience.Title" = "Room ID: xxx";
+"TRTC-API-Example.VoiceChatRoomAudience.AudienceOperate" = "Audience Operation";
+"TRTC-API-Example.VoiceChatRoomAudience.mute" = "Mic Off";
+"TRTC-API-Example.VoiceChatRoomAudience.cancelmute" = "Mic On";
+"TRTC-API-Example.VoiceChatRoomAudience.upMic" = "Mic On";
+"TRTC-API-Example.VoiceChatRoomAudience.downMic" = "Mic Off";
+
+"TRTC-API-Example.AlertViewController.ponit" = "Information";
+"TRTC-API-Example.AlertViewController.determine" = "OK";
+
+"TRTC-API-Example.Live.Title" = "Interactive Live Video Streaming";
+"TRTC-API-Example.Live.EnterRoomNumber" = "Room ID (Required)";
+"TRTC-API-Example.Live.EnterUserName" = "User ID (Required)";
+"TRTC-API-Example.Live.ChooseUserIdentify" = "Role (Required)";
+"TRTC-API-Example.Live.Anchor" = "Anchor";
+"TRTC-API-Example.Live.Audience" = "Audience";
+"TRTC-API-Example.Live.EnterRoom" = "Enter Room";
+"TRTC-API-Example.Live.tips" = "Enter a room ID and username";
+
+"TRTC-API-Example.LiveAnchor.Title" = "Room ID: xxx";
+"TRTC-API-Example.LiveAnchor.VideoOptions" = "Video Settings";
+"TRTC-API-Example.LiveAnchor.AudioOptions" = "Audio Settings";
+"TRTC-API-Example.LiveAnchor.mute" = "Mic Off";
+"TRTC-API-Example.LiveAnchor.cancelmute" = "Mic On";
+"TRTC-API-Example.LiveAnchor.rearcamera" = "Use Rear Camera";
+"TRTC-API-Example.LiveAnchor.frontcamera" = "Use Front Camera";
+"TRTC-API-Example.LiveAnchor.opencamera" = "Camera On";
+"TRTC-API-Example.LiveAnchor.closecamera" = "Camera Off";
+
+"TRTC-API-Example.LiveAudience.Title" = "Room ID: xxx";
+"TRTC-API-Example.LiveAudience.Operating" = "Operation";
+"TRTC-API-Example.LiveAudience.mute" = "Mute";
+"TRTC-API-Example.LiveAudience.muteoff" = "Unmute";
+
+"TRTC-API-Example.AudioCallingEnter.Title" = "Audio Call";
+"TRTC-API-Example.AudioCallingEnter.EnterRoomNumber" = "Room ID (Required)";
+"TRTC-API-Example.AudioCallingEnter.EnterUserName" = "User ID (Required)";
+"TRTC-API-Example.AudioCallingEnter.EnterRoom" = "Enter Room";
+
+"TRTC-API-Example.AudioCalling.Title" = "Room ID:";
+"TRTC-API-Example.AudioCalling.mute" = "Mic Off";
+"TRTC-API-Example.AudioCalling.cancelMute" = "Mic On";
+"TRTC-API-Example.AudioCalling.speaker" = "Use Speaker";
+"TRTC-API-Example.AudioCalling.earPhone" = "Use Receiver";
+"TRTC-API-Example.AudioCalling.hangup" = "Hang Up";
+"TRTC-API-Example.AudioCalling.dashBorad" = "Info Panel";
+"TRTC-API-Example.AudioCalling.volumInfo" = "Volume";
+"TRTC-API-Example.AudioCalling.network" = "Network Info";
+"TRTC-API-Example.AudioCalling.best" = "Excellent";
+"TRTC-API-Example.AudioCalling.good" = "Good";
+"TRTC-API-Example.AudioCalling.normal" = "Mediocre";
+"TRTC-API-Example.AudioCalling.wrong" = "Bad";
+"TRTC-API-Example.AudioCalling.bad" = "Poor";
+"TRTC-API-Example.AudioCalling.noUse" = "Unavailable";
+"TRTC-API-Example.AudioCalling.muted" = "Muted";
+"TRTC-API-Example.AudioCalling.cancelMute" = "Mic On";
+
+"TRTC-API-Example.VideoCallingEnter.Title" = "Video Call";
+"TRTC-API-Example.VideoCallingEnter.EnterRoomNumber" = "Room ID (Required)";
+"TRTC-API-Example.VideoCallingEnter.EnterUserName" = "User ID (Required)";
+"TRTC-API-Example.VideoCallingEnter.EnterRoom" = "Enter Room";
+
+"TRTC-API-Example.VideoCalling.Title" = "Room ID:";
+"TRTC-API-Example.VideoCalling.openCam" = "Camera On";
+"TRTC-API-Example.VideoCalling.closeCam" = "Camera Off";
+"TRTC-API-Example.VideoCalling.useFrontCam" = "Use Front Camera";
+"TRTC-API-Example.VideoCalling.useBehindCam" = "Use Rear Camera";
+"TRTC-API-Example.VideoCalling.mute" = "Mic Off";
+"TRTC-API-Example.VideoCalling.cancelMute" = "Mic On";
+"TRTC-API-Example.VideoCalling.speaker" = "Use Speaker";
+"TRTC-API-Example.VideoCalling.earPhone" = "Use Receiver";
+"TRTC-API-Example.VideoCalling.videoOptions" = "Video Settings";
+"TRTC-API-Example.VideoCalling.audioOptions" = "Audio Settings";
+
+"TRTC-API-Example.ScreenEntrance.Title" = "Screen Sharing";
+"TRTC-API-Example.ScreenEntrance.EnterRoomNumber" = "Room ID (Required)";
+"TRTC-API-Example.ScreenEntrance.EnterUserName" = "User ID (Required)";
+"TRTC-API-Example.ScreenEntrance.EnterRole" = "Role (Required)";
+"TRTC-API-Example.ScreenEntrance.Anchor" = "Anchor";
+"TRTC-API-Example.ScreenEntrance.Audience" = "Audience";
+"TRTC-API-Example.ScreenEntrance.EnterRoom" = "Enter Room";
+"TRTC-API-Example.ScreenEntrance.versionTips" = "iOS 13 or above is recommended for screen recording live streaming";
+
+"TRTC-API-Example.ScreenAnchor.Title" = "Screen Sharing";
+"TRTC-API-Example.ScreenAnchor.RoomNumber" = "Room ID:";
+"TRTC-API-Example.ScreenAnchor.UserName" = "Username:";
+"TRTC-API-Example.ScreenAnchor.Resolution" = "Resolution: 1280 x 720";
+"TRTC-API-Example.ScreenAnchor.Description" = "To watch the streams, enter the same room as audience using a different device";
+"TRTC-API-Example.ScreenAnchor.BeginScreenShare" = "Start";
+"TRTC-API-Example.ScreenAnchor.StopScreenShare" = "End";
+"TRTC-API-Example.ScreenAnchor.WaitScreenShare" = "Start Sharing";
+"TRTC-API-Example.ScreenAnchor.mute" = "Mic Off";
+"TRTC-API-Example.ScreenAnchor.cancelMute" = "Mic On";
+"TRTC-API-Example.ScreenAnchor.liveStop" = "Screen sharing ended";
+"TRTC-API-Example.ScreenAnchor.appReset" = "App was disconnected";
+"TRTC-API-Example.ScreenAnchor.sdkError" = "Integration error (SDK version mismatch)";
+
+"TRTC-API-Example.ScreenAudience.Title" = "Room ID:";
+
+"TRTC-API-Example.SetAudioEffect.Title" = "Room ID: xxx";
+"TRTC-API-Example.SetAudioEffect.roomId" = "Room ID";
+"TRTC-API-Example.SetAudioEffect.userId" = "User ID";
+"TRTC-API-Example.SetAudioEffect.voiceChanger" = "Voice Change Effect (Set After Push)";
+"TRTC-API-Example.SetAudioEffect.reverberation" = "Reverb Effect (Set After Push)";
+"TRTC-API-Example.SetAudioEffect.origin" = "Original";
+"TRTC-API-Example.SetAudioEffect.child" = "Child";
+"TRTC-API-Example.SetAudioEffect.loli" = "Girl";
+"TRTC-API-Example.SetAudioEffect.metal" = "Metal";
+"TRTC-API-Example.SetAudioEffect.uncle" = "Man";
+"TRTC-API-Example.SetAudioEffect.normal" = "Original";
+"TRTC-API-Example.SetAudioEffect.ktv" = "KTV";
+"TRTC-API-Example.SetAudioEffect.smallRoom" = "Room";
+"TRTC-API-Example.SetAudioEffect.greatHall" = "Hall";
+"TRTC-API-Example.SetAudioEffect.muffled" = "Deep";
+"TRTC-API-Example.SetAudioEffect.startPush" = "Start Push";
+"TRTC-API-Example.SetAudioEffect.stopPush" = "End Push";
+"TRTC-API-Example.SetAudioEffect.userIdxxx" = "User ID: xxx";
+
+"TRTC-API-Example.SetAudioQuality.roomId" = "Room ID";
+"TRTC-API-Example.SetAudioQuality.userId" = "User ID";
+"TRTC-API-Example.SetAudioQuality.chooseQuality" = "Audio Quality";
+"TRTC-API-Example.SetAudioQuality.qualityDefalut" = "Default";
+"TRTC-API-Example.SetAudioQuality.qualitySpeech" = "Speech";
+"TRTC-API-Example.SetAudioQuality.qualityMusic" = "Music";
+"TRTC-API-Example.SetAudioQuality.chooseVolume" = "Capturing Volume";
+"TRTC-API-Example.SetAudioQuality.start" = "Start Push";
+"TRTC-API-Example.SetAudioQuality.stop" = "End Push";
+"TRTC-API-Example.SetAudioQuality.Title" = "Room ID:";
+
+"TRTC-API-Example.SetVideoQuality.roomId" = "Room ID";
+"TRTC-API-Example.SetVideoQuality.userId" = "User ID";
+"TRTC-API-Example.SetVideoQuality.start" = "Start Push";
+"TRTC-API-Example.SetVideoQuality.stop" = "End Push";
+"TRTC-API-Example.SetVideoQuality.Title" = "Room ID:";
+"TRTC-API-Example.SetVideoQuality.chooseBitrate" = "Bitrate";
+"TRTC-API-Example.SetVideoQuality.chooseFps" = "Frame Rate";
+"TRTC-API-Example.SetVideoQuality.chooseResolution" = "Resolution";
+
+"TRTC-API-Example.SetBGM.Title" = "Room ID: xxx";
+"TRTC-API-Example.SetBGM.roomId" = "Room ID";
+"TRTC-API-Example.SetBGM.userId" = "User ID";
+"TRTC-API-Example.SetBGM.bgmChanger" = "Background Music";
+"TRTC-API-Example.SetBGM.setBgmVolume" = "Background Music Volume";
+"TRTC-API-Example.SetBGM.bgm1" = "Music 1";
+"TRTC-API-Example.SetBGM.bgm2" = "Music 2";
+"TRTC-API-Example.SetBGM.bgm3" = "Music 3";
+"TRTC-API-Example.SetBGM.startPush" = "Start Push";
+"TRTC-API-Example.SetBGM.stopPush" = "End Push";
+"TRTC-API-Example.SetBGM.userIdxxx" = "User ID: xxx";
+
+"TRTC-API-Example.SpeedTest.title" = "Network Testing";
+"TRTC-API-Example.SpeedTest.userId" = "User ID (Required)";
+"TRTC-API-Example.SpeedTest.speedTestResult" = "Test Result";
+"TRTC-API-Example.SpeedTest.beginTest" = "Start Test";
+"TRTC-API-Example.SpeedTest.completedTest" = "Speed test finished";
+
+"TRTC-API-Example.SwitchRoom.Title" = "Room ID: xxx";
+"TRTC-API-Example.SwitchRoom.roomId" = "Room ID";
+"TRTC-API-Example.SwitchRoom.changeRoom" = "Switch Room";
+"TRTC-API-Example.SwitchRoom.startPush" = "Start Push";
+"TRTC-API-Example.SwitchRoom.stopPush" = "End Push";
+"TRTC-API-Example.SwitchRoom.inputRoomIDNumber" = "Enter an 8-digit room ID";
+
+"TRTC-API-Example.PushCDN.Title" = "Publish via CDN";
+"TRTC-API-Example.PushCDN.TipsTitle" = "Select a role:";
+"TRTC-API-Example.PushCDN.TipsOne" = "- Anchors can publish streams via CDNs upon room entry by specifying the room entry parameter `streamid`.";
+"TRTC-API-Example.PushCDN.TipsTwo" = "- On-Cloud MixTranscoding can be enabled if there are 2 or more anchors in the room.";
+"TRTC-API-Example.PushCDN.TipsThree" = "- If anchors choose to relay streams to CDNs, audience can enter the playback address to watch the streams.";
+"TRTC-API-Example.PushCDN.AnchorStart" = "Anchor";
+"TRTC-API-Example.PushCDN.AudienceStart" = "Audience";
+"TRTC-API-Example.PushCDN.TipsURL" = "Before you publish streams to CDNs, do the following:
+1. Enable relayed push in the console. A push address will be generated automatically.
+2. Register a domain name for playback and complete ICP filing.
+Documentation: CDN Relayed Live Streaming
+(https://cloud.tencent.com/document/product/647/16826)
+On-Cloud MixTranscoding
+(https://cloud.tencent.com/document/product/647/16827)";
+"TRTC-API-Example.PushCDN.NextStep" = "Next";
+
+"TRTC-API-Example.PushCDNAnchor.Title" = "Room ID: xxx";
+"TRTC-API-Example.PushCDNAnchor.pushStreamAddress" = "Playback address: http://{your playback domain name}/{stream_id}.flv";
+"TRTC-API-Example.PushCDNAnchor.mixConfignot" = "On-Cloud Stream Mixing (2 or More Anchors)";
+"TRTC-API-Example.PushCDNAnchor.mixConfig" = "On-Cloud Stream Mixing";
+"TRTC-API-Example.PushCDNAnchor.manualMode" = "Manual";
+"TRTC-API-Example.PushCDNAnchor.leftRightMode" = "Left and right";
+"TRTC-API-Example.PushCDNAnchor.previewMode" = "Picture-in-picture";
+"TRTC-API-Example.PushCDNAnchor.roomId" = "Room ID";
+"TRTC-API-Example.PushCDNAnchor.StreamId" = "Stream Id";
+"TRTC-API-Example.PushCDNAnchor.startPush" = "Start Push";
+"TRTC-API-Example.PushCDNAnchor.stopPush" = "End Push";
+
+"TRTC-API-Example.PushCDNAudience.Title" = "Publish via CDN";
+"TRTC-API-Example.PushCDNAudience.pushStreamAddress" = "Playback address: http://{your playback domain name}/{stream_id}.flv";
+"TRTC-API-Example.PushCDNAudience.startPlay" = "Playback via CDN";
+"TRTC-API-Example.PushCDNAudience.stopPlay" = "End Playback";
+"TRTC-API-Example.PushCDNAudience.inputStreamId" = "Stream ID";
+
+"TRTC-API-Example.LocalRecord.Title" = "Room ID: xxx";
+"TRTC-API-Example.LocalRecord.recordingxx" = "Recording: xxx";
+"TRTC-API-Example.LocalRecord.recordFileAddress" = "Recording File Address";
+"TRTC-API-Example.LocalRecord.roomId" = "Room ID (8-digit by default, modifiable)";
+"TRTC-API-Example.LocalRecord.startRecord" = "Start Recording";
+"TRTC-API-Example.LocalRecord.stopRecord" = "End Recording";
+"TRTC-API-Example.LocalRecord.startPush" = "Start Push";
+"TRTC-API-Example.LocalRecord.stopPush" = "End Push";
+"TRTC-API-Example.LocalRecord.recordSuccess" = "Recording successful";
+"TRTC-API-Example.LocalRecord.recordSuccessPath" = "Video recorded and saved. View in album.";
+
+"TRTC-API-Example.RenderParams.Title" = "Room ID:";
+"TRTC-API-Example.RenderParams.rotate0" = "0";
+"TRTC-API-Example.RenderParams.rotate90" = "90";
+"TRTC-API-Example.RenderParams.rotate180" = "180";
+"TRTC-API-Example.RenderParams.rotate270" = "270";
+"TRTC-API-Example.RenderParams.renderModeFill" = "Fill";
+"TRTC-API-Example.RenderParams.renderModeAdaptor" = "Fit";
+"TRTC-API-Example.RenderParams.frontSymmetric" = "On for Front Camera";
+"TRTC-API-Example.RenderParams.allSymmetric" = "On for Both Cameras";
+"TRTC-API-Example.RenderParams.allKeep" = "Off for Both Cameras";
+"TRTC-API-Example.RenderParams.roomId" = "Room ID";
+"TRTC-API-Example.RenderParams.userId" = "User ID";
+"TRTC-API-Example.RenderParams.localRate" = "Preview Rotation (Clockwise)";
+"TRTC-API-Example.RenderParams.remoteRate" = "Remote Image Rotation (Clockwise)";
+"TRTC-API-Example.RenderParams.localRenderMode" = "Preview Rendering Mode";
+"TRTC-API-Example.RenderParams.remoteRenderMode" = "Remote Rendering Mode";
+"TRTC-API-Example.RenderParams.remoteUserId" = "Remote User ID";
+"TRTC-API-Example.RenderParams.localMirrorMode" = "Preview Mirror Mode";
+"TRTC-API-Example.RenderParams.start" = "Start Push";
+"TRTC-API-Example.RenderParams.stop" = "End Push";
+"TRTC-API-Example.RenderParams.waitOtherUser" = "No other user in the room now. Please wait.";
+"TRTC-API-Example.RenderParams.chooseUserId" = "Select a remote user for render control";
+
+"TRTC-API-Example.SendAndReceiveSEI.Title" = "Room ID: xxx";
+"TRTC-API-Example.SendAndReceiveSEI.UserIdxx" = "User ID: xxx";
+"TRTC-API-Example.SendAndReceiveSEI.SendSEIxx" = "Sent: xxx";
+"TRTC-API-Example.SendAndReceiveSEI.ReceiveSEIxxyy" = "Received: (xxx) yyy";
+"TRTC-API-Example.SendAndReceiveSEI.SendSEIBtn" = "Send SEI Message";
+"TRTC-API-Example.SendAndReceiveSEI.roomId" = "Room ID";
+"TRTC-API-Example.SendAndReceiveSEI.userId" = "User ID";
+"TRTC-API-Example.SendAndReceiveSEI.startPush" = "Start Push";
+"TRTC-API-Example.SendAndReceiveSEI.stopPush" = "End Push";
+"TRTC-API-Example.SendAndReceiveSEI.SEIMessage" = "TRTC is a useful app.";
+"TRTC-API-Example.SendAndReceiveSEI.SEIMessageDesc" = "SEI Message";
+
+"TRTC-API-Example.JoinMultipleRoom.title" = "Enter Multiple Rooms";
+"TRTC-API-Example.JoinMultipleRoom.start" = "Start";
+"TRTC-API-Example.JoinMultipleRoom.stop" = "End";
+"TRTC-API-Example.JoinMultipleRoom.roomNum" = "Room ID";
+
+"TRTC-API-Example.RoomPk.title" = "Room ID:";
+"TRTC-API-Example.RoomPk.start" = "Start Push";
+"TRTC-API-Example.RoomPk.stop" = "End Push";
+"TRTC-API-Example.RoomPk.startPK" = "Compete";
+"TRTC-API-Example.RoomPk.stopPK" = "End";
+"TRTC-API-Example.RoomPk.roomId" = "Room ID";
+"TRTC-API-Example.RoomPk.UserId" = "User ID";
+"TRTC-API-Example.RoomPk.pkRoomId" = "Competing Anchor’s Room ID";
+"TRTC-API-Example.RoomPk.pkUserId" = "Competing Anchor’s User ID";
+"TRTC-API-Example.RoomPk.connectRoomError" = "Failed to connect to room";
+
+"TRTC-API-Example.ThirdBeauty.Title" = "Room ID: xxx";
+"TRTC-API-Example.ThirdBeauty.UserIdxx" = "User ID: xxx";
+"TRTC-API-Example.ThirdBeauty.SetBeautyLevel" = "Skin Smoothing";
+"TRTC-API-Example.ThirdBeauty.roomId" = "Room ID";
+"TRTC-API-Example.ThirdBeauty.userId" = "User ID";
+"TRTC-API-Example.ThirdBeauty.startPush" = "Start Push";
+"TRTC-API-Example.ThirdBeauty.stopPush" = "End Push";
+
+"TRTC-API-Example.CustomCamera.viewTitle" = "Room ID: xxx";
+"TRTC-API-Example.CustomCamera.roomId" = "Room ID";
+"TRTC-API-Example.CustomCamera.userId" = "User ID";
+"TRTC-API-Example.CustomCamera.startPush" = "Start Push";
+"TRTC-API-Example.CustomCamera.stopPush" = "End Push";
+
+"TRTC-API-Example.LocalVideoShare.Title" = "Room ID:";
+"TRTC-API-Example.LocalVideoShare.roomId" = "Room ID (8-digit by default, modifiable)";
+"TRTC-API-Example.LocalVideoShare.chooseLocalVideo" = "Local Video File";
+"TRTC-API-Example.LocalVideoShare.start" = "Start Push";
+"TRTC-API-Example.LocalVideoShare.stop" = "End Push";
+"TRTC-API-Example.LocalVideoShare.choose" = "Browse";
+
+"TRTC-API-Example.StringRoomId.Title" = "Room ID: xxx";
+"TRTC-API-Example.StringRoomId.UserIdxx" = "User ID: xxx";
+"TRTC-API-Example.StringRoomId.roomId" = "Room ID";
+"TRTC-API-Example.StringRoomId.userId" = "User ID";
+"TRTC-API-Example.StringRoomId.start" = "Start Push";
+"TRTC-API-Example.StringRoomId.stop" = "End Push";

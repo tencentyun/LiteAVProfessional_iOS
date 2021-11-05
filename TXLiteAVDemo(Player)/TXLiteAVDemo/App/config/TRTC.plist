@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>licenceConfig</key>
+	<dict>
+		<key>licenceKey</key>
+		<string>...</string>
+		<key>licenceUrl</key>
+		<string>...</string>
+	</dict>
+	<key>menuConfig</key>
+	<array>
+		<dict>
+			<key>TRTC</key>
+			<true/>
+			<key>subMenus</key>
+			<array>
+				<dict>
+					<key>class</key>
+					<string>TRTCSpeedTestViewController</string>
+					<key>title</key>
+					<string>Demo.TRTC.Live.trtcSpeedTest</string>
+				</dict>
+				<dict>
+					<key>class</key>
+					<string>TRTCLiveEnterViewController</string>
+					<key>title</key>
+					<string>Demo.TRTC.Live.trtcLive</string>
+				</dict>
+				<dict>
+					<key>class</key>
+					<string>TRTCCallEnterViewController</string>
+					<key>title</key>
+					<string>Demo.TRTC.Live.trtcCalling</string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>TRTC.MainMenu.trtc</string>
+		</dict>
+	</array>
+</dict>
+</plist>
