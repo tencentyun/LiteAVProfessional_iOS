@@ -7,21 +7,22 @@
 //
 
 #import "V2QRGenerateViewController.h"
-#import "MBProgressHUD.h"
+
 #import "AppLocalized.h"
+#import "MBProgressHUD.h"
 
 //#define L(x) NSLocalizedString(x, nil)
 
-@interface V2QRGenerateViewController ()
-@property (weak, nonatomic) IBOutlet UIView *contentView;
-@property (weak, nonatomic) IBOutlet UIImageView *qrcodeImageView;
-@property (weak, nonatomic) IBOutlet UIButton *qrcodeCopyBtn;
-@property(nonatomic, strong) NSString *currentPlayURL;
-@property(nonatomic, strong) NSDictionary *playTypeButtons;
+@interface                          V2QRGenerateViewController ()
+@property(weak, nonatomic) IBOutlet UIView *contentView;
+@property(weak, nonatomic) IBOutlet UIImageView *qrcodeImageView;
+@property(weak, nonatomic) IBOutlet UIButton *qrcodeCopyBtn;
+@property(nonatomic, strong) NSString *       currentPlayURL;
+@property(nonatomic, strong) NSDictionary *   playTypeButtons;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descLabel;
-@property (weak, nonatomic) IBOutlet UIButton *closeBtn;
+@property(weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property(weak, nonatomic) IBOutlet UILabel *descLabel;
+@property(weak, nonatomic) IBOutlet UIButton *closeBtn;
 
 @end
 
@@ -32,17 +33,17 @@
     // Do any additional setup after loading the view from its nib.
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onTapGesture:)];
     [self.view addGestureRecognizer:tap];
-    
+
     for (UIButton *btn in self.playTypeButtons.allValues) {
         btn.titleLabel.lineBreakMode = NSLineBreakByClipping;
     }
     self.qrcodeCopyBtn.titleLabel.lineBreakMode = NSLineBreakByClipping;
     [self showQRCodeContent];
-    
+
     [self.qrcodeCopyBtn setTitle:V2Localize(@"V2.Live.LinkMicNew.cpyaddr") forState:UIControlStateNormal];
     [self.closeBtn setTitle:V2Localize(@"V2.Live.LinkMicNew.close") forState:UIControlStateNormal];
     self.titleLabel.text = V2Localize(@"V2.Live.LinkMicNew.playaddressgenerated");
-    self.descLabel.text = V2Localize(@"V2.Live.LinkMicNew.useotherphonescancode");
+    self.descLabel.text  = V2Localize(@"V2.Live.LinkMicNew.useotherphonescancode");
 }
 
 - (void)onTapGesture:(UITapGestureRecognizer *)tap {
@@ -54,7 +55,7 @@
 }
 
 - (void)showQRCodeContent {
-    dispatch_async(dispatch_get_main_queue(),^{
+    dispatch_async(dispatch_get_main_queue(), ^{
         self.currentPlayURL = self.playURL;
         if (self.currentPlayURL.length == 0) {
             self.qrcodeImageView.image = nil;
@@ -71,23 +72,21 @@
 
 - (IBAction)onQRCodeCopy:(UIButton *)sender {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
-    pasteboard.string = self.currentPlayURL;
+    pasteboard.string        = self.currentPlayURL;
     [self showText:V2Localize(@"V2.Live.LinkMicNew.addtopastboard")];
 }
 - (IBAction)onClosePage:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-+ (UIImage *)qrCodeWithString:(NSString *)string size:(CGSize)outputSize
-{
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
++ (UIImage *)qrCodeWithString:(NSString *)string size:(CGSize)outputSize {
+    NSData *  data   = [string dataUsingEncoding:NSUTF8StringEncoding];
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    [filter setValue:data forKey: @"inputMessage"];
-    [filter setValue:@"Q" forKey: @"inputCorrectionLevel"];
+    [filter setValue:data forKey:@"inputMessage"];
+    [filter setValue:@"Q" forKey:@"inputCorrectionLevel"];
     CIImage *qrCodeImage = filter.outputImage;
-    CGRect imageSize = CGRectIntegral(qrCodeImage.extent);
-    CIImage *ciImage = [qrCodeImage imageByApplyingTransform:CGAffineTransformMakeScale(outputSize.width/CGRectGetWidth(imageSize), outputSize.height/CGRectGetHeight(imageSize))];
+    CGRect   imageSize   = CGRectIntegral(qrCodeImage.extent);
+    CIImage *ciImage     = [qrCodeImage imageByApplyingTransform:CGAffineTransformMakeScale(outputSize.width / CGRectGetWidth(imageSize), outputSize.height / CGRectGetHeight(imageSize))];
     return [UIImage imageWithCIImage:ciImage];
 }
 
@@ -96,9 +95,9 @@
 }
 
 - (void)showText:(NSString *)text withDetailText:(NSString *)detail {
-    MBProgressHUD *hud = [self getHud];
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = text;
+    MBProgressHUD *hud    = [self getHud];
+    hud.mode              = MBProgressHUDModeText;
+    hud.label.text        = text;
     hud.detailsLabel.text = detail;
     [hud.button addTarget:self action:@selector(onCloseHUD:) forControlEvents:UIControlEventTouchUpInside];
     [hud.button setTitle:V2Localize(@"V2.Live.LinkMicNew.close") forState:UIControlStateNormal];

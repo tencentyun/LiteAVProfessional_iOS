@@ -11,6 +11,6 @@
 IB_DESIGNABLE
 @interface QBVideoIconView : UIView
 
-@property (nonatomic, strong) IBInspectable UIColor *iconColor;
+@property(nonatomic, strong) IBInspectable UIColor *iconColor;
 
 @end

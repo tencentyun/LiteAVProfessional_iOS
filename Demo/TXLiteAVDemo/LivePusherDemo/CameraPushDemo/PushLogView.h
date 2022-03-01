@@ -22,5 +22,8 @@
 
 // 清除所有状态
 - (void)clear;
-
+#if defined(ENTERPRISE) || defined(PROFESSIONAL)
+// TXLivePushListener 推流回调，通过下面这两个函数透传进来
+- (void)setPushEvent:(int)evtID withParam:(NSDictionary *)param;
+#endif
 @end

@@ -7,8 +7,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "MLVBLiveRoomDelegate.h"
+
 #import "MLVBLiveRoomDef.h"
+#import "MLVBLiveRoomDelegate.h"
 #import "RoomUtil.h"
 #import "TXBeautyManager.h"
 
@@ -31,7 +32,6 @@
  * 参考文档：[直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606)
  */
 @interface MLVBLiveRoom : NSObject
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -65,12 +65,12 @@
  *
  * @note 默认是在 Main Queue 中回调，如果需要自定义回调线程，可使用 delegateQueue。
  */
-@property (nonatomic, weak) id<MLVBLiveRoomDelegate> delegate;
+@property(nonatomic, weak) id<MLVBLiveRoomDelegate> delegate;
 
 /**
  * 设置驱动回调函数的 GCD 队列
  */
-@property (nonatomic, copy) dispatch_queue_t delegateQueue;
+@property(nonatomic, copy) dispatch_queue_t delegateQueue;
 
 /**
  * 登录
@@ -78,13 +78,12 @@
  * @param loginInfo 登录信息
  * @param completion 登录结果回调
  */
-- (void)loginWithInfo:(MLVBLoginInfo *)loginInfo completion:(void(^)(int errCode, NSString *errMsg))completion;
+- (void)loginWithInfo:(MLVBLoginInfo *)loginInfo completion:(void (^)(int errCode, NSString *errMsg))completion;
 
 /**
  * 登出
  */
--(void)logout;
-
+- (void)logout;
 
 /**
  * 修改个人信息
@@ -92,10 +91,9 @@
  * @param userName 昵称
  * @param avatarURL 头像地址
  */
--(void)setSelfProfile:(NSString *)userName avatarURL:(NSString*)avatarURL completion:(void(^)(int code, NSString *msg))completion;
+- (void)setSelfProfile:(NSString *)userName avatarURL:(NSString *)avatarURL completion:(void (^)(int code, NSString *msg))completion;
 
 /// @}
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -118,7 +116,7 @@
  * @param count   希望后台返回的房间个数。
  * @param completion 获取房间列表的结果回调。
  */
-- (void)getRoomList:(int)index count:(int)count completion:(void(^)(int errCode, NSString *errMsg, NSArray<MLVBRoomInfo *> *roomInfoArray))completion;
+- (void)getRoomList:(int)index count:(int)count completion:(void (^)(int errCode, NSString *errMsg, NSArray<MLVBRoomInfo *> *roomInfoArray))completion;
 
 /**
  * 获取观众列表
@@ -130,8 +128,7 @@
  * @param roomID 房间标识。
  * @param completion 获取观众列表的结果回调。
  */
-- (void)getAudienceList:(NSString *)roomID completion:(void(^)(int errCode, NSString *errMsg, NSArray<MLVBAudienceInfo *> *audienceInfoArray))completion;
-
+- (void)getAudienceList:(NSString *)roomID completion:(void (^)(int errCode, NSString *errMsg, NSArray<MLVBAudienceInfo *> *audienceInfoArray))completion;
 
 /**
  * 创建房间（主播调用）
@@ -144,7 +141,7 @@
  * @param roomInfo 房间信息（非必填），用于房间描述的信息，比如房间名称，允许使用 JSON 格式作为房间信息。
  * @param completion 创建房间的结果回调
  */
-- (void)createRoom:(NSString *)roomID roomInfo:(NSString *)roomInfo completion:(void(^)(int errCode, NSString *errMsg))completion;
+- (void)createRoom:(NSString *)roomID roomInfo:(NSString *)roomInfo completion:(void (^)(int errCode, NSString *errMsg))completion;
 
 /**
  * 进入房间（观众调用）
@@ -158,14 +155,14 @@
  * @param completion 进入房间的结果回调
  *
  */
-- (void)enterRoom:(NSString *)roomID view:(UIView *)view completion:(void(^)(int errCode, NSString *errMsg))completion;
+- (void)enterRoom:(NSString *)roomID view:(UIView *)view completion:(void (^)(int errCode, NSString *errMsg))completion;
 
 /**
  * 离开房间
  *
  * @param completion 离开房间的结果回调
  */
-- (void)exitRoom:(void(^)(int errCode, NSString *errMsg))completion;
+- (void)exitRoom:(void (^)(int errCode, NSString *errMsg))completion;
 
 /**
  * 设置当前房间的扩展信息字段
@@ -182,18 +179,16 @@
  *
  * @note op 为 MLVBCustomFieldOpSet 或者 MLVBCustomFieldOpDec 时，value 需要是一个数字
  */
-- (void)setCustomInfo:(MLVBCustomFieldOp)op key:(NSString *)key value:(id)value completion:(void(^)(int errCode, NSString *custom))completion;
+- (void)setCustomInfo:(MLVBCustomFieldOp)op key:(NSString *)key value:(id)value completion:(void (^)(int errCode, NSString *custom))completion;
 
 /**
  * 获取当前房间的扩展信息字段
  *
  * @param completion 获取自定义值回调
  */
-- (void)getCustomInfo:(void(^)(int errCode, NSString *errMsg, NSDictionary *customInfo))completion;
+- (void)getCustomInfo:(void (^)(int errCode, NSString *errMsg, NSDictionary *customInfo))completion;
 
 /// @}
-
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -223,7 +218,7 @@
  * @param completion 主播响应回调
  * @see MLVBLiveRoomDelegate#onRequestJoinAnchor(AnchorInfo, String)
  */
-- (void)requestJoinAnchor:(NSString *)reason completion:(void(^)(int errCode, NSString *errMsg))completion;
+- (void)requestJoinAnchor:(NSString *)reason completion:(void (^)(int errCode, NSString *errMsg))completion;
 
 /**
  * 主播处理连麦请求
@@ -243,7 +238,7 @@
  *
  * @param completion 进入连麦的结果回调
  */
-- (void)joinAnchor:(void(^)(int errCode, NSString *errMsg))completion;
+- (void)joinAnchor:(void (^)(int errCode, NSString *errMsg))completion;
 
 /**
  * 观众退出连麦
@@ -252,7 +247,7 @@
  *
  * @param completion 退出连麦的结果回调
  */
-- (void)quitJoinAnchor:(void(^)(int errCode, NSString *errMsg))completion;
+- (void)quitJoinAnchor:(void (^)(int errCode, NSString *errMsg))completion;
 
 /**
  * 主播踢除连麦观众
@@ -286,7 +281,7 @@
  *
  * @see MLVBLiveRoomDelegate#onRequestRoomPK(AnchorInfo)
  */
-- (void)requestRoomPK:(NSString *)userID completion:(void(^)(int errCode, NSString *errMsg, NSString *streamUrl))completion;
+- (void)requestRoomPK:(NSString *)userID completion:(void (^)(int errCode, NSString *errMsg, NSString *streamUrl))completion;
 
 /**
  * 响应跨房 PK 请求
@@ -306,9 +301,8 @@
  *
  * @param completion 退出跨房 PK 的结果回调
  */
-- (void)quitRoomPK:(void(^)(int errCode, NSString *errMsg))completion;
+- (void)quitRoomPK:(void (^)(int errCode, NSString *errMsg))completion;
 /// @}
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -394,14 +388,14 @@
  * @param userID 对方的用户标识
  * @param mute YES：静音；NO：非静音
  */
-- (void)muteRemoteAudio:(NSString *)userID mute:(BOOL) mute;
+- (void)muteRemoteAudio:(NSString *)userID mute:(BOOL)mute;
 
 /**
  * 设置所有远端用户是否静音
  *
  * @param mute YES：静音；NO：非静音
  */
--(void)muteAllRemoteAudio:(BOOL)mute;
+- (void)muteAllRemoteAudio:(BOOL)mute;
 
 /// @}
 
@@ -426,7 +420,7 @@
  *
  * @param image 等待图片
  */
-- (void)setCameraMuteImage:(UIImage*)image;
+- (void)setCameraMuteImage:(UIImage *)image;
 
 /**
  * 调整焦距
@@ -436,7 +430,6 @@
  * @note 当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清
  */
 - (void)setZoom:(CGFloat)distance;
-
 
 /**
  * 打开闪关灯。
@@ -481,10 +474,7 @@
  * @param whitenessLevel 美白级别，取值范围 0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。
  * @param ruddinessLevel 红润级别，取值范围 0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。
  */
-- (void)setBeautyStyle:(TX_Enum_Type_BeautyStyle)beautyStyle
-           beautyLevel:(float)beautyLevel
-        whitenessLevel:(float)whitenessLevel
-        ruddinessLevel:(float)ruddinessLevel MLVB_DEPRECAETD_BEAUTY_API;
+- (void)setBeautyStyle:(TX_Enum_Type_BeautyStyle)beautyStyle beautyLevel:(float)beautyLevel whitenessLevel:(float)whitenessLevel ruddinessLevel:(float)ruddinessLevel MLVB_DEPRECAETD_BEAUTY_API;
 
 /**
  * 设置指定素材滤镜特效
@@ -562,7 +552,6 @@
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir MLVB_DEPRECAETD_BEAUTY_API;
 /// @}
 
-
 /////////////////////////////////////////////////////////////////////////////////
 //
 //                      消息发送接口函数
@@ -592,9 +581,9 @@
  *
  * @see MLVBLiveRoomDelegate#onRecvRoomCustomMsg
  */
-- (void)sendRoomCustomMsg:(NSString *)cmd msg:(NSString *)message completion:(void (^)(int errCode, NSString *errMsg))completion;;
+- (void)sendRoomCustomMsg:(NSString *)cmd msg:(NSString *)message completion:(void (^)(int errCode, NSString *errMsg))completion;
+;
 /// @}
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //
@@ -625,10 +614,10 @@
  *
  * @return YES：成功；NO：失败。
  */
--    (BOOL)playBGM:(NSString *)path
-   withBeginNotify:(void (^)(NSInteger errCode))beginNotify
-withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progressNotify
- andCompleteNotify:(void (^)(NSInteger errCode))completeNotify;
+- (BOOL)playBGM:(NSString *)path
+       withBeginNotify:(void (^)(NSInteger errCode))beginNotify
+    withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progressNotify
+     andCompleteNotify:(void (^)(NSInteger errCode))completeNotify;
 
 /**
  * 停止播放背景音乐
@@ -662,16 +651,12 @@ withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progres
  */
 - (BOOL)setMicVolume:(float)volume;
 
-
-
-
 /**
  * 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小
  *
  * @param volume 音量大小，1.0为正常音量，建议值为0.0 - 2.0。
  */
 - (BOOL)setBGMVolume:(float)volume;
-
 
 /**
  * 调整背景音乐的音调高低
@@ -706,7 +691,6 @@ withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progres
 - (BOOL)setVoiceChangerType:(TXVoiceChangerType)voiceChangerType;
 
 /// @}
-
 
 /////////////////////////////////////////////////////////////////////////////////
 //

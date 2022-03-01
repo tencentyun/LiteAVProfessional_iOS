@@ -11,15 +11,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSInteger, LebTRTCSettingBarItemType) {
-    LebTRTCSettingBarItemTypeLog        = 0,
-    LebTRTCSettingBarItemTypeBeauty     = 1,
-    LebTRTCSettingBarItemTypeCamera     = 2,
-    LebTRTCSettingBarItemTypeMuteAudio  = 3,
+    LebTRTCSettingBarItemTypeLog           = 0,
+    LebTRTCSettingBarItemTypeBeauty        = 1,
+    LebTRTCSettingBarItemTypeCamera        = 2,
+    LebTRTCSettingBarItemTypeMuteAudio     = 3,
     LebTRTCSettingBarItemTypeLocalRotation = 4,
-    LebTRTCSettingBarItemTypeBGM        = 5,
-    LebTRTCSettingBarItemTypeFeature    = 6,
-    LebTRTCSettingBarItemTypeMuteVideo  = 7,
-    LebTRTCSettingBarItemTypeStart      = 8
+    LebTRTCSettingBarItemTypeBGM           = 5,
+    LebTRTCSettingBarItemTypeFeature       = 6,
+    LebTRTCSettingBarItemTypeMuteVideo     = 7,
+    LebTRTCSettingBarItemTypeStart         = 8
 };
 
 @protocol LebSettingBottomBarDelegate <NSObject>
@@ -28,8 +28,8 @@ typedef NS_ENUM(NSInteger, LebTRTCSettingBarItemType) {
 
 @end
 
-@interface LebSettingBottomBar : UIStackView
-@property (nonatomic, weak) id<LebSettingBottomBarDelegate> delegate;
+@interface                                                 LebSettingBottomBar : UIStackView
+@property(nonatomic, weak) id<LebSettingBottomBarDelegate> delegate;
 
 + (LebSettingBottomBar *)createInstance:(NSArray<NSNumber *> *)items;
 - (void)updateItem:(LebTRTCSettingBarItemType)type value:(NSInteger)value;

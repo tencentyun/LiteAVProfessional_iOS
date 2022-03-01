@@ -5,12 +5,12 @@
 //  Created by adams on 2021/7/6.
 //
 
+#import <CoreMedia/CoreMedia.h>
 #import <Foundation/Foundation.h>
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
 #import <QuartzCore/QuartzCore.h>
-#import <CoreMedia/CoreMedia.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,11 +24,11 @@ typedef struct GLTextureOptions {
     GLenum type;
 } GLTextureOptions;
 
-@interface GLFramebuffer : NSObject
-@property(readonly, assign) CGSize size;
+@interface                                   GLFramebuffer : NSObject
+@property(readonly, assign) CGSize           size;
 @property(readonly, assign) GLTextureOptions textureOptions;
-@property(readonly, assign) GLuint texture;
-@property(readonly, assign) BOOL missingFramebuffer;
+@property(readonly, assign) GLuint           texture;
+@property(readonly, assign) BOOL             missingFramebuffer;
 
 - (id)initWithSize:(CGSize)framebufferSize;
 - (id)initWithSize:(CGSize)framebufferSize textureOptions:(GLTextureOptions)fboTextureOptions onlyTexture:(BOOL)onlyGenerateTexture;

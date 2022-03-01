@@ -6,14 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLFramebuffer.h"
-#import <QuartzCore/QuartzCore.h>
 #import <OpenGLES/EAGL.h>
 #import <OpenGLES/ES2/gl.h>
 #import <OpenGLES/ES2/glext.h>
+#import <QuartzCore/QuartzCore.h>
+
+#import "GLFramebuffer.h"
 NS_ASSUME_NONNULL_BEGIN
-
-
 
 @interface GLFramebufferCache : NSObject
 - (GLFramebuffer *)fetchFramebufferForSize:(CGSize)framebufferSize textureOptions:(GLTextureOptions)textureOptions onlyTexture:(BOOL)onlyTexture;

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "V2TXLivePusher.h"
+
 #import "V2PusherSettingModel.h"
+#import "V2TXLivePusher.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,24 +21,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)v2PusherSettingVC:(V2PusherSettingViewController *)container didClickMuteAudio:(BOOL)muteAudio;
 - (void)v2PusherSettingVC:(V2PusherSettingViewController *)container didClickLog:(BOOL)isLogShow;
 - (void)v2PusherSettingVCDidClickLocalRotation:(V2PusherSettingViewController *)container;
-
+- (void)showText:(NSString *)text withDetailText:(NSString *)detail;
 @end
 
-@interface V2PusherSettingViewController : UIView
-@property (nonatomic, weak) V2TXLivePusher *pusher;
-@property (nonatomic, assign) BOOL isStart;
-@property (nonatomic, assign) BOOL frontCamera;
-@property (nonatomic, assign) BOOL isAudioMuted;
-@property (nonatomic, assign) BOOL isVideoMuted;
-@property (nonatomic, assign) BOOL isLogShow;
-@property (nonatomic, weak) id<V2PusherSettingViewControllerDelegate> delegate;
+@interface                                                           V2PusherSettingViewController : UIView
+@property(nonatomic, weak) V2TXLivePusher *                          pusher;
+@property(nonatomic, assign) BOOL                                    isStart;
+@property(nonatomic, assign) BOOL                                    frontCamera;
+@property(nonatomic, assign) BOOL                                    isAudioMuted;
+@property(nonatomic, assign) BOOL                                    isVideoMuted;
+@property(nonatomic, assign) BOOL                                    isLogShow;
+@property(nonatomic, weak) id<V2PusherSettingViewControllerDelegate> delegate;
 
-- (instancetype)initWithHostVC:(UIViewController *)hostVC
-                     muteVideo:(BOOL)isVideoMuted
-                     muteAudio:(BOOL)isAudioMuted
-                       logView:(BOOL)isLogShow
-                        pusher:(V2TXLivePusher *)pusher
-               pusherViewModel:(V2PusherSettingModel *)pusherVM;
+- (instancetype)initWithHostVC:(UIViewController *)hostVC muteVideo:(BOOL)isVideoMuted muteAudio:(BOOL)isAudioMuted logView:(BOOL)isLogShow pusherViewModel:(V2PusherSettingModel *)pusherVM;
 - (void)stopPush;
 @end
 

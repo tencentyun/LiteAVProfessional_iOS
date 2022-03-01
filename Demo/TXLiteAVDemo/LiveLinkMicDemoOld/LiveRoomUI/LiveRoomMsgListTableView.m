@@ -7,11 +7,11 @@
 //
 
 #import "LiveRoomMsgListTableView.h"
+
 #import "UIView+Additions.h"
 
-@implementation LiveRoomMsgListTableView
-{
-    NSMutableArray  *_msgArray;
+@implementation LiveRoomMsgListTableView {
+    NSMutableArray *_msgArray;
     BOOL            _beginScroll;
     BOOL            _canScrollToBottom;
     BOOL            _canReload;
@@ -20,20 +20,20 @@
 - (id)initWithFrame:(CGRect)frame style:(UITableViewStyle)style {
     if (self = [super initWithFrame:frame style:style]) {
         [self initTableView];
-        _msgArray = [NSMutableArray array];
-        _beginScroll        = NO;
-        _canScrollToBottom  = YES;
-        _canReload = YES;
+        _msgArray          = [NSMutableArray array];
+        _beginScroll       = NO;
+        _canScrollToBottom = YES;
+        _canReload         = YES;
     }
     return self;
 }
 
 - (void)initTableView {
-    self.delegate = self;
-    self.dataSource = self;
-    self.backgroundView  = nil;
-    self.backgroundColor = [UIColor blackColor];
-    self.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.delegate                     = self;
+    self.dataSource                   = self;
+    self.backgroundView               = nil;
+    self.backgroundColor              = [UIColor blackColor];
+    self.separatorStyle               = UITableViewCellSeparatorStyleNone;
     self.showsVerticalScrollIndicator = NO;
 }
 
@@ -41,21 +41,21 @@
     if (!msgModel) {
         return;
     }
-    
+
     if (_msgArray.count > 1000) {
         [_msgArray removeObjectsInRange:NSMakeRange(0, 100)];
     }
-    
+
     msgModel.attributedMsgText = [LiveRoomMsgListTableViewCell getAttributedStringFromModel:msgModel];
-    msgModel.msgHeight = [self calCellHeight:msgModel.attributedMsgText];
+    msgModel.msgHeight         = [self calCellHeight:msgModel.attributedMsgText];
     [_msgArray addObject:msgModel];
-    
+
     if (_canReload) {
         _canReload = NO;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5*NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
             _canReload = YES;
             [self reloadData];
-            
+
             if (!_beginScroll) {
                 if ([self calculateTotalCellHeight] >= self.height) {
                     [self scrollToBottom];
@@ -68,7 +68,6 @@
     }
 }
 
-
 - (void)scrollToBottom {
     if (_canScrollToBottom) {
         NSUInteger n = MIN(_msgArray.count, [self numberOfRowsInSection:0]);
@@ -79,7 +78,7 @@
 }
 
 - (CGFloat)calCellHeight:(NSAttributedString *)attribText {
-    CGRect rect = [attribText boundingRectWithSize:CGSizeMake(250, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
+    CGRect  rect       = [attribText boundingRectWithSize:CGSizeMake(250, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin context:nil];
     CGFloat cellHeight = rect.size.height + 5;
     return cellHeight;
 }
@@ -115,7 +114,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 }
 
 #pragma mark UITableViewDataSource
@@ -125,20 +123,20 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellID =@"MsgListCell";
-    LiveRoomMsgListTableViewCell *cell = (LiveRoomMsgListTableViewCell *)[self dequeueReusableCellWithIdentifier:cellID];
+    static NSString *             cellID = @"MsgListCell";
+    LiveRoomMsgListTableViewCell *cell   = (LiveRoomMsgListTableViewCell *)[self dequeueReusableCellWithIdentifier:cellID];
     if (cell == nil) {
-        cell = [[LiveRoomMsgListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
-        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell                 = [[LiveRoomMsgListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+        cell.accessoryType   = UITableViewCellAccessoryNone;
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle  = UITableViewCellSelectionStyleNone;
     }
-    
+
     if (indexPath.row < _msgArray.count) {
         LiveRoomMsgModel *msgModel = _msgArray[indexPath.row];
         [cell refreshWithModel:msgModel];
     }
-    
+
     return cell;
 }
 

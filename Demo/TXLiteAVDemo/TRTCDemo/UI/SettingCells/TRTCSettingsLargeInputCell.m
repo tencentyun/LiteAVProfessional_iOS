@@ -7,18 +7,19 @@
 //
 
 #import "TRTCSettingsLargeInputCell.h"
-#import "UITextField+TRTC.h"
+
 #import "Masonry.h"
+#import "UITextField+TRTC.h"
 
 @implementation TRTCSettingsLargeInputCell
 
 - (void)setupUI {
     [super setupUI];
-    
-    UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 1)];
-    self.contentText.leftView = paddingView;
+
+    UIView *paddingView           = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 18, 1)];
+    self.contentText.leftView     = paddingView;
     self.contentText.leftViewMode = UITextFieldViewModeAlways;
-    self.contentText.borderStyle = UITextBorderStyleNone;
+    self.contentText.borderStyle  = UITextBorderStyleNone;
 
     [self.titleLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.contentView).offset(9);

@@ -7,54 +7,54 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 
 - (instancetype)initWithMin:(NSInteger)min max:(NSInteger)max defaultBitrate:(NSInteger)defaultBitrate step:(NSInteger)step {
     if (self = [super init]) {
-        self.minBitrate = min;
-        self.maxBitrate = max;
+        self.minBitrate     = min;
+        self.maxBitrate     = max;
         self.defaultBitrate = defaultBitrate;
-        self.step = step;
+        self.step           = step;
     }
     return self;
 }
 
 @end
 
-@interface V2PusherSettingModel()
+@interface V2PusherSettingModel ()
 
-@property (nonatomic, strong) UIImage *waterMarkImg;
-@property (nonatomic, assign) CGRect waterMarkRect;
-@property (nonatomic, assign) BOOL isWaterMarkEnabled;
-@property (nonatomic, assign) BOOL isVirtualCameraEnabled;
-@property (nonatomic, assign) BOOL isUploadVideoEnabled;
-@property (nonatomic, assign) BOOL isUploadAudioEnabled;
+@property(nonatomic, strong) UIImage *waterMarkImg;
+@property(nonatomic, assign) CGRect   waterMarkRect;
+@property(nonatomic, assign) BOOL     isWaterMarkEnabled;
+@property(nonatomic, assign) BOOL     isVirtualCameraEnabled;
+@property(nonatomic, assign) BOOL     isUploadVideoEnabled;
+@property(nonatomic, assign) BOOL     isUploadAudioEnabled;
 
 @end
 
 @implementation V2PusherSettingModel
 - (instancetype)initWithPusher:(V2TXLivePusher *)pusher {
     if (self = [super init]) {
-        self.pusher = pusher;
+        self.pusher                 = pusher;
         self.isVirtualCameraEnabled = NO;
-        self.isUploadVideoEnabled = YES;
-        self.isUploadAudioEnabled = YES;
-        self.videoEnabled = YES;
-        self.isVideoMuted = NO;
-        self.videoResolution = V2TXLiveVideoResolution960x540;
-        self.resolutionMode = V2TXLiveVideoResolutionModePortrait;
-        self.localMirrorType = V2TXLiveMirrorTypeAuto;
-        self.isRemoteMirrorEnabled = NO;
-        
+        self.isUploadVideoEnabled   = YES;
+        self.isUploadAudioEnabled   = YES;
+        self.videoEnabled           = YES;
+        self.isVideoMuted           = NO;
+        self.videoResolution        = V2TXLiveVideoResolution960x540;
+        self.resolutionMode         = V2TXLiveVideoResolutionModePortrait;
+        self.localMirrorType        = V2TXLiveMirrorTypeAuto;
+        self.isRemoteMirrorEnabled  = NO;
+
         [self loadLocalVideoConfig];
-        
-        self.volumeType = TRTCSystemVolumeTypeAuto;
-        self.isEarMonitoringEnabled = NO;
+
+        self.volumeType               = TRTCSystemVolumeTypeAuto;
+        self.isEarMonitoringEnabled   = NO;
         self.isEnableVolumeEvaluation = NO;
-        self.captureVolume = 100;
-        self.startMicphone = YES;
-        
+        self.captureVolume            = 100;
+        self.startMicphone            = YES;
+
         [self loadLocalAudioConfig];
-        
+
         [self applyConfig];
     }
-    
+
     return self;
 }
 
@@ -84,7 +84,9 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 
 - (void)setVideoResolution:(V2TXLiveVideoResolution)videoResolution {
     _videoResolution = videoResolution;
-    [self.pusher setVideoQuality:_videoResolution resolutionMode:_resolutionMode];
+    V2TXLiveVideoEncoderParam *videoEncoderParam = [[V2TXLiveVideoEncoderParam alloc] initWith:videoResolution];
+    videoEncoderParam.videoResolutionMode = _resolutionMode;
+    [self.pusher setVideoQuality:videoEncoderParam];
 }
 
 - (void)setLocalMirrorType:(V2TXLiveMirrorType)localMirrorType {
@@ -98,13 +100,13 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 }
 
 - (void)setWaterMark:(UIImage *)image inRect:(CGRect)rect {
-    self.waterMarkImg = image;
+    self.waterMarkImg  = image;
     self.waterMarkRect = rect;
     if (image == nil) {
         self.isWaterMarkEnabled = NO;
         [self.pusher setWatermark:nil x:0.0 y:0.0 scale:0.0];
     } else {
-        CGFloat scale = rect.size.width/image.size.width;
+        CGFloat scale = rect.size.width / image.size.width;
         [self.pusher setWatermark:image x:rect.origin.x y:rect.origin.y scale:scale];
         self.isWaterMarkEnabled = YES;
     }
@@ -116,36 +118,14 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 
 + (NSArray<NSNumber *> *)resolutions {
     return @[
-        @(V2TXLiveVideoResolution160x160),
-        @(V2TXLiveVideoResolution270x270),
-        @(V2TXLiveVideoResolution480x480),
-        @(V2TXLiveVideoResolution320x240),
-        @(V2TXLiveVideoResolution480x360),
-        @(V2TXLiveVideoResolution640x480),
-        @(V2TXLiveVideoResolution320x180),
-        @(V2TXLiveVideoResolution480x270),
-        @(V2TXLiveVideoResolution640x360),
-        @(V2TXLiveVideoResolution960x540),
-        @(V2TXLiveVideoResolution1280x720),
-        @(V2TXLiveVideoResolution1920x1080)
+        @(V2TXLiveVideoResolution160x160), @(V2TXLiveVideoResolution270x270), @(V2TXLiveVideoResolution480x480), @(V2TXLiveVideoResolution320x240), @(V2TXLiveVideoResolution480x360),
+        @(V2TXLiveVideoResolution640x480), @(V2TXLiveVideoResolution320x180), @(V2TXLiveVideoResolution480x270), @(V2TXLiveVideoResolution640x360), @(V2TXLiveVideoResolution960x540),
+        @(V2TXLiveVideoResolution1280x720), @(V2TXLiveVideoResolution1920x1080)
     ];
 }
 
 + (NSArray<NSString *> *)resolutionNames {
-    return @[
-        @"160x160",
-        @"270x270",
-        @"480x480",
-        @"320x240",
-        @"480x360",
-        @"640x480",
-        @"320x180",
-        @"480x270",
-        @"640x360",
-        @"960x540",
-        @"1280x720",
-        @"1920x1080"
-    ];
+    return @[ @"160x160", @"270x270", @"480x480", @"320x240", @"480x360", @"640x480", @"320x180", @"480x270", @"640x360", @"960x540", @"1280x720", @"1920x1080" ];
 }
 
 + (V2BitrateRange *)bitrateRangeOf:(V2TXLiveVideoResolution)resolution {
@@ -181,7 +161,7 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 }
 
 + (NSArray<NSString *> *)fpsList {
-    return @[@"15", @"20", @"24"];
+    return @[ @"15", @"20", @"24" ];
 }
 
 #pragma mark - Audio Functions
@@ -218,7 +198,7 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 
 - (void)setIsEnableVolumeEvaluation:(BOOL)isEnableVolumeEvaluation {
     _isEnableVolumeEvaluation = isEnableVolumeEvaluation;
-    [self.pusher enableVolumeEvaluation:isEnableVolumeEvaluation?200:0];
+    [self.pusher enableVolumeEvaluation:isEnableVolumeEvaluation ? 200 : 0];
 }
 
 - (void)setCaptureVolume:(NSInteger)captureVolume {
@@ -300,17 +280,17 @@ static NSString *const kAudioConfig = @"V2TRTCAudioConfig";
 
 - (NSDictionary *)audioConfigDictionaryRepresentation {
     return @{
-        @"volumeType": @(self.volumeType),
-        @"isEarMonitoringEnabled": @(self.isEarMonitoringEnabled),
-        @"isAudioMuted": @(self.isAudioMuted),
-        @"startMicphone": @(self.startMicphone),
-        @"isEnableVolumeEvaluation": @(self.isEnableVolumeEvaluation),
+        @"volumeType" : @(self.volumeType),
+        @"isEarMonitoringEnabled" : @(self.isEarMonitoringEnabled),
+        @"isAudioMuted" : @(self.isAudioMuted),
+        @"startMicphone" : @(self.startMicphone),
+        @"isEnableVolumeEvaluation" : @(self.isEnableVolumeEvaluation),
     };
 }
 
 - (void)applyAudioConfig {
     [self setVolumeType:self.volumeType];
-    self.isEarMonitoringEnabled = self.isEarMonitoringEnabled;
+    self.isEarMonitoringEnabled   = self.isEarMonitoringEnabled;
     self.isEnableVolumeEvaluation = self.isEnableVolumeEvaluation;
     [self setIsAudioMuted:self.isAudioMuted];
 }

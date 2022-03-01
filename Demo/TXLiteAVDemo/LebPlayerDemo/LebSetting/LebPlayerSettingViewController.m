@@ -7,43 +7,40 @@
 //
 
 #import "LebPlayerSettingViewController.h"
-#import "Masonry.h"
-#import "LebSettingBottomBar.h"
-#import "ThemeConfigurator.h"
-#import "LebSettingsBaseViewController.h"
-#import "V2TXLiveDef.h"
-#import "MBProgressHUD.h"
+
 #import "AppLocalized.h"
+#import "LebSettingBottomBar.h"
+#import "LebSettingsBaseViewController.h"
+#import "MBProgressHUD.h"
+#import "Masonry.h"
+#import "V2TXLiveDef.h"
+#import "TCUtil.h"
 
-@interface LebPlayerSettingViewController () <LebSettingBottomBarDelegate>
-@property (nonatomic, weak) UIViewController *hostVC;
+@interface                                   LebPlayerSettingViewController () <LebSettingBottomBarDelegate>
+@property(nonatomic, weak) UIViewController *hostVC;
 
-@property (nonatomic, strong) LebSettingBottomBar *settingBar;
-@property (nonatomic, strong) UIView *centerContainerView;
+@property(nonatomic, strong) LebSettingBottomBar *settingBar;
+@property(nonatomic, strong) UIView *             centerContainerView;
 
-@property (strong, nonatomic, nullable) UIViewController *currentEmbededVC;
-@property (strong, nonatomic, nullable) LebSettingsBaseViewController *settingsVC;
+@property(strong, nonatomic, nullable) UIViewController *             currentEmbededVC;
+@property(strong, nonatomic, nullable) LebSettingsBaseViewController *settingsVC;
 
-@property (nonatomic, strong) V2TXLivePlayer *player;
+@property(nonatomic, strong) V2TXLivePlayer *player;
 
 @end
 
 @implementation LebPlayerSettingViewController
 
-- (instancetype)initWithHostVC:(UIViewController *)hostVC
-                     muteAudio:(BOOL)isAudioMuted
-                     muteVideo:(BOOL)isVideoMuted
-                       logView:(BOOL)isLogShow
-                        player:(V2TXLivePlayer *)player {
+- (instancetype)initWithHostVC:(UIViewController *)hostVC muteAudio:(BOOL)isAudioMuted muteVideo:(BOOL)isVideoMuted logView:(BOOL)isLogShow player:(V2TXLivePlayer *)player {
     self = [super init];
     if (self) {
-        self.hostVC = hostVC;
+        self.hostVC       = hostVC;
         self.isAudioMuted = isAudioMuted;
         self.isVideoMuted = isVideoMuted;
-        self.isLogShow = isLogShow;
-        
+        self.isLogShow    = isLogShow;
+        self.fillMode     = V2TXLiveFillModeFit;
         self.player = player;
-        
+
         [self addBar];
         [self addCenterView];
     }
@@ -75,16 +72,13 @@
 }
 
 - (void)addBar {
-    self.settingBar = [LebSettingBottomBar createInstance:@[
-        @(LebTRTCSettingBarItemTypeStart),
-        @(LebTRTCSettingBarItemTypeMuteVideo),
-        @(LebTRTCSettingBarItemTypeMuteAudio),
-        @(LebTRTCSettingBarItemTypeFeature),
-        @(LebTRTCSettingBarItemTypeLog)]];
+    self.settingBar          = [LebSettingBottomBar createInstance:@[
+        @(LebTRTCSettingBarItemTypeStart), @(LebTRTCSettingBarItemTypeMuteVideo), @(LebTRTCSettingBarItemTypeMuteAudio), @(LebTRTCSettingBarItemTypeFeature), @(LebTRTCSettingBarItemTypeLog)
+    ]];
     self.settingBar.delegate = self;
     [self.settingBar updateItem:LebTRTCSettingBarItemTypeMuteAudio value:self.isAudioMuted];
     [self.settingBar updateItem:LebTRTCSettingBarItemTypeLog value:self.isLogShow];
-    
+
     [self addSubview:self.settingBar];
     [self.settingBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.equalTo(self);
@@ -94,10 +88,10 @@
 }
 
 - (void)addCenterView {
-    self.centerContainerView = [[UIView alloc] init];
+    self.centerContainerView                    = [[UIView alloc] init];
     self.centerContainerView.layer.cornerRadius = 12;
-    self.centerContainerView.clipsToBounds = YES;
-    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    self.centerContainerView.clipsToBounds      = YES;
+    UIVisualEffectView *effectView              = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
     [self.centerContainerView addSubview:effectView];
     [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.leading.trailing.equalTo(self.centerContainerView);
@@ -109,7 +103,7 @@
         make.top.equalTo(self).offset(10);
         make.bottom.equalTo(self.settingBar.mas_top).offset(-20);
     }];
-    
+
     self.centerContainerView.hidden = YES;
 }
 
@@ -146,13 +140,12 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(lebPlayerSettingVC:didClickLog:)]) {
         [self.delegate lebPlayerSettingVC:self didClickLog:!self.isLogShow];
         self.isLogShow = !self.isLogShow;
-        
+
         [self.settingBar updateItem:LebTRTCSettingBarItemTypeLog value:self.isLogShow];
     }
 }
 
 - (void)onClickSwitchCameraButton {
-    
 }
 
 - (void)onClickVideoMuteButton {
@@ -173,49 +166,69 @@
 
 - (void)onClickFeatureSettingsButton {
     if (!self.settingsVC) {
-        self.settingsVC = [[LebSettingsBaseViewController alloc] init];
+        self.settingsVC       = [[LebSettingsBaseViewController alloc] init];
         self.settingsVC.title = V2Localize(@"V2.Live.LinkMicNew.setting");
-        
-        NSInteger playoutVolume = 100;
-        V2TXLiveFillMode fillMode = V2TXLiveFillModeFit;
-        V2TXLiveRotation rotation = V2TXLiveRotation0;
-        BOOL isVolumeEvaluationEnabled = NO;
-        
+
+        NSInteger        playoutVolume             = 100;
+        V2TXLiveRotation rotation                  = V2TXLiveRotation0;
+        BOOL             isVolumeEvaluationEnabled = NO;
+        BOOL             isSEIEnable = NO;
+
         __weak __typeof(self) wSelf = self;
+
+        self.settingsVC.items =
+            @[
+                [[LebSettingsSliderItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.playingvolume")
+                                                       value:playoutVolume
+                                                         min:0
+                                                         max:100
+                                                        step:1
+                                                  continuous:YES
+                                                      action:^(float volume) {
+                                                          [wSelf.player setPlayoutVolume:(NSInteger)volume];
+                                                      }],
+                [[LebSettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.fillingdirection")
+                                                        items:@[ V2Localize(@"V2.Live.LinkMicNew.paved"), V2Localize(@"V2.Live.LinkMicNew.adaptive") ]
+                                                selectedIndex:self.fillMode
+                                                       action:^(NSInteger index) {
+                                                           wSelf.fillMode = (index == 0) ? V2TXLiveFillModeFill : V2TXLiveFillModeFit;
+                                                           [wSelf.player setRenderFillMode:wSelf.fillMode];
+                                                       }],
+                [[LebSettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.directionofrotation")
+                                                        items:@[ @"0", @"90", @"180", @"270" ]
+                                                selectedIndex:rotation
+                                                       action:^(NSInteger index) {
+                                                           [wSelf.player setRenderRotation:index];
+                                                       }],
+                [[LebSettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.volumeprompt")
+                                                        isOn:isVolumeEvaluationEnabled
+                                                      action:^(BOOL isOn) {
+                                                          [wSelf.player enableVolumeEvaluation:isOn ? 200 : 0];
+
+                                                          if (wSelf.delegate && [wSelf.delegate respondsToSelector:@selector(lebPlayerSettingVC:enableVolumeEvaluation:)]) {
+                                                              [wSelf.delegate lebPlayerSettingVC:wSelf enableVolumeEvaluation:isOn];
+                                                          }
+                                                      }],
+                [[LebSettingsButtonItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.videosnapshot")
+                                                 buttonTitle:V2Localize(@"V2.Live.LinkMicNew.snapshot")
+                                                      action:^{
+                                                          [wSelf.player snapshot];
+                                                      }],
+            ]
+                .mutableCopy;
         
-        self.settingsVC.items = @[
-            [[LebSettingsSliderItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.playingvolume")
-                                                    value:playoutVolume min:0 max:100 step:1
-                                               continuous:YES
-                                                   action:^(float volume) {
-                [wSelf.player setPlayoutVolume:(NSInteger)volume];
-            }],
-            [[LebSettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.fillingdirection")
-                                                     items:@[V2Localize(@"V2.Live.LinkMicNew.paved"), V2Localize(@"V2.Live.LinkMicNew.adaptive")]
-                                             selectedIndex:fillMode
-                                                    action:^(NSInteger index) {
-                V2TXLiveFillMode fillMode = (index == 0) ? V2TXLiveFillModeFill : V2TXLiveFillModeFit;
-                [wSelf.player setRenderFillMode:fillMode];
-            }],
-            [[LebSettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.directionofrotation")
-                                                     items:@[@"0", @"90", @"180", @"270"]
-                                             selectedIndex:rotation
-                                                    action:^(NSInteger index) {
-                [wSelf.player setRenderRotation:index];
-            }],
-            [[LebSettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.volumeprompt")
-                                                     isOn:isVolumeEvaluationEnabled
-                                                   action:^(BOOL isOn) {
-                [wSelf.player enableVolumeEvaluation:isOn ? 200 : 0];
+        if ([TCUtil getDEBUGSwitch]) {
+            LebSettingsTextFieldItem *item = [[LebSettingsTextFieldItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.seipayloadtype")
+                                                                                        isOn:isSEIEnable
+                                                                                      action:^(BOOL isOn, NSInteger payloadType) {
+                [wSelf.player enableReceiveSeiMessage:isOn payloadType:(int)payloadType];
                 
-                if (wSelf.delegate && [wSelf.delegate respondsToSelector:@selector(lebPlayerSettingVC:enableVolumeEvaluation:)]) {
-                    [wSelf.delegate lebPlayerSettingVC:wSelf enableVolumeEvaluation:isOn];
+                if (wSelf.delegate && [wSelf.delegate respondsToSelector:@selector(lebPlayerSettingVC:enableSEI:payloadType:)]) {
+                    [wSelf.delegate lebPlayerSettingVC:wSelf enableSEI:isOn payloadType:payloadType];
                 }
-            }],
-            [[LebSettingsButtonItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.videosnapshot") buttonTitle:V2Localize(@"V2.Live.LinkMicNew.snapshot") action:^{
-                [wSelf.player snapshot];
-            }],
-        ].mutableCopy;
+            }];
+            [self.settingsVC.items addObject:item];
+        }
     }
     [self toggleEmbedVC:self.settingsVC];
 }
@@ -242,7 +255,7 @@
     if (self.currentEmbededVC) {
         [self unembedChildVC:self.currentEmbededVC];
     }
-    
+
     UINavigationController *naviVC = [[UINavigationController alloc] initWithRootViewController:vc];
     [self.hostVC addChildViewController:naviVC];
     [self.centerContainerView addSubview:naviVC.view];
@@ -252,15 +265,17 @@
     [naviVC didMoveToParentViewController:self.hostVC];
 
     self.centerContainerView.hidden = NO;
-    self.currentEmbededVC = vc;
+    self.currentEmbededVC           = vc;
 }
 
-- (void)unembedChildVC:(UIViewController * _Nullable)vc {
-    if (!vc) { return; }
+- (void)unembedChildVC:(UIViewController *_Nullable)vc {
+    if (!vc) {
+        return;
+    }
     [vc.navigationController willMoveToParentViewController:nil];
     [vc.navigationController.view removeFromSuperview];
     [vc.navigationController removeFromParentViewController];
-    self.currentEmbededVC = nil;
+    self.currentEmbededVC           = nil;
     self.centerContainerView.hidden = YES;
 }
 
@@ -271,7 +286,7 @@
     if (hud == nil) {
         hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:NO];
     }
-    hud.mode = MBProgressHUDModeText;
+    hud.mode       = MBProgressHUDModeText;
     hud.label.text = text;
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:1];

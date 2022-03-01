@@ -23,8 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (GLuint)convertRGBPixelBufferToTexture:(CVPixelBufferRef)pixelBuffer;
 
 /// 纹理转化为 RGB 格式的 pixelBuffer
-- (CVPixelBufferRef)convertTextureToPixelBuffer:(GLuint)texture
-                                    textureSize:(CGSize)textureSize;
+- (CVPixelBufferRef)convertTextureToPixelBuffer:(GLuint)texture textureSize:(CGSize)textureSize;
 
 @end
 

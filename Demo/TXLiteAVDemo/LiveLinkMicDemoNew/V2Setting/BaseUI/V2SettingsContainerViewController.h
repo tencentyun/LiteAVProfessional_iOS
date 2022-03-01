@@ -1,9 +1,9 @@
 /*
-* Module:   V2SettingsContainerViewController
-*
-* Function: 基础框架类。包含多个子ViewController，标题栏为segmentControl，对应各页面的title
-*
-*/
+ * Module:   V2SettingsContainerViewController
+ *
+ * Function: 基础框架类。包含多个子ViewController，标题栏为segmentControl，对应各页面的title
+ *
+ */
 
 #import <UIKit/UIKit.h>
 
@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface V2SettingsContainerViewController : UIViewController
 
-@property (strong, nonatomic) NSArray<UIViewController *> *settingVCs;
+@property(strong, nonatomic) NSArray<UIViewController *> *settingVCs;
 
 @end
 

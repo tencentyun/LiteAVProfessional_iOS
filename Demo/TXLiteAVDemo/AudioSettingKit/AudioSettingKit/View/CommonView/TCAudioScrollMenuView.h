@@ -13,8 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @class TCAudioScrollMenuCellModel;
 @interface TCAudioScrollMenuView : UIView
 
-@property(nonatomic, strong)NSString* title;
-@property(nonatomic, strong)NSArray<TCAudioScrollMenuCellModel *> *dataSource;
+@property(nonatomic, strong) NSString *                             title;
+@property(nonatomic, strong) NSArray<TCAudioScrollMenuCellModel *> *dataSource;
 
 @end
 

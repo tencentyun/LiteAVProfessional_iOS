@@ -1,19 +1,20 @@
 /*
-* Module:   TRTCSettingsSelectorCell
-*
-* Function: 配置列表Cell，点击后弹出Alert Sheet，用于条目较多的选择
-*
-*/
+ * Module:   TRTCSettingsSelectorCell
+ *
+ * Function: 配置列表Cell，点击后弹出Alert Sheet，用于条目较多的选择
+ *
+ */
 
 #import "TRTCSettingsSelectorCell.h"
-#import "Masonry.h"
+
 #import "ColorMacro.h"
+#import "Masonry.h"
 #import "UILabel+TRTC.h"
 #import "UIView+Additions.h"
 
 @interface TRTCSettingsSelectorCell ()
 
-@property (strong, nonatomic) UILabel *itemLabel;
+@property(strong, nonatomic) UILabel *itemLabel;
 
 @end
 
@@ -21,10 +22,10 @@
 
 - (void)setupUI {
     [super setupUI];
-    
+
     self.itemLabel = [UILabel trtc_contentLabel];
     [self.contentView addSubview:self.itemLabel];
-    
+
     UIImageView *arrowView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"arrow"]];
     [self.contentView addSubview:arrowView];
 
@@ -40,7 +41,7 @@
         make.centerY.equalTo(self.contentView);
         make.trailing.equalTo(self.contentView).offset(-18);
     }];
-    
+
     UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelect)];
     [self.contentView addGestureRecognizer:tapGesture];
 }
@@ -57,7 +58,7 @@
 - (void)didSelect {
     TRTCSettingsSelectorItem *selectorItem = (TRTCSettingsSelectorItem *)self.item;
 
-    void (^actionHandler)(UIAlertAction * _Nonnull action) = ^(UIAlertAction * _Nonnull action) {
+    void (^actionHandler)(UIAlertAction *_Nonnull action) = ^(UIAlertAction *_Nonnull action) {
         self.itemLabel.text = action.title;
         [self onSelectItem:action.title];
     };
@@ -65,20 +66,18 @@
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         style = UIAlertControllerStyleAlert;
     }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:selectorItem.title
-                                                                   message:nil
-                                                            preferredStyle:style];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:selectorItem.title message:nil preferredStyle:style];
     for (NSString *item in selectorItem.items) {
         [alert addAction:[UIAlertAction actionWithTitle:item style:UIAlertActionStyleDefault handler:actionHandler]];
     }
     [alert addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:nil]];
-    
+
     [self.tx_viewController presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)onSelectItem:(NSString *)item {
     TRTCSettingsSelectorItem *selectorItem = (TRTCSettingsSelectorItem *)self.item;
-    NSInteger index = [selectorItem.items indexOfObject:item];
+    NSInteger                 index        = [selectorItem.items indexOfObject:item];
     if (index != NSNotFound) {
         selectorItem.selectedIndex = index;
         selectorItem.action(index);
@@ -87,18 +86,14 @@
 
 @end
 
-
 @implementation TRTCSettingsSelectorItem
 
-- (instancetype)initWithTitle:(NSString *)title
-                        items:(NSArray<NSString *> *)items
-                selectedIndex:(NSInteger)index
-                       action:(void (^)(NSInteger))action {
+- (instancetype)initWithTitle:(NSString *)title items:(NSArray<NSString *> *)items selectedIndex:(NSInteger)index action:(void (^)(NSInteger))action {
     if (self = [super init]) {
-        self.title = title;
-        _items = items;
+        self.title     = title;
+        _items         = items;
         _selectedIndex = index;
-        _action = action;
+        _action        = action;
     }
     return self;
 }
@@ -112,4 +107,3 @@
 }
 
 @end
-

@@ -1,7 +1,6 @@
 #ifndef SuperPlayerControlViewDelegate_h
 #define SuperPlayerControlViewDelegate_h
 
-
 @class SuperPlayerUrl;
 @class SuperPlayerControlView;
 
@@ -13,6 +12,8 @@
 - (void)controlViewPlay:(UIView *)controlView;
 /** 暂停 */
 - (void)controlViewPause:(UIView *)controlView;
+/** 播放下一个 */
+- (void)controlViewNextClick:(UIView *)controlView;
 /** 播放器全屏 */
 - (void)controlViewChangeScreen:(UIView *)controlView withFullScreen:(BOOL)isFullScreen;
 - (void)controlViewDidChangeScreen:(UIView *)controlView;
@@ -30,8 +31,17 @@
 - (void)controlViewSeek:(UIView *)controlView where:(CGFloat)pos;
 /** 滑动预览，pos 0~1 */
 - (void)controlViewPreview:(UIView *)controlView where:(CGFloat)pos;
+/** 调用关闭按钮，关闭tipView */
+- (void)onCloseClick;
+/** 调用返回按钮 */
+- (void)onBackClick;
+/** 调用开通VIP按钮 */
+- (void)onOpenVIPClick;
+/** 调用重试按钮 */
+- (void)onRepeatClick;
+/** 显示VipView */
+- (void)showVipView;
 
 @end
-
 
 #endif /* SuperPlayerControlViewDelegate_h */

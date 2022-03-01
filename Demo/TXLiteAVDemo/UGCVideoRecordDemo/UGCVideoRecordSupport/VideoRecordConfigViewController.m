@@ -21,9 +21,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *btnMedium;
 @property (weak, nonatomic) IBOutlet UIButton *btnHigh;
 @property (weak, nonatomic) IBOutlet UIButton *btnCustom;
+@property (weak, nonatomic) IBOutlet UIButton *btnBluelight;
 @property (weak, nonatomic) IBOutlet UIButton *btn360p;
 @property (weak, nonatomic) IBOutlet UIButton *btn540p;
 @property (weak, nonatomic) IBOutlet UIButton *btn720p;
+@property (weak, nonatomic) IBOutlet UIButton *btn1080p;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldKbps;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldFps;
 @property (weak, nonatomic) IBOutlet UITextField *textFieldDuration;
@@ -74,6 +76,7 @@
     [self setBtn:_btn360p selected:NO];
     [self setBtn:_btn540p selected:YES];
     [self setBtn:_btn720p selected:NO];
+    [self setBtn:_btn1080p selected:NO];
     [self setView:_viewKbps selected:NO];
     [self setView:_viewFps selected:NO];
     [self setView:_viewDuration selected:NO];
@@ -88,6 +91,24 @@
 #else
     [self.helpButton removeFromSuperview];
 #endif
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refreshRatioBtns];
+}
+
+- (void)refreshRatioBtns
+{
+    for (NSInteger idx = 0; idx < self.ratioButtons.count; ++idx) {
+        UIButton *btn = self.ratioButtons[idx];
+        if (btn.tag == _videoConfig.ratio) {
+            [self setBtn:btn selected:YES];
+        } else {
+            [self setBtn:btn selected:NO];
+        }
+    };
 }
 
 -(void)setBtn:(UIButton *)btn selected:(BOOL)selected
@@ -138,6 +159,7 @@
     [self setBtn:_btnLow selected:YES];
     [self setBtn:_btnMedium selected:NO];
     [self setBtn:_btnHigh selected:NO];
+    [self setBtn:_btnBluelight selected:NO];
     [self setBtn:_btnCustom selected:NO];
     _videoConfig.videoBitrate = 2400;
     _videoConfig.fps = 30;
@@ -153,6 +175,7 @@
     [self setBtn:_btnLow selected:NO];
     [self setBtn:_btnMedium selected:YES];
     [self setBtn:_btnHigh selected:NO];
+    [self setBtn:_btnBluelight selected:NO];
     [self setBtn:_btnCustom selected:NO];
     [self setView:_viewKbps selected:NO];
     [self setView:_viewFps selected:NO];
@@ -171,6 +194,7 @@
     [self setBtn:_btnLow selected:NO];
     [self setBtn:_btnMedium selected:NO];
     [self setBtn:_btnHigh selected:YES];
+    [self setBtn:_btnBluelight selected:NO];
     [self setBtn:_btnCustom selected:NO];
     [self setView:_viewKbps selected:NO];
     [self setView:_viewFps selected:NO];
@@ -185,14 +209,36 @@
     _textFieldDuration.text = [@(_videoConfig.gop) stringValue];
 }
 
+- (IBAction)onClickBlueLight:(id)sender {
+    [self setBtn:_btnLow selected:NO];
+    [self setBtn:_btnMedium selected:NO];
+    [self setBtn:_btnHigh selected:NO];
+    [self setBtn:_btnBluelight selected:YES];
+    [self setBtn:_btnCustom selected:NO];
+    [self setView:_viewKbps selected:NO];
+    [self setView:_viewFps selected:NO];
+    [self setView:_viewDuration selected:NO];
+    [self setBtnEnable:NO];
+    [self onclick1080:nil];
+    _videoConfig.videoBitrate = 13000;
+    _videoConfig.fps = 30;
+    _videoConfig.gop = 3;
+    _textFieldKbps.text = [@(_videoConfig.videoBitrate) stringValue];
+    _textFieldFps.text = [@(_videoConfig.fps) stringValue];
+    _textFieldDuration.text = [@(_videoConfig.gop) stringValue];
+}
+
+
 - (IBAction)onclickCustom:(id)sender {
     [self setBtn:_btnLow selected:NO];
     [self setBtn:_btnMedium selected:NO];
     [self setBtn:_btnHigh selected:NO];
+    [self setBtn:_btnBluelight selected:NO];
     [self setBtn:_btnCustom selected:YES];
     [self setBtn:_btn360p selected:NO];
     [self setBtn:_btn540p selected:YES];
     [self setBtn:_btn720p selected:NO];
+    [self setBtn:_btn1080p selected:NO];
     [self setView:_viewKbps selected:YES];
     [self setView:_viewFps selected:NO];
     [self setView:_viewDuration selected:NO];
@@ -213,26 +259,39 @@
     _btn360p.enabled = enabled;
     _btn540p.enabled = enabled;
     _btn720p.enabled = enabled;
+    _btn1080p.enabled = enabled;
 }
 
 - (IBAction)onClick360:(id)sender {
     [self setBtn:_btn360p selected:YES];
     [self setBtn:_btn540p selected:NO];
     [self setBtn:_btn720p selected:NO];
+    [self setBtn:_btn1080p selected:NO];
     _videoConfig.resolution = VIDEO_RESOLUTION_360_640;
 }
 
 - (IBAction)onClick540:(id)sender {
     [self setBtn:_btn360p selected:NO];
     [self setBtn:_btn540p selected:YES];
-    [self setBtn:_btn720p selected:NO];    _videoConfig.resolution = VIDEO_RESOLUTION_540_960;
+    [self setBtn:_btn720p selected:NO];
+    [self setBtn:_btn1080p selected:NO];
+    _videoConfig.resolution = VIDEO_RESOLUTION_540_960;
 }
 
 - (IBAction)onclick720:(id)sender {
     [self setBtn:_btn360p selected:NO];
     [self setBtn:_btn540p selected:NO];
     [self setBtn:_btn720p selected:YES];
+    [self setBtn:_btn1080p selected:NO];
     _videoConfig.resolution = VIDEO_RESOLUTION_720_1280;
+}
+
+- (IBAction)onclick1080:(id)sender {
+    [self setBtn:_btn360p selected:NO];
+    [self setBtn:_btn540p selected:NO];
+    [self setBtn:_btn720p selected:NO];
+    [self setBtn:_btn1080p selected:YES];
+    _videoConfig.resolution = VIDEO_RESOLUTION_1080_1920;
 }
 
 - (IBAction)onClickAEC:(UISwitch *)sender {

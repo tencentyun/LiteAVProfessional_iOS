@@ -1,19 +1,20 @@
 /*
-* Module:   V2SettingsContainerViewController
-*
-* Function: 基础框架类。包含多个子ViewController，标题栏为segmentControl，对应各页面的title
-*
-*/
+ * Module:   V2SettingsContainerViewController
+ *
+ * Function: 基础框架类。包含多个子ViewController，标题栏为segmentControl，对应各页面的title
+ *
+ */
 
 #import "V2SettingsContainerViewController.h"
-#import "UISegmentedControl+V2.h"
-#import "Masonry.h"
+
 #import "ColorMacro.h"
+#import "Masonry.h"
+#import "UISegmentedControl+V2.h"
 
 @interface V2SettingsContainerViewController ()
 
-@property (strong, nonatomic) UISegmentedControl *segment;
-@property (strong, nonatomic) UIView *containerView;
+@property(strong, nonatomic) UISegmentedControl *segment;
+@property(strong, nonatomic) UIView *            containerView;
 
 @end
 
@@ -31,17 +32,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.clearColor;
-    
 }
 
 - (void)setupSegment {
     self.segment = [UISegmentedControl v2_segment];
-    
+
     NSMutableDictionary *normalTextAttr = [[self.segment titleTextAttributesForState:UIControlStateNormal] mutableCopy];
     normalTextAttr[NSFontAttributeName] = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
     [self.segment setTitleTextAttributes:normalTextAttr forState:UIControlStateNormal];
-    
-    normalTextAttr = [[self.segment titleTextAttributesForState:UIControlStateSelected] mutableCopy];
+
+    normalTextAttr                      = [[self.segment titleTextAttributesForState:UIControlStateSelected] mutableCopy];
     normalTextAttr[NSFontAttributeName] = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
     [self.segment setTitleTextAttributes:normalTextAttr forState:UIControlStateSelected];
 
@@ -54,9 +54,9 @@
 }
 
 - (void)setupContainerView {
-    self.containerView = [[UIView alloc] init];
+    self.containerView                 = [[UIView alloc] init];
     self.containerView.backgroundColor = UIColor.clearColor;
-    
+
     [self.view addSubview:self.containerView];
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(44);
@@ -70,9 +70,9 @@
     }
 
     _settingVCs = settingVCs;
-    
+
     [self.segment removeAllSegments];
-    [settingVCs enumerateObjectsUsingBlock:^(UIViewController * _Nonnull vc, NSUInteger idx, BOOL * _Nonnull stop) {
+    [settingVCs enumerateObjectsUsingBlock:^(UIViewController *_Nonnull vc, NSUInteger idx, BOOL *_Nonnull stop) {
         [self.segment insertSegmentWithTitle:vc.title atIndex:idx animated:NO];
     }];
     self.segment.selectedSegmentIndex = 0;

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>licenceConfig</key>
+	<dict>
+		<key>licenceUrl</key>
+		<string>http://ugc-licence-test-1252463788.file.myqcloud.com/RDM_Enterprise_hybrid.licence</string>
+		<key>licenceKey</key>
+		<string>9bc74ac7bfd07ea392e8fdff2ba5678a</string>
+	</dict>
+	<key>menuConfig</key>
+	<array>
+		<dict>
+			<key>subMenus</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>MLVB.MainMenu.Shooting</string>
+					<key>method</key>
+					<string>showRecordEntryController</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>MLVB.MainMenu.SpecialEffects</string>
+					<key>method</key>
+					<string>showideoEditEntryController</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>MLVB.MainMenu.VideoSplicing</string>
+					<key>method</key>
+					<string>showVideoJoinEntryController</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>MLVB.MainMenu.ImageTransition</string>
+					<key>method</key>
+					<string>showPhotoEditController</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>MLVB.MainMenu.VideoUpload</string>
+					<key>method</key>
+					<string>showVideoUploadEntryController</string>
+				</dict>
+				<dict>
+					<key>title</key>
+					<string>MLVB.MainMenu.UGSVApp</string>
+					<key>method</key>
+					<string>showXiaoShiPinAppStore</string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>MLVB.MainMenu.UGSV</string>
+		</dict>
+	</array>
+</dict>
+</plist>

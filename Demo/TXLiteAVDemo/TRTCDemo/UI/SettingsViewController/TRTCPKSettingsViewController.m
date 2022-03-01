@@ -1,28 +1,28 @@
 /*
-* Module:   TRTCPKSettingsViewController
-*
-* Function: 跨房PK页
-*
-*    1. 通过TRTCCloudManager来开启关闭跨房连麦。
-*
-*/
+ * Module:   TRTCPKSettingsViewController
+ *
+ * Function: 跨房PK页
+ *
+ *    1. 通过TRTCCloudManager来开启关闭跨房连麦。
+ *
+ */
 
 #import "TRTCPKSettingsViewController.h"
-#import "UIButton+TRTC.h"
+
+#import "AppLocalized.h"
 #import "ColorMacro.h"
 #import "Masonry.h"
-#import "AppLocalized.h"
+#import "UIButton+TRTC.h"
 
 @interface TRTCPKSettingsViewController ()
 
-@property (strong, nonatomic) TRTCSettingsLargeInputItem* roomItem;
-@property (strong, nonatomic) TRTCSettingsLargeInputItem* nameItem;
-@property (strong, nonatomic) UIButton *actionButton;
+@property(strong, nonatomic) TRTCSettingsLargeInputItem *roomItem;
+@property(strong, nonatomic) TRTCSettingsLargeInputItem *nameItem;
+@property(strong, nonatomic) UIButton *                  actionButton;
 
 @end
 
 @implementation TRTCPKSettingsViewController
-
 
 - (NSString *)title {
     return @"pk";
@@ -30,21 +30,18 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     NSMutableArray *array = [NSMutableArray array];
-    self.roomItem = [[TRTCSettingsLargeInputItem alloc] initWithTitle:TRTCLocalize(@"Demo.TRTC.Live.remoteRoomId")
-                                                          placeHolder:@""];
+    self.roomItem         = [[TRTCSettingsLargeInputItem alloc] initWithTitle:TRTCLocalize(@"Demo.TRTC.Live.remoteRoomId") placeHolder:@""];
     [array addObject:self.roomItem];
     self.roomItem.maxLength = 10;
-    
-    self.nameItem = [[TRTCSettingsLargeInputItem alloc] initWithTitle:TRTCLocalize(@"Demo.TRTC.Live.remoteUserId")
-                                                          placeHolder:@""];
+
+    self.nameItem = [[TRTCSettingsLargeInputItem alloc] initWithTitle:TRTCLocalize(@"Demo.TRTC.Live.remoteUserId") placeHolder:@""];
     [array addObject:self.nameItem];
     self.nameItem.maxLength = 40;
-    
+
     self.items = array;
 
-    
     self.actionButton = [UIButton trtc_cellButtonWithTitle:TRTCLocalize(@"Demo.TRTC.Live.startPk")];
     [self.actionButton setTitle:TRTCLocalize(@"Demo.TRTC.Live.stopPk") forState:UIControlStateSelected];
     [self.view addSubview:self.actionButton];
@@ -57,7 +54,6 @@
         make.bottom.equalTo(self.view).offset(-40);
         make.height.mas_equalTo(49);
     }];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -96,6 +92,5 @@
     self.actionButton.selected = !self.actionButton.isSelected;
     [self.trtcCloudManager stopCrossRomm];
 }
-
 
 @end

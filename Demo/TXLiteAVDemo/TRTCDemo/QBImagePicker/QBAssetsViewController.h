@@ -13,7 +13,7 @@
 
 @interface QBAssetsViewController : UICollectionViewController
 
-@property (nonatomic, weak) QBImagePickerController *imagePickerController;
-@property (nonatomic, strong) PHAssetCollection *assetCollection;
+@property(nonatomic, weak) QBImagePickerController *imagePickerController;
+@property(nonatomic, strong) PHAssetCollection *    assetCollection;
 
 @end

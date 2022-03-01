@@ -5,7 +5,7 @@
  */
 
 #import <UIKit/UIKit.h>
-
+#import "V2TXLivePusher.h"
 @class PushMoreSettingViewController;
 
 @protocol PushMoreSettingDelegate <NSObject>
@@ -31,13 +31,20 @@
 // 是否开启手动点击曝光对焦
 - (void)onPushMoreSetting:(PushMoreSettingViewController *)vc touchFocus:(BOOL)enable;
 
+// 是否开启横屏推流
+- (void)onPushMoreSetting:(PushMoreSettingViewController *)vc resolutionLandscap:(BOOL)enable;
+
 // 本地截图
 - (void)onPushMoreSettingSnapShot:(PushMoreSettingViewController *)vc;
 
+// 弹框提示
+- (void)onPushMoreSetting:(PushMoreSettingViewController *)vc alertTips:(NSString *)text;
+
 @end
 
-@interface PushMoreSettingViewController : UITableViewController
-@property (nonatomic, weak) id<PushMoreSettingDelegate> delegate;
+@interface                                             PushMoreSettingViewController : UITableViewController
+@property(nonatomic, weak) id<PushMoreSettingDelegate> delegate;
+@property(nonatomic, weak) V2TXLivePusher             *pusher;
 
 /*** 从文件中读取配置 ***/
 + (BOOL)isDisableVideo;
@@ -48,8 +55,11 @@
 + (BOOL)isEnableDelayCheck;
 + (BOOL)isEnableWaterMark;
 + (BOOL)isEnableTouchFocus;
++ (BOOL)isEnableResolutionLandscap;
 
 /*** 写配置文件 ***/
 + (void)setDisableVideo:(BOOL)disable;
+
+- (void)updateOpenTorch:(BOOL)disable;
 
 @end

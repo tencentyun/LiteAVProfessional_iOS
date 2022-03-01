@@ -10,16 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void(^CellAction)(void);
+typedef void (^CellAction)(void);
 
 @interface TCAudioScrollMenuCellModel : NSObject
 
-@property (nonatomic, assign) NSInteger actionID;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) UIImage *icon;
-@property (nonatomic, strong) UIImage *selectedIcon;
-@property (nonatomic, assign, getter=isSelected) BOOL selected;
-@property (nonatomic, copy)CellAction action;
+@property(nonatomic, assign) NSInteger               actionID;
+@property(nonatomic, strong) NSString *              title;
+@property(nonatomic, strong) UIImage *               icon;
+@property(nonatomic, strong) UIImage *               selectedIcon;
+@property(nonatomic, assign, getter=isSelected) BOOL selected;
+@property(nonatomic, copy) CellAction                action;
 
 @end
 

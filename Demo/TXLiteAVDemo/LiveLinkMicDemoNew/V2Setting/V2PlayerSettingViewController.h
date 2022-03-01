@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "V2TXLivePlayer.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -19,21 +20,19 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)v2PlayerSettingVC:(V2PlayerSettingViewController *)container didClickMuteAudio:(BOOL)muteAudio;
 - (void)v2PlayerSettingVC:(V2PlayerSettingViewController *)container didClickLog:(BOOL)isLogShow;
 - (void)v2PlayerSettingVC:(V2PlayerSettingViewController *)container enableVolumeEvaluation:(BOOL)isEnable;
+- (void)showText:(NSString *)text withDetailText:(NSString *)detail;
 
 @end
 
-@interface V2PlayerSettingViewController : UIView
-@property (nonatomic, assign) BOOL isStart;
-@property (nonatomic, assign) BOOL isAudioMuted;
-@property (nonatomic, assign) BOOL isVideoMuted;
-@property (nonatomic, assign) BOOL isLogShow;
-@property (nonatomic, weak) id<V2PlayerSettingViewControllerDelegate> delegate;
+@interface                                                           V2PlayerSettingViewController : UIView
+@property(nonatomic, assign) BOOL                                    isStart;
+@property(nonatomic, assign) BOOL                                    isAudioMuted;
+@property(nonatomic, assign) BOOL                                    isVideoMuted;
+@property(nonatomic, assign) BOOL                                    isLogShow;
+@property(nonatomic, assign) int                                     payloadType;
+@property(nonatomic, weak) id<V2PlayerSettingViewControllerDelegate> delegate;
 
-- (instancetype)initWithHostVC:(UIViewController *)hostVC
-                     muteAudio:(BOOL)isAudioMuted
-                     muteVideo:(BOOL)isVideoMuted
-                       logView:(BOOL)isLogShow
-                        player:(V2TXLivePlayer *)player;
+- (instancetype)initWithHostVC:(UIViewController *)hostVC muteAudio:(BOOL)isAudioMuted muteVideo:(BOOL)isVideoMuted logView:(BOOL)isLogShow player:(V2TXLivePlayer *)player;
 
 //- (void)clearSettingVC;
 

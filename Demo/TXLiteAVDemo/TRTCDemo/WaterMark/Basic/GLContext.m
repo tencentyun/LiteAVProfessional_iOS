@@ -7,32 +7,30 @@
 
 #import "GLContext.h"
 
-#define MAXSHADERPROGRAMSALLOWEDINCACHE 40
 extern dispatch_queue_attr_t GLDefaultQueueAttribute(void);
 
-@interface GLContext()
-{
+@interface GLContext () {
     NSMutableDictionary *shaderProgramCache;
-    NSMutableArray *shaderProgramUsageHistory;
-    EAGLSharegroup *_sharegroup;
+    NSMutableArray *     shaderProgramUsageHistory;
+    EAGLSharegroup *     _sharegroup;
 }
 @end
 
 @implementation GLContext
-@synthesize context = _context;
-@synthesize currentShaderProgram = _currentShaderProgram;
-@synthesize contextQueue = _contextQueue;
-@synthesize coreVideoTextureCache = _coreVideoTextureCache;
-@synthesize framebufferCache = _framebufferCache;
+@synthesize     context               = _context;
+@synthesize     currentShaderProgram  = _currentShaderProgram;
+@synthesize     contextQueue          = _contextQueue;
+@synthesize     coreVideoTextureCache = _coreVideoTextureCache;
+@synthesize     framebufferCache      = _framebufferCache;
 
 static void *openGLESContextQueueKey;
 
 - (id)init {
     if (self == [super init]) {
         openGLESContextQueueKey = &openGLESContextQueueKey;
-        _contextQueue = dispatch_queue_create("com.adams.gl.openGLESContextQueue", GLDefaultQueueAttribute());
+        _contextQueue           = dispatch_queue_create("com.adams.gl.openGLESContextQueue", GLDefaultQueueAttribute());
         dispatch_queue_set_specific(_contextQueue, openGLESContextQueueKey, (__bridge void *)self, NULL);
-        shaderProgramCache = [[NSMutableDictionary alloc] init];
+        shaderProgramCache        = [[NSMutableDictionary alloc] init];
         shaderProgramUsageHistory = [[NSMutableArray alloc] init];
     }
     return self;
@@ -44,7 +42,7 @@ static void *openGLESContextQueueKey;
 
 + (GLContext *)sharedImageProcessingContext {
     static dispatch_once_t pred;
-    static GLContext *sharedImageProcessingContext = nil;
+    static GLContext *     sharedImageProcessingContext = nil;
     dispatch_once(&pred, ^{
         sharedImageProcessingContext = [[[self class] alloc] init];
     });
@@ -65,8 +63,7 @@ static void *openGLESContextQueueKey;
 
 - (void)useAsCurrentContext {
     EAGLContext *imageProcessingContext = [self context];
-    if ([EAGLContext currentContext] != imageProcessingContext)
-    {
+    if ([EAGLContext currentContext] != imageProcessingContext) {
         [EAGLContext setCurrentContext:imageProcessingContext];
     }
 }
@@ -81,7 +78,7 @@ static void *openGLESContextQueueKey;
     if ([EAGLContext currentContext] != imageProcessingContext) {
         [EAGLContext setCurrentContext:imageProcessingContext];
     }
-    
+
     if (self.currentShaderProgram != shaderProgram) {
         self.currentShaderProgram = shaderProgram;
         [shaderProgram use];
@@ -90,8 +87,8 @@ static void *openGLESContextQueueKey;
 
 + (GLint)maximumTextureSizeForThisDevice {
     static dispatch_once_t pred;
-    static GLint maxTextureSize = 0;
-    
+    static GLint           maxTextureSize = 0;
+
     dispatch_once(&pred, ^{
         [self useImageProcessingContext];
         glGetIntegerv(GL_MAX_TEXTURE_SIZE, &maxTextureSize);
@@ -102,19 +99,19 @@ static void *openGLESContextQueueKey;
 
 + (GLint)maximumTextureUnitsForThisDevice {
     static dispatch_once_t pred;
-    static GLint maxTextureUnits = 0;
+    static GLint           maxTextureUnits = 0;
 
     dispatch_once(&pred, ^{
         [self useImageProcessingContext];
         glGetIntegerv(GL_MAX_TEXTURE_IMAGE_UNITS, &maxTextureUnits);
     });
-    
+
     return maxTextureUnits;
 }
 
 + (GLint)maximumVaryingVectorsForThisDevice {
     static dispatch_once_t pred;
-    static GLint maxVaryingVectors = 0;
+    static GLint           maxVaryingVectors = 0;
 
     dispatch_once(&pred, ^{
         [self useImageProcessingContext];
@@ -126,12 +123,12 @@ static void *openGLESContextQueueKey;
 
 + (BOOL)deviceSupportsOpenGLESExtension:(NSString *)extension {
     static dispatch_once_t pred;
-    static NSArray *extensionNames = nil;
-    
+    static NSArray *       extensionNames = nil;
+
     dispatch_once(&pred, ^{
         [GLContext useImageProcessingContext];
         NSString *extensionsString = [NSString stringWithCString:(const char *)glGetString(GL_EXTENSIONS) encoding:NSASCIIStringEncoding];
-        extensionNames = [extensionsString componentsSeparatedByString:@" "];
+        extensionNames             = [extensionsString componentsSeparatedByString:@" "];
     });
 
     return [extensionNames containsObject:extension];
@@ -139,23 +136,23 @@ static void *openGLESContextQueueKey;
 
 + (BOOL)deviceSupportsRedTextures {
     static dispatch_once_t pred;
-    static BOOL supportsRedTextures = NO;
-    
+    static BOOL            supportsRedTextures = NO;
+
     dispatch_once(&pred, ^{
         supportsRedTextures = [GLContext deviceSupportsOpenGLESExtension:@"GL_EXT_texture_rg"];
     });
-    
+
     return supportsRedTextures;
 }
 
 + (BOOL)deviceSupportsFramebufferReads {
     static dispatch_once_t pred;
-    static BOOL supportsFramebufferReads = NO;
-    
+    static BOOL            supportsFramebufferReads = NO;
+
     dispatch_once(&pred, ^{
         supportsFramebufferReads = [GLContext deviceSupportsOpenGLESExtension:@"GL_EXT_shader_framebuffer_fetch"];
     });
-    
+
     return supportsFramebufferReads;
 }
 
@@ -164,16 +161,16 @@ static void *openGLESContextQueueKey;
     if ((inputSize.width < maxTextureSize) && (inputSize.height < maxTextureSize)) {
         return inputSize;
     }
-    
+
     CGSize adjustedSize;
     if (inputSize.width > inputSize.height) {
-        adjustedSize.width = (CGFloat)maxTextureSize;
+        adjustedSize.width  = (CGFloat)maxTextureSize;
         adjustedSize.height = ((CGFloat)maxTextureSize / inputSize.width) * inputSize.height;
     } else {
         adjustedSize.height = (CGFloat)maxTextureSize;
-        adjustedSize.width = ((CGFloat)maxTextureSize / inputSize.height) * inputSize.width;
+        adjustedSize.width  = ((CGFloat)maxTextureSize / inputSize.height) * inputSize.width;
     }
-    
+
     return adjustedSize;
 }
 
@@ -182,14 +179,14 @@ static void *openGLESContextQueueKey;
 }
 
 - (GLProgram *)programForVertexShaderString:(NSString *)vertexShaderString fragmentShaderString:(NSString *)fragmentShaderString {
-    NSString *lookupKeyForShaderProgram = [NSString stringWithFormat:@"V: %@ - F: %@", vertexShaderString, fragmentShaderString];
-    GLProgram *programFromCache = [shaderProgramCache objectForKey:lookupKeyForShaderProgram];
+    NSString * lookupKeyForShaderProgram = [NSString stringWithFormat:@"V: %@ - F: %@", vertexShaderString, fragmentShaderString];
+    GLProgram *programFromCache          = [shaderProgramCache objectForKey:lookupKeyForShaderProgram];
 
     if (programFromCache == nil) {
         programFromCache = [[GLProgram alloc] initWithVertexShaderString:vertexShaderString fragmentShaderString:fragmentShaderString];
         [shaderProgramCache setObject:programFromCache forKey:lookupKeyForShaderProgram];
     }
-    
+
     return programFromCache;
 }
 
@@ -208,7 +205,7 @@ static void *openGLESContextQueueKey;
 #if TARGET_IPHONE_SIMULATOR
     return NO;
 #else
-    
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wtautological-pointer-compare"
     return (CVOpenGLESTextureCacheCreate != NULL);
@@ -242,7 +239,5 @@ static void *openGLESContextQueueKey;
     }
     return _framebufferCache;
 }
-
-
 
 @end

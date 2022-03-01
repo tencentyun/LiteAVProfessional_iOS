@@ -14,6 +14,16 @@
 #import "AppDelegate.h"
 #import "AppLocalized.h"
 
+typedef enum UploadVideoCompressed
+{
+    UPLOAD_VIDEO_COMPRESSED_NONE                    = 0,     ///不压缩
+    UPLOAD_VIDEO_COMPRESSED_360P                    = 1,     ///压缩至360P分辨率
+    UPLOAD_VIDEO_COMPRESSED_480P                    = 2,     ///压缩至480P分辨率
+    UPLOAD_VIDEO_COMPRESSED_540P                    = 3,     ///压缩至540P分辨率
+    UPLOAD_VIDEO_COMPRESSED_720P                    = 4,     ///压缩至720P分辨率
+    UPLOAD_VIDEO_COMPRESSED_1080P                   = 5,     ///压缩至1080P分辨率
+} UploadVideoCompressed;
+
 @interface VideoCompressViewController ()<TXVideoGenerateListener,UITextFieldDelegate>
 
 @end
@@ -25,6 +35,7 @@
     UIButton *_btn480p;
     UIButton *_btn540p;
     UIButton *_btn720p;
+    UIButton *_btn1080p;
     UIButton *_generateCannelBtn;
     UIView   *_biterateView;
     UIView   *_generationView;
@@ -51,7 +62,7 @@
     self.navigationItem.leftBarButtonItem = customBackButton;
     self.view.backgroundColor = [UIColor blackColor];
     
-    int count = 5;
+    int count = 6;
     CGFloat startSpace = 15 * kScaleX;
     CGFloat btnWidth = (self.view.width - startSpace * 2) / count;
     CGFloat btnHeight = 40 * kScaleY;
@@ -60,42 +71,50 @@
     [_btnNone setFrame:CGRectMake(startSpace, 100 * kScaleY, btnWidth, btnHeight)];
     [_btnNone setTitle:UGCLocalize(@"UGCVideoUploadDemo.VideoCompress.thereisno") forState:UIControlStateNormal];
     [_btnNone addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-    _btnNone.tag = 0;
+    _btnNone.tag = UPLOAD_VIDEO_COMPRESSED_NONE;
     [self.view addSubview:_btnNone];
     
     _btn360p = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btn360p setFrame:CGRectMake(startSpace + btnWidth, _btnNone.y, btnWidth, btnHeight)];
     [_btn360p setTitle:@"360p" forState:UIControlStateNormal];
     [_btn360p addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-    _btn360p.tag = 1;
+    _btn360p.tag = UPLOAD_VIDEO_COMPRESSED_360P;
     [self.view addSubview:_btn360p];
     
     _btn480p = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btn480p setTitle:@"480p" forState:UIControlStateNormal];
     [_btn480p setFrame:CGRectMake(startSpace + btnWidth * 2,_btnNone.y, btnWidth, btnHeight)];
     [_btn480p addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-    _btn480p.tag = 2;
+    _btn480p.tag = UPLOAD_VIDEO_COMPRESSED_480P;
     [self.view addSubview:_btn480p];
     
     _btn540p = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btn540p setTitle:@"540p" forState:UIControlStateNormal];
     [_btn540p setFrame:CGRectMake(startSpace + btnWidth * 3, _btnNone.y, btnWidth, btnHeight)];
     [_btn540p addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-    _btn540p.tag = 3;
+    _btn540p.tag = UPLOAD_VIDEO_COMPRESSED_540P;
     [self.view addSubview:_btn540p];
     
     _btn720p = [UIButton buttonWithType:UIButtonTypeCustom];
     [_btn720p setTitle:@"720p" forState:UIControlStateNormal];
     [_btn720p setFrame:CGRectMake(startSpace + btnWidth * 4, _btnNone.y, btnWidth, btnHeight)];
     [_btn720p addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
-    _btn720p.tag = 4;
+    _btn720p.tag = UPLOAD_VIDEO_COMPRESSED_720P;
     [self.view addSubview:_btn720p];
+    
+    _btn1080p = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_btn1080p setTitle:@"1080p" forState:UIControlStateNormal];
+    [_btn1080p setFrame:CGRectMake(startSpace + btnWidth * 5, _btnNone.y, btnWidth, btnHeight)];
+    [_btn1080p addTarget:self action:@selector(click:) forControlEvents:UIControlEventTouchUpInside];
+    _btn1080p.tag = UPLOAD_VIDEO_COMPRESSED_1080P;
+    [self.view addSubview:_btn1080p];
     
     [self setBtn:_btnNone selected:YES];
     [self setBtn:_btn360p selected:NO];
     [self setBtn:_btn480p selected:NO];
     [self setBtn:_btn540p selected:NO];
     [self setBtn:_btn720p selected:NO];
+    [self setBtn:_btn1080p selected:NO];
     
     _biterateView = [[UIView alloc] initWithFrame:CGRectMake(15 * kScaleX, _btnNone.bottom + 50 * kScaleY, self.view.width - 30 * kScaleX, 40 * kScaleY)];
     [self.view addSubview:_biterateView];
@@ -252,54 +271,70 @@
 -(void)click:(UIButton *)btn
 {
     switch (btn.tag) {
-        case 0:
+        case UPLOAD_VIDEO_COMPRESSED_NONE:
         {
             [self setBtn:_btnNone selected:YES];
             [self setBtn:_btn360p selected:NO];
             [self setBtn:_btn480p selected:NO];
             [self setBtn:_btn540p selected:NO];
             [self setBtn:_btn720p selected:NO];
+            [self setBtn:_btn1080p selected:NO];
             _compressed = -1;
         }
             break;
-        case 1:
+        case UPLOAD_VIDEO_COMPRESSED_360P:
         {
             [self setBtn:_btnNone selected:NO];
             [self setBtn:_btn360p selected:YES];
             [self setBtn:_btn480p selected:NO];
             [self setBtn:_btn540p selected:NO];
             [self setBtn:_btn720p selected:NO];
+            [self setBtn:_btn1080p selected:NO];
             _compressed = VIDEO_COMPRESSED_360P;
         }
             break;
-        case 2:
+        case UPLOAD_VIDEO_COMPRESSED_480P:
         {
             [self setBtn:_btnNone selected:NO];
             [self setBtn:_btn360p selected:NO];
             [self setBtn:_btn480p selected:YES];
             [self setBtn:_btn540p selected:NO];
             [self setBtn:_btn720p selected:NO];
+            [self setBtn:_btn1080p selected:NO];
             _compressed = VIDEO_COMPRESSED_480P;
         }
             break;
-        case 3:
+        case UPLOAD_VIDEO_COMPRESSED_540P:
         {
             [self setBtn:_btnNone selected:NO];
             [self setBtn:_btn360p selected:NO];
             [self setBtn:_btn480p selected:NO];
             [self setBtn:_btn540p selected:YES];
             [self setBtn:_btn720p selected:NO];
+            [self setBtn:_btn1080p selected:NO];
             _compressed = VIDEO_COMPRESSED_540P;
         }
             break;
-        case 4:
+        case UPLOAD_VIDEO_COMPRESSED_720P:
         {
             [self setBtn:_btnNone selected:NO];
             [self setBtn:_btn360p selected:NO];
             [self setBtn:_btn480p selected:NO];
             [self setBtn:_btn540p selected:NO];
             [self setBtn:_btn720p selected:YES];
+            [self setBtn:_btn1080p selected:NO];
             _compressed = VIDEO_COMPRESSED_720P;
+        }
+            break;
+        case UPLOAD_VIDEO_COMPRESSED_1080P:
+        {
+            [self setBtn:_btnNone selected:NO];
+            [self setBtn:_btn360p selected:NO];
+            [self setBtn:_btn480p selected:NO];
+            [self setBtn:_btn540p selected:NO];
+            [self setBtn:_btn720p selected:NO];
+            [self setBtn:_btn1080p selected:YES];
+            _compressed = VIDEO_COMPRESSED_1080P;
         }
             break;
         default:

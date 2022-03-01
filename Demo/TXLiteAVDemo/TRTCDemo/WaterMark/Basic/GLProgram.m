@@ -7,10 +7,10 @@
 
 #import "GLProgram.h"
 
-typedef void (*GLInfoFunction)(GLuint program, GLenum pname, GLint* params);
-typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length, GLchar* infolog);
+typedef void (*GLInfoFunction)(GLuint program, GLenum pname, GLint *params);
+typedef void (*GLLogFunction)(GLuint program, GLsizei bufsize, GLsizei *length, GLchar *infolog);
 
-@interface GLProgram()
+@interface GLProgram ()
 
 @end
 
@@ -21,18 +21,18 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
 - (id)initWithVertexShaderString:(NSString *)vShaderString fragmentShaderString:(NSString *)fShaderString {
     if (self == [super init]) {
         _initialized = NO;
-        attributes = [[NSMutableArray alloc] init];
-        uniforms = [[NSMutableArray alloc] init];
-        program = glCreateProgram();
-        
+        attributes   = [[NSMutableArray alloc] init];
+        uniforms     = [[NSMutableArray alloc] init];
+        program      = glCreateProgram();
+
         if (![self compileShader:&vertShader type:GL_VERTEX_SHADER string:vShaderString]) {
             NSLog(@"Failed to compile vertex shader");
         }
-        
+
         if (![self compileShader:&fragShader type:GL_FRAGMENT_SHADER string:fShaderString]) {
             NSLog(@"Failed to compile fragment shader");
         }
-        
+
         glAttachShader(program, vertShader);
         glAttachShader(program, fragShader);
     }
@@ -40,10 +40,9 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
 }
 
 - (id)initWithVertexShaderString:(NSString *)vShaderString fragmentShaderFilename:(NSString *)fShaderFilename {
-    NSString *fragShaderPathname = [[NSBundle mainBundle] pathForResource:fShaderFilename ofType:@"fsh"];
+    NSString *fragShaderPathname   = [[NSBundle mainBundle] pathForResource:fShaderFilename ofType:@"fsh"];
     NSString *fragmentShaderString = [NSString stringWithContentsOfFile:fragShaderPathname encoding:NSUTF8StringEncoding error:nil];
     if (self == [self initWithVertexShaderString:vShaderString fragmentShaderString:fragmentShaderString]) {
-        
     }
     return self;
 }
@@ -51,30 +50,29 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
 - (id)initWithVertexShaderFilename:(NSString *)vShaderFilename fragmentShaderFilename:(NSString *)fShaderFilename {
     NSString *vertShaderPathname = [[NSBundle mainBundle] pathForResource:vShaderFilename ofType:@"vsh"];
     NSString *vertexShaderString = [NSString stringWithContentsOfFile:vertShaderPathname encoding:NSUTF8StringEncoding error:nil];
-    
-    NSString *fragShaderPathname = [[NSBundle mainBundle] pathForResource:fShaderFilename ofType:@"fsh"];
+
+    NSString *fragShaderPathname   = [[NSBundle mainBundle] pathForResource:fShaderFilename ofType:@"fsh"];
     NSString *fragmentShaderString = [NSString stringWithContentsOfFile:fragShaderPathname encoding:NSUTF8StringEncoding error:nil];
-    
+
     if (self == [self initWithVertexShaderString:vertexShaderString fragmentShaderString:fragmentShaderString]) {
-        
     }
     return self;
 }
 
 - (BOOL)compileShader:(GLuint *)shader type:(GLenum)type string:(NSString *)shaderString {
-    GLint status;
+    GLint         status;
     const GLchar *source;
     source = (GLchar *)[shaderString UTF8String];
     if (!source) {
         NSLog(@"Failed to load vertex shader");
         return NO;
     }
-    
+
     *shader = glCreateShader(type);
     glShaderSource(*shader, 1, &source, NULL);
     glCompileShader(*shader);
     glGetShaderiv(*shader, GL_COMPILE_STATUS, &status);
-    
+
     if (status != GL_TRUE) {
         GLint logLength;
         glGetShaderiv(*shader, GL_INFO_LOG_LENGTH, &logLength);
@@ -114,17 +112,17 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
     if (status == GL_FALSE) {
         return NO;
     }
-    
+
     if (vertShader) {
         glDeleteShader(vertShader);
         vertShader = 0;
     }
-    
+
     if (fragShader) {
         glDeleteShader(fragShader);
         fragShader = 0;
     }
-    
+
     self.initialized = YES;
     return YES;
 }
@@ -149,11 +147,11 @@ typedef void (*GLLogFunction) (GLuint program, GLsizei bufsize, GLsizei* length,
     if (vertShader) {
         glDeleteShader(vertShader);
     }
-        
+
     if (fragShader) {
         glDeleteShader(fragShader);
     }
-        
+
     if (program) {
         glDeleteProgram(program);
     }

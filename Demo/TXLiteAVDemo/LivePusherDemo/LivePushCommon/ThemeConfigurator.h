@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <TCBeautyPanel/TCBeautyPanel.h>
+#import <BeautySettingKit/TCBeautyPanel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -6,23 +6,22 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "GLFilter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GLAlphaBlendFilter : GLFilter
-{
-    GLint mixUniform;
+@interface GLAlphaBlendFilter : GLFilter {
+    GLint          mixUniform;
     GLFramebuffer *secondInputFramebuffer;
 
-    GLint filterSecondTextureCoordinateAttribute;
-    GLint filterInputTextureUniform2;
+    GLint          filterSecondTextureCoordinateAttribute;
+    GLint          filterInputTextureUniform2;
     GLRotationMode inputRotation2;
-    CMTime firstFrameTime, secondFrameTime;
-    
+    CMTime         firstFrameTime, secondFrameTime;
+
     BOOL hasSetFirstTexture, hasReceivedFirstFrame, hasReceivedSecondFrame, firstFrameWasVideo, secondFrameWasVideo;
     BOOL firstFrameCheckDisabled, secondFrameCheckDisabled;
-   
 }
 
 @property(readwrite, nonatomic) CGFloat mix;

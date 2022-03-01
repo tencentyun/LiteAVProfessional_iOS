@@ -9,16 +9,16 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-typedef void(^MusicSelectAction)(BOOL);
+typedef void (^MusicSelectAction)(BOOL);
 @interface TCMusicSelectedModel : NSObject
 
-@property (nonatomic, assign) uint32_t musicID;
-@property (nonatomic, strong) NSString *musicName;
-@property (nonatomic, strong) NSString *singerName;
-@property (nonatomic, assign) BOOL isLocal;
-@property (nonatomic, strong) NSString *resourceURL;
+@property(nonatomic, assign) uint32_t  musicID;
+@property(nonatomic, strong) NSString *musicName;
+@property(nonatomic, strong) NSString *singerName;
+@property(nonatomic, assign) BOOL      isLocal;
+@property(nonatomic, strong) NSString *resourceURL;
 
-@property (nonatomic, copy) MusicSelectAction action;
+@property(nonatomic, copy) MusicSelectAction action;
 
 @end
 

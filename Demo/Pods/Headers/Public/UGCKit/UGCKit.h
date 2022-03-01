@@ -1,0 +1,1 @@
+../../../../TXLiteAVDemo/UGCKit/UGCKit/Classes/Source/UGCKit.h

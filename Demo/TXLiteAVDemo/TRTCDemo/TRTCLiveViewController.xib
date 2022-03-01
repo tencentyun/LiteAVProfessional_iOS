@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19115.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19107.5"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,18 +13,22 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TRTCLiveViewController">
             <connections>
                 <outlet property="audioEffectBtn" destination="2pE-uD-flh" id="Rpx-rA-apZ"/>
+                <outlet property="audioEffectSettingBtn" destination="NA1-jc-Vfq" id="Y6n-g3-Bes"/>
                 <outlet property="beautyBtn" destination="gRU-hv-DKc" id="uJR-mB-sGn"/>
                 <outlet property="beautyPanel" destination="VLD-16-z41" id="3jk-69-HKS"/>
                 <outlet property="cdnBtn" destination="gv1-c9-CFj" id="MVW-He-QRc"/>
+                <outlet property="cdnSettingBtn" destination="s2t-tr-o6K" id="fhZ-jq-z56"/>
+                <outlet property="chorusPlay" destination="OIg-q2-vgG" id="lCA-iq-seR"/>
                 <outlet property="closeCamBtn" destination="1Qv-1a-C01" id="M0u-rH-AQ0"/>
                 <outlet property="featureBtnStackView" destination="cHm-Uu-6E4" id="DUz-2g-uFg"/>
                 <outlet property="holderView" destination="xfN-TM-bXv" id="aSa-eF-YCy"/>
+                <outlet property="lrcView" destination="0jq-V4-MOb" id="ckc-Z2-dCC"/>
                 <outlet property="muteMic" destination="Uj0-pt-lN9" id="lcF-JF-C2P"/>
                 <outlet property="settingsBtn" destination="5Nq-WW-FDV" id="O4A-QG-yLH"/>
                 <outlet property="settingsContainerView" destination="WVr-ej-L4U" id="yhT-qY-Ynx"/>
                 <outlet property="stackLogBtn" destination="bKf-Mk-brA" id="QZh-gs-JD3"/>
                 <outlet property="switchCamBtn" destination="v5G-hU-KFA" id="sG1-Xs-kkk"/>
-                <outlet property="switchRoleBtn" destination="OIg-q2-vgG" id="zqd-s7-pOy"/>
+                <outlet property="switchRoleBtn" destination="jyx-50-wyG" id="EHa-RK-7cF"/>
                 <outlet property="toastStackView" destination="MSa-qe-dDy" id="gwL-Eu-Pav"/>
                 <outlet property="userControlBtn" destination="H2t-pg-bwe" id="86k-Nk-z8w"/>
                 <outlet property="view" destination="oXf-Gc-K4W" id="i0W-oO-Tw4"/>
@@ -56,6 +61,10 @@
                         <constraint firstAttribute="height" constant="44" placeholder="YES" id="sgk-h1-mJb"/>
                     </constraints>
                 </stackView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0jq-V4-MOb" userLabel="Lrc View">
+                    <rect key="frame" x="10" y="94" width="394" height="652"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="4cg-Hg-gF9" userLabel="Function Stack View">
                     <rect key="frame" x="0.0" y="776" width="414" height="86"/>
                     <subviews>
@@ -81,36 +90,45 @@
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cHm-Uu-6E4">
                             <rect key="frame" x="0.0" y="42" width="414" height="44"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIg-q2-vgG" userLabel="switchRole">
-                                    <rect key="frame" x="0.0" y="0.0" width="39" height="44"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIg-q2-vgG" userLabel="chorusPlay">
+                                    <rect key="frame" x="0.0" y="0.0" width="27" height="44"/>
+                                    <state key="normal">
+                                        <imageReference key="image" image="start2"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onClickStartChorus:" destination="-1" eventType="touchUpInside" id="iqh-jP-H64"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jyx-50-wyG" userLabel="switchRole">
+                                    <rect key="frame" x="35" y="0.0" width="27.5" height="44"/>
                                     <state key="normal" image="linkmic_start"/>
                                     <connections>
-                                        <action selector="onSwitchRoleBtnClick:" destination="-1" eventType="touchUpInside" id="gtg-TK-yPa"/>
+                                        <action selector="onSwitchRoleBtnClick:" destination="-1" eventType="touchUpInside" id="4uf-rp-hrG"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKf-Mk-brA" userLabel="log">
-                                    <rect key="frame" x="47" y="0.0" width="39" height="44"/>
+                                    <rect key="frame" x="70.5" y="0.0" width="27" height="44"/>
                                     <state key="normal" image="log_b"/>
                                     <connections>
                                         <action selector="onLogBtnClick:" destination="-1" eventType="touchUpInside" id="wYm-B2-JgE"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5G-hU-KFA" userLabel="switchCam">
-                                    <rect key="frame" x="94" y="0.0" width="38.5" height="44"/>
+                                    <rect key="frame" x="105.5" y="0.0" width="27" height="44"/>
                                     <state key="normal" image="camera_b"/>
                                     <connections>
                                         <action selector="onSwitchCamBtnClick:" destination="-1" eventType="touchUpInside" id="8mb-Dg-xSN"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Qv-1a-C01" userLabel="closeCam">
-                                    <rect key="frame" x="140.5" y="0.0" width="39" height="44"/>
+                                    <rect key="frame" x="140.5" y="0.0" width="27.5" height="44"/>
                                     <state key="normal" image="muteVideo"/>
                                     <connections>
                                         <action selector="onCloseCamBtnClick:" destination="-1" eventType="touchUpInside" id="p3z-g2-O4i"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uj0-pt-lN9" userLabel="muteMic">
-                                    <rect key="frame" x="187.5" y="0.0" width="39" height="44"/>
+                                    <rect key="frame" x="176" y="0.0" width="27" height="44"/>
                                     <state key="normal" image="mute_b"/>
                                     <state key="selected" image="mute_b2"/>
                                     <connections>
@@ -118,31 +136,45 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gRU-hv-DKc" userLabel="beauty">
-                                    <rect key="frame" x="234.5" y="0.0" width="39" height="44"/>
+                                    <rect key="frame" x="211" y="0.0" width="27" height="44"/>
                                     <state key="normal" image="beauty_b"/>
                                     <connections>
                                         <action selector="onBeautyBtnClick:" destination="-1" eventType="touchUpInside" id="l46-ns-SIl"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2pE-uD-flh" userLabel="audioEffect">
-                                    <rect key="frame" x="281.5" y="0.0" width="38.5" height="44"/>
+                                    <rect key="frame" x="246" y="0.0" width="27.5" height="44"/>
                                     <state key="normal" image="music"/>
                                     <connections>
                                         <action selector="onAudioEffectBtnClick:" destination="-1" eventType="touchUpInside" id="8PN-GP-FhS"/>
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Nq-WW-FDV" userLabel="settings">
-                                    <rect key="frame" x="328" y="0.0" width="39" height="44"/>
+                                    <rect key="frame" x="281.5" y="0.0" width="27" height="44"/>
                                     <state key="normal" image="set_b"/>
                                     <connections>
                                         <action selector="onSettingsBtnClick:" destination="-1" eventType="touchUpInside" id="6Pf-Kx-5Fp"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s2t-tr-o6K" userLabel="cdnSettings">
+                                    <rect key="frame" x="316.5" y="0.0" width="27" height="44"/>
+                                    <state key="normal" image="set_b"/>
+                                    <connections>
+                                        <action selector="cdnSettingClick:" destination="-1" eventType="touchUpInside" id="l3k-eY-uyn"/>
+                                    </connections>
+                                </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H2t-pg-bwe" userLabel="userList">
-                                    <rect key="frame" x="375" y="0.0" width="39" height="44"/>
+                                    <rect key="frame" x="351.5" y="0.0" width="27.5" height="44"/>
                                     <state key="normal" image="members"/>
                                     <connections>
                                         <action selector="onUserListBtnClick:" destination="-1" eventType="touchUpInside" id="IHJ-Jv-HW6"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA1-jc-Vfq">
+                                    <rect key="frame" x="387" y="0.0" width="27" height="44"/>
+                                    <state key="normal" image="music"/>
+                                    <connections>
+                                        <action selector="onAudioEffectSettingBtnClick:" destination="-1" eventType="touchUpInside" id="5X3-ch-2se"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -188,8 +220,11 @@
                 <constraint firstItem="xfN-TM-bXv" firstAttribute="top" secondItem="oXf-Gc-K4W" secondAttribute="top" id="1Pz-EV-T7X"/>
                 <constraint firstItem="xfN-TM-bXv" firstAttribute="leading" secondItem="79B-E2-5Eb" secondAttribute="leading" id="5sz-93-X5Y"/>
                 <constraint firstItem="4cg-Hg-gF9" firstAttribute="top" secondItem="MSa-qe-dDy" secondAttribute="bottom" constant="10" id="ByR-gm-bKQ"/>
+                <constraint firstItem="0jq-V4-MOb" firstAttribute="leading" secondItem="79B-E2-5Eb" secondAttribute="leading" constant="10" id="DnC-08-PZ3"/>
+                <constraint firstItem="0jq-V4-MOb" firstAttribute="top" secondItem="79B-E2-5Eb" secondAttribute="top" constant="50" id="EE5-Bc-Tga"/>
                 <constraint firstItem="79B-E2-5Eb" firstAttribute="trailing" secondItem="MSa-qe-dDy" secondAttribute="trailing" id="FSH-ge-MtT"/>
                 <constraint firstItem="MSa-qe-dDy" firstAttribute="leading" secondItem="79B-E2-5Eb" secondAttribute="leading" id="Lef-aG-xQx"/>
+                <constraint firstItem="4cg-Hg-gF9" firstAttribute="top" secondItem="0jq-V4-MOb" secondAttribute="bottom" constant="30" id="R57-ec-Ua4"/>
                 <constraint firstItem="xfN-TM-bXv" firstAttribute="trailing" secondItem="79B-E2-5Eb" secondAttribute="trailing" id="S4L-QP-744"/>
                 <constraint firstItem="WVr-ej-L4U" firstAttribute="width" secondItem="79B-E2-5Eb" secondAttribute="width" multiplier="0.95" id="SER-T2-got"/>
                 <constraint firstItem="WVr-ej-L4U" firstAttribute="top" relation="greaterThanOrEqual" secondItem="79B-E2-5Eb" secondAttribute="top" constant="10" id="Yau-Iq-gTx"/>
@@ -198,6 +233,7 @@
                 <constraint firstItem="WVr-ej-L4U" firstAttribute="height" secondItem="79B-E2-5Eb" secondAttribute="height" multiplier="0.88" priority="750" id="hdX-X0-OSX"/>
                 <constraint firstAttribute="bottom" secondItem="xfN-TM-bXv" secondAttribute="bottom" id="nZP-iY-WTk"/>
                 <constraint firstItem="79B-E2-5Eb" firstAttribute="bottom" secondItem="4cg-Hg-gF9" secondAttribute="bottom" id="pwm-PJ-XlI"/>
+                <constraint firstItem="79B-E2-5Eb" firstAttribute="trailing" secondItem="0jq-V4-MOb" secondAttribute="trailing" constant="10" id="sV6-AE-697"/>
                 <constraint firstItem="WVr-ej-L4U" firstAttribute="centerY" secondItem="oXf-Gc-K4W" secondAttribute="centerY" priority="750" id="uZn-Qs-MtE"/>
                 <constraint firstItem="WVr-ej-L4U" firstAttribute="centerX" secondItem="oXf-Gc-K4W" secondAttribute="centerX" id="zyu-sz-Zb1"/>
             </constraints>
@@ -215,5 +251,6 @@
         <image name="mute_b" width="51" height="51"/>
         <image name="mute_b2" width="51" height="51"/>
         <image name="set_b" width="51" height="51"/>
+        <image name="start2" width="75" height="75"/>
     </resources>
 </document>

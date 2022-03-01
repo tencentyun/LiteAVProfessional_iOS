@@ -122,6 +122,10 @@
 
 "LivePlayerDemo.PlayViewController.pleaseenterorscantheqrcode" = "请输入或扫二维码获取播放地址";
 "LivePlayerDemo.PlayViewController.livestreamingplayer" = "直播播放器";
+"LivePlayerDemo.PlayViewController.bufferingstrategy" = "缓存策略";
+"LivePlayerDemo.PlayViewController.speed" = "极速";
+"LivePlayerDemo.PlayViewController.smooth" = "流畅";
+"LivePlayerDemo.PlayViewController.auto" = "自动";
 "LivePlayerDemo.PlayViewController.delayadjustment" = "延迟调整";
 "LivePlayerDemo.PlayViewController.speed" = "极速";
 "LivePlayerDemo.PlayViewController.smooth" = "流畅";
@@ -138,9 +142,14 @@
 "LivePlayerDemo.PlayViewController.no" = "否";
 "LivePlayerDemo.PlayViewController.failedtogetlowdelayplaybackaddress" = "获取低延时播放地址失败";
 "LivePlayerDemo.PlayViewController.testaddressfromonline" = "测试地址的影像来自在线UTC时间的录屏推流，推流工具采用移动直播 Windows SDK + VCam";
+"LivePlayerDemo.PlayViewController.pleasestartplayingfirst" = "请先启动播放!";
+"LivePlayerDemo.PlayViewController.pleaseswitchunderflvstream" = "请在flv流下切换";
+"LivePlayerDemo.PlayViewController.switchto265" = "切换到265";
+"LivePlayerDemo.PlayViewController.switchto264" = "切换到264";
 
 "LivePusherDemo.CameraPush.pleaseinputthepushstream" = "请输入推流地址或者扫二维码进行输入";
 "LivePusherDemo.CameraPush.rtmppullstream" = "RTMP推流";
+"LivePusherDemo.CameraPush.rtcpullstream" = "RTC推流";
 "LivePusherDemo.CameraPush.iosemulatordoesnotsupport" = "iOS模拟器不支持推流和播放，请使用真机体验";
 "LivePusherDemo.CameraPush.pushstreamaddressisnotvalid" = "推流地址不合法，目前只支持rtmp推流!";
 "LivePusherDemo.CameraPush.thethrusterfailedtostart" = "推流器启动失败";
@@ -158,8 +167,16 @@
 "LivePusherDemo.CameraPush.loadingxx" = "正在加载资源xxx %";
 "LivePusherDemo.CameraPush.assetsloadsuccess" = "资源加载成功";
 "LivePusherDemo.CameraPush.assetsloadfailed" = "资源加载失败";
+"LivePusherDemo.CameraPush.seimessagesendsuccess" = "发送成功！";
+"LivePusherDemo.CameraPush.seimessagesendfailed" = "发送失败！";
+"LivePusherDemo.CameraPush.send" = "发送";
+"LivePusherDemo.CameraPush.seipayloadtypeinvalid" = "SEI payloadType 非法！只能是5或者242.";
+"LivePusherDemo.CameraPush.seidatainvalid" = "SEI data 不能为空！";
 
 "LivePusherDemo.MoreSetting.screenshots" = "截图";
+
+"LivePusherDemo.MoreSetting.thisoptionisonly" = "该选项只允许在后置摄像头下设置";
+"LivePusherDemo.MoreSetting.captureframe" = "采集帧率";
 "LivePusherDemo.MoreSetting.enableprivacymode" = "开启隐私模式";
 "LivePusherDemo.MoreSetting.turnonmutemode" = "开启静音模式";
 "LivePusherDemo.MoreSetting.turnonviewmirror" = "开启观看端镜像";
@@ -171,9 +188,10 @@
 "LivePusherDemo.MoreSetting.manuallyclickexposureandfocus" = "手动点击曝光对焦";
 "LivePusherDemo.MoreSetting.gesturetozoominonthepreview" = "手势放大预览画面";
 "LivePusherDemo.MoreSetting.enableaudiopushstream" = "开启纯音频推流";
+"LivePusherDemo.MoreSetting.enableHevcCodec" = "开启H265";
 "LivePusherDemo.MoreSetting.localscreenshots" = "本地截图";
 "LivePusherDemo.MoreSetting.sendmessage" = "发送消息";
-
+"LivePusherDemo.MoreSetting.turnonsharpnessenhancement" = "开启清晰度增强";
 "LivePusherDemo.PushSetting.setting" = "设置";
 "LivePusherDemo.PushSetting.bluray" = "蓝光";
 "LivePusherDemo.PushSetting.superclear" = "超清";
@@ -192,8 +210,32 @@
 "LivePusherDemo.PushSetting.openbandwidthadaptation" = "开启带宽适应";
 "LivePusherDemo.PushSetting.enablehardwareacceleration" = "开启硬件加速";
 "LivePusherDemo.PushSetting.opentheearsback" = "开启耳返";
+"LivePusherDemo.PushSetting.seipayloadtype" = "SEI payloadType: ";
+"LivePusherDemo.PushSetting.seidata" = "data: ";
 "LivePusherDemo.PushSetting.qualitypreference" = "画质偏好";
 "LivePusherDemo.PushSetting.thesoundqualitychoice" = "音质选择";
+"LivePusherDemo.PushSetting.reverb" = "混响";
+"LivePusherDemo.PushSetting.voicechanger" = "变声";
+"LivePusherDemo.PushSetting.turnoffreverb" = "关闭混响";
+"LivePusherDemo.PushSetting.ktv" = "KTV";
+"LivePusherDemo.PushSetting.room" = "房间";
+"LivePusherDemo.PushSetting.hall" = "会堂";
+"LivePusherDemo.PushSetting.muffled" = "低沉";
+"LivePusherDemo.PushSetting.sonorous" = "洪亮";
+"LivePusherDemo.PushSetting.metal" = "金属";
+"LivePusherDemo.PushSetting.magnetic" = "磁性";
+"LivePusherDemo.PushSetting.turnoffvoicechanger" = "关闭变声";
+"LivePusherDemo.PushSetting.badboy" = "熊孩子";
+"LivePusherDemo.PushSetting.loli" = "萝莉";
+"LivePusherDemo.PushSetting.uncle" = "大叔";
+"LivePusherDemo.PushSetting.heavymetal" = "重金属";
+"LivePusherDemo.PushSetting.catarrh" = "感冒";
+"LivePusherDemo.PushSetting.foreigner" = "外国人";
+"LivePusherDemo.PushSetting.sleepybeast" = "困兽";
+"LivePusherDemo.PushSetting.Otaku" = "肥宅";
+"LivePusherDemo.PushSetting.strongcurrent" = "强电流";
+"LivePusherDemo.PushSetting.heavymachinery" = "重机械";
+"LivePusherDemo.PushSetting.ethereal" = "空灵";
 
 "LivePusherDemo.PushLogView.videobitrate" = "视频码率：";
 "LivePusherDemo.PushLogView.audiobitrate" = "音频码率：";
@@ -231,6 +273,10 @@
 "LivePusherDemo.ScreenPush.flvplayaddress" = "flv播放地址";
 "LivePusherDemo.ScreenPush.pushoverflow" = "结束推流";
 "LivePusherDemo.ScreenPush.closescreenpushstream" = "确定要关闭录屏推流?";
+"LivePusherDemo.ScreenPush.mutevocalcapture" = "静音人声采集";
+"LivePusherDemo.ScreenPush.turnonvocalcapture" = "打开人声采集";
+"LivePusherDemo.ScreenPush.closemic" = "关闭麦克风";
+"LivePusherDemo.ScreenPush.openmic" = "打开麦克风";
 
 "SuperPlayerDemo.UGCUploadList.errorcodexxerrormsgyy" = "错误码：xxx 错误信息：yyy";
 
@@ -258,6 +304,7 @@
 "SuperPlayerDemo.MoviePlayer.enterappid" = "请输入appid";
 "SuperPlayerDemo.MoviePlayer.enterfileid" = "请输入fileid";
 "SuperPlayerDemo.MoviePlayer.enterliveurl" = "请输入直播url";
+"SuperPlayerDemo.MoviePlayer.enterlivepsign" = "请输入psign";
 "SuperPlayerDemo.MoviePlayer.enterplayeraddress" = "请输入正确的播放地址";
 
 "SuperPlayerDemo.TXMoviePlayerNetApi.parametererror" = "参数错误";

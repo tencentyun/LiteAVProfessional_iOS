@@ -9,14 +9,13 @@
 #import "MLVBLiveRoomDef.h"
 
 @implementation MLVBLoginInfo
-- (instancetype)copyWithZone:(NSZone *)zone
-{
+- (instancetype)copyWithZone:(NSZone *)zone {
     MLVBLoginInfo *loginInfo = [[MLVBLoginInfo alloc] init];
-    loginInfo.userID     = self.userID;
-    loginInfo.userName   = self.userName;
-    loginInfo.userAvatar = self.userAvatar;
-    loginInfo.sdkAppID   = self.sdkAppID;
-    loginInfo.userSig    = self.userSig;
+    loginInfo.userID         = self.userID;
+    loginInfo.userName       = self.userName;
+    loginInfo.userAvatar     = self.userAvatar;
+    loginInfo.sdkAppID       = self.sdkAppID;
+    loginInfo.userSig        = self.userSig;
     return loginInfo;
 }
 @end
@@ -43,10 +42,10 @@
     if (_userInfo == userInfo) return;
     _userInfo = userInfo;
     if (userInfo.length > 0) {
-        NSData *data = [userInfo dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *      data     = [userInfo dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
         if ([jsonDict isKindOfClass:[NSDictionary class]]) {
-            _userName = jsonDict[@"userName"];
+            _userName   = jsonDict[@"userName"];
             _userAvatar = jsonDict[@"userAvatar"];
         }
     }

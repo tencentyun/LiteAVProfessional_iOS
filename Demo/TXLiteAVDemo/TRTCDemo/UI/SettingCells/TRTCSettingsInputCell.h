@@ -12,20 +12,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TRTCSettingsInputCell : TRTCSettingsBaseCell
 
-@property (strong, nonatomic, readonly) UITextField *contentText;
+@property(strong, nonatomic, readonly) UITextField *contentText;
 
 @end
 
-
 @interface TRTCSettingsInputItem : TRTCSettingsBaseItem
 
-@property (copy, nonatomic) NSString *placeHolder;
-@property (copy, nonatomic) NSString *content;
-@property (assign, nonatomic) NSInteger maxLength;
+@property(copy, nonatomic) NSString *  placeHolder;
+@property(copy, nonatomic) NSString *  content;
+@property(assign, nonatomic) NSInteger maxLength;
 
-- (instancetype)initWithTitle:(NSString *)title
-                  placeHolder:(NSString *)placeHolder
-                      content:(NSString * _Nullable)content NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithTitle:(NSString *)title placeHolder:(NSString *)placeHolder content:(NSString *_Nullable)content NS_DESIGNATED_INITIALIZER;
 
 - (instancetype)initWithTitle:(NSString *)title placeHolder:(NSString *)placeHolder;
 

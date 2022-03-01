@@ -2,46 +2,42 @@
 platform :ios, '9.0'
 
 def tx_im
-   pod 'TXIMSDK_iOS'
-end
-
-def swift_pods
-  pod 'RxSwift'
-  pod 'RxCocoa'
-  pod 'SnapKit'
-  pod 'Alamofire'
-  pod 'Toast-Swift'
-  pod 'Material'
-  pod 'NVActivityIndicatorView'
+   pod 'TXIMSDK_iOS', '4.9.1'
 end
 
 def common_pods_all
-  pod 'Bugly' # 检测bug使用，非必须依赖
-  pod 'SDWebImage'
+  pod 'SDWebImage', '= 5.12.1'
   pod 'Masonry'
   pod 'MBProgressHUD', '~> 1.2.0'
   pod 'MJExtension'
   pod 'MJRefresh'
   pod 'AFNetworking'
-  pod 'BlocksKit', '~> 2.2.5'
   pod 'CWStatusBarNotification', '~> 2.3.5'
-end
-
-def common_pods_smart
-  pod 'CWStatusBarNotification', '~> 2.3.5'
+  pod 'WMPageController', '~> 2.4.0'
 end
 
 def player_pods(subName)
   pod 'SuperPlayer', :path => './TXLiteAVDemo/SuperPlayerKit/SuperPlayer.podspec', :subspecs => ["#{subName}"]
 end
 
+def tx_UGCKit(subName)
+  pod 'UGCKit', :path => './TXLiteAVDemo/UGCKit/UGCKit.podspec', :subspecs => ["#{subName}"]
+end
+
+def beauty_pods
+  pod 'BeautySettingKit', :path => './TXLiteAVDemo/BeautySettingKit/BeautySettingKit.podspec'
+end
+
+
+
 target 'TXLiteAVDemo_Professional' do
   # Comment the next line if you don't want to use dynamic frameworks
   # Pods for TXLiteAVDemo_Professional
   common_pods_all
-  swift_pods
   player_pods 'Professional'
   tx_im
+  tx_UGCKit 'Professional'
+  beauty_pods
 end
 
 target 'TXReplaykitUpload_Professional' do
@@ -49,3 +45,4 @@ target 'TXReplaykitUpload_Professional' do
   # Pods for TXReplaykitUpload_Professional
 
 end
+

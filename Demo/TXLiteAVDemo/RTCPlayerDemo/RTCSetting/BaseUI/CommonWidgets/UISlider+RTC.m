@@ -1,0 +1,22 @@
+/*
+ * Module:   UISlider(RTC)
+ *
+ * Function: 标准化UISlider控件
+ *
+ */
+
+#import "ColorMacro.h"
+#import "UIImage+Additions.h"
+#import "UISlider+Leb.h"
+
+@implementation UISlider (RTC)
+
++ (instancetype)rtc_slider {
+    UISlider *slider             = [[UISlider alloc] init];
+    slider.minimumTrackTintColor = UIColorFromRGB(0x05a764);
+    UIImage *icon                = [UIImage imageWithColor:UIColorFromRGB(0x05a764) size:CGSizeMake(18, 18) cornerInset:UICornerInsetMake(9, 9, 9, 9)];
+    [slider setThumbImage:icon forState:UIControlStateNormal];
+    return slider;
+}
+
+@end

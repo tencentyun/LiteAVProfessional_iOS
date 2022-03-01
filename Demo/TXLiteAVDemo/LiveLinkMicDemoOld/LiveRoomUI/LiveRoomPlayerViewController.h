@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "MLVBLiveRoom.h"
 
 /**
@@ -14,9 +15,9 @@
  */
 @interface LiveRoomPlayerViewController : UIViewController <MLVBLiveRoomDelegate, UITextFieldDelegate>
 
-@property (nonatomic, weak)    MLVBLiveRoom*          liveRoom;
-@property (nonatomic, copy)    NSString*          roomName;
-@property (nonatomic, copy)    NSString*          roomID;
-@property (nonatomic, copy)    NSString*          userName;
+@property(nonatomic, weak) MLVBLiveRoom* liveRoom;
+@property(nonatomic, copy) NSString*     roomName;
+@property(nonatomic, copy) NSString*     roomID;
+@property(nonatomic, copy) NSString*     userName;
 
 @end

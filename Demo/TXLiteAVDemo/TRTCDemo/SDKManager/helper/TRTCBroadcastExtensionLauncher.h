@@ -10,8 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TRTCBroadcastExtensionLauncher : NSObject
-+ (instancetype) sharedInstance;
-+ (void) launch;
++ (instancetype)sharedInstance;
++ (void)launch;
 @end
 
 NS_ASSUME_NONNULL_END

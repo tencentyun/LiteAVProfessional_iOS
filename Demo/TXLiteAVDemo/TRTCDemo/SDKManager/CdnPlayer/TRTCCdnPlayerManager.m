@@ -1,22 +1,22 @@
 /*
-* Module:   TRTCCdnPlayerManager
-*
-* Function: CDN播放控制
-*
-*    1. 开始，暂停CDN播放
-*
-*    2. 控制播放画面的朝向、填充模式，以及是否显示Debug Log
-*
-*    3. 设置缓冲方式
-*
-*/
+ * Module:   TRTCCdnPlayerManager
+ *
+ * Function: CDN播放控制
+ *
+ *    1. 开始，暂停CDN播放
+ *
+ *    2. 控制播放画面的朝向、填充模式，以及是否显示Debug Log
+ *
+ *    3. 设置缓冲方式
+ *
+ */
 
 #import "TRTCCdnPlayerManager.h"
 
-@interface TRTCCdnPlayerManager()
+@interface TRTCCdnPlayerManager ()
 
-@property (strong, nonatomic) TRTCCdnPlayerConfig *config;
-@property (strong, nonatomic) TXLivePlayer *player;
+@property(strong, nonatomic) TRTCCdnPlayerConfig *config;
+@property(strong, nonatomic) TXLivePlayer *       player;
 
 @end
 
@@ -40,11 +40,11 @@
 
 - (void)applyConfigToPlayer {
     TXLivePlayConfig *config = self.player.config;
-    config.enableMessage = YES;
+    config.enableMessage     = YES;
     [self.player showVideoDebugLog:self.config.isDebugOn];
     [self.player setRenderRotation:self.config.orientation];
     [self.player setRenderMode:self.config.renderMode];
-    self.player.enableHWAcceleration = YES; // 开启硬件加速
+    self.player.enableHWAcceleration = YES;  // 开启硬件加速
     [self updatePlayerCache];
 }
 
@@ -87,25 +87,25 @@
 #pragma mark - Private
 
 - (void)updatePlayerCache {
-    TXLivePlayConfig *config = self.player.config;
-    const float cacheTimeFast = 1.0;
-    const float cacheTimeSmooth = 5.0;
-    
+    TXLivePlayConfig *config          = self.player.config;
+    const float       cacheTimeFast   = 1.0;
+    const float       cacheTimeSmooth = 5.0;
+
     switch (self.config.cacheType) {
         case TRTCCdnPlayerCacheTypeFast:
-            config.bAutoAdjustCacheTime = YES;
+            config.bAutoAdjustCacheTime   = YES;
             config.minAutoAdjustCacheTime = cacheTimeFast;
             config.maxAutoAdjustCacheTime = cacheTimeFast;
             break;
-            
+
         case TRTCCdnPlayerCacheTypeSmooth:
-            config.bAutoAdjustCacheTime = NO;
+            config.bAutoAdjustCacheTime   = NO;
             config.minAutoAdjustCacheTime = cacheTimeSmooth;
             config.maxAutoAdjustCacheTime = cacheTimeSmooth;
             break;
-            
+
         case TRTCCdnPlayerCacheTypeAuto:
-            config.bAutoAdjustCacheTime = YES;
+            config.bAutoAdjustCacheTime   = YES;
             config.minAutoAdjustCacheTime = cacheTimeFast;
             config.maxAutoAdjustCacheTime = cacheTimeSmooth;
             break;

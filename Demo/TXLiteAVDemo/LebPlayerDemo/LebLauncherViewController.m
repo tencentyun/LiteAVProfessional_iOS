@@ -7,26 +7,24 @@
 //
 
 #import "LebLauncherViewController.h"
-#import <Masonry/Masonry.h>
+
 #import <MBProgressHUD/MBProgressHUD.h>
-#import "LebQRScanViewController.h"
+#import <Masonry/Masonry.h>
+
+#import "AppLocalized.h"
 #import "LebLiveUtils.h"
 #import "LebPlayerViewController.h"
-#import "AppLocalized.h"
+#import "LebQRScanViewController.h"
 
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
-blue:((float)(rgbValue & 0xFF))/255.0 \
-alpha:1.0]
+#define UIColorFromRGB(rgbValue) \
+    [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 
+@interface LebLauncherViewController () <ScanQRDelegate>
 
-
-@interface LebLauncherViewController ()<ScanQRDelegate>
-
-@property (nonatomic, strong) UILabel *playLabel;
-@property (nonatomic, strong) UIButton *scranCodeBtn;
-@property (nonatomic, strong) UIButton *startPlayBtn;
-@property (nonatomic, strong) UITextField *inputTextField;
+@property(nonatomic, strong) UILabel *    playLabel;
+@property(nonatomic, strong) UIButton *   scranCodeBtn;
+@property(nonatomic, strong) UIButton *   startPlayBtn;
+@property(nonatomic, strong) UITextField *inputTextField;
 
 @end
 
@@ -40,34 +38,32 @@ alpha:1.0]
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
+
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void)initUI {
     self.title = V2Localize(@"MLVB.lebLauncher.title");
-    
+
     CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.colors = @[(__bridge id)UIColorFromRGB(0x13294B).CGColor, (__bridge id)UIColorFromRGB(0x000000).CGColor];
-    layer.startPoint = CGPointMake(0, 0);
-    layer.endPoint = CGPointMake(0, 1.0);
-    layer.frame = self.view.bounds;
+    layer.colors           = @[ (__bridge id)UIColorFromRGB(0x13294B).CGColor, (__bridge id)UIColorFromRGB(0x000000).CGColor ];
+    layer.startPoint       = CGPointMake(0, 0);
+    layer.endPoint         = CGPointMake(0, 1.0);
+    layer.frame            = self.view.bounds;
     [self.view.layer insertSublayer:layer atIndex:0];
 
-    
-    
-    self.playLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 100, 300, 20)];
-    self.playLabel.text = V2Localize(@"MLVB.lebLauncher.inputUrl");
+    self.playLabel           = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 300, 20)];
+    self.playLabel.text      = V2Localize(@"MLVB.lebLauncher.inputUrl");
     self.playLabel.textColor = [UIColor whiteColor];
     [self.view addSubview:self.playLabel];
-    
-    self.inputTextField = [[UITextField alloc] initWithFrame:CGRectZero];
+
+    self.inputTextField                   = [[UITextField alloc] initWithFrame:CGRectZero];
     self.inputTextField.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.inputTextField.layer.borderWidth = 1.0;
-    self.inputTextField.font = [UIFont systemFontOfSize:16];
-    self.inputTextField.text = @"webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1";
-    self.inputTextField.textColor = [UIColor whiteColor];
+    self.inputTextField.font              = [UIFont systemFontOfSize:16];
+    self.inputTextField.text              = @"webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1";
+    self.inputTextField.textColor         = [UIColor whiteColor];
     [self.view addSubview:self.inputTextField];
     [self.inputTextField mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).offset(20);
@@ -75,7 +71,7 @@ alpha:1.0]
         make.top.equalTo(self.playLabel.mas_bottom).offset(10);
         make.height.mas_equalTo(48);
     }];
-    
+
     self.scranCodeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:self.scranCodeBtn];
     [self.scranCodeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -88,7 +84,7 @@ alpha:1.0]
     [self.scranCodeBtn setImage:[UIImage imageNamed:@"livepusher_ic_qcode"] forState:UIControlStateNormal];
     self.scranCodeBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
     [self.scranCodeBtn addTarget:self action:@selector(onScranCodeBtnClick:) forControlEvents:UIControlEventTouchUpInside];
-    
+
     self.startPlayBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.view addSubview:self.startPlayBtn];
     [self.startPlayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -105,21 +101,20 @@ alpha:1.0]
 
 - (void)onScranCodeBtnClick:(UIButton *)sender {
     LebQRScanViewController *vc = [[LebQRScanViewController alloc] init];
-    vc.delegate = self;
-    vc.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    vc.delegate                 = self;
+    vc.modalPresentationStyle   = UIModalPresentationOverFullScreen;
     [self presentViewController:vc animated:YES completion:nil];
 }
 
 - (void)onStartPlayButtonClick:(UIButton *)sender {
     if (![LebLiveUtils isWebrtcUrl:self.inputTextField.text]) {
-        [self showText:@"" withDetailText:LivePlayerLocalize(@"LivePlayer.lebLauncher.enterplayeraddress")];
+        [self showText:@"" withDetailText:V2Localize(@"MLVB.lebLauncher.enterplayeraddress")];
         return;
     }
     LebPlayerViewController *playViewController = [[LebPlayerViewController alloc] init];
-    playViewController.url = self.inputTextField.text;
-    playViewController.muteAudio = NO;
-    playViewController.muteVideo = NO;
-    [playViewController startPlay];
+    playViewController.url                      = self.inputTextField.text;
+    playViewController.muteAudio                = NO;
+    playViewController.muteVideo                = NO;
     [self.navigationController pushViewController:playViewController animated:YES];
 }
 
@@ -138,12 +133,11 @@ alpha:1.0]
     if (hud == nil) {
         hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:YES];
     }
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = text;
+    hud.mode              = MBProgressHUDModeText;
+    hud.label.text        = text;
     hud.detailsLabel.text = detail;
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:1];
 }
-
 
 @end

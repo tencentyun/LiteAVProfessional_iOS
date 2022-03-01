@@ -10,16 +10,15 @@
 
 @interface QBAssetCell ()
 
-@property (weak, nonatomic) IBOutlet UIView *overlayView;
+@property(weak, nonatomic) IBOutlet UIView *overlayView;
 
 @end
 
 @implementation QBAssetCell
 
-- (void)setSelected:(BOOL)selected
-{
+- (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
-    
+
     // Show/hide overlay view
     self.overlayView.hidden = !(selected && self.showsOverlayViewWhenSelected);
 }

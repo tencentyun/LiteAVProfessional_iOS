@@ -10,14 +10,13 @@
 #import <OpenGLES/ES2/glext.h>
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GLProgram : NSObject
-{
+@interface GLProgram : NSObject {
     NSMutableArray *attributes;
     NSMutableArray *uniforms;
-    GLuint program, vertShader, fragShader;
+    GLuint          program, vertShader, fragShader;
 }
 
-@property(readwrite, nonatomic) BOOL initialized;
+@property(readwrite, nonatomic) BOOL            initialized;
 @property(readwrite, copy, nonatomic) NSString *vertexShaderLog;
 @property(readwrite, copy, nonatomic) NSString *fragmentShaderLog;
 @property(readwrite, copy, nonatomic) NSString *programLog;

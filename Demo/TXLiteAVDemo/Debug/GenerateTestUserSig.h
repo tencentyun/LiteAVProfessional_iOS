@@ -53,8 +53,7 @@ static const int EXPIRETIME = 604800;
  * 注意：该方案仅适用于调试Demo，正式上线前请将 UserSig 计算代码和密钥迁移到您的后台服务器上，以避免加密密钥泄露导致的流量盗用。
  * 文档：https://cloud.tencent.com/document/product/269/32688#Server
  */
-static NSString * const SECRETKEY = @"";
-
+static NSString *const SECRETKEY = @"";
 
 @interface GenerateTestUserSig : NSObject
 /**
@@ -74,6 +73,9 @@ static NSString * const SECRETKEY = @"";
  * 文档：https://cloud.tencent.com/document/product/269/32688#Server
  */
 + (NSString *)genTestUserSig:(NSString *)identifier;
++ (NSString *)genTestUserSig:(NSString *)identifier sdkAppId:(int)sdkAppId secretKey:(NSString *)key;
++ (NSString *)generateRandomNumberFrom:(NSInteger)from to:(NSInteger)to;
+
 @end
 
 NS_ASSUME_NONNULL_END

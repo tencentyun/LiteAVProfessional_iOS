@@ -1,15 +1,15 @@
 /*
-* Module:   UITextField(TRTC)
-*
-* Function: 标准化UITextField控件，包括placeHolder标准化风格定义
-*
-*/
+ * Module:   UITextField(TRTC)
+ *
+ * Function: 标准化UITextField控件，包括placeHolder标准化风格定义
+ *
+ */
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UITextField(TRTC_EX)
+@interface UITextField (TRTC_EX)
 
 + (instancetype)trtc_textFieldWithDelegate:(id<UITextFieldDelegate>)delegate;
 

@@ -9,19 +9,19 @@
 #ifndef TXCAudioCustomRecorder_h
 #define TXCAudioCustomRecorder_h
 
+#import <UIKit/UIKit.h>
+
 @protocol TXCAudioCustomRecorderDelegate
 
 - (void)onRecordPcm:(NSData *)pcmData;
 
 @end
 
-#import <UIKit/UIKit.h>
-
 @interface TXCAudioCustomRecorder : NSObject
 
-@property(nonatomic, strong)id<TXCAudioCustomRecorderDelegate> delegate;
+@property(nonatomic, strong) id<TXCAudioCustomRecorderDelegate> delegate;
 
-+ (instancetype) sharedInstance;
++ (instancetype)sharedInstance;
 
 - (void)startRecord:(int)sampleRate nChannels:(int)channels nSampleLen:(int)sampleLen;
 

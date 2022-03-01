@@ -9,15 +9,13 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-extern NSString * const PhotoAlbumToolErrorDomain;
+extern NSString *const PhotoAlbumToolErrorDomain;
 
-typedef NS_ENUM(NSInteger, PhotoAlbumToolErrorCode) {
-    PhotoAlbumToolNotAuthorized
-};
+typedef NS_ENUM(NSInteger, PhotoAlbumToolErrorCode) { PhotoAlbumToolNotAuthorized };
 
 @interface PhotoUtil : NSObject
-+ (void)saveAssetToAlbum:(NSURL *)assetURL completion:(void(^)(BOOL success, NSError * _Nullable error))completion;
-+ (void)saveDataToAlbum:(NSData *)data completion:(void(^)(BOOL success, NSError * _Nullable error))completion;
++ (void)saveAssetToAlbum:(NSURL *)assetURL completion:(void (^)(BOOL success, NSError *_Nullable error))completion;
++ (void)saveDataToAlbum:(NSData *)data completion:(void (^)(BOOL success, NSError *_Nullable error))completion;
 
 @end
 
