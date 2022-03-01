@@ -7,30 +7,29 @@
 //
 
 #import "LebPlayerViewController.h"
+
+#import "AppLocalized.h"
 #import "ColorMacro.h"
+#import "GenerateTestUserSig.h"
+#import "LebLiveUtils.h"
+#import "LebPlayerSettingViewController.h"
+#import "MBProgressHUD.h"
 #import "Masonry.h"
+#import "PhotoUtil.h"
 #import "V2TXLivePlayer.h"
 #import "V2TXLivePlayerObserver.h"
-#import "GenerateTestUserSig.h"
-#import "LebPlayerSettingViewController.h"
-#import "LebLiveUtils.h"
-#import "MBProgressHUD.h"
-#import "PhotoUtil.h"
-#import "AppLocalized.h"
 
-#define LebLogSimple() \
-        NSLog(@"[%@ %p %s %d]", NSStringFromClass(self.class), self, __func__, __LINE__);
-#define LebLog(_format_, ...) \
-        NSLog(@"[%@ %p %s %d] %@", NSStringFromClass(self.class), self, __func__, __LINE__, [NSString stringWithFormat:_format_, ##__VA_ARGS__]);
+#define LebLogSimple()        NSLog(@"[%@ %p %s %d]", NSStringFromClass(self.class), self, __func__, __LINE__);
+#define LebLog(_format_, ...) NSLog(@"[%@ %p %s %d] %@", NSStringFromClass(self.class), self, __func__, __LINE__, [NSString stringWithFormat:_format_, ##__VA_ARGS__]);
 
-@interface LebPlayerViewController () <V2TXLivePlayerObserver, LebPlayerSettingViewControllerDelegate>
-@property (nonatomic, strong) V2TXLivePlayer *player;
-@property (atomic, assign) BOOL hasRecvFirstFrame; /// 是否收到首帧
-@property (atomic, strong) dispatch_block_t delayBlock;
-@property (nonatomic, strong) NSString *userId;
-@property (nonatomic, strong) TXView *videoView;
-@property (nonatomic, strong) LebPlayerSettingViewController *settingContainer;
-@property (nonatomic, strong) UIProgressView* audioVolumeIndicator;
+@interface                                                   LebPlayerViewController () <V2TXLivePlayerObserver, LebPlayerSettingViewControllerDelegate>
+@property(nonatomic, strong) V2TXLivePlayer *                player;
+@property(atomic, assign) BOOL                               hasRecvFirstFrame;  /// 是否收到首帧
+@property(atomic, strong) dispatch_block_t                   delayBlock;
+@property(nonatomic, strong) NSString *                      userId;
+@property(nonatomic, strong) TXView *                        videoView;
+@property(nonatomic, strong) LebPlayerSettingViewController *settingContainer;
+@property(nonatomic, strong) UIProgressView *                audioVolumeIndicator;
 
 @end
 
@@ -51,18 +50,15 @@
         self.title = V2Localize(@"MLVB.lebLauncher.title");
     }
 
-    self.videoView = [[TXView alloc] initWithFrame:self.view.bounds];
+    self.videoView                 = [[TXView alloc] initWithFrame:self.view.bounds];
     self.videoView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.videoView];
     self.view.backgroundColor = [UIColor lightGrayColor];
-    
-    
+
     [self addSettingContainerView];
     [self addVolumeIndicator];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithImage:[UIImage imageNamed:@"rtc_back"]
-                                             style:UIBarButtonItemStylePlain target:self
-                                             action:@selector(popToPre)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"rtc_back"] style:UIBarButtonItemStylePlain target:self action:@selector(popToPre)];
+    [self startPlay];
 }
 
 - (void)dealloc {
@@ -74,12 +70,8 @@
 }
 
 - (void)addSettingContainerView {
-    self.settingContainer = [[LebPlayerSettingViewController alloc] initWithHostVC:self
-                                                                        muteAudio:NO
-                                                                        muteVideo:NO
-                                                                          logView:NO
-                                                                           player:self.player];
-    self.settingContainer.isStart = self.player.isPlaying;
+    self.settingContainer          = [[LebPlayerSettingViewController alloc] initWithHostVC:self muteAudio:NO muteVideo:NO logView:NO player:self.player];
+    self.settingContainer.isStart  = self.player.isPlaying;
     self.settingContainer.delegate = self;
     [self.view addSubview:self.settingContainer];
     [self.settingContainer mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -95,9 +87,9 @@
 }
 
 - (void)addVolumeIndicator {
-    self.audioVolumeIndicator = [[UIProgressView alloc] init];
+    self.audioVolumeIndicator                   = [[UIProgressView alloc] init];
     self.audioVolumeIndicator.progressTintColor = UIColor.yellowColor;
-    self.audioVolumeIndicator.progress = 0.0;
+    self.audioVolumeIndicator.progress          = 0.0;
     [self.view addSubview:self.audioVolumeIndicator];
     CGFloat leftRightPadding = 0;
     if (@available(iOS 11.0, *)) {
@@ -130,7 +122,7 @@
         [self.player pauseVideo];
     }
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.player setProperty:@"setDebugViewMargin" value:@{@"top": @(80), @"bottom": @(50), @"left": @(0), @"right": @(0)}];
+        [self.player setProperty:@"setDebugViewMargin" value:@{@"top" : @(80), @"bottom" : @(50), @"left" : @(0), @"right" : @(0)}];
     });
 }
 
@@ -147,13 +139,13 @@
 
 - (void)setUrl:(NSString *)url {
     LebLog(@"url:%@", url);
-    _url = [self.class convertPushUrl:url];
+    _url                 = [self.class convertPushUrl:url];
     NSDictionary *params = [LebLiveUtils parseURLParametersAndLowercaseKey:url];
-    _userId = params[@"userid"];
+    _userId              = params[@"userid"];
     if ([LebLiveUtils isTRTCUrl:url]) {
         self.title = [NSString stringWithFormat:@"%@（%@）", V2Localize(@"MLVB.lebLauncher.title"), params[@"strroomid"]];
     } else {
-        self.title =V2Localize(@"MLVB.lebLauncher.title");//[NSString stringWithFormat:@"Leb拉流（%@_%@）", params[@"strroomid"], params[@"remoteuserid"]];
+        self.title = V2Localize(@"MLVB.lebLauncher.title");  //[NSString stringWithFormat:@"Leb拉流（%@_%@）", params[@"strroomid"], params[@"remoteuserid"]];
     }
 }
 
@@ -171,10 +163,8 @@
 }
 
 - (V2TXLiveCode)stopPlay {
-    LebLogSimple()
-    if ([NSThread isMainThread]) {
-        return [self startPlayInner:NO];
-    } else {
+    LebLogSimple() if ([NSThread isMainThread]) { return [self startPlayInner:NO]; }
+    else {
         __block V2TXLiveCode result = V2TXLIVE_OK;
         dispatch_sync(dispatch_get_main_queue(), ^{
             result = [self startPlayInner:NO];
@@ -185,16 +175,15 @@
 
 - (V2TXLiveCode)startPlayInner:(BOOL)start {
     self.settingContainer.isStart = start;
-    V2TXLiveCode result = -1;
+    V2TXLiveCode result           = -1;
     if (start == self.player.isPlaying) {
         NSString *message = start ? @"in playing" : @"stoped";
         LebLog(@"startPlay ignored, already %@", message);
         return V2TXLIVE_OK;
     }
     if (start) {
-        LebLog(@"startPlay.")
-        self.hasRecvFirstFrame = NO;
-        [self.player setRenderFillMode:V2TXLiveFillModeFit];
+        LebLog(@"startPlay.") self.hasRecvFirstFrame = NO;
+        [self.player setRenderFillMode:self.settingContainer.fillMode];
         result = [self.player startPlay:self.url];
         if (result == V2TXLIVE_OK) {
             [self showLoading:V2Localize(@"V2.Live.LinkMicNew.loading") withDetailText:V2Localize(@"V2.Live.LinkMicNew.pleasewait")];
@@ -205,7 +194,7 @@
                 self.delayBlock = nil;
             }
             __weak LebPlayerViewController *weakSelf = self;
-            self.delayBlock = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, ^{
+            self.delayBlock                          = dispatch_block_create(DISPATCH_BLOCK_INHERIT_QOS_CLASS, ^{
                 if (!weakSelf.hasRecvFirstFrame) {
                     [weakSelf showText:V2Localize(@"V2.Live.LinkMicNew.getvideoframetimeout") withDetailText:nil];
                     [weakSelf startPlayInner:NO];
@@ -222,8 +211,7 @@
             self.settingContainer.isStart = NO;
         }
     } else {
-        LebLog(@"stopPlay.")
-        result = [self.player stopPlay];
+        LebLog(@"stopPlay.") result = [self.player stopPlay];
         if (result == V2TXLIVE_OK) {
             if (self.delayBlock) {
                 dispatch_block_cancel(self.delayBlock);
@@ -239,8 +227,6 @@
     }
     return result;
 }
-
-
 
 - (BOOL)muteVideo {
     return self.settingContainer.isVideoMuted;
@@ -289,7 +275,10 @@
     self.audioVolumeIndicator.hidden = !isEnable;
 }
 
-#define kLastTRTCUserId         @"kLastTRTCUserId"
+- (void)lebPlayerSettingVC:(LebPlayerSettingViewController *)container enableSEI:(BOOL)isEnable payloadType:(NSInteger)payloadType {
+}
+
+#define kLastTRTCUserId @"kLastTRTCUserId"
 + (NSString *)convertPushUrl:(NSString *)pushUrl {
     NSString *defaultUserId = [[NSUserDefaults standardUserDefaults] stringForKey:kLastTRTCUserId];
     if (!defaultUserId) {
@@ -302,7 +291,7 @@
         return pushUrl;
     }
     NSString *urlPrefix = urlComponents.firstObject;
-    NSString *userSig = [GenerateTestUserSig genTestUserSig:@(SDKAPPID).stringValue];
+    NSString *userSig   = [GenerateTestUserSig genTestUserSig:@(SDKAPPID).stringValue];
     //[GenerateTestUserSig genTestUserSig:defaultUserId sdkAppId:_SDKAppID secretKey:_SECRETKEY];
     NSMutableDictionary *params = [self parseURLParameters:pushUrl];
     if ([pushUrl hasPrefix:@"trtc://"] && [pushUrl containsString:@"/push/"]) {
@@ -314,7 +303,7 @@
                 [params setObject:userSig forKey:key];
             }
         }
-        urlPrefix = [urlPrefix stringByReplacingOccurrencesOfString:@"push" withString:@"rtcplay"];
+        urlPrefix              = [urlPrefix stringByReplacingOccurrencesOfString:@"push" withString:@"rtcplay"];
         NSMutableString *query = [NSMutableString stringWithCapacity:30];
         [query appendString:@"?"];
         for (NSString *key in params) {
@@ -355,19 +344,19 @@
     }
 }
 
-+ (NSMutableDictionary *)parseURLParameters:(NSString *)url{
++ (NSMutableDictionary *)parseURLParameters:(NSString *)url {
     NSRange range = [url rangeOfString:@"?"];
     if (range.location == NSNotFound) return nil;
 
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     if (url.length <= range.location + 1) return nil;
     NSString *parametersString = [url substringFromIndex:range.location + 1];
-    NSArray *urlComponents = [parametersString componentsSeparatedByString:@"&"];
+    NSArray * urlComponents    = [parametersString componentsSeparatedByString:@"&"];
 
     for (NSString *keyValuePair in urlComponents) {
-        NSArray *pairComponents = [keyValuePair componentsSeparatedByString:@"="];
-        NSString *key = pairComponents.firstObject;
-        NSString *value = pairComponents.lastObject;
+        NSArray * pairComponents = [keyValuePair componentsSeparatedByString:@"="];
+        NSString *key            = pairComponents.firstObject;
+        NSString *value          = pairComponents.lastObject;
         if (key && value) {
             [parameters setValue:value forKey:key];
         }
@@ -380,8 +369,8 @@
     if (hud == nil) {
         hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:NO];
     }
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = text;
+    hud.mode              = MBProgressHUDModeText;
+    hud.label.text        = text;
     hud.detailsLabel.text = detail;
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:1];
@@ -389,13 +378,13 @@
 
 - (void)showLoading:(NSString *)text withDetailText:(NSString *)detail {
     if (!self.view) return;
-    self.isLoading = YES;
+    self.isLoading     = YES;
     MBProgressHUD *hud = [MBProgressHUD HUDForView:self.view];
     if (hud == nil) {
         hud = [MBProgressHUD showHUDAddedTo:self.view animated:NO];
     }
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = text;
+    hud.mode              = MBProgressHUDModeText;
+    hud.label.text        = text;
     hud.detailsLabel.text = detail;
 }
 
@@ -408,62 +397,47 @@
 }
 
 #pragma mark - V2TXLivePlayerObserver
-- (void)onAudioPlayStatusUpdate:(id<V2TXLivePlayer>)player status:(V2TXLivePlayStatus)status reason:(V2TXLiveStatusChangeReason)reason extraInfo:(NSDictionary *)extraInfo {
-    switch (status) {
-        case V2TXLivePlayStatusPlaying:
-            self.hasRecvFirstFrame = YES;
-            [self hiddeLoading];
-            LebLogSimple()
-            break;
-        case V2TXLivePlayStatusLoading:
-            [self showLoading:V2Localize(@"V2.Live.LinkMicNew.loading") withDetailText:V2Localize(@"V2.Live.LinkMicNew.pleasewait")];
-            LebLogSimple()
-            break;
-        default:
-            break;
-    }
+
+- (void)onConnected:(id<V2TXLivePlayer>)player extraInfo:(NSDictionary *)extraInfo {
+    NSLog(@"----- onConnected");
 }
 
-- (void)onVideoPlayStatusUpdate:(id<V2TXLivePlayer>)player status:(V2TXLivePlayStatus)status reason:(V2TXLiveStatusChangeReason)reason extraInfo:(NSDictionary *)extraInfo {
-    switch (status) {
-        case V2TXLivePlayStatusPlaying:
-            self.hasRecvFirstFrame = YES;
-            [self hiddeLoading];
-            LebLogSimple()
-            break;
-        case V2TXLivePlayStatusLoading:
-            [self showLoading:V2Localize(@"V2.Live.LinkMicNew.loading") withDetailText:V2Localize(@"V2.Live.LinkMicNew.pleasewait")];
-            LebLogSimple()
-            break;
-        case V2TXLivePlayStatusStopped:
-            if (reason == V2TXLiveStatusChangeReasonRemoteStopped) {
-                [self showLoading:V2Localize(@"V2.Live.LinkMicNew.disconnected")
-                   withDetailText:V2Localize(@"V2.Live.LinkMicNew.checknetworkandtry")];
-                [self stopPlay];
-            }
-            LebLogSimple()
-            break;
-        default:
-            break;
-    }
+- (void)onVideoLoading:(id<V2TXLivePlayer>)player extraInfo:(NSDictionary *)extraInfo {
+    NSLog(@"----- onVideoLoading");
+    [self showLoading:V2Localize(@"V2.Live.LinkMicNew.loading") withDetailText:V2Localize(@"V2.Live.LinkMicNew.pleasewait")];
+    LebLogSimple()
 }
 
-- (void)onPlayoutVolumeUpdate:(id<V2TXLivePlayer>)player
-                       volume:(NSInteger)volume {
+- (void)onVideoPlaying:(id<V2TXLivePlayer>)player firstPlay:(BOOL)firstPlay extraInfo:(NSDictionary *)extraInfo {
+    NSLog(@"----- onVideoPlaying firstPlay: %d",firstPlay);
+    self.hasRecvFirstFrame = YES;
+    [self hiddeLoading];
+    LebLogSimple()
+}
+
+- (void)onAudioLoading:(id<V2TXLivePlayer>)player extraInfo:(NSDictionary *)extraInfo {
+    NSLog(@"----- onAudioLoading");
+}
+
+- (void)onAudioPlaying:(id<V2TXLivePlayer>)player firstPlay:(BOOL)firstPlay extraInfo:(NSDictionary *)extraInfo {
+    NSLog(@"----- onAudioPlaying firstPlay: %d",firstPlay);
+}
+
+- (void)onPlayoutVolumeUpdate:(id<V2TXLivePlayer>)player volume:(NSInteger)volume {
     if (!self.audioVolumeIndicator.hidden) {
         self.audioVolumeIndicator.progress = (CGFloat)volume / 100.0f;
     }
 }
 
-- (void)onError:(id<V2TXLivePlayer>)player
-           code:(V2TXLiveCode)code
-        message:(NSString *)msg
-      extraInfo:(NSDictionary *)extraInfo {
+- (void)onError:(id<V2TXLivePlayer>)player code:(V2TXLiveCode)code message:(NSString *)msg extraInfo:(NSDictionary *)extraInfo {
     if (code == V2TXLIVE_ERROR_REQUEST_TIMEOUT) {
         [self showText:V2Localize(@"V2.Live.LinkMicNew.enterroomtimeout") withDetailText:V2Localize(@"V2.Live.LinkMicNew.checknetworkandtry")];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self startPlayInner:NO];
         });
+    } else if (code == V2TXLIVE_ERROR_DISCONNECTED) {
+        [self showLoading:V2Localize(@"V2.Live.LinkMicNew.disconnected") withDetailText:V2Localize(@"V2.Live.LinkMicNew.checknetworkandtry")];
+        [self stopPlay];
     }
     LebLog(@"code:%ld msg:%@ extraInfo:%@", (long)code, msg, extraInfo);
 }
@@ -476,14 +450,20 @@
     if (!image) {
         [self showText:V2Localize(@"V2.Live.LinkMicNew.getsnapshotfailed")];
     } else {
-        [PhotoUtil saveDataToAlbum:UIImagePNGRepresentation(image) completion:^(BOOL success, NSError * _Nullable error) {
-            if (success) {
-                [self showText:V2Localize(@"V2.Live.LinkMicNew.snapshotsavetoalbum")];
-            } else {
-                [self showText:V2Localize(@"V2.Live.LinkMicNew.snapshotsavefailed")];
-            }
-        }];
+        [PhotoUtil saveDataToAlbum:UIImagePNGRepresentation(image)
+                        completion:^(BOOL success, NSError *_Nullable error) {
+                            if (success) {
+                                [self showText:V2Localize(@"V2.Live.LinkMicNew.snapshotsavetoalbum")];
+                            } else {
+                                [self showText:V2Localize(@"V2.Live.LinkMicNew.snapshotsavefailed")];
+                            }
+                        }];
     }
+}
+
+- (void)onReceiveSeiMessage:(id<V2TXLivePlayer>)player payloadType:(int)payloadType data:(NSData *)data {
+    NSString *content = data ? [NSString stringWithCString:[data bytes] encoding:NSUTF8StringEncoding] : @"";
+    LebLog(@"onReceiveSeiMessage payloadType: %d, data: %@ %@", payloadType, data, content);
 }
 
 #pragma mark - Util
@@ -494,7 +474,7 @@
         if (hud == nil) {
             hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:NO];
         }
-        hud.mode = MBProgressHUDModeText;
+        hud.mode       = MBProgressHUDModeText;
         hud.label.text = text;
         [hud showAnimated:YES];
         [hud hideAnimated:YES afterDelay:1];

@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface TCMusicSelectView : UIView
 
-@property (nonatomic, weak) id<TCMusicSelectedDelegate> delegate;
+@property(nonatomic, weak) id<TCMusicSelectedDelegate> delegate;
 
 - (instancetype)initWithViewModel:(AudioEffectSettingViewModel *)viewModel;
 

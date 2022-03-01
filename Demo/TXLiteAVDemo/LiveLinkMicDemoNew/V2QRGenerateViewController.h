@@ -10,8 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface V2QRGenerateViewController : UIViewController
-@property (nonatomic, copy) NSString *playURL;
+@interface                           V2QRGenerateViewController : UIViewController
+@property(nonatomic, copy) NSString *playURL;
 @end
 
 NS_ASSUME_NONNULL_END

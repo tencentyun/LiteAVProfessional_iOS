@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>licenceConfig</key>
+	<dict>
+		<key>licenceUrl</key>
+		<string>http://ugc-licence-test-1252463788.file.myqcloud.com/RDM_Enterprise_hybrid.licence</string>
+		<key>licenceKey</key>
+		<string>9bc74ac7bfd07ea392e8fdff2ba5678a</string>
+	</dict>
+	<key>menuConfig</key>
+	<array>
+		<dict>
+			<key>subMenus</key>
+			<array>
+				<dict>
+					<key>title</key>
+					<string>V2.Live.LinkMicNew.coanchornew</string>
+					<key>class</key>
+					<string>V2MainViewController</string>
+				</dict>
+			</array>
+			<key>title</key>
+			<string>V2.Live.LinkMicNew.title</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -7,28 +7,29 @@
 //
 
 #import "V2PusherViewController.h"
-#import "V2PusherSettingViewController.h"
-#import "ColorMacro.h"
-#import "Masonry.h"
-#import "V2TXLivePusher.h"
-#import "V2PusherSettingModel.h"
-#import "V2LiveUtils.h"
-#import "V2QRGenerateViewController.h"
-#import "MBProgressHUD.h"
-#import "PhotoUtil.h"
+
 #import "AppLocalized.h"
+#import "ColorMacro.h"
+#import "MBProgressHUD.h"
+#import "Masonry.h"
+#import "PhotoUtil.h"
+#import "V2LiveUtils.h"
+#import "V2PusherSettingModel.h"
+#import "V2PusherSettingViewController.h"
+#import "V2QRGenerateViewController.h"
+#import "V2TXLivePusher.h"
 
-#define V2LogSimple() \
-        NSLog(@"[%@ %p %s %d]", NSStringFromClass(self.class), self, __func__, __LINE__);
-#define V2Log(_format_, ...) \
-        NSLog(@"[%@ %p %s %d] %@", NSStringFromClass(self.class), self, __func__, __LINE__, [NSString stringWithFormat:_format_, ##__VA_ARGS__]);
+#define V2LogSimple()        NSLog(@"[%@ %p %s %d]", NSStringFromClass(self.class), self, __func__, __LINE__);
+#define V2Log(_format_, ...) NSLog(@"[%@ %p %s %d] %@", NSStringFromClass(self.class), self, __func__, __LINE__, [NSString stringWithFormat:_format_, ##__VA_ARGS__]);
 
-@interface V2PusherViewController ()<V2TXLivePusherObserver, V2PusherSettingViewControllerDelegate, UIGestureRecognizerDelegate>
-@property (nonatomic, strong) TXView *videoView;
-@property (nonatomic, strong) V2TXLivePusher *pusher;
-@property (nonatomic, strong) V2PusherSettingViewController *settingContainer;
-@property (nonatomic, strong) V2PusherSettingModel *pusherVM;
-@property (nonatomic, strong) UIProgressView *volumeProgress;
+@interface V2PusherViewController () <V2TXLivePusherObserver, V2PusherSettingViewControllerDelegate, UIGestureRecognizerDelegate>
+
+@property(nonatomic, strong) TXView *                       videoView;
+@property(nonatomic, strong) V2TXLivePusher *               pusher;
+@property(nonatomic, strong) V2PusherSettingViewController *settingContainer;
+@property(nonatomic, strong) V2PusherSettingModel *         pusherVM;
+@property(nonatomic, strong) UIProgressView *               volumeProgress;
+
 @end
 
 @implementation V2PusherViewController
@@ -51,29 +52,28 @@
 }
 
 - (void)setUrl:(NSString *)url {
-    _url = url;
+    _url                 = url;
     NSDictionary *params = [V2LiveUtils parseURLParametersAndLowercaseKey:url];
     if ([V2LiveUtils isTRTCUrl:url]) {
         self.title = [NSString stringWithFormat:@"%@（%@）", V2Localize(@"V2.Live.LinkMicNew.v2pushstream"), params[@"strroomid"]];
     } else {
-        self.title = V2Localize(@"V2.Live.LinkMicNew.v2pushstream");//[NSString stringWithFormat:@"V2推流（%@_%@）", params[@"strroomid"], params[@"userid"]];
+        self.title = V2Localize(@"V2.Live.LinkMicNew.v2pushstream");  //[NSString stringWithFormat:@"V2推流（%@_%@）", params[@"strroomid"], params[@"userid"]];
     }
 }
 
 - (void)dealloc {
-    V2LogSimple()
-    [self.pusherVM saveConfig];
+    V2LogSimple()[self.pusherVM saveConfig];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUpNavigationBarButtons];
-    self.videoView = [[TXView alloc] initWithFrame:self.view.bounds];
+    self.videoView                 = [[TXView alloc] initWithFrame:self.view.bounds];
     self.videoView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.videoView];
     self.view.backgroundColor = [UIColor lightGrayColor];
-    
-    self.volumeProgress = [[UIProgressView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 1)];
+
+    self.volumeProgress                   = [[UIProgressView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height, self.view.bounds.size.width, 1)];
     self.volumeProgress.progressTintColor = [UIColor yellowColor];
     [self.view addSubview:self.volumeProgress];
     CGFloat leftRightPadding = 0;
@@ -83,44 +83,33 @@
     }
     [self.volumeProgress mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.view).offset(leftRightPadding);
-        make.height.mas_equalTo(@(1.5));
-        make.bottom.equalTo(self.view).offset(0);
+        make.height.mas_equalTo(@(2));
+        make.bottom.equalTo(self.view.mas_bottom).offset(-1);
     }];
 
     UITapGestureRecognizer *doubleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleDoubleTap)];
-    doubleTapGesture.numberOfTapsRequired = 2;
-    doubleTapGesture.delegate = self;
+    doubleTapGesture.numberOfTapsRequired    = 2;
+    doubleTapGesture.delegate                = self;
     [self.view addGestureRecognizer:doubleTapGesture];
-    
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]
-                                             initWithImage:[UIImage imageNamed:@"rtc_back"]
-                                             style:UIBarButtonItemStylePlain target:self
-                                             action:@selector(handleDoubleTap)];
+
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"rtc_back"] style:UIBarButtonItemStylePlain target:self action:@selector(handleDoubleTap)];
 }
 
 - (void)setUpNavigationBarButtons {
-    UIBarButtonItem *qrItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"livepusher_qr_code_btn"]
-                                                           style:UIBarButtonItemStylePlain
-                                                          target:self
-                                                          action:@selector(onShowQRCode:)];
-    self.navigationItem.rightBarButtonItems = @[qrItem];
+    UIBarButtonItem *qrItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"livepusher_qr_code_btn"] style:UIBarButtonItemStylePlain target:self action:@selector(onShowQRCode:)];
+    self.navigationItem.rightBarButtonItems = @[ qrItem ];
 }
-
 
 - (V2PusherSettingViewController *)settingContainer {
     if (!self.pusherVM) {
         self.pusherVM = [[V2PusherSettingModel alloc] initWithPusher:self.pusher];
     }
     if (!_settingContainer) {
-        _settingContainer = [[V2PusherSettingViewController alloc] initWithHostVC:self
-                                                                     muteVideo:NO
-                                                                     muteAudio:NO
-                                                                       logView:NO
-                                                                        pusher:self.pusher
-                                                               pusherViewModel:self.pusherVM];
-        _settingContainer.isStart = self.pusher.isPushing;
+        _settingContainer             = [[V2PusherSettingViewController alloc] initWithHostVC:self muteVideo:NO muteAudio:NO logView:NO pusherViewModel:self.pusherVM];
+        _settingContainer.isStart     = self.pusher.isPushing;
         _settingContainer.frontCamera = YES;
-        _settingContainer.delegate = self;
+        _settingContainer.delegate    = self;
+        _settingContainer.pusher      = self.pusher;
         [self.view addSubview:_settingContainer];
         [_settingContainer mas_makeConstraints:^(MASConstraintMaker *make) {
             make.leading.trailing.equalTo(self.view);
@@ -169,7 +158,7 @@
     V2Log(@"smallPreView:%@", self.smallPreView);
     if (self.smallPreView) {
         [self.pusher setRenderView:self.smallPreView];
-        [self.pusher showDebugView:NO]; /// 小窗时不展示日志
+        [self.pusher showDebugView:NO];  /// 小窗时不展示日志
     }
 }
 
@@ -210,12 +199,27 @@
 - (void)setPusherMode:(V2TXLiveMode)mode {
     self.pusher = [[V2TXLivePusher alloc] initWithLiveMode:mode];
     [self.pusher setObserver:self];
+    [self.pusher setAudioQuality:V2TXLiveAudioQualityDefault];
     self.settingContainer.pusher = self.pusher;
-    self.pusherVM.pusher = self.pusher;
-    self.settingContainer.pusher = self.pusher;
+    self.pusherVM.pusher         = self.pusher;
 }
 
 - (V2TXLiveCode)startPush {
+    // 1. 检查摄像头权限
+    AVAuthorizationStatus statusVideo = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if (statusVideo == AVAuthorizationStatusDenied) {
+        // 相机拒绝授权，提示前往设置中心
+        [self showText:LivePlayerLocalize(@"LiveLinkMicDemoOld.RoomNew.prompt") withDetailText:LivePlayerLocalize(@"LiveLinkMicDemoOld.MLVBLiveRoom.failedtogetcamerapermission")];
+        return V2TXLIVE_WARNING_CAMERA_START_FAILED;
+    }
+    // 2. 检查麦克风权限
+    AVAuthorizationStatus statusAudio = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeAudio];
+    if (statusAudio == AVAuthorizationStatusDenied) {
+        // 麦克风拒绝授权，提示前往设置中心
+        [self showText:LivePlayerLocalize(@"LiveLinkMicDemoOld.RoomNew.prompt") withDetailText:LivePlayerLocalize(@"LiveLinkMicDemoOld.MLVBLiveRoom.failedtogetmicrophonepermission")];
+        return V2TXLIVE_WARNING_MICROPHONE_START_FAILED;
+    }
+    
     V2Log(@"smallPreView:%@ url:%@", self.smallPreView, self.url);
     if (!self.view.window && self.smallPreView) {
         [self.pusher setRenderView:self.smallPreView];
@@ -225,7 +229,7 @@
     [self.pusher startCamera:self.usefrontCamera];
     [self.pusher startMicrophone];
     self.settingContainer.isStart = YES;
-    V2TXLiveCode result = [self.pusher startPush:self.url];
+    V2TXLiveCode result           = [self.pusher startPush:self.url];
     if (result == V2TXLIVE_OK) {
         [self.pusher.getDeviceManager enableCameraAutoFocus:YES];
         [self applyConfig];
@@ -261,24 +265,24 @@
     if (!self.url || self.url.length == 0) {
         return;
     }
-    
-    NSString *qrUrl = @"";
+
+    NSString *    qrUrl  = @"";
     NSDictionary *params = [V2LiveUtils parseURLParametersAndLowercaseKey:self.url];
     if (self.playUrl) {
         qrUrl = self.playUrl;
     } else if ([V2LiveUtils isTRTCUrl:self.url]) {
         qrUrl = [NSString stringWithFormat:@"trtc://cloud.tencent.com/play/%@", params[@"strroomid"]];
     } else {
-        ///qrUrl = [NSString stringWithFormat:@"room://cloud.tencent.com/rtc?strroomid=%@&remoteuserid=%@", params[@"strroomid"], params[@"userid"]];
+        /// qrUrl = [NSString stringWithFormat:@"room://cloud.tencent.com/rtc?strroomid=%@&remoteuserid=%@", params[@"strroomid"], params[@"userid"]];
     }
     if ([qrUrl length] == 0) {
         [self showText:@"播放URL不存在" withDetailText:@"通过扫码进行CDN推流，不会生成播放URL，如果需要播放URL，请使用自动生成推流地址。"];
         return;
     }
-    
+
     V2QRGenerateViewController *qrCodeVC = [[V2QRGenerateViewController alloc] initWithNibName:@"V2QRGenerateViewController" bundle:nil];
-    qrCodeVC.modalPresentationStyle = UIModalPresentationOverFullScreen;
-    qrCodeVC.playURL = qrUrl;
+    qrCodeVC.modalPresentationStyle      = UIModalPresentationOverFullScreen;
+    qrCodeVC.playURL                     = qrUrl;
     [self.navigationController presentViewController:qrCodeVC animated:NO completion:nil];
 }
 
@@ -287,8 +291,8 @@
     if (hud == nil) {
         hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:NO];
     }
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = text;
+    hud.mode              = MBProgressHUDModeText;
+    hud.label.text        = text;
     hud.detailsLabel.text = detail;
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:1];
@@ -321,15 +325,11 @@
 }
 
 - (void)v2PusherSettingVCDidClickLocalRotation:(nonnull V2PusherViewController *)container {
-    
 }
 
-#pragma mark -- V2TXLivePusherObserver
-- (void)onError:(V2TXLiveCode)code
-        message:(NSString *)msg
-      extraInfo:(NSDictionary *)extraInfo {
-    V2Log(@"code:%ld, msg:%@, extraInfo:%@", (long)code, msg, extraInfo)
-    if (code == V2TXLIVE_ERROR_REQUEST_TIMEOUT) {
+#pragma mark-- V2TXLivePusherObserver
+- (void)onError:(V2TXLiveCode)code message:(NSString *)msg extraInfo:(NSDictionary *)extraInfo {
+    V2Log(@"code:%ld, msg:%@, extraInfo:%@", (long)code, msg, extraInfo) if (code == V2TXLIVE_ERROR_REQUEST_TIMEOUT) {
         [self showText:@"进房超时" withDetailText:@"请检查网络状态，然后重试"];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self stopPush];
@@ -337,9 +337,7 @@
     }
 }
 
-- (void)onWarning:(V2TXLiveCode)code
-          message:(NSString *)msg
-        extraInfo:(NSDictionary *)extraInfo {
+- (void)onWarning:(V2TXLiveCode)code message:(NSString *)msg extraInfo:(NSDictionary *)extraInfo {
     V2Log(@"code:%ld, msg:%@, extraInfo:%@", (long)code, msg, extraInfo)
 }
 
@@ -353,12 +351,13 @@
 
 - (void)onMicrophoneVolumeUpdate:(NSInteger)volume {
     V2Log(@"volume:%ld", (long)volume)
-    
-    if ([NSThread isMainThread]) {
-        self.volumeProgress.progress = volume/100.0;
-    } else {
+
+        if ([NSThread isMainThread]) {
+        self.volumeProgress.progress = volume / 100.0;
+    }
+    else {
         dispatch_async(dispatch_get_main_queue(), ^{
-            self.volumeProgress.progress = volume/100.0;
+            self.volumeProgress.progress = volume / 100.0;
         });
     }
 }
@@ -374,17 +373,28 @@
     }
 }
 
--(void)onSnapshotComplete:(TXImage *)image {
+- (void)onSnapshotComplete:(TXImage *)image {
     if (!image) {
-        [self showText:@"获取截图失败"];
+        [self showText:V2Localize(@"V2.Live.LinkMicNew.getsnapshotfailed")];
     } else {
-        [PhotoUtil saveDataToAlbum:UIImagePNGRepresentation(image) completion:^(BOOL success, NSError * _Nullable error) {
-            if (success) {
-                [self showText:@"截图已保存到相册"];
-            } else {
-                [self showText:@"截图保存失败"];
-            }
-        }];
+        __block CGImageRef cgImage    = nil;
+        UIImage *          finalImage = image;
+        if (!image.CGImage) {
+            CIContext *ciContext = [[CIContext alloc] init];
+            cgImage              = [ciContext createCGImage:image.CIImage fromRect:image.CIImage.extent];
+            finalImage           = [UIImage imageWithCGImage:cgImage];
+        }
+        [PhotoUtil saveDataToAlbum:UIImagePNGRepresentation(finalImage)
+                        completion:^(BOOL success, NSError *_Nullable error) {
+                            if (success) {
+                                [self showText:V2Localize(@"V2.Live.LinkMicNew.snapshotsavetoalbum")];
+                            } else {
+                                [self showText:V2Localize(@"V2.Live.LinkMicNew.snapshotsavefailed")];
+                            }
+                            if (cgImage) {
+                                CGImageRelease(cgImage);
+                            }
+                        }];
     }
 }
 
@@ -405,7 +415,7 @@
         if (hud == nil) {
             hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:NO];
         }
-        hud.mode = MBProgressHUDModeText;
+        hud.mode       = MBProgressHUDModeText;
         hud.label.text = text;
         [hud showAnimated:YES];
         [hud hideAnimated:YES afterDelay:1];
@@ -413,4 +423,3 @@
 }
 
 @end
-

@@ -17,16 +17,15 @@
 
 @implementation LiveRoomAccPlayerView {
     LiveRoomPlayerItemView *_loadingView;
-    UIButton *_closeButton;
+    UIButton *              _closeButton;
 }
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.layer.borderColor = [UIColor whiteColor].CGColor;
-        self.layer.borderWidth = 1;
-        _loading = YES;
-        _loadingView = [[LiveRoomPlayerItemView alloc] initWithFrame:self.bounds];
+        self.layer.borderColor        = [UIColor whiteColor].CGColor;
+        self.layer.borderWidth        = 1;
+        _loading                      = YES;
+        _loadingView                  = [[LiveRoomPlayerItemView alloc] initWithFrame:self.bounds];
         _loadingView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         [_loadingView startLoadingAnimation];
         [self addSubview:_loadingView];
@@ -36,7 +35,7 @@
 
 - (void)setLoading:(BOOL)loading {
     if (_loading == loading) return;
-    _loading = loading;
+    _loading            = loading;
     _loadingView.hidden = !loading;
     if (loading) {
         [_loadingView startLoadingAnimation];
@@ -49,8 +48,8 @@
     if (_closeEnabled == closeEnabled) return;
     if (closeEnabled) {
         if (_closeButton == nil) {
-            UIButton *btnKick = [UIButton buttonWithType:UIButtonTypeCustom];
-            btnKick.frame = CGRectMake(CGRectGetWidth(self.bounds) - 18, 2, 16, 16);
+            UIButton *btnKick        = [UIButton buttonWithType:UIButtonTypeCustom];
+            btnKick.frame            = CGRectMake(CGRectGetWidth(self.bounds) - 18, 2, 16, 16);
             btnKick.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
             [btnKick setBackgroundImage:[UIImage imageNamed:@"linkmic_kickout"] forState:UIControlStateNormal];
             [btnKick setTitleColor:[UIColor clearColor] forState:UIControlStateNormal];
@@ -70,29 +69,32 @@
 
 @end
 
-@implementation LiveRoomPlayerItemView
-{
-    UIImageView  *_loadingImageView;
+@implementation LiveRoomPlayerItemView {
+    UIImageView *_loadingImageView;
 }
 
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        //loading imageview
-        NSMutableArray *array = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"loading_1.png"],[UIImage imageNamed:@"loading_2.png"],[UIImage imageNamed:@"loading_3.png"],[UIImage imageNamed:@"loading_4.png"],[UIImage imageNamed:@"loading_5.png"],[UIImage imageNamed:@"loading_6.png"],[UIImage imageNamed:@"loading_7.png"],[UIImage imageNamed:@"loading_8.png"],[UIImage imageNamed:@"loading_9.png"],[UIImage imageNamed:@"loading_10.png"],[UIImage imageNamed:@"loading_11.png"],[UIImage imageNamed:@"loading_12.png"],[UIImage imageNamed:@"loading_13.png"],[UIImage imageNamed:@"loading_14.png"], nil];
-        _loadingImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        // loading imageview
+        NSMutableArray *array             = [[NSMutableArray alloc] initWithObjects:[UIImage imageNamed:@"loading_1.png"], [UIImage imageNamed:@"loading_2.png"], [UIImage imageNamed:@"loading_3.png"],
+                                                                        [UIImage imageNamed:@"loading_4.png"], [UIImage imageNamed:@"loading_5.png"], [UIImage imageNamed:@"loading_6.png"],
+                                                                        [UIImage imageNamed:@"loading_7.png"], [UIImage imageNamed:@"loading_8.png"], [UIImage imageNamed:@"loading_9.png"],
+                                                                        [UIImage imageNamed:@"loading_10.png"], [UIImage imageNamed:@"loading_11.png"], [UIImage imageNamed:@"loading_12.png"],
+                                                                        [UIImage imageNamed:@"loading_13.png"], [UIImage imageNamed:@"loading_14.png"], nil];
+        _loadingImageView                 = [[UIImageView alloc] initWithFrame:CGRectZero];
         _loadingImageView.animationImages = array;
         _loadingImageView.animationDuration = 1;
-        _loadingImageView.hidden = YES;
+        _loadingImageView.hidden            = YES;
         [self addSubview:_loadingImageView];
     }
     return self;
 }
 
 - (void)layoutSubviews {
-    float width = 45;
-    float height = 45;
-    float offsetX = (self.frame.size.width - width) / 2;
-    float offsetY = (self.frame.size.height - height) / 2;
+    float width             = 45;
+    float height            = 45;
+    float offsetX           = (self.frame.size.width - width) / 2;
+    float offsetY           = (self.frame.size.height - height) / 2;
     _loadingImageView.frame = CGRectMake(offsetX, offsetY, width, height);
 }
 

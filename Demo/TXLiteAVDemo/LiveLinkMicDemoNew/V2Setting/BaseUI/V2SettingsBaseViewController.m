@@ -1,21 +1,22 @@
 /*
-* Module:   V2SettingsBaseViewController
-*
-* Function: 基础框架类。用作包含各种配置项的列表页
-*
-*    1. 列表的各种配置Cell定义在Cells目录中，也可继承
-*
-*    2. 通过继承V2SettingsBaseCell，可自定义Cell，需要在V2SettingsBaseViewController
-*       子类中重载makeCustomRegistrition，并调用registerClass将Cell注册到tableView中。
-*
-*/
+ * Module:   V2SettingsBaseViewController
+ *
+ * Function: 基础框架类。用作包含各种配置项的列表页
+ *
+ *    1. 列表的各种配置Cell定义在Cells目录中，也可继承
+ *
+ *    2. 通过继承V2SettingsBaseCell，可自定义Cell，需要在V2SettingsBaseViewController
+ *       子类中重载makeCustomRegistrition，并调用registerClass将Cell注册到tableView中。
+ *
+ */
 
 #import "V2SettingsBaseViewController.h"
+
 #import "Masonry.h"
 
-@interface V2SettingsBaseViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface V2SettingsBaseViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) UITableView *tableView;
+@property(strong, nonatomic) UITableView *tableView;
 
 @end
 
@@ -23,33 +24,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.view.backgroundColor = UIColor.clearColor;
     [self setupTableView];
 }
 
 - (void)setupTableView {
-    self.tableView = [[UITableView alloc] init];
-    self.tableView.backgroundColor = UIColor.clearColor;
-    self.tableView.allowsSelection = NO;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView                     = [[UITableView alloc] init];
+    self.tableView.backgroundColor     = UIColor.clearColor;
+    self.tableView.allowsSelection     = NO;
+    self.tableView.separatorStyle      = UITableViewCellSeparatorStyleNone;
     self.tableView.keyboardDismissMode = UIScrollViewKeyboardDismissModeOnDrag;
-    
-    self.tableView.delegate = self;
+
+    self.tableView.delegate   = self;
     self.tableView.dataSource = self;
-    
-    [self.tableView registerClass:V2SettingsSwitchItem.bindedCellClass
-           forCellReuseIdentifier:V2SettingsSwitchItem.bindedCellId];
-    [self.tableView registerClass:V2SettingsSegmentItem.bindedCellClass
-           forCellReuseIdentifier:V2SettingsSegmentItem.bindedCellId];
-    [self.tableView registerClass:V2SettingsButtonItem.bindedCellClass
-           forCellReuseIdentifier:V2SettingsButtonItem.bindedCellId];
-    [self.tableView registerClass:V2SettingsSliderItem.bindedCellClass
-           forCellReuseIdentifier:V2SettingsSliderItem.bindedCellId];
-    [self.tableView registerClass:V2SettingsSelectorItem.bindedCellClass
-           forCellReuseIdentifier:V2SettingsSelectorItem.bindedCellId];
+
+    [self.tableView registerClass:V2SettingsSwitchItem.bindedCellClass forCellReuseIdentifier:V2SettingsSwitchItem.bindedCellId];
+    [self.tableView registerClass:V2SettingsSegmentItem.bindedCellClass forCellReuseIdentifier:V2SettingsSegmentItem.bindedCellId];
+    [self.tableView registerClass:V2SettingsButtonItem.bindedCellClass forCellReuseIdentifier:V2SettingsButtonItem.bindedCellId];
+    [self.tableView registerClass:V2SettingsSliderItem.bindedCellClass forCellReuseIdentifier:V2SettingsSliderItem.bindedCellId];
+    [self.tableView registerClass:V2SettingsSelectorItem.bindedCellClass forCellReuseIdentifier:V2SettingsSelectorItem.bindedCellId];
+    [self.tableView registerClass:V2SettingsSegmentItem.bindedCellClass forCellReuseIdentifier:V2SettingsSegmentItem.bindedCellId];
+    [self.tableView registerClass:V2SettingsMessageItem.bindedCellClass forCellReuseIdentifier:V2SettingsMessageItem.bindedCellId];
     [self makeCustomRegistrition];
-    
+
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
@@ -88,7 +86,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     V2SettingsBaseCell *cell = [tableView dequeueReusableCellWithIdentifier:self.items[indexPath.row].bindedCellId];
-    cell.item = self.items[indexPath.row];
+    cell.item                = self.items[indexPath.row];
 
     return cell;
 }

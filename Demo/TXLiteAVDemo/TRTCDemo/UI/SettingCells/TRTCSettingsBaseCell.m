@@ -1,22 +1,23 @@
 /*
-* Module:   TRTCSettingsBaseItem, TRTCSettingsBaseCell
-*
-* Function: 基础框架类。TRTCSettingsBaseViewController的Cell基类/Users/dangjiahe/Downloads/TXLiteAVSDK_Enterprise/Demo/TXLiteAVDemo/TRTC/Settings/BaseUI/CommonWidgets
-*
-*    1. TRTCSettingsBaseItem用于存储cell中的数据，以及传导cell中的控件action
-*
-*    2. TRTCSettingsBaseCell定义了左侧的titleLabel，子类中可重载setupUI来添加其它控件
-*
-*/
+ * Module:   TRTCSettingsBaseItem, TRTCSettingsBaseCell
+ *
+ * Function: 基础框架类。TRTCSettingsBaseViewController的Cell基类/Users/dangjiahe/Downloads/TXLiteAVSDK_Enterprise/Demo/TXLiteAVDemo/TRTC/Settings/BaseUI/CommonWidgets
+ *
+ *    1. TRTCSettingsBaseItem用于存储cell中的数据，以及传导cell中的控件action
+ *
+ *    2. TRTCSettingsBaseCell定义了左侧的titleLabel，子类中可重载setupUI来添加其它控件
+ *
+ */
 
 #import "TRTCSettingsBaseCell.h"
-#import "UILabel+TRTC.h"
-#import "Masonry.h"
+
 #import "ColorMacro.h"
+#import "Masonry.h"
+#import "UILabel+TRTC.h"
 
 @interface TRTCSettingsBaseCell ()
 
-@property (strong, nonatomic) UILabel *titleLabel;
+@property(strong, nonatomic) UILabel *titleLabel;
 
 @end
 
@@ -37,7 +38,7 @@
 }
 
 - (void)setItem:(TRTCSettingsBaseItem *)item {
-    _item = item;
+    _item                = item;
     self.titleLabel.text = item.title;
     [self didUpdateItem:item];
 }
@@ -46,7 +47,7 @@
 
 - (void)setupUI {
     self.backgroundColor = UIColor.clearColor;
-    
+
     self.titleLabel = [UILabel trtc_titleLabel];
     [self.contentView addSubview:self.titleLabel];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {

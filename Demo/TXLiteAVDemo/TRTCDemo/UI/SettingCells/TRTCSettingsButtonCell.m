@@ -1,17 +1,19 @@
 /*
-* Module:   TRTCSettingsButtonCell
-*
-* Function: 配置列表Cell，右侧是一个Button
-*
-*/
+ * Module:   TRTCSettingsButtonCell
+ *
+ * Function: 配置列表Cell，右侧是一个Button
+ *
+ */
 
 #import "TRTCSettingsButtonCell.h"
-#import "UIButton+TRTC.h"
+
+#import "AppLocalized.h"
 #import "Masonry.h"
+#import "UIButton+TRTC.h"
 
 @interface TRTCSettingsButtonCell ()
 
-@property (strong, nonatomic) UIButton *button;
+@property(strong, nonatomic) UIButton *button;
 
 @end
 
@@ -19,8 +21,8 @@
 
 - (void)setupUI {
     [super setupUI];
-    
-    self.button = [UIButton trtc_cellButtonWithTitle:@"发送"];
+
+    self.button = [UIButton trtc_cellButtonWithTitle:TRTCLocalize(@"Demo.TRTC.Live.send")];
     [self.button addTarget:self action:@selector(onClickSendButton:) forControlEvents:UIControlEventTouchUpInside];
     [self.contentView addSubview:self.button];
     [self.button mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -47,14 +49,13 @@
 
 @end
 
-
 @implementation TRTCSettingsButtonItem
 
 - (instancetype)initWithTitle:(NSString *)title buttonTitle:(NSString *)buttonTitle action:(void (^)())action {
     if (self = [super init]) {
-        self.title = title;
+        self.title   = title;
         _buttonTitle = buttonTitle;
-        _action = action;
+        _action      = action;
     }
     return self;
 }
@@ -68,4 +69,3 @@
 }
 
 @end
-

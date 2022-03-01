@@ -1,9 +1,9 @@
 /*
-* Module:   TRTCSettingsSwitchCell
-*
-* Function: 配置列表Cell，右侧是一个Switcher
-*
-*/
+ * Module:   TRTCSettingsSwitchCell
+ *
+ * Function: 配置列表Cell，右侧是一个Switcher
+ *
+ */
 
 #import "TRTCSettingsBaseCell.h"
 
@@ -13,13 +13,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
 @interface TRTCSettingsSwitchItem : TRTCSettingsBaseItem
 
-@property (nonatomic) BOOL isOn;
-@property (copy, nonatomic, readonly, nullable) void (^action)(BOOL);
+@property(nonatomic) BOOL isOn;
+@property(copy, nonatomic, readonly, nullable) void (^action)(BOOL);
 
-- (instancetype)initWithTitle:(NSString *)title isOn:(BOOL)isOn action:(void (^ _Nullable)(BOOL))action;
+- (instancetype)initWithTitle:(NSString *)title isOn:(BOOL)isOn action:(void (^_Nullable)(BOOL))action;
 
 @end
 

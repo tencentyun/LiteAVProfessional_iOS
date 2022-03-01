@@ -1,14 +1,14 @@
 /*
-* Module:   TRTCRemoteUserCell
-*
-* Function: 远端用户列表页的用户Cell
-*
-*    1. TRTCRemoteUserItem中保存设置给Cell的用户数据
-*
-*/
+ * Module:   TRTCRemoteUserCell
+ *
+ * Function: 远端用户列表页的用户Cell
+ *
+ *    1. TRTCRemoteUserItem中保存设置给Cell的用户数据
+ *
+ */
 
-#import "TRTCSettingsBaseCell.h"
 #import "TRTCRemoteUserConfig.h"
+#import "TRTCSettingsBaseCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,11 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-
 @interface TRTCRemoteUserItem : TRTCSettingsBaseItem
 
-@property (copy, nonatomic, readonly) NSString *userId;
-@property (strong, nonatomic, readonly) TRTCRemoteUserConfig *memberSettings;
+@property(copy, nonatomic, readonly) NSString *              userId;
+@property(strong, nonatomic, readonly) TRTCRemoteUserConfig *memberSettings;
 
 - (instancetype)initWithUser:(NSString *)userId settings:(TRTCRemoteUserConfig *)memberSettings NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;

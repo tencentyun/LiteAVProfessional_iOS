@@ -6,15 +6,16 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "GLOutput.h"
 
-#define STRINGIZE(x) #x
-#define STRINGIZE2(x) STRINGIZE(x)
-#define SHADER_STRING(text) @ STRINGIZE2(text)
+#define STRINGIZE(x)        #x
+#define STRINGIZE2(x)       STRINGIZE(x)
+#define SHADER_STRING(text) @STRINGIZE2(text)
 
-#define GLHashIdentifier #
-#define GLWrappedLabel(x) x
-#define GLEscapedHashIdentifier(a) GLWrappedLabel(GLHashIdentifier)a
+#define GLHashIdentifier           #
+#define GLWrappedLabel(x)          x
+#define GLEscapedHashIdentifier(a) GLWrappedLabel(GLHashIdentifier) a
 
 extern NSString *const kGLVertexShaderString;
 extern NSString *const kGLPassthroughFragmentShaderString;
@@ -51,22 +52,21 @@ typedef struct GPUMatrix3x3 GPUMatrix3x3;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface GLFilter : GLOutput <GLInput>
-{
+@interface GLFilter : GLOutput <GLInput> {
     GLFramebuffer *firstInputFramebuffer;
-    
+
     GLProgram *filterProgram;
-    GLint filterPositionAttribute, filterTextureCoordinateAttribute;
-    GLint filterInputTextureUniform;
-    GLfloat backgroundColorRed, backgroundColorGreen, backgroundColorBlue, backgroundColorAlpha;
-    
+    GLint      filterPositionAttribute, filterTextureCoordinateAttribute;
+    GLint      filterInputTextureUniform;
+    GLfloat    backgroundColorRed, backgroundColorGreen, backgroundColorBlue, backgroundColorAlpha;
+
     BOOL isEndProcessing;
 
-    CGSize currentFilterSize;
+    CGSize         currentFilterSize;
     GLRotationMode inputRotation;
-    
+
     BOOL currentlyReceivingMonochromeInput;
-    
+
     NSMutableDictionary *uniformStateRestorationBlocks;
     dispatch_semaphore_t imageCaptureSemaphore;
 }

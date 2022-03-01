@@ -5,31 +5,32 @@
  */
 
 #import "PushMoreSettingViewController.h"
-#import "UIView+Additions.h"
+
 #import "AppLocalized.h"
+#import "UIView+Additions.h"
 
 /* 列表项 */
-#define CELL_DISABLE_VIDEO          0
-#define CELL_MUTE_AUDIO             1
-#define CELL_DEBUG_LOG              2
-#define CELL_WARTERMARK             3
-#define CELL_MIRROR                 4
-#define CELL_TORCH                  5
-#define CELL_TOUCH_FOCUS            6
-#define CELL_SNAPSHOT               7
-
+#define CELL_DISABLE_VIDEO 0
+#define CELL_MUTE_AUDIO    1
+#define CELL_DEBUG_LOG     2
+#define CELL_WARTERMARK    3
+#define CELL_MIRROR        4
+#define CELL_TORCH         5
+#define CELL_TOUCH_FOCUS   6
+#define CELL_LANDSCAP      7
+#define CELL_SNAPSHOT      8
 
 /* 编号，请不要修改，写配置文件依赖这个 */
-#define TAG_DISABLE_VIDEO          1000
-#define TAG_MUTE_AUDIO             1001
-#define TAG_DEBUG_LOG              1003
-#define TAG_WARTERMARK             1004
-#define TAG_MIRROR                 1005
-#define TAG_TORCH                  1006
-#define TAG_TOUCH_FOCUS            1008
+#define TAG_DISABLE_VIDEO 1000
+#define TAG_MUTE_AUDIO    1001
+#define TAG_DEBUG_LOG     1003
+#define TAG_WARTERMARK    1004
+#define TAG_MIRROR        1005
+#define TAG_TORCH         1006
+#define TAG_TOUCH_FOCUS   1008
+#define TAG_LANDSCAP      1009
 
-
-@interface PushMoreSettingViewController ()<UITextFieldDelegate> {
+@interface PushMoreSettingViewController () <UITextFieldDelegate> {
     UISwitch *_disableVideoSwitch;
     UISwitch *_muteAudioSwitch;
     UISwitch *_mirrorSwitch;
@@ -38,9 +39,10 @@
     UISwitch *_watermarkSwitch;
     UISwitch *_touchFocusSwitch;
     UISwitch *_pureAudioSwitch;
+    UISwitch *_landScapSwitch;
     UIButton *_snapShotButton;
-    
-    UIColor  *_tintColor;
+
+    UIColor *_tintColor;
 }
 @end
 
@@ -48,44 +50,43 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.view.backgroundColor = [UIColor.blackColor colorWithAlphaComponent:0.3];
+
+    self.view.backgroundColor     = [UIColor.blackColor colorWithAlphaComponent:0.3];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
+
     _tintColor = [[UISegmentedControl alloc] init].tintColor;
-    
-    _disableVideoSwitch   = [self createUISwitch:TAG_DISABLE_VIDEO on:[PushMoreSettingViewController isDisableVideo]];
-    _muteAudioSwitch      = [self createUISwitch:TAG_MUTE_AUDIO on:[PushMoreSettingViewController isMuteAudio]];
-    _mirrorSwitch         = [self createUISwitch:TAG_MIRROR on:[PushMoreSettingViewController isMirrorVideo]];
-    _torchSwitch          = [self createUISwitch:TAG_TORCH on:[PushMoreSettingViewController isOpenTorch]];
-    _debugLogSwitch       = [self createUISwitch:TAG_DEBUG_LOG on:[PushMoreSettingViewController isShowDebugLog]];
-    _watermarkSwitch      = [self createUISwitch:TAG_WARTERMARK on:[PushMoreSettingViewController isEnableWaterMark]];
-    _touchFocusSwitch     = [self createUISwitch:TAG_TOUCH_FOCUS on:[PushMoreSettingViewController isEnableTouchFocus]];
-    
-    _snapShotButton       = [self createButtonWithTitle:LivePlayerLocalize(@"LivePusherDemo.MoreSetting.screenshots") action:@selector(onSnapShot:)];
+
+    _disableVideoSwitch = [self createUISwitch:TAG_DISABLE_VIDEO on:[PushMoreSettingViewController isDisableVideo]];
+    _muteAudioSwitch    = [self createUISwitch:TAG_MUTE_AUDIO on:[PushMoreSettingViewController isMuteAudio]];
+    _mirrorSwitch       = [self createUISwitch:TAG_MIRROR on:[PushMoreSettingViewController isMirrorVideo]];
+    _torchSwitch        = [self createUISwitch:TAG_TORCH on: [self.pusher getDeviceManager].isFrontCamera ? false : [PushMoreSettingViewController isOpenTorch]];
+    _debugLogSwitch     = [self createUISwitch:TAG_DEBUG_LOG on:[PushMoreSettingViewController isShowDebugLog]];
+    _watermarkSwitch    = [self createUISwitch:TAG_WARTERMARK on:[PushMoreSettingViewController isEnableWaterMark]];
+    _touchFocusSwitch   = [self createUISwitch:TAG_TOUCH_FOCUS on:[PushMoreSettingViewController isEnableTouchFocus]];
+    _landScapSwitch     = [self createUISwitch:TAG_LANDSCAP on:[PushMoreSettingViewController isEnableResolutionLandscap]];
+    _snapShotButton     = [self createButtonWithTitle:LivePlayerLocalize(@"LivePusherDemo.MoreSetting.screenshots") action:@selector(onSnapShot:)];
 }
 
-- (UIButton*)createButtonWithTitle:(NSString*)title action:(SEL)action
-{
-    UIButton* newBtn       = [UIButton new];
-    newBtn.frame = CGRectMake(0, 0, 50, 30);
+- (UIButton *)createButtonWithTitle:(NSString *)title action:(SEL)action {
+    UIButton *newBtn           = [UIButton new];
+    newBtn.frame               = CGRectMake(0, 0, 50, 30);
     newBtn.layer.cornerRadius  = 5;
-    newBtn.layer.shadowOffset  =  CGSizeMake(1, 1);
+    newBtn.layer.shadowOffset  = CGSizeMake(1, 1);
     newBtn.layer.shadowOpacity = 0.8;
-    newBtn.layer.shadowColor   =  [UIColor whiteColor].CGColor;
+    newBtn.layer.shadowColor   = [UIColor whiteColor].CGColor;
     newBtn.backgroundColor     = [_tintColor colorWithAlphaComponent:0.6];
     newBtn.titleLabel.font     = [UIFont systemFontOfSize:14];
     [newBtn setTitle:title forState:UIControlStateNormal];
     [newBtn addTarget:self action:action forControlEvents:UIControlEventTouchUpInside];
-    
+
     return newBtn;
 }
 
 - (UISwitch *)createUISwitch:(NSInteger)tag on:(BOOL)on {
-    UISwitch *sw = [[UISwitch alloc] initWithFrame:CGRectZero];
-    sw.tag = tag;
-    sw.on = on;
-    sw.tintColor = _tintColor;
+    UISwitch *sw   = [[UISwitch alloc] initWithFrame:CGRectZero];
+    sw.tag         = tag;
+    sw.on          = on;
+    sw.tintColor   = _tintColor;
     sw.onTintColor = _tintColor;
     [sw addTarget:self action:@selector(onSwitchTap:) forControlEvents:UIControlEventTouchUpInside];
     return sw;
@@ -97,35 +98,38 @@
         if (self.delegate && [self.delegate respondsToSelector:@selector(onPushMoreSetting:disableVideo:)]) {
             [self.delegate onPushMoreSetting:self disableVideo:switchBtn.on];
         }
-    }
-    else if (switchBtn.tag == TAG_MUTE_AUDIO) {
+    } else if (switchBtn.tag == TAG_MUTE_AUDIO) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onPushMoreSetting:muteAudio:)]) {
             [self.delegate onPushMoreSetting:self muteAudio:switchBtn.on];
         }
-    }
-    else if (switchBtn.tag == TAG_MIRROR) {
+    } else if (switchBtn.tag == TAG_MIRROR) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onPushMoreSetting:mirrorVideo:)]) {
             [self.delegate onPushMoreSetting:self mirrorVideo:switchBtn.on];
         }
-        
-    }
-    else if (switchBtn.tag == TAG_TORCH) {
+    } else if (switchBtn.tag == TAG_TORCH) {
+        if ([self.pusher getDeviceManager].isFrontCamera) {
+            switchBtn.on = false;
+            if (self.delegate && [self.delegate respondsToSelector:@selector(onPushMoreSetting:alertTips:)]) {
+                [self.delegate onPushMoreSetting:self alertTips:LivePlayerLocalize(@"LivePusherDemo.MoreSetting.thisoptionisonly")];
+            }
+            return;
+        }
         if (self.delegate && [self.delegate respondsToSelector:@selector(onPushMoreSetting:openTorch:)]) {
             [self.delegate onPushMoreSetting:self openTorch:switchBtn.on];
         }
-    }
-    else if (switchBtn.tag == TAG_DEBUG_LOG) {
+    } else if (switchBtn.tag == TAG_DEBUG_LOG) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onPushMoreSetting:debugLog:)]) {
             [self.delegate onPushMoreSetting:self debugLog:switchBtn.on];
         }
-    }
-    else if (switchBtn.tag == TAG_WARTERMARK) {
+    } else if (switchBtn.tag == TAG_WARTERMARK) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onPushMoreSetting:waterMark:)]) {
             [self.delegate onPushMoreSetting:self waterMark:switchBtn.on];
         }
-        
-    }
-    else if (switchBtn.tag == TAG_TOUCH_FOCUS) {
+    } else if (switchBtn.tag == TAG_LANDSCAP) {
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onPushMoreSetting:resolutionLandscap:)]) {
+            [self.delegate onPushMoreSetting:self resolutionLandscap:switchBtn.on];
+        }
+    } else if (switchBtn.tag == TAG_TOUCH_FOCUS) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onPushMoreSetting:touchFocus:)]) {
             [self.delegate onPushMoreSetting:self touchFocus:switchBtn.on];
         }
@@ -138,6 +142,11 @@
     }
 }
 
+- (void)updateOpenTorch:(BOOL)disable {
+    _torchSwitch.on = disable;
+    [PushMoreSettingViewController saveSetting:_torchSwitch.tag value:_torchSwitch.on];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 13;
 }
@@ -146,73 +155,79 @@
     return 1;
 }
 
-- (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, self.tableView.height / 10)];
-    cell.backgroundColor = UIColor.clearColor;
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell    = [[UITableViewCell alloc] initWithFrame:CGRectMake(0, 0, self.tableView.width, self.tableView.height / 10)];
+    cell.backgroundColor     = UIColor.clearColor;
+    cell.selectionStyle      = UITableViewCellSelectionStyleNone;
     cell.textLabel.textColor = UIColor.whiteColor;
-    cell.textLabel.font = [UIFont systemFontOfSize:16];
-    
+    cell.textLabel.font      = [UIFont systemFontOfSize:16];
+
     switch (indexPath.row) {
         case CELL_DISABLE_VIDEO: {
             cell.textLabel.text = LivePlayerLocalize(@"LivePusherDemo.MoreSetting.enableprivacymode");
-            cell.accessoryView = _disableVideoSwitch;
-            
+            cell.accessoryView  = _disableVideoSwitch;
+
             break;
         }
-            
+
         case CELL_MUTE_AUDIO: {
             cell.textLabel.text = LivePlayerLocalize(@"LivePusherDemo.MoreSetting.turnonmutemode");
-            cell.accessoryView = _muteAudioSwitch;
-            
+            cell.accessoryView  = _muteAudioSwitch;
+
             break;
         }
-            
+
         case CELL_MIRROR: {
             cell.textLabel.text = LivePlayerLocalize(@"LivePusherDemo.MoreSetting.turnonviewmirror");
-            cell.accessoryView = _mirrorSwitch;
-            
+            cell.accessoryView  = _mirrorSwitch;
+
             break;
         }
-            
+
         case CELL_TORCH: {
             cell.textLabel.text = LivePlayerLocalize(@"LivePusherDemo.MoreSetting.turnontherearflash");
-            cell.accessoryView = _torchSwitch;
-            
+            cell.accessoryView  = _torchSwitch;
+
             break;
         }
-        
+
         case CELL_DEBUG_LOG: {
             cell.textLabel.text = LivePlayerLocalize(@"LivePusherDemo.MoreSetting.openingdebuglog");
-            cell.accessoryView = _debugLogSwitch;
-            
+            cell.accessoryView  = _debugLogSwitch;
+
             break;
         }
-            
+
         case CELL_WARTERMARK: {
             cell.textLabel.text = LivePlayerLocalize(@"LivePusherDemo.MoreSetting.addwatermark");
-            cell.accessoryView = _watermarkSwitch;
-            
+            cell.accessoryView  = _watermarkSwitch;
+
             break;
         }
-                        
+
         case CELL_TOUCH_FOCUS: {
             cell.textLabel.text = LivePlayerLocalize(@"LivePusherDemo.MoreSetting.manuallyclickexposureandfocus");
-            cell.accessoryView = _touchFocusSwitch;
-            
+            cell.accessoryView  = _touchFocusSwitch;
+
+            break;
+        }
+        case CELL_LANDSCAP: {
+            cell.textLabel.text = LivePlayerLocalize(@"LivePusherDemo.MoreSetting.turnonhorizontalpushflow");
+            cell.accessoryView  = _landScapSwitch;
+
             break;
         }
         case CELL_SNAPSHOT: {
             cell.textLabel.text = LivePlayerLocalize(@"LivePusherDemo.MoreSetting.localscreenshots");
-            cell.accessoryView = _snapShotButton;
-            
+            cell.accessoryView  = _snapShotButton;
+
             break;
         }
-            
+
         default:
             break;
     }
-    
+
     return cell;
 }
 
@@ -230,7 +245,7 @@
 
 + (BOOL)isDisableVideo {
     NSString *key = [PushMoreSettingViewController getKey:TAG_DISABLE_VIDEO];
-    NSNumber *d = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSNumber *d   = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (d != nil) {
         return [d intValue];
     }
@@ -239,7 +254,7 @@
 
 + (BOOL)isMuteAudio {
     NSString *key = [PushMoreSettingViewController getKey:TAG_MUTE_AUDIO];
-    NSNumber *d = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSNumber *d   = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (d != nil) {
         return [d intValue];
     }
@@ -248,7 +263,7 @@
 
 + (BOOL)isMirrorVideo {
     NSString *key = [PushMoreSettingViewController getKey:TAG_MIRROR];
-    NSNumber *d = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSNumber *d   = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (d != nil) {
         return [d intValue];
     }
@@ -257,7 +272,7 @@
 
 + (BOOL)isOpenTorch {
     NSString *key = [PushMoreSettingViewController getKey:TAG_TORCH];
-    NSNumber *d = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSNumber *d   = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (d != nil) {
         return [d intValue];
     }
@@ -266,7 +281,7 @@
 
 + (BOOL)isShowDebugLog {
     NSString *key = [PushMoreSettingViewController getKey:TAG_DEBUG_LOG];
-    NSNumber *d = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSNumber *d   = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (d != nil) {
         return [d intValue];
     }
@@ -275,7 +290,7 @@
 
 + (BOOL)isEnableWaterMark {
     NSString *key = [PushMoreSettingViewController getKey:TAG_WARTERMARK];
-    NSNumber *d = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSNumber *d   = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (d != nil) {
         return [d intValue];
     }
@@ -284,11 +299,20 @@
 
 + (BOOL)isEnableTouchFocus {
     NSString *key = [PushMoreSettingViewController getKey:TAG_TOUCH_FOCUS];
-    NSNumber *d = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSNumber *d   = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     if (d != nil) {
         return [d intValue];
     }
     return YES;
+}
+
++ (BOOL)isEnableResolutionLandscap {
+    NSString *key = [PushMoreSettingViewController getKey:TAG_LANDSCAP];
+    NSNumber *d   = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    if (d != nil) {
+        return [d intValue];
+    }
+    return NO;
 }
 
 + (void)setDisableVideo:(BOOL)disable {

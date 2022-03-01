@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LiveRoomAccPlayerView : UIView
-@property (nonatomic, assign) BOOL loading;
-@property (nonatomic, assign) BOOL closeEnabled;
-@property (nonatomic, copy) void(^onClose)(LiveRoomAccPlayerView *view);
+@interface                        LiveRoomAccPlayerView : UIView
+@property(nonatomic, assign) BOOL loading;
+@property(nonatomic, assign) BOOL closeEnabled;
+@property(nonatomic, copy) void (^onClose)(LiveRoomAccPlayerView *view);
 @end
 
 NS_ASSUME_NONNULL_END

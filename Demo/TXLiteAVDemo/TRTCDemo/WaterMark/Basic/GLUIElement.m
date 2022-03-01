@@ -7,13 +7,12 @@
 
 #import "GLUIElement.h"
 
-@interface GLUIElement()
-{
-    UIView *view;
+@interface GLUIElement () {
+    UIView * view;
     CALayer *layer;
-    
-    CGSize previousLayerSizeInPixels;
-    CMTime time;
+
+    CGSize         previousLayerSizeInPixels;
+    CMTime         time;
     NSTimeInterval actualTimeOfLastUpdate;
 }
 @end
@@ -22,8 +21,8 @@
 
 - (id)initWithView:(UIView *)inputView {
     if (self == [super init]) {
-        view = inputView;
-        layer = inputView.layer;
+        view                      = inputView;
+        layer                     = inputView.layer;
         previousLayerSizeInPixels = CGSizeZero;
         [self update];
     }
@@ -41,12 +40,12 @@
 
 - (void)updateUsingCurrentTime {
     if (CMTIME_IS_INVALID(time)) {
-        time = CMTimeMakeWithSeconds(0, 600);
+        time                   = CMTimeMakeWithSeconds(0, 600);
         actualTimeOfLastUpdate = [NSDate timeIntervalSinceReferenceDate];
     } else {
-        NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
-        NSTimeInterval diff = now - actualTimeOfLastUpdate;
-        time = CMTimeAdd(time, CMTimeMakeWithSeconds(diff, 600));
+        NSTimeInterval now     = [NSDate timeIntervalSinceReferenceDate];
+        NSTimeInterval diff    = now - actualTimeOfLastUpdate;
+        time                   = CMTimeAdd(time, CMTimeMakeWithSeconds(diff, 600));
         actualTimeOfLastUpdate = now;
     }
 
@@ -55,37 +54,37 @@
 
 - (void)updateWithTimestamp:(CMTime)frameTime {
     [GLContext useImageProcessingContext];
-    
+
     CGSize layerPixelSize = [self layerSizeInPixels];
-    
-    GLubyte *imageData = (GLubyte *) calloc(1, (int)layerPixelSize.width * (int)layerPixelSize.height * 4);
-    
+
+    GLubyte *imageData = (GLubyte *)calloc(1, (int)layerPixelSize.width * (int)layerPixelSize.height * 4);
+
     CGColorSpaceRef genericRGBColorspace = CGColorSpaceCreateDeviceRGB();
-    CGContextRef imageContext = CGBitmapContextCreate(imageData, (int)layerPixelSize.width, (int)layerPixelSize.height, 8, (int)layerPixelSize.width * 4, genericRGBColorspace,  kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+    CGContextRef    imageContext         = CGBitmapContextCreate(imageData, (int)layerPixelSize.width, (int)layerPixelSize.height, 8, (int)layerPixelSize.width * 4, genericRGBColorspace,
+                                                      kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
     CGContextTranslateCTM(imageContext, 0.0f, layerPixelSize.height);
     CGContextScaleCTM(imageContext, layer.contentsScale, -layer.contentsScale);
-    
+
     [layer renderInContext:imageContext];
-    
+
     CGContextRelease(imageContext);
     CGColorSpaceRelease(genericRGBColorspace);
-    
+
     outputFramebuffer = [[GLContext sharedFramebufferCache] fetchFramebufferForSize:layerPixelSize textureOptions:self.outputTextureOptions onlyTexture:YES];
 
     glBindTexture(GL_TEXTURE_2D, [outputFramebuffer texture]);
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (int)layerPixelSize.width, (int)layerPixelSize.height, 0, GL_BGRA, GL_UNSIGNED_BYTE, imageData);
-    
+
     free(imageData);
-    
+
     for (id<GLInput> currentTarget in targets) {
         if (currentTarget != self.targetToIgnoreForUpdates) {
-            NSInteger indexOfObject = [targets indexOfObject:currentTarget];
+            NSInteger indexOfObject        = [targets indexOfObject:currentTarget];
             NSInteger textureIndexOfTarget = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
             [currentTarget setInputSize:layerPixelSize atIndex:textureIndexOfTarget];
             [currentTarget newFrameReadyAtTime:frameTime atIndex:textureIndexOfTarget];
         }
     }
 }
-
 
 @end

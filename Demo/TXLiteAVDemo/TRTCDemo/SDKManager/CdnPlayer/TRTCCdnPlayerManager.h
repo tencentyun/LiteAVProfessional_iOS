@@ -1,26 +1,27 @@
 /*
-* Module:   TRTCCdnPlayerManager
-*
-* Function: CDN播放控制
-*
-*    1. 开始，暂停CDN播放
-*
-*    2. 控制播放画面的朝向、填充模式，以及是否显示Debug Log
-*
-*    3. 设置缓冲方式
-*
-*/
+ * Module:   TRTCCdnPlayerManager
+ *
+ * Function: CDN播放控制
+ *
+ *    1. 开始，暂停CDN播放
+ *
+ *    2. 控制播放画面的朝向、填充模式，以及是否显示Debug Log
+ *
+ *    3. 设置缓冲方式
+ *
+ */
 
 #import <Foundation/Foundation.h>
-#import "TXLivePlayer.h"
+
 #import "TRTCCdnPlayerConfig.h"
+#import "TXLivePlayer.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TRTCCdnPlayerManager : NSObject
 
-@property (strong, nonatomic, readonly) TXLivePlayer *player;
-@property (strong, nonatomic, readonly) TRTCCdnPlayerConfig *config;
+@property(strong, nonatomic, readonly) TXLivePlayer *       player;
+@property(strong, nonatomic, readonly) TRTCCdnPlayerConfig *config;
 
 - (instancetype)initWithContainerView:(UIView *)view delegate:(id<TXLivePlayListener>)delegate NS_DESIGNATED_INITIALIZER;
 - (instancetype)init NS_UNAVAILABLE;

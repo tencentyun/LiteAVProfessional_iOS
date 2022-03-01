@@ -6,6 +6,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CameraPushViewController : UIViewController
-
+@interface                                 CameraPushViewController : UIViewController
+@property(nonatomic, strong) NSDictionary *streamURLDictionary;
 @end

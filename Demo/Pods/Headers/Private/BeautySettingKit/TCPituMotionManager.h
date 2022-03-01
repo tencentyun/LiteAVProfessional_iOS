@@ -1,0 +1,1 @@
+../../../../TXLiteAVDemo/BeautySettingKit/BeautySettingKit/Classes/Model/TCPituMotionManager.h

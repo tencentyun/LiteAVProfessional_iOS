@@ -14,10 +14,10 @@
         runSynchronouslyOnVideoProcessingQueue(^{
             [GLContext useImageProcessingContext];
         });
-        
-        _textureSize = newTextureSize;
+
+        _textureSize     = newTextureSize;
         _newInputTexture = newInputTexture;
-        
+
         runSynchronouslyOnVideoProcessingQueue(^{
             self->outputFramebuffer = [[GLFramebuffer alloc] initWithSize:newTextureSize overriddenTexture:self->_newInputTexture];
         });
@@ -28,9 +28,9 @@
 - (void)processTexture {
     runAsynchronouslyOnVideoProcessingQueue(^{
         for (id<GLInput> currentTarget in targets) {
-            NSInteger indexOfObject = [targets indexOfObject:currentTarget];
+            NSInteger indexOfObject      = [targets indexOfObject:currentTarget];
             NSInteger targetTextureIndex = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
-            
+
             [currentTarget setInputSize:_textureSize atIndex:targetTextureIndex];
             [currentTarget setInputFramebuffer:outputFramebuffer atIndex:targetTextureIndex];
             [currentTarget newFrameReadyAtTime:kCMTimeZero atIndex:targetTextureIndex];

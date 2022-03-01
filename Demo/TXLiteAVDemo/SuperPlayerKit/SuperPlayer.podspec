@@ -26,8 +26,8 @@ Pod::Spec.new do |spec|
     #     s.resource = 'SuperPlayer/Resource/*'
     # end
 #    spec.resource = 'SuperPlayer/Resource/*'
-    
     spec.subspec "Player" do |s|
+        s.exclude_files = 'SuperPlayer/SDKHeaders/**'
         s.source_files = 'SuperPlayer/**/*.{h,m}'
         s.private_header_files = 'SuperPlayer/Utils/TXBitrateItemHelper.h', 'SuperPlayer/Views/SuperPlayerView+Private.h'
 #        s.resource = 'SuperPlayer/Resource/*'
@@ -40,6 +40,7 @@ Pod::Spec.new do |spec|
         }
     end
     spec.subspec "Professional" do |s|
+        s.exclude_files = 'SuperPlayer/SDKHeaders/**'
         s.source_files = 'SuperPlayer/**/*.{h,m}'
         s.private_header_files = 'SuperPlayer/Utils/TXBitrateItemHelper.h', 'SuperPlayer/Views/SuperPlayerView+Private.h'
 #        s.resource = 'SuperPlayer/Resource/*'
@@ -49,6 +50,7 @@ Pod::Spec.new do |spec|
         }
     end
     spec.subspec "Enterprise" do |s|
+        s.exclude_files = 'SuperPlayer/SDKHeaders/**'
         s.source_files = 'SuperPlayer/**/*.{h,m}'
         s.private_header_files = 'SuperPlayer/Utils/TXBitrateItemHelper.h', 'SuperPlayer/Views/SuperPlayerView+Private.h'
 #        s.resource = 'SuperPlayer/Resource/*'
@@ -58,6 +60,7 @@ Pod::Spec.new do |spec|
         }
     end
     spec.subspec "Smart" do |s|
+        s.exclude_files = 'SuperPlayer/SDKHeaders/**'
         s.source_files = 'SuperPlayer/**/*.{h,m}'
         s.private_header_files = 'SuperPlayer/Utils/TXBitrateItemHelper.h', 'SuperPlayer/Views/SuperPlayerView+Private.h'
 #        s.resource = 'SuperPlayer/Resource/*'
@@ -67,6 +70,7 @@ Pod::Spec.new do |spec|
         }
     end
     spec.subspec "UGC" do |s|
+        s.exclude_files = 'SuperPlayer/SDKHeaders/**'
         s.source_files = 'SuperPlayer/**/*.{h,m}'
         s.private_header_files = 'SuperPlayer/Utils/TXBitrateItemHelper.h', 'SuperPlayer/Views/SuperPlayerView+Private.h'
 #        s.resource = 'SuperPlayer/Resource/*'

@@ -7,16 +7,18 @@
 //
 
 #import "TCMusicSelectCell.h"
+#import "TCASKitTheme.h"
 #import "TCMusicSelectedModel.h"
+#import <Masonry/Masonry.h>
 
-@interface TCMusicSelectCell (){
+@interface TCMusicSelectCell () {
     BOOL _isViewReady;
 }
-@property (nonatomic, strong) TCASKitTheme *theme;
+@property(nonatomic, strong) TCASKitTheme *theme;
 
-@property (nonatomic, strong) UILabel *nameLable;
-@property (nonatomic, strong) UILabel *singerLabel;
-@property (nonatomic, strong) UIButton *playButton;
+@property(nonatomic, strong) UILabel * nameLable;
+@property(nonatomic, strong) UILabel * singerLabel;
+@property(nonatomic, strong) UIButton *playButton;
 
 @end
 
@@ -31,8 +33,8 @@
 
 - (UILabel *)nameLable {
     if (!_nameLable) {
-        _nameLable = [[UILabel alloc] init];
-        _nameLable.font = [self.theme themeFontWithSize:16.0];
+        _nameLable           = [[UILabel alloc] init];
+        _nameLable.font      = [self.theme themeFontWithSize:16.0];
         _nameLable.textColor = self.theme.normalFontColor;
     }
     return _nameLable;
@@ -40,10 +42,10 @@
 
 - (UILabel *)singerLabel {
     if (!_singerLabel) {
-        _singerLabel = [[UILabel alloc] init];
-        _singerLabel.font = [self.theme themeFontWithSize:14.0];
+        _singerLabel           = [[UILabel alloc] init];
+        _singerLabel.font      = [self.theme themeFontWithSize:14.0];
         _singerLabel.textColor = self.theme.normalFontColor;
-        _singerLabel.alpha = 0.5;
+        _singerLabel.alpha     = 0.5;
     }
     return _singerLabel;
 }
@@ -51,14 +53,13 @@
 - (UIButton *)playButton {
     if (!_playButton) {
         _playButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [_playButton setImage:[self.theme imageNamed:@"bgm_pause"] forState:UIControlStateSelected];
+        //        [_playButton setImage:[self.theme imageNamed:@"bgm_pause"] forState:UIControlStateSelected];
         [_playButton setImage:[self.theme imageNamed:@"bgm_play"] forState:UIControlStateNormal];
-        _playButton.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        _playButton.imageView.contentMode  = UIViewContentModeScaleAspectFit;
         _playButton.userInteractionEnabled = NO;
     }
     return _playButton;
 }
-
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -70,7 +71,6 @@
     // Configure the view for the selected state
     self.playButton.selected = selected;
 }
-
 
 - (void)didMoveToWindow {
     [super didMoveToWindow];
@@ -90,15 +90,15 @@
 }
 
 - (void)activateConstraints {
-    [self.nameLable mas_makeConstraints:^(ASMASConstraintMaker *make) {
+    [self.nameLable mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
         make.bottom.equalTo(self.mas_centerY);
     }];
-    [self.singerLabel mas_makeConstraints:^(ASMASConstraintMaker *make) {
+    [self.singerLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self).offset(20);
         make.top.equalTo(self.mas_centerY);
     }];
-    [self.playButton mas_makeConstraints:^(ASMASConstraintMaker *make) {
+    [self.playButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self).offset(-20);
         make.centerY.equalTo(self.mas_centerY);
         make.height.mas_equalTo(24);
@@ -108,20 +108,17 @@
 
 /// 绑定视图交互
 - (void)bindInteraction {
-    
 }
 /// 设置视图样式
 - (void)setupStyle {
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    self.selectionStyle  = UITableViewCellSelectionStyleNone;
     self.backgroundColor = UIColor.clearColor;
 }
 
 - (void)setupCellWithModel:(TCMusicSelectedModel *)model {
-    self.nameLable.text = model.musicName;
-    self.singerLabel.text = model.singerName;
+    self.nameLable.text      = model.musicName;
+    self.singerLabel.text    = model.singerName;
     self.playButton.selected = self.isSelected;
 }
-
-
 
 @end

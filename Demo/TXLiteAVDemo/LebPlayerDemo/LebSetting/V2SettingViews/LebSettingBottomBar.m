@@ -8,8 +8,8 @@
 
 #import "LebSettingBottomBar.h"
 
-@interface LebSettingBottomBar ()
-@property (nonatomic, copy) NSArray<UIButton *> *itemBtns;
+@interface                                      LebSettingBottomBar ()
+@property(nonatomic, copy) NSArray<UIButton *> *itemBtns;
 
 @end
 
@@ -17,7 +17,7 @@
 
 + (LebSettingBottomBar *)createInstance:(NSArray<NSNumber *> *)items {
     LebSettingBottomBar *bar = [[LebSettingBottomBar alloc] init];
-    
+
     NSMutableArray<UIButton *> *mItemBtns = [[NSMutableArray alloc] init];
     for (NSNumber *item in items) {
         UIButton *btn = [LebSettingBottomBar createItemButton:[item integerValue] target:bar];
@@ -25,10 +25,10 @@
         [mItemBtns addObject:btn];
     }
     bar.itemBtns = mItemBtns;
-    
-    bar.alignment = UIStackViewAlignmentFill;
+
+    bar.alignment    = UIStackViewAlignmentFill;
     bar.distribution = UIStackViewDistributionFillEqually;
-    
+
     return bar;
 }
 
@@ -58,18 +58,19 @@
                 }
                 case LebTRTCSettingBarItemTypeStart: {
                     UIImage *img = [UIImage imageNamed:(value == 0) ? @"start2" : @"stop2"];
-                    [btn setImage:img forState:UIControlStateNormal];                }
+                    [btn setImage:img forState:UIControlStateNormal];
+                }
                 default:
                     break;
             }
-            
+
             break;
         }
     }
 }
 
 + (UIButton *)createItemButton:(LebTRTCSettingBarItemType)type target:(id)target {
-    UIButton *btn = [[UIButton alloc] init];
+    UIButton *btn     = [[UIButton alloc] init];
     NSString *imgName = @"";
     switch (type) {
         case LebTRTCSettingBarItemTypeLog:
@@ -106,7 +107,7 @@
     btn.tag = type;
     [btn addTarget:target action:@selector(handleBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     btn.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    
+
     return btn;
 }
 

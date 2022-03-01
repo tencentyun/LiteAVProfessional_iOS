@@ -9,81 +9,71 @@
 #ifndef AVReader_h
 #define AVReader_h
 
+#import <AVFoundation/AVFoundation.h>
 #import <CoreMedia/CoreMedia.h>
 #import <UIKit/UIKit.h>
-#import <AVFoundation/AVFoundation.h>
 
-typedef void(^readOneFrame)(CMSampleBufferRef sampleBuffer);
-typedef void(^readFinished)(void);
+typedef void (^ReadOneFrame)(CMSampleBufferRef sampleBuffer);
+typedef void (^ReadFinished)(void);
 
-typedef NS_ENUM(NSInteger,VideoCutType)
-{
+typedef NS_ENUM(NSInteger, VideoCutType) {
     VideoCutType_None,
     VideoCutType_Pieces,
     VideoCutType_Duration,
 };
 
-typedef NS_ENUM(NSInteger,VideoReadFormat)
-{
+typedef NS_ENUM(NSInteger, VideoReadFormat) {
     VideoReadFormat_NV12,
     VideoReadFormat_BGRA,
 };
 
 @interface MediaFileReader : NSObject
 
-@property (atomic, readonly) CMTime  duration;
+@property(atomic, readonly) CMTime duration;
 
-@property (atomic, readonly) int  bitrate;
+@property(atomic, readonly) int bitrate;
 
-@property (atomic, readonly) float  fps;
+@property(atomic, readonly) float fps;
 
-@property (atomic, readonly) int  width;
+@property(atomic, readonly) int width;
 
-@property (atomic, readonly) int  height;
+@property(atomic, readonly) int height;
 
-@property (atomic, readonly) float angle;
+@property(atomic, readonly) float angle;
 
-@property (atomic, readonly) int   audioSampleRate;
+@property(atomic, readonly) int audioSampleRate;
 
-@property (atomic, readonly) int   audioChannels;
+@property(atomic, readonly) int audioChannels;
 
-@property (atomic, readonly) int   audioBytesPerFrame;
+@property(atomic, readonly) int audioBytesPerFrame;
 
-@property (atomic, readonly) long long  totalSampleDataLength;
+@property(atomic, readonly) long long totalSampleDataLength;
 
-@property (atomic, readonly) BOOL  hasAudioData;
+@property(atomic, readonly) BOOL hasAudioData;
 
-@property (atomic, readonly) VideoCutType  videoCutType;
+@property(atomic, readonly) VideoCutType videoCutType;
 
-@property (atomic, readonly) BOOL videoCanRead;
+@property(atomic, readonly) BOOL videoCanRead;
 
-@property (atomic, readonly) BOOL audioCanRead;
+@property(atomic, readonly) BOOL audioCanRead;
 
-- (instancetype) initWithMediaAsset:(NSObject *)pathAsset videoReadFormat:(VideoReadFormat)videoReadFormat;
+- (instancetype)initWithMediaAsset:(NSObject *)pathAsset videoReadFormat:(VideoReadFormat)videoReadFormat;
 
-- (void) readVideoFrameFromTime:(float)startTime
-                         toTime:(float)endTime
-                            fps:(float)fps
-                   readOneFrame:(readOneFrame)readOneFrame
-                   readFinished:(readFinished)readFinished;
+- (void)readVideoFrameFromTime:(float)startTime toTime:(float)endTime fps:(float)fps readOneFrame:(ReadOneFrame)readOneFrame readFinished:(ReadFinished)readFinished;
 
+- (void)readAudioFrameFromTime:(float)startTime toTime:(float)endTime readOneFrame:(ReadOneFrame)readOneFrame readFinished:(ReadFinished)readFinished;
 
-- (void) readAudioFrameFromTime:(float)startTime
-                         toTime:(float)endTime
-                   readOneFrame:(readOneFrame)readOneFrame
-                   readFinished:(readFinished)readFinished;
+- (void)startVideoRead;
 
-- (void) startVideoRead;
+- (void)stopVideoRead;
 
-- (void) stopVideoRead;
+- (void)startAudioRead;
 
-- (void) startAudioRead;
+- (void)stopAudioRead;
 
-- (void) stopAudioRead;
+- (void)resetVideoReader;
 
-- (void) resetVideoReader;
-
-- (void) resetAudioReader;
+- (void)resetAudioReader;
 
 @end
 

@@ -1,0 +1,97 @@
+{
+  "name": "UGCKit",
+  "version": "0.1.0",
+  "summary": "A short description of UGCKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/originleeli@tencent.com/UGCKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "originleeli@tencent.com": "originleeli@tencent.com"
+  },
+  "source": {
+    "git": "https://github.com/originleeli@tencent.com/UGCKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "static_framework": true,
+  "default_subspecs": "Professional",
+  "ios": {
+    "frameworks": [
+      "SystemConfiguration",
+      "CoreTelephony",
+      "VideoToolbox",
+      "CoreGraphics",
+      "AVFoundation",
+      "Accelerate",
+      "AssetsLibrary"
+    ],
+    "libraries": [
+      "z",
+      "resolv",
+      "iconv",
+      "stdc++",
+      "c++",
+      "sqlite3"
+    ]
+  },
+  "dependencies": {
+    "BeautySettingKit": [
+
+    ]
+  },
+  "subspecs": [
+    {
+      "name": "Enterprise",
+      "resources": "UGCKit/Assets/**/*",
+      "source_files": "UGCKit/Classes/**/*.{h,m}",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": [
+          "$(PODS_TARGET_SRCROOT)/../SDK/TXLiteAVSDK_Enterprise.framework/Headers"
+        ]
+      },
+      "resource_bundles": {
+        "UGCKitResources": [
+          "UGCKit/Localizable/**/*",
+          "UGCKit/Assets/**/*.{png,xcassets,bundle,storyboard,xib}"
+        ]
+      }
+    },
+    {
+      "name": "Professional",
+      "resources": "UGCKit/Assets/**/*",
+      "source_files": "UGCKit/Classes/**/*.{h,m}",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": [
+          "$(PODS_TARGET_SRCROOT)/../../../SDK/TXLiteAVSDK_Professional.framework/Headers"
+        ]
+      },
+      "resource_bundles": {
+        "UGCKitResources": [
+          "UGCKit/Localizable/**/*",
+          "UGCKit/Assets/**/*.{png,xcassets,bundle,storyboard,xib}"
+        ]
+      }
+    },
+    {
+      "name": "UGC",
+      "resources": "UGCKit/Assets/**/*",
+      "source_files": "UGCKit/Classes/**/*.{h,m}",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": [
+          "$(PODS_TARGET_SRCROOT)/../../../SDK/TXLiteAVSDK_UGC.framework/Headers"
+        ]
+      },
+      "resource_bundles": {
+        "UGCKitResources": [
+          "UGCKit/Localizable/**/*",
+          "UGCKit/Assets/**/*.{png,xcassets,bundle,storyboard,xib}"
+        ]
+      }
+    }
+  ]
+}

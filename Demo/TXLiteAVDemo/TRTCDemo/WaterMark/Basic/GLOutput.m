@@ -6,6 +6,7 @@
 //
 
 #import "GLOutput.h"
+
 #import <mach/mach.h>
 
 dispatch_queue_attr_t GLDefaultQueueAttribute(void) {
@@ -35,28 +36,28 @@ void runAsynchronouslyOnVideoProcessingQueue(void (^block)(void)) {
 
 @implementation GLOutput
 
-@synthesize shouldSmoothlyScaleOutput = _shouldSmoothlyScaleOutput;
+@synthesize shouldSmoothlyScaleOutput       = _shouldSmoothlyScaleOutput;
 @synthesize shouldIgnoreUpdatesToThisTarget = _shouldIgnoreUpdatesToThisTarget;
-@synthesize targetToIgnoreForUpdates = _targetToIgnoreForUpdates;
-@synthesize frameProcessingCompletionBlock = _frameProcessingCompletionBlock;
-@synthesize enabled = _enabled;
-@synthesize outputTextureOptions = _outputTextureOptions;
+@synthesize targetToIgnoreForUpdates        = _targetToIgnoreForUpdates;
+@synthesize frameProcessingCompletionBlock  = _frameProcessingCompletionBlock;
+@synthesize enabled                         = _enabled;
+@synthesize outputTextureOptions            = _outputTextureOptions;
 
 - (id)init {
     if (self == [super init]) {
-        targets = [[NSMutableArray alloc] init];
-        targetTextureIndices = [[NSMutableArray alloc] init];
-        _enabled = YES;
-        allTargetsWantMonochromeData = YES;
+        targets                       = [[NSMutableArray alloc] init];
+        targetTextureIndices          = [[NSMutableArray alloc] init];
+        _enabled                      = YES;
+        allTargetsWantMonochromeData  = YES;
         usingNextFrameForImageCapture = NO;
-        
-        _outputTextureOptions.minFilter = GL_LINEAR;
-        _outputTextureOptions.magFilter = GL_LINEAR;
-        _outputTextureOptions.wrapS = GL_CLAMP_TO_EDGE;
-        _outputTextureOptions.wrapT = GL_CLAMP_TO_EDGE;
+
+        _outputTextureOptions.minFilter      = GL_LINEAR;
+        _outputTextureOptions.magFilter      = GL_LINEAR;
+        _outputTextureOptions.wrapS          = GL_CLAMP_TO_EDGE;
+        _outputTextureOptions.wrapT          = GL_CLAMP_TO_EDGE;
         _outputTextureOptions.internalFormat = GL_RGBA;
-        _outputTextureOptions.format = GL_BGRA;
-        _outputTextureOptions.type = GL_UNSIGNED_BYTE;
+        _outputTextureOptions.format         = GL_BGRA;
+        _outputTextureOptions.type           = GL_UNSIGNED_BYTE;
     }
     return self;
 }
@@ -80,30 +81,29 @@ void runAsynchronouslyOnVideoProcessingQueue(void (^block)(void)) {
 - (void)notifyTargetsAboutNewOutputTexture {
     for (id<GLInput> currentTarget in targets) {
         NSInteger indexOfObject = [targets indexOfObject:currentTarget];
-        NSInteger textureIndex = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
+        NSInteger textureIndex  = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
         [self setInputFramebufferForTarget:currentTarget atIndex:textureIndex];
     }
 }
 
-- (NSArray*)targets {
+- (NSArray *)targets {
     return [NSArray arrayWithArray:targets];
 }
 
 - (void)addTarget:(id<GLInput>)newTarget {
     NSInteger nextAvailableTextureIndex = [newTarget nextAvailableTextureIndex];
     [self addTarget:newTarget atTextureLocation:nextAvailableTextureIndex];
-    
-    if ([newTarget shouldIgnoreUpdatesToThisTarget])
-    {
+
+    if ([newTarget shouldIgnoreUpdatesToThisTarget]) {
         _targetToIgnoreForUpdates = newTarget;
     }
 }
 
 - (void)addTarget:(id<GLInput>)newTarget atTextureLocation:(NSInteger)textureLocation {
-    if([targets containsObject:newTarget]) {
+    if ([targets containsObject:newTarget]) {
         return;
     }
-    
+
     cachedMaximumOutputSize = CGSizeZero;
     runSynchronouslyOnVideoProcessingQueue(^{
         [self setInputFramebufferForTarget:newTarget atIndex:textureLocation];
@@ -114,17 +114,17 @@ void runAsynchronouslyOnVideoProcessingQueue(void (^block)(void)) {
 }
 
 - (void)removeTarget:(id<GLInput>)targetToRemove {
-    if(![targets containsObject:targetToRemove]) {
+    if (![targets containsObject:targetToRemove]) {
         return;
     }
-    
+
     if (_targetToIgnoreForUpdates == targetToRemove) {
         _targetToIgnoreForUpdates = nil;
     }
-    
+
     cachedMaximumOutputSize = CGSizeZero;
-    
-    NSInteger indexOfObject = [targets indexOfObject:targetToRemove];
+
+    NSInteger indexOfObject        = [targets indexOfObject:targetToRemove];
     NSInteger textureIndexOfTarget = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
 
     runSynchronouslyOnVideoProcessingQueue(^{
@@ -138,13 +138,13 @@ void runAsynchronouslyOnVideoProcessingQueue(void (^block)(void)) {
     cachedMaximumOutputSize = CGSizeZero;
     runSynchronouslyOnVideoProcessingQueue(^{
         for (id<GLInput> targetToRemove in targets) {
-            NSInteger indexOfObject = [targets indexOfObject:targetToRemove];
+            NSInteger indexOfObject        = [targets indexOfObject:targetToRemove];
             NSInteger textureIndexOfTarget = [[targetTextureIndices objectAtIndex:indexOfObject] integerValue];
             [targetToRemove setInputSize:CGSizeZero atIndex:textureIndexOfTarget];
         }
         [targets removeAllObjects];
         [targetTextureIndices removeAllObjects];
-        
+
         allTargetsWantMonochromeData = YES;
     });
 }

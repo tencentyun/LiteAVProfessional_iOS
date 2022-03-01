@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "MLVBLiveRoomDef.h"
 
 @protocol IMMsgManagerDelegate <NSObject>
@@ -25,7 +26,6 @@
 
 // 接收到房间成员离开信息
 - (void)onGroupMemberLeave:(NSString *)group user:(MLVBAudienceInfo *)audienceInfo;
-
 
 @optional
 
@@ -55,12 +55,11 @@
 
 @end
 
-
 @interface IMMsgManager : NSObject
 
-@property (nonatomic, weak) id<IMMsgManagerDelegate> delegate;
-@property (nonatomic, assign) uint64_t loginServerTime;
-@property (nonatomic, assign, readonly) uint64_t loginUptime;
+@property(nonatomic, weak) id<IMMsgManagerDelegate> delegate;
+@property(nonatomic, assign) uint64_t               loginServerTime;
+@property(nonatomic, assign, readonly) uint64_t     loginUptime;
 
 - (instancetype)initWithConfig:(MLVBLoginInfo *)config;
 
@@ -82,7 +81,7 @@
 - (void)deleteGroupWithID:(NSString *)groupID completion:(void (^)(int errCode, NSString *errMsg))completion;
 
 // 获取群成员
-- (void)getGroupMemberList:(NSString *)groupID completion:(void(^)(int code, NSString *msg, NSArray <MLVBAudienceInfo *>* members))completion;
+- (void)getGroupMemberList:(NSString *)groupID completion:(void (^)(int code, NSString *msg, NSArray<MLVBAudienceInfo *> *members))completion;
 
 // 加入房间
 - (void)enterRoom:(NSString *)groupID completion:(void (^)(int errCode, NSString *errMsg))completion;
@@ -96,7 +95,8 @@
 - (void)sendRoomCustomMsg:(NSString *)cmd msg:(NSString *)msg completion:(void (^)(int errCode, NSString *errMsg))completion;
 
 // 发送群文本消息
-- (void)sendGroupTextMsg:(NSString *)textMsg completion:(void (^)(int errCode, NSString *errMsg))completion;;
+- (void)sendGroupTextMsg:(NSString *)textMsg completion:(void (^)(int errCode, NSString *errMsg))completion;
+;
 
 #pragma mark - 连麦
 
@@ -104,16 +104,16 @@
 - (void)sendJoinAnchorRequest:(NSString *)userID roomID:(NSString *)roomID;
 
 // 向userID发起连麦响应, result为YES表示接收，为NO表示拒绝
-- (void)sendJoinAnchorResponseWithUID:(NSString *)userID roomID:(NSString*)roomID result:(BOOL)result reason:(NSString *)reason;
+- (void)sendJoinAnchorResponseWithUID:(NSString *)userID roomID:(NSString *)roomID result:(BOOL)result reason:(NSString *)reason;
 
 // 群主向userID发出踢出连麦消息
-- (void)sendJoinAnchorKickout:(NSString *)userID roomID:(NSString*)roomID;
+- (void)sendJoinAnchorKickout:(NSString *)userID roomID:(NSString *)roomID;
 
 // 向userID发起PK请求
 - (void)sendPKRequest:(NSString *)userID roomID:(NSString *)roomID withAccelerateURL:(NSString *)accelerateURL;
 
 // 请求结束PK
-- (void)sendPKFinishRequest:(NSString *)userID roomID:(NSString *)roomID completion:(void(^)(int errCode, NSString *errMsg))completion;
+- (void)sendPKFinishRequest:(NSString *)userID roomID:(NSString *)roomID completion:(void (^)(int errCode, NSString *errMsg))completion;
 
 // 接收PK
 - (void)acceptPKRequest:(NSString *)userID roomID:(NSString *)roomID withAccelerateURL:(NSString *)accelerateURL;
@@ -122,6 +122,6 @@
 - (void)rejectPKRequest:(NSString *)userID roomID:(NSString *)roomID reason:(NSString *)reason;
 
 #pragma mark - 个人信息
--(void)setSelfProfile:(NSString *)userName avatarURL:(NSString*)avatarURL completion:(void(^)(int code, NSString *msg))completion;
-- (void)getProfile:(void(^)(int code, NSString *msg, NSString *nickname, NSString *avatar))completion;
+- (void)setSelfProfile:(NSString *)userName avatarURL:(NSString *)avatarURL completion:(void (^)(int code, NSString *msg))completion;
+- (void)getProfile:(void (^)(int code, NSString *msg, NSString *nickname, NSString *avatar))completion;
 @end

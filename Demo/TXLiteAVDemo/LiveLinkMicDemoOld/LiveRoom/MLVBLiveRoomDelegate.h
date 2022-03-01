@@ -26,7 +26,7 @@
  * @param errMsg     错误信息
  * @param extraInfo 额外信息，如错误发生的用户，一般不需要关注，默认是本地错误
  */
-- (void)onError:(int)errCode errMsg:(NSString*)errMsg extraInfo:(NSDictionary *)extraInfo;
+- (void)onError:(int)errCode errMsg:(NSString *)errMsg extraInfo:(NSDictionary *)extraInfo;
 
 @optional
 
@@ -60,7 +60,6 @@
  */
 - (void)onRoomDestroy:(NSString *)roomID;
 /// @}
-
 
 #pragma mark - 主播和观众的进出事件回调
 /// @name 主播和观众的进出事件回调
@@ -123,7 +122,6 @@
 
 /// @}
 
-
 #pragma mark - 主播 PK 事件回调
 /// @name 主播 PK 事件回调
 /// @{
@@ -171,7 +169,6 @@
  * @param message       自定义消息内容
  */
 - (void)onRecvRoomCustomMsg:(NSString *)roomID userID:(NSString *)userID userName:(NSString *)userName userAvatar:(NSString *)userAvatar cmd:(NSString *)cmd message:(NSString *)message;
-
 
 /// @}
 

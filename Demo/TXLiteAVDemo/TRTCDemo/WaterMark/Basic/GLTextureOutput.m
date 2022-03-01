@@ -8,9 +8,9 @@
 #import "GLTextureOutput.h"
 
 @implementation GLTextureOutput
-@synthesize delegate = _delegate;
-@synthesize texture = _texture;
-@synthesize enabled;
+@synthesize     delegate = _delegate;
+@synthesize     texture  = _texture;
+@synthesize     enabled;
 
 - (id)init {
     if (self == [super init]) {

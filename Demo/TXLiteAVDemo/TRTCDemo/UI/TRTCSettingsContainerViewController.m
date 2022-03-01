@@ -1,19 +1,20 @@
 /*
-* Module:   TRTCSettingsContainerViewController
-*
-* Function: 基础框架类。包含多个子ViewController，标题栏为segmentControl，对应各页面的title
-*
-*/
+ * Module:   TRTCSettingsContainerViewController
+ *
+ * Function: 基础框架类。包含多个子ViewController，标题栏为segmentControl，对应各页面的title
+ *
+ */
 
 #import "TRTCSettingsContainerViewController.h"
-#import "UISegmentedControl+TRTC.h"
-#import "Masonry.h"
+
 #import "ColorMacro.h"
+#import "Masonry.h"
+#import "UISegmentedControl+TRTC.h"
 
 @interface TRTCSettingsContainerViewController ()
 
-@property (strong, nonatomic) UISegmentedControl *segment;
-@property (strong, nonatomic) UIView *containerView;
+@property(strong, nonatomic) UISegmentedControl *segment;
+@property(strong, nonatomic) UIView *            containerView;
 
 @end
 
@@ -29,25 +30,23 @@
 
 - (void)setupBackgroudColor {
     UIColor *startColor = [UIColor colorWithRed:19.0 / 255.0 green:41.0 / 255.0 blue:75.0 / 255.0 alpha:1];
-    UIColor *endColor = [UIColor colorWithRed:5.0 / 255.0 green:12.0 / 255.0 blue:23.0 / 255.0 alpha:1];
+    UIColor *endColor   = [UIColor colorWithRed:5.0 / 255.0 green:12.0 / 255.0 blue:23.0 / 255.0 alpha:1];
 
-    NSArray* colors = @[(id)startColor.CGColor, (id)endColor.CGColor];
+    NSArray *colors = @[ (id)startColor.CGColor, (id)endColor.CGColor ];
 
     CAGradientLayer *layer = [CAGradientLayer layer];
-    layer.colors = colors;
-    layer.startPoint = CGPointMake(0, 0);
-    layer.endPoint = CGPointMake(1, 1);
-    layer.frame = self.view.bounds;
-    
+    layer.colors           = colors;
+    layer.startPoint       = CGPointMake(0, 0);
+    layer.endPoint         = CGPointMake(1, 1);
+    layer.frame            = self.view.bounds;
+
     [self.view.layer insertSublayer:layer atIndex:0];
 }
 
 - (void)setupSegment {
     self.segment = [UISegmentedControl trtc_segment];
-    [self.segment setTitleTextAttributes:@{ NSForegroundColorAttributeName : UIColor.blackColor }
-                           forState:UIControlStateSelected];
-    [self.segment setTitleTextAttributes:@{ NSForegroundColorAttributeName : UIColor.whiteColor }
-                           forState:UIControlStateNormal];
+    [self.segment setTitleTextAttributes:@{NSForegroundColorAttributeName : UIColor.blackColor} forState:UIControlStateSelected];
+    [self.segment setTitleTextAttributes:@{NSForegroundColorAttributeName : UIColor.whiteColor} forState:UIControlStateNormal];
 
     [self.segment addTarget:self action:@selector(onSegmentChange:) forControlEvents:UIControlEventValueChanged];
     [self.segment mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,9 +57,9 @@
 }
 
 - (void)setupContainerView {
-    self.containerView = [[UIView alloc] init];
+    self.containerView                 = [[UIView alloc] init];
     self.containerView.backgroundColor = UIColor.clearColor;
-    
+
     [self.view addSubview:self.containerView];
     [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).offset(44);
@@ -74,9 +73,9 @@
     }
 
     _settingVCs = settingVCs;
-    
+
     [self.segment removeAllSegments];
-    [settingVCs enumerateObjectsUsingBlock:^(UIViewController * _Nonnull vc, NSUInteger idx, BOOL * _Nonnull stop) {
+    [settingVCs enumerateObjectsUsingBlock:^(UIViewController *_Nonnull vc, NSUInteger idx, BOOL *_Nonnull stop) {
         [self.segment insertSegmentWithTitle:vc.title atIndex:idx animated:NO];
     }];
     self.segment.selectedSegmentIndex = 0;

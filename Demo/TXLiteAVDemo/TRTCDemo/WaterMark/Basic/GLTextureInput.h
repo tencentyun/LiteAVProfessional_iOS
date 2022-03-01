@@ -11,8 +11,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GLTextureInput : GLOutput
 
-@property (nonatomic, assign) CGSize textureSize;
-@property (nonatomic, assign) GLuint newInputTexture;
+@property(nonatomic, assign) CGSize textureSize;
+@property(nonatomic, assign) GLuint newInputTexture;
 
 - (id)initWithTexture:(GLuint)newInputTexture size:(CGSize)newTextureSize;
 

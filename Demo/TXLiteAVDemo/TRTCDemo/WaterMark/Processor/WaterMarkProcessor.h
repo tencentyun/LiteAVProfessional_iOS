@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WaterMarkProcessor : NSObject
 
-@property (nonatomic, assign) CVPixelBufferRef pixelBuffer;
+@property(nonatomic, assign) CVPixelBufferRef pixelBuffer;
 
 - (CVPixelBufferRef)outputPixelBuffer;
 

@@ -7,37 +7,35 @@
 //
 
 #import "AddressBar.h"
-#import "SmallButton.h"
+
 #import <Masonry/Masonry.h>
 
-@implementation AddressBar
-{
+#import "SmallButton.h"
 
+@implementation AddressBar {
 }
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     return [self initWithFrame:frame buttons:0xffffff];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame buttons:(AddressBarButtonOption)buttons
-{
+- (instancetype)initWithFrame:(CGRect)frame buttons:(AddressBarButtonOption)buttons {
     if (self = [super initWithFrame:frame]) {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectZero];
-        textField.borderStyle = UITextBorderStyleRoundedRect;
-        textField.text = @"";
-        textField.backgroundColor = UIColor.whiteColor;
-        textField.alpha = 0.5;
+        UITextField *textField           = [[UITextField alloc] initWithFrame:CGRectZero];
+        textField.borderStyle            = UITextBorderStyleRoundedRect;
+        textField.text                   = @"";
+        textField.backgroundColor        = UIColor.whiteColor;
+        textField.alpha                  = 0.5;
         textField.autocapitalizationType = UITextAutocorrectionTypeNo;
         [self addSubview:textField];
-        
+
         [textField mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.mas_left);
             make.height.equalTo(self.mas_height);
             make.top.equalTo(self.mas_top);
         }];
-        _textField = textField;
+        _textField             = textField;
         UIView *prevLayoutItem = textField;
-        
+
         if (buttons & AddressBarButtonOptionQRScan) {
             UIButton *btnScan = [UIButton buttonWithType:UIButtonTypeCustom];
             [btnScan setImage:[UIImage imageNamed:@"QR_code"] forState:UIControlStateNormal];
@@ -56,7 +54,7 @@
             UIButton *btn = [SmallButton buttonWithType:UIButtonTypeCustom];
             [btn setImage:[UIImage imageNamed:@"QR_code"] forState:UIControlStateNormal];
             _showQRButton = btn;
-            
+
             UIButton *btnNewUrl = [UIButton buttonWithType:UIButtonTypeCustom];
             [btnNewUrl setImage:[UIImage imageNamed:@"new"] forState:UIControlStateNormal];
             [self addSubview:btnNewUrl];
@@ -69,7 +67,7 @@
             }];
             prevLayoutItem = btnNewUrl;
         }
-        
+
         [prevLayoutItem mas_makeConstraints:^(MASConstraintMaker *make) {
             make.right.equalTo(self.mas_right);
         }];
@@ -77,17 +75,16 @@
     return self;
 }
 
-- (void)setShowQRCode:(BOOL)showQRCode
-{
+- (void)setShowQRCode:(BOOL)showQRCode {
     _showQRCode = showQRCode;
     if (showQRCode) {
-        CGFloat size = _textField.frame.size.height - 4;
-        _showQRButton.frame = CGRectMake(0, 0, size, size);
+        CGFloat size            = _textField.frame.size.height - 4;
+        _showQRButton.frame     = CGRectMake(0, 0, size, size);
         _showQRButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
-        _textField.leftView = _showQRButton;
+        _textField.leftView     = _showQRButton;
         _textField.leftViewMode = UITextFieldViewModeAlways;
     } else {
-        _textField.leftView = nil;
+        _textField.leftView     = nil;
         _textField.leftViewMode = UITextFieldViewModeNever;
     }
 }

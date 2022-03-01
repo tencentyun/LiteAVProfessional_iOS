@@ -7,43 +7,40 @@
 //
 
 #import "V2PlayerSettingViewController.h"
+
+#import "AppLocalized.h"
+#import "MBProgressHUD.h"
 #import "Masonry.h"
 #import "V2SettingBottomBar.h"
-#import "ThemeConfigurator.h"
 #import "V2SettingsBaseViewController.h"
 #import "V2TXLiveDef.h"
-#import "MBProgressHUD.h"
-#import "AppLocalized.h"
 
-@interface V2PlayerSettingViewController () <V2SettingBottomBarDelegate>
-@property (nonatomic, weak) UIViewController *hostVC;
+@interface                                   V2PlayerSettingViewController () <V2SettingBottomBarDelegate>
+@property(nonatomic, weak) UIViewController *hostVC;
 
-@property (nonatomic, strong) V2SettingBottomBar *settingBar;
-@property (nonatomic, strong) UIView *centerContainerView;
+@property(nonatomic, strong) V2SettingBottomBar *settingBar;
+@property(nonatomic, strong) UIView *            centerContainerView;
 
-@property (strong, nonatomic, nullable) UIViewController *currentEmbededVC;
-@property (strong, nonatomic, nullable) V2SettingsBaseViewController *settingsVC;
+@property(strong, nonatomic, nullable) UIViewController *            currentEmbededVC;
+@property(strong, nonatomic, nullable) V2SettingsBaseViewController *settingsVC;
 
-@property (nonatomic, strong) V2TXLivePlayer *player;
+@property(nonatomic, weak) V2TXLivePlayer *player;
+@property(nonatomic, assign) BOOL            enableSEIMessage;
 
 @end
 
 @implementation V2PlayerSettingViewController
 
-- (instancetype)initWithHostVC:(UIViewController *)hostVC
-                     muteAudio:(BOOL)isAudioMuted
-                     muteVideo:(BOOL)isVideoMuted
-                       logView:(BOOL)isLogShow
-                        player:(V2TXLivePlayer *)player {
+- (instancetype)initWithHostVC:(UIViewController *)hostVC muteAudio:(BOOL)isAudioMuted muteVideo:(BOOL)isVideoMuted logView:(BOOL)isLogShow player:(V2TXLivePlayer *)player {
     self = [super init];
     if (self) {
-        self.hostVC = hostVC;
+        self.hostVC       = hostVC;
         self.isAudioMuted = isAudioMuted;
         self.isVideoMuted = isVideoMuted;
-        self.isLogShow = isLogShow;
-        
-        self.player = player;
-        
+        self.isLogShow    = isLogShow;
+        self.payloadType  = 242;
+        self.player       = player;
+
         [self addBar];
         [self addCenterView];
     }
@@ -75,16 +72,13 @@
 }
 
 - (void)addBar {
-    self.settingBar = [V2SettingBottomBar createInstance:@[
-        @(V2TRTCSettingBarItemTypeStart),
-        @(V2TRTCSettingBarItemTypeMuteVideo),
-        @(V2TRTCSettingBarItemTypeMuteAudio),
-        @(V2TRTCSettingBarItemTypeFeature),
-        @(V2TRTCSettingBarItemTypeLog)]];
+    self.settingBar          = [V2SettingBottomBar createInstance:@[
+        @(V2TRTCSettingBarItemTypeStart), @(V2TRTCSettingBarItemTypeMuteVideo), @(V2TRTCSettingBarItemTypeMuteAudio), @(V2TRTCSettingBarItemTypeFeature), @(V2TRTCSettingBarItemTypeLog)
+    ]];
     self.settingBar.delegate = self;
     [self.settingBar updateItem:V2TRTCSettingBarItemTypeMuteAudio value:self.isAudioMuted];
     [self.settingBar updateItem:V2TRTCSettingBarItemTypeLog value:self.isLogShow];
-    
+
     [self addSubview:self.settingBar];
     [self.settingBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.equalTo(self);
@@ -94,10 +88,10 @@
 }
 
 - (void)addCenterView {
-    self.centerContainerView = [[UIView alloc] init];
+    self.centerContainerView                    = [[UIView alloc] init];
     self.centerContainerView.layer.cornerRadius = 12;
-    self.centerContainerView.clipsToBounds = YES;
-    UIVisualEffectView *effectView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
+    self.centerContainerView.clipsToBounds      = YES;
+    UIVisualEffectView *effectView              = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleDark]];
     [self.centerContainerView addSubview:effectView];
     [effectView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.bottom.leading.trailing.equalTo(self.centerContainerView);
@@ -109,7 +103,7 @@
         make.top.equalTo(self).offset(10);
         make.bottom.equalTo(self.settingBar.mas_top).offset(-20);
     }];
-    
+
     self.centerContainerView.hidden = YES;
 }
 
@@ -146,13 +140,12 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(v2PlayerSettingVC:didClickLog:)]) {
         [self.delegate v2PlayerSettingVC:self didClickLog:!self.isLogShow];
         self.isLogShow = !self.isLogShow;
-        
+
         [self.settingBar updateItem:V2TRTCSettingBarItemTypeLog value:self.isLogShow];
     }
 }
 
 - (void)onClickSwitchCameraButton {
-    
 }
 
 - (void)onClickVideoMuteButton {
@@ -173,51 +166,73 @@
 
 - (void)onClickFeatureSettingsButton {
     if (!self.settingsVC) {
-        self.settingsVC = [[V2SettingsBaseViewController alloc] init];
+        self.settingsVC       = [[V2SettingsBaseViewController alloc] init];
         self.settingsVC.title = V2Localize(@"V2.Live.LinkMicNew.setting");
-        
-        NSInteger playoutVolume = 100;
-        V2TXLiveFillMode fillMode = V2TXLiveFillModeFit;
-        V2TXLiveRotation rotation = V2TXLiveRotation0;
-        BOOL isVolumeEvaluationEnabled = NO;
-        
+
+        NSInteger        playoutVolume             = 100;
+        V2TXLiveFillMode fillMode                  = V2TXLiveFillModeFit;
+        V2TXLiveRotation rotation                  = V2TXLiveRotation0;
+        BOOL             isVolumeEvaluationEnabled = NO;
+
         __weak __typeof(self) wSelf = self;
-        
+
         self.settingsVC.items = @[
             [[V2SettingsSliderItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.playingvolume")
-                                                    value:playoutVolume min:0 max:100 step:1
-                                               continuous:YES
-                                                   action:^(float volume) {
-                [wSelf.player setPlayoutVolume:(NSInteger)volume];
-            }],
+                                                  value:playoutVolume
+                                                    min:0
+                                                    max:100
+                                                   step:1
+                                             continuous:YES
+                                                 action:^(float volume) {
+                                                     [wSelf.player setPlayoutVolume:(NSInteger)volume];
+                                                 }],
             [[V2SettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.fillingdirection")
-                                                     items:@[V2Localize(@"V2.Live.LinkMicNew.adaptive"), V2Localize(@"V2.Live.LinkMicNew.paved")]
-                                             selectedIndex:fillMode
-                                                    action:^(NSInteger index) {
-                V2TXLiveFillMode fillMode = (index == 0)?V2TXLiveFillModeFit:V2TXLiveFillModeFill;
-                [wSelf.player setRenderFillMode:fillMode];
-            }],
+                                                   items:@[ V2Localize(@"V2.Live.LinkMicNew.adaptive"), V2Localize(@"V2.Live.LinkMicNew.paved") ]
+                                           selectedIndex:fillMode
+                                                  action:^(NSInteger index) {
+                                                      V2TXLiveFillMode fillMode = (index == 0) ? V2TXLiveFillModeFit : V2TXLiveFillModeFill;
+                                                      [wSelf.player setRenderFillMode:fillMode];
+                                                  }],
             [[V2SettingsSegmentItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.directionofrotation")
-                                                     items:@[@"0", @"90", @"180", @"270"]
-                                             selectedIndex:rotation
-                                                    action:^(NSInteger index) {
-                [wSelf.player setRenderRotation:index];
-            }],
+                                                   items:@[ @"0", @"90", @"180", @"270" ]
+                                           selectedIndex:rotation
+                                                  action:^(NSInteger index) {
+                                                      [wSelf.player setRenderRotation:index];
+                                                  }],
             [[V2SettingsSwitchItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.volumeprompt")
-                                                     isOn:isVolumeEvaluationEnabled
-                                                   action:^(BOOL isOn) {
-                [wSelf.player enableVolumeEvaluation:isOn ? 200 : 0];
-                
-                if (wSelf.delegate && [wSelf.delegate respondsToSelector:@selector(v2PlayerSettingVC:enableVolumeEvaluation:)]) {
-                    [wSelf.delegate v2PlayerSettingVC:wSelf enableVolumeEvaluation:isOn];
-                }
-            }],
-            [[V2SettingsButtonItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.videosnapshot") buttonTitle:V2Localize(@"V2.Live.LinkMicNew.snapshot") action:^{
-                [wSelf.player snapshot];
-            }],
+                                                   isOn:isVolumeEvaluationEnabled
+                                                 action:^(BOOL isOn) {
+                                                     [wSelf.player enableVolumeEvaluation:isOn ? 200 : 0];
+
+                                                     if (wSelf.delegate && [wSelf.delegate respondsToSelector:@selector(v2PlayerSettingVC:enableVolumeEvaluation:)]) {
+                                                         [wSelf.delegate v2PlayerSettingVC:wSelf enableVolumeEvaluation:isOn];
+                                                     }
+                                                 }],
+            [[V2SettingsButtonItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.videosnapshot")
+                                            buttonTitle:V2Localize(@"V2.Live.LinkMicNew.snapshot")
+                                                 action:^{
+                                                     [wSelf.player snapshot];
+                                                 }],
+            [[V2SettingsMessageItem alloc] initWithTitle:V2Localize(@"V2.Live.LinkMicNew.setpayloadtype")
+                                             placeHolder:@(self.payloadType).stringValue
+                                                 content:@(self.payloadType).stringValue
+                                             actionTitle:V2Localize(@"V2.Live.LinkMicNew.setting")
+                                                  action:^(NSString *_Nullable content) {
+                                                      if (content.intValue == 5 || content.intValue == 242) {
+                                                          wSelf.payloadType = content.intValue;
+                                                          [wSelf showText:@"Set PayloadType Success!" withDetailText:@""];
+                                                      }
+                                                      [wSelf.player enableReceiveSeiMessage:YES payloadType:wSelf.payloadType];
+                                                  }]
         ].mutableCopy;
     }
     [self toggleEmbedVC:self.settingsVC];
+}
+
+- (void)showText:(NSString *)text withDetailText:(NSString *)detail {
+    if ([self.delegate respondsToSelector:@selector(showText:withDetailText:)]) {
+        [self.delegate showText:text withDetailText:detail];
+    }
 }
 
 - (void)onClickStartSettingsButton {
@@ -242,7 +257,7 @@
     if (self.currentEmbededVC) {
         [self unembedChildVC:self.currentEmbededVC];
     }
-    
+
     UINavigationController *naviVC = [[UINavigationController alloc] initWithRootViewController:vc];
     [self.hostVC addChildViewController:naviVC];
     [self.centerContainerView addSubview:naviVC.view];
@@ -252,15 +267,17 @@
     [naviVC didMoveToParentViewController:self.hostVC];
 
     self.centerContainerView.hidden = NO;
-    self.currentEmbededVC = vc;
+    self.currentEmbededVC           = vc;
 }
 
-- (void)unembedChildVC:(UIViewController * _Nullable)vc {
-    if (!vc) { return; }
+- (void)unembedChildVC:(UIViewController *_Nullable)vc {
+    if (!vc) {
+        return;
+    }
     [vc.navigationController willMoveToParentViewController:nil];
     [vc.navigationController.view removeFromSuperview];
     [vc.navigationController removeFromParentViewController];
-    self.currentEmbededVC = nil;
+    self.currentEmbededVC           = nil;
     self.centerContainerView.hidden = YES;
 }
 
@@ -271,7 +288,7 @@
     if (hud == nil) {
         hud = [MBProgressHUD showHUDAddedTo:[UIApplication sharedApplication].delegate.window animated:NO];
     }
-    hud.mode = MBProgressHUDModeText;
+    hud.mode       = MBProgressHUDModeText;
     hud.label.text = text;
     [hud showAnimated:YES];
     [hud hideAnimated:YES afterDelay:1];

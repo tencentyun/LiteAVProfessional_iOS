@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -24,12 +25,12 @@ NS_ASSUME_NONNULL_BEGIN
 @class TXAudioEffectManager;
 @interface AudioEffectSettingViewModel : NSObject
 
-@property (nonatomic, weak)id<TCMusicPlayStatusDelegate> delegate;
+@property(nonatomic, weak) id<TCMusicPlayStatusDelegate> delegate;
 
-@property (nonatomic, strong) NSArray<TCAudioScrollMenuCellModel *> *voiceChangeSources;
-@property (nonatomic, strong) NSArray<TCAudioScrollMenuCellModel *> *reverberationSources;
+@property(nonatomic, strong) NSArray<TCAudioScrollMenuCellModel *> *voiceChangeSources;
+@property(nonatomic, strong) NSArray<TCAudioScrollMenuCellModel *> *reverberationSources;
 
-@property (nonatomic, strong) NSArray<TCMusicSelectedModel *> *musicSources;
+@property(nonatomic, strong) NSArray<TCMusicSelectedModel *> *musicSources;
 
 - (NSInteger)getcurrentMusicTatolDurationInMs;
 
@@ -40,6 +41,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setVoiceVolum:(NSInteger)volum;
 
 - (void)setPitchVolum:(CGFloat)volum;
+
+- (void)setBGMRate:(CGFloat)rate;
+
+- (void)setLocalVolume:(NSInteger)volume;
+
+- (void)setRemoteVolume:(NSInteger)volume;
+
+- (void)setProgress:(CGFloat)progress;
 
 /// 播放音乐
 /// @param path 音乐路径
@@ -54,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)resetStatus;
 
-- (void)recoveryVoiceSetting; // 恢复音效设置
+- (void)recoveryVoiceSetting;  // 恢复音效设置
 
 @end
 

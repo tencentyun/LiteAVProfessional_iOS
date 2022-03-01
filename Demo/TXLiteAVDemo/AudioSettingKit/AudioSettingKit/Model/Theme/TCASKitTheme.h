@@ -15,21 +15,20 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - 颜色
 
 /// 标题颜色
-@property (nonatomic, strong) UIColor *titleColor;
+@property(nonatomic, strong) UIColor *titleColor;
 /// 背景色
-@property (nonatomic, strong) UIColor *backgroundColor;
+@property(nonatomic, strong) UIColor *backgroundColor;
 
 /// 通用字体颜色
-@property (nonatomic, strong) UIColor *normalFontColor;
+@property(nonatomic, strong) UIColor *normalFontColor;
 
 /// 滑杆配置
-@property (strong, nonatomic) UIColor *sliderMinColor;
-@property (strong, nonatomic) UIColor *sliderMaxColor;
-@property (strong, nonatomic) UIColor *sliderValueColor;
-
+@property(strong, nonatomic) UIColor *sliderMinColor;
+@property(strong, nonatomic) UIColor *sliderMaxColor;
+@property(strong, nonatomic) UIColor *sliderValueColor;
 
 /// 资源包
-@property(nonatomic, strong)NSBundle *resourceBundle;
+@property(nonatomic, strong) NSBundle *resourceBundle;
 
 - (UIFont *)themeFontWithSize:(CGFloat)size;
 - (NSString *)localizedString:(NSString *)key __attribute__((annotate("returns_localized_nsstring")));

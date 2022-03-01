@@ -1,0 +1,1 @@
+../../../../TXLiteAVDemo/UGCKit/UGCKit/Classes/Source/Edit/Views/VideoRangeSlider/UGCKitVideoRangeSlider.h

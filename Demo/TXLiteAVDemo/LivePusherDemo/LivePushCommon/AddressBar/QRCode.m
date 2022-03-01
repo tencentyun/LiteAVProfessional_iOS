@@ -9,15 +9,14 @@
 #import "QRCode.h"
 
 @implementation QRCode
-+ (UIImage *)qrCodeWithString:(NSString *)string size:(CGSize)outputSize
-{
-    NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
++ (UIImage *)qrCodeWithString:(NSString *)string size:(CGSize)outputSize {
+    NSData *  data   = [string dataUsingEncoding:NSUTF8StringEncoding];
     CIFilter *filter = [CIFilter filterWithName:@"CIQRCodeGenerator"];
-    [filter setValue:data forKey: @"inputMessage"];
-    [filter setValue:@"Q" forKey: @"inputCorrectionLevel"];
+    [filter setValue:data forKey:@"inputMessage"];
+    [filter setValue:@"Q" forKey:@"inputCorrectionLevel"];
     CIImage *qrCodeImage = filter.outputImage;
-    CGRect imageSize = CGRectIntegral(qrCodeImage.extent);
-    CIImage *ciImage = [qrCodeImage imageByApplyingTransform:CGAffineTransformMakeScale(outputSize.width/CGRectGetWidth(imageSize), outputSize.height/CGRectGetHeight(imageSize))];
+    CGRect   imageSize   = CGRectIntegral(qrCodeImage.extent);
+    CIImage *ciImage     = [qrCodeImage imageByApplyingTransform:CGAffineTransformMakeScale(outputSize.width / CGRectGetWidth(imageSize), outputSize.height / CGRectGetHeight(imageSize))];
     return [UIImage imageWithCIImage:ciImage];
 }
 @end

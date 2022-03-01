@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AudioQueuePlay : NSObject
 
-- (void)playWithData: (NSData *)data;
+- (void)playWithData:(NSData *)data;
 - (void)start;
 - (void)stop;
 

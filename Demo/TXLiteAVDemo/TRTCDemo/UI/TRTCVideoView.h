@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "TRTCRemoteUserConfig.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -16,16 +17,20 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol TRTCVideoViewDelegate <NSObject>
 
 @optional
-- (void)onViewTap:(TRTCVideoView*)view;
+- (void)onViewTap:(TRTCVideoView *)view;
 @end
 
-@interface TRTCVideoView : UIImageView
-@property (nonatomic, strong) NSString *userId;
-@property (nonatomic, weak) id<TRTCVideoViewDelegate> delegate;
-@property (nonatomic, strong) UIProgressView* audioVolumeIndicator;
-@property (nonatomic, strong) TRTCRemoteUserConfig *userConfig;
+@interface                                           TRTCVideoView : UIImageView
+@property(nonatomic, strong) NSString *              userId;
+@property(nonatomic, strong) NSString *              roomId;
+@property(nonatomic, weak) id<TRTCVideoViewDelegate> delegate;
+@property(nonatomic, strong) UIProgressView *        audioVolumeIndicator;
+@property(nonatomic, strong) TRTCRemoteUserConfig *  userConfig;
 - (void)setAudioVolumeRadio:(float)volumeRadio;
 - (void)showText:(NSString *)text;
+- (void)showVideoCloseTip:(BOOL)show;
+- (void)setNetworkIndicatorImage:(UIImage*)image;
+- (void)showNetworkIndicatorImage:(BOOL)show;
 @end
 
 NS_ASSUME_NONNULL_END

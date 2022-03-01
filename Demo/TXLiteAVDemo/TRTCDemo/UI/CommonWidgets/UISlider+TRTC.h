@@ -1,15 +1,15 @@
 /*
-* Module:   UISlider(TRTC)
-*
-* Function: 标准化UISlider控件
-*
-*/
+ * Module:   UISlider(TRTC)
+ *
+ * Function: 标准化UISlider控件
+ *
+ */
 
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface UISlider(TRTC_EX)
+@interface UISlider (TRTC_EX)
 
 + (instancetype)trtc_slider;
 

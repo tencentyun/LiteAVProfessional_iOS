@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+
 #import "GLContext.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,14 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)newFrameReadyFromTextureOutput:(GLTextureOutput *)callbackTextureOutput;
 @end
 
-@interface GLTextureOutput : NSObject <GLInput>
-{
+@interface GLTextureOutput : NSObject <GLInput> {
     GLFramebuffer *firstInputFramebuffer;
 }
 
 @property(readwrite, unsafe_unretained, nonatomic) id<GLTextureOutputDelegate> delegate;
-@property(readonly, assign) GLuint texture;
-@property(nonatomic, assign) BOOL enabled;
+@property(readonly, assign) GLuint                                             texture;
+@property(nonatomic, assign) BOOL                                              enabled;
 
 - (void)doneWithTexture;
 

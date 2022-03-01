@@ -7,22 +7,19 @@
 //
 
 #import "TXColor.h"
-#define HexColor(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
-blue:((float)(rgbValue & 0xFF))/255.0 \
-alpha:1.0]
+#define HexColor(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16)) / 255.0 green:((float)((rgbValue & 0xFF00) >> 8)) / 255.0 blue:((float)(rgbValue & 0xFF)) / 255.0 alpha:1.0]
 
 @implementation TXColor
-+ (UIColor*)cyan {
++ (UIColor *)cyan {
     return HexColor(0x0ACCAC);
 }
-+ (UIColor*)darkCyan {
++ (UIColor *)darkCyan {
     return HexColor(0x10acc0);
 }
-+ (UIColor*)controlBackground {
++ (UIColor *)controlBackground {
     return HexColor(0x0BC59C);
 }
-+ (UIColor*)gray {
++ (UIColor *)gray {
     return HexColor(0x777777);
 }
 + (UIColor *)lightGray {

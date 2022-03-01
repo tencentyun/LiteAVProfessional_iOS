@@ -8,7 +8,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 
-
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol MediaFileSyncReaderDelegate <NSObject>
@@ -20,10 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MediaFileSyncReader : NSObject
 
-@property (weak, nonatomic) id<MediaFileSyncReaderDelegate> delegate;
-@property (atomic, readonly) int audioSampleRate;
-@property (atomic, readonly) int audioChannels;
-@property (atomic, readonly) float angle;
+@property(weak, nonatomic) id<MediaFileSyncReaderDelegate> delegate;
+@property(atomic, readonly) int                            audioSampleRate;
+@property(atomic, readonly) int                            audioChannels;
+@property(atomic, readonly) float                          angle;
 
 - (instancetype)initWithAVAsset:(AVAsset*)asset;
 
